@@ -3,6 +3,7 @@ function App() {
     <div className="App">
       aaa<span>bbb</span>
       <span>ccc</span>
+      <span>ddd</span>
     </div>
   );
 }
