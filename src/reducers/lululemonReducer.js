@@ -6,7 +6,7 @@ const initState = {
   keyWord: null,
 };
 
-export const cityViewReducer = (state = initState, action) => {
+export const lululemonReducer = (state = initState, action) => {
   switch (action.type) {
     case types.actionName:
       return { ...state, imgLibrary: action?.payload };

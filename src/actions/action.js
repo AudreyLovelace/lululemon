@@ -1,8 +1,7 @@
 import { types } from "../helper/constants";
 
-export const keyWord = (word) => {
-  return {
-    type: `KEY_WORD`,
-    payload: word,
-  };
+export const actions = {
+  actionName(word) {
+    return { types: types.actionName, payload: word };
+  },
 };

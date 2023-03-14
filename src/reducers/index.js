@@ -1,4 +1,4 @@
 import { combineReducers } from "redux";
-import { cityViewReducer } from "./cityViewReducer";
+import { lululemonReducer } from "./lululemonReducer";
 
-export default combineReducers({ cityViewReducer });
+export default combineReducers({ lululemonReducer });

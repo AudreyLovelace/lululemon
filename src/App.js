@@ -8,9 +8,11 @@ import {
   Navigate,
 } from "react-router-dom";
 
+import Test from "./Test";
 export default function App() {
   return (
     <Routes>
+      <Test />
       <Route path="/" element={<></>}>
         <Route index element={<></>} />
         <Route path="blogs" element={<></>} />
