@@ -1,4 +1,4 @@
 import { combineReducers } from "redux";
 import { lululemonReducer } from "./lululemonReducer";
-
-export default combineReducers({ lululemonReducer });
+import { cartReducer } from "./cartReducer";
+export default combineReducers({ lululemonReducer, cartReducer });

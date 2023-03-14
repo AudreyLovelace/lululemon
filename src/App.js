@@ -6,15 +6,21 @@ import {
   useNavigate,
   useParams,
   Navigate,
+  useLocation,
 } from "react-router-dom";
+import { useEffect } from "react";
 
 import Test from "./Test";
 export default function App() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <Routes>
-      <Test />
-      <Route path="/" element={<></>}>
-        <Route index element={<></>} />
+      <Route path="/" element={<Test />}>
         <Route path="blogs" element={<></>} />
         <Route path="/books/:id" element={<></>} />
         <Route path="*" element={<></>} />

@@ -8,5 +8,11 @@ export default function Test(props) {
   const currentIndex = useSelector((state) => {
     return state?.lululemonReducer?.currentIndex;
   });
-  return <h1>1</h1>;
+  const id = useSelector((state) => state.cartReducer.a);
+  return (
+    <h1>
+      {currentIndex}
+      <span>{id}</span>
+    </h1>
+  );
 }
