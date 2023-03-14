@@ -1,4 +1,4 @@
-import { FETCH_ALL_IMAGES } from "../helper/constants";
+import { types } from "../helper/constants";
 
 export const keyWord = (word) => {
   return {

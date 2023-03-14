@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
+import BrowserRouter from "react-router-dom";
 import App from "./App";
 
 // imports for redux
@@ -11,7 +11,9 @@ const reduxStore = createStore(reducers);
 
 ReactDOM.render(
   <Provider store={reduxStore}>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Provider>,
   document.getElementById("root")
 );

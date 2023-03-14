@@ -1,4 +1,4 @@
-import { FETCH_ALL_IMAGES } from "../helper/constants";
+import { types } from "../helper/constants";
 
 const initState = {
   imgLibrary: [],
@@ -8,7 +8,7 @@ const initState = {
 
 export const cityViewReducer = (state = initState, action) => {
   switch (action.type) {
-    case FETCH_ALL_IMAGES:
+    case types.actionName:
       return { ...state, imgLibrary: action?.payload };
 
     default:
