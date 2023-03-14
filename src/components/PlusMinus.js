@@ -36,7 +36,7 @@ export default function PlusMinus(props) {
           }
         }}
       >
-        <div>{minus}</div>
+        <div>{minus}sdfasdfasdsadfas</div>
         <div className={expend ? "move" : ""}>{minus}</div>
       </div>
     </>
