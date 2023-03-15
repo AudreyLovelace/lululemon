@@ -6,21 +6,12 @@ import FilterRow from "./FilterRow";
 export default function FilterChoices({ filter, expand, more, e }) {
   //const dispatch=useDispatch()
   //const ??? = useSelector(state => state?.reducer?.???)
-  //   const total = filter[e];
+  const total = filter[e];
   //   let result = total.slice(0, 5);
-
-  //   useEffect(() => {
-  //     if (more[e]) {
-  //       for (let i = 5; i < total.length; i++) {
-  //         result.push(total[i]);
-  //       }
-  //     }
-  //     console.log(result);
-  //   }, [more[e]]);
 
   return (
     <div className="filter_choice">
-      {filter[e].map((choice, i) => {
+      {total.map((choice, i) => {
         if (!expand[e]) {
           return null;
         }
