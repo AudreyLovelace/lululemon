@@ -8,6 +8,7 @@ export default function FilterRow({ choice, e, i }) {
   //const ??? = useSelector(state => state?.reducer?.???)
   return (
     <div
+      // style={{ animationDelay: `${50 * i}ms` }}
       className="filter_choice_row"
       key={i}
       onClick={() => {
@@ -23,3 +24,4 @@ export default function FilterRow({ choice, e, i }) {
     </div>
   );
 }
+export const a = 0;

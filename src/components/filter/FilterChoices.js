@@ -8,18 +8,40 @@ export default function FilterChoices({ filter, expand, more, e }) {
   //const ??? = useSelector(state => state?.reducer?.???)
   const total = filter[e];
   //   let result = total.slice(0, 5);
-
+  console.log(more);
+  function className(more, i, expand) {
+    if (i < 5) {
+      return null;
+    } else {
+      if (more) {
+        return "more";
+      } else {
+        return "less";
+      }
+    }
+  }
   return (
     <div className="filter_choice">
       {total.map((choice, i) => {
         if (!expand[e]) {
           return null;
         }
-        if (!more[e] && i >= 5) {
-          return null;
-        }
 
-        return <FilterRow e={e} i={i} choice={choice} key={i} />;
+        return (
+          <div
+            key={i}
+            // className={className(more[e], i, expand[e])}
+            style={{
+              animationDelay: more[e]
+                ? `${50 * (i - 5)}ms`
+                : `${50 * (total.length - i - 5)}ms`,
+            }}
+          >
+            <FilterRow e={e} i={i} choice={choice} key={i} />
+          </div>
+        );
+
+        // return <FilterRow e={e} i={i} choice={choice} key={i} />;
       })}
     </div>
   );
