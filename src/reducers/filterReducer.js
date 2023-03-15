@@ -86,7 +86,7 @@ export const filterReducer = (state = initState, action) => {
       } else {
         newState[key][index].isChecked = true;
       }
-      console.log(newState);
+      // console.log(newState);
 
       return newState;
     }
