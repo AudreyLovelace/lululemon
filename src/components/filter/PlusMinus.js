@@ -8,9 +8,9 @@ export default function PlusMinus(props) {
   const [expend, setExpend] = useState(true);
   const minus = (
     <svg
-      height="24"
-      width="24"
-      viewBox="0 0 24 24"
+      height="19"
+      width="19"
+      viewBox="0 0 19 19"
       xmlns="http://www.w3.org/2000/svg"
       focusable="false"
       role="presentation"
@@ -35,7 +35,7 @@ export default function PlusMinus(props) {
           }
         }}
       >
-        <div>{minus}</div>
+        <div className="fixed">{minus}</div>
         <div className={expend ? "move" : ""}>{minus}</div>
       </div>
     </>

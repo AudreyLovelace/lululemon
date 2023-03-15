@@ -1,4 +1,4 @@
-import { types } from "../helper/constants";
+export const filterTypes = { actionName: "typename" };
 
 export const actions = {
   actionName(word) {
