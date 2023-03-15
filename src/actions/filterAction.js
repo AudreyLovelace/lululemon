@@ -1,8 +1,8 @@
-export const filterTypes = { actionName: "typename" };
+export const filterTypes = { checkbox: "CHECKBOX" };
 
-export const actions = {
-  actionName(word) {
-    return { types: types.actionName, payload: word };
+export const filterActions = {
+  checkbox(key, index) {
+    return { type: filterTypes.checkbox, payload: [key, index] };
   },
 };
 

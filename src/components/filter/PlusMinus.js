@@ -2,10 +2,11 @@ import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useNavigate, useParams, Navigate } from "react-router-dom";
 import "./plusMinus.scss";
-export default function PlusMinus(props) {
+export default function PlusMinus({ expand }) {
   //const dispatch=useDispatch()
   //const ??? = useSelector(state => state?.reducer?.???)
-  const [expend, setExpend] = useState(true);
+  // console.log(expand, 1);
+
   const minus = (
     <svg
       height="19"
@@ -17,7 +18,7 @@ export default function PlusMinus(props) {
       aria-hidden="true"
     >
       <path
-        d="M21.39 12.75a1 1 0 0 0 1-1v-.5h-19a1 1 0 0 0-1 1v.5Z"
+        d="M 21.39 8.925 a 1 0.7 0 0 0 1 -0.7 v -0.35 h -19 a 1 0.7 0 0 0 -1 0.7 v 0.35 Z"
         stroke="currentColor"
         xmlns="http://www.w3.org/2000/svg"
       ></path>
@@ -25,18 +26,9 @@ export default function PlusMinus(props) {
   );
   return (
     <>
-      <div
-        className="plus-minus"
-        onClick={() => {
-          if (expend) {
-            setExpend(false);
-          } else {
-            setExpend(true);
-          }
-        }}
-      >
+      <div className="plus-minus">
         <div className="fixed">{minus}</div>
-        <div className={expend ? "move" : ""}>{minus}</div>
+        <div className={expand ? "" : "move"}>{minus}</div>
       </div>
     </>
   );

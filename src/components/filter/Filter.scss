@@ -1,5 +1,7 @@
 @import url("https://fonts.cdnfonts.com/css/calibre");
 $checkbox-grey: #57585b;
+$light-grey: #e6e6e6;
+
 * {
   margin: 0;
   padding: 0;
@@ -7,24 +9,38 @@ $checkbox-grey: #57585b;
 }
 .filters {
   .filter {
+    padding: 15px 10px;
+    border-top: 1px solid $light-grey;
+    border-bottom: 0.3px solid $light-grey;
     width: 300px;
     &_expand {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      margin-bottom: 13px;
       h4 {
         font-size: 19px;
         font-weight: 400;
       }
     }
+    &_expand:hover {
+      cursor: pointer;
+    }
     &_choice {
+      // transition: all ease-in-out 200ms;
       p {
         font-weight: 350;
         font-size: 18px;
       }
       &_row {
+        // transition: all ease-in-out;
+        animation-name: show;
+        animation-duration: 1s;
+        margin-top: 10px;
         display: flex;
         div {
+          padding: 1px;
+
           box-sizing: border-box;
           font-weight: 500;
           color: white;
@@ -33,20 +49,50 @@ $checkbox-grey: #57585b;
           justify-content: center;
           width: 17px;
           height: 17px;
-          border: 2px solid $checkbox-grey;
+          border: 1.5px solid $checkbox-grey;
+          margin-right: 5px;
         }
 
         .checkbox {
-          color: white;
+          color: white !important;
           background-color: $checkbox-grey;
         }
       }
       &_row:hover {
         cursor: default;
         div {
-          color: grey;
+          color: rgb(197, 197, 197);
         }
       }
     }
+    &_more {
+      transition: all ease-in-out 1000ms;
+      .more_or_less {
+        display: flex;
+        align-items: center;
+        line-height: 60px;
+        color: $checkbox-grey;
+        p {
+          font-weight: 350;
+          font-size: 18px;
+          margin-right: 5px;
+        }
+        svg {
+          fill: $checkbox-grey;
+        }
+      }
+    }
+    &_more:hover {
+      cursor: pointer;
+    }
+  }
+}
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100%;
   }
 }
