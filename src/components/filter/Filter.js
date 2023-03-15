@@ -9,6 +9,7 @@ import MoreOrLess from "./MoreOrLess";
 import FilterRow from "./FilterRow";
 import FilterChoices from "./FilterChoices";
 import SizeChoices from "./SizeChoices";
+import ColorChoices from "./ColorChoices";
 export default function Filter(props) {
   const dispatch = useDispatch();
   //const ??? = useSelector(state => state?.reducer?.???)
@@ -60,6 +61,9 @@ export default function Filter(props) {
             )}
             {e === specialTypes[0] && (
               <SizeChoices type={e} expand={expand[e]} />
+            )}
+            {e === specialTypes[1] && (
+              <ColorChoices type={e} expand={expand[e]} />
             )}
             {expand[e] && !specialTypes.includes(e) ? (
               <div

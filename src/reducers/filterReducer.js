@@ -1,5 +1,5 @@
 import { filterTypes } from "../actions/filterAction";
-const initState = {
+const copiedData = {
   Gender: [
     {
       name: "Men",
@@ -329,6 +329,12 @@ const initState = {
     },
   ],
 };
+
+const initState =
+  localStorage.getItem("filter") !== null
+    ? JSON.parse(localStorage.getItem("filter"))
+    : copiedData;
+
 export const filterReducer = (state = initState, action) => {
   switch (action.type) {
     case filterTypes.checkbox: {
@@ -344,6 +350,8 @@ export const filterReducer = (state = initState, action) => {
       }
       // console.log(newState);
 
+      let filter = JSON.stringify(newState);
+      localStorage.setItem("filter", filter);
       return newState;
     }
     default:

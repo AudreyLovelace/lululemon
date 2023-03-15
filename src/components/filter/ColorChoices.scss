@@ -1,0 +1,48 @@
+$color-checkbox: rgb(222, 217, 217);
+.color-filter {
+  animation-name: show;
+  animation-duration: 500ms;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  .color-checkbox {
+    p {
+      font-weight: 350;
+      font-size: 18px;
+      margin-top: 5px;
+    }
+    display: flex;
+    align-items: center;
+    line-height: 45px;
+
+    div {
+      margin-right: 10px;
+      box-sizing: border-box;
+      width: 26px;
+      height: 26px;
+      border-radius: 30px;
+      border: 2px solid $color-checkbox;
+    }
+    div::after {
+      box-sizing: border-box;
+      content: "";
+      display: block;
+      border: 1.5px solid white;
+      width: 34px;
+      height: 34px;
+      border-radius: 30px;
+      margin: -6px 0 0 -6px;
+    }
+    .color-checkbox-checked::after {
+      border: 1.5px solid black;
+    }
+  }
+  .color-checkbox:hover {
+    cursor: pointer;
+    div::after {
+      border: 1.5px solid $color-checkbox;
+    }
+    .color-checkbox-checked::after {
+      border: 1.5px solid black;
+    }
+  }
+}
