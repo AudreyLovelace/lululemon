@@ -8,18 +8,23 @@ export default function FilterChoices({ filter, expand, more, e }) {
   //const ??? = useSelector(state => state?.reducer?.???)
   const total = filter[e];
   //   let result = total.slice(0, 5);
-  console.log(more);
-  function className(more, i, expand) {
-    if (i < 5) {
-      return null;
+  // console.log(more);
+
+  const [rowClass, setRowClass] = useState(null);
+  useEffect(() => {
+    if (more[e]) {
+      setRowClass(null);
     } else {
-      if (more) {
-        return "more";
-      } else {
-        return "less";
-      }
+      setRowClass("fold");
     }
-  }
+  }, [expand[e]]);
+  useEffect(() => {
+    if (more[e]) {
+      setRowClass("more");
+    } else {
+      setRowClass("less");
+    }
+  }, [more[e]]);
   return (
     <div className="filter_choice">
       {total.map((choice, i) => {
@@ -30,7 +35,7 @@ export default function FilterChoices({ filter, expand, more, e }) {
         return (
           <div
             key={i}
-            // className={className(more[e], i, expand[e])}
+            className={i > 4 ? rowClass : ""}
             style={{
               animationDelay: more[e]
                 ? `${50 * (i - 5)}ms`

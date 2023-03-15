@@ -8,14 +8,17 @@ import PlusMinus from "./PlusMinus";
 import MoreOrLess from "./MoreOrLess";
 import FilterRow from "./FilterRow";
 import FilterChoices from "./FilterChoices";
+import SizeChoices from "./SizeChoices";
 export default function Filter(props) {
   const dispatch = useDispatch();
   //const ??? = useSelector(state => state?.reducer?.???)
   const filter = useSelector((state) => state?.filterReducer);
   // const title = "women's what's new";
+  const specialTypes = ["Size", "Colour"];
   const filterKeys = Object.keys(filter);
   const expands = {};
   const mores = {};
+
   filterKeys.forEach((element) => {
     expands[element] = true;
     mores[element] = false;
@@ -46,20 +49,19 @@ export default function Filter(props) {
               <h4>{e}</h4>
               <PlusMinus expand={expand[e]} />
             </div>
-            {/* <div className="filter_choice">
-              {filter[e].map((choice, i) => {
-                if (!expand[e]) {
-                  return null;
-                }
-                if (!more[e] && i >= 5) {
-                  return null;
-                }
 
-                return <FilterRow e={e} i={i} choice={choice} />;
-              })}
-            </div> */}
-            <FilterChoices filter={filter} e={e} expand={expand} more={more} />
-            {expand[e] ? (
+            {!specialTypes.includes(e) && (
+              <FilterChoices
+                filter={filter}
+                e={e}
+                expand={expand}
+                more={more}
+              />
+            )}
+            {e === specialTypes[0] && (
+              <SizeChoices type={e} expand={expand[e]} />
+            )}
+            {expand[e] && !specialTypes.includes(e) ? (
               <div
                 className="filter_more"
                 onClick={() => {

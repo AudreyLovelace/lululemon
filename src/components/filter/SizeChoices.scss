@@ -1,0 +1,31 @@
+$size-checkbox-grey: #d5d5d5;
+
+.size {
+  border-bottom: 1px $size-checkbox-grey dashed;
+  box-sizing: border-box;
+  padding: 20px 0;
+  margin: 0px -5px;
+  animation-name: show;
+  animation-duration: 500ms;
+  button {
+    border: 1.5px solid $size-checkbox-grey;
+    background-color: white;
+    padding: 8px 10px 4px;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 20px;
+    margin: 5px;
+  }
+  button:hover {
+    cursor: pointer;
+    border-color: black;
+  }
+  .chosen {
+    background-color: black;
+    border-color: black;
+    color: white;
+  }
+}
+.size:last-child {
+  border: none;
+}
