@@ -59,3 +59,8 @@ $light-grey: #e6e6e6;
     }
   }
 }
+@media (max-width: 992px) {
+  .sort-desktop {
+    display: none;
+  }
+}

@@ -1,10 +1,21 @@
 import { filterTypes } from "../actions/filterAction";
 
-// const initState = [];
+const a = {
+  Gender: [
+    {
+      name: "Men",
+      isChecked: false,
+    },
+    {
+      name: "Women",
+      isChecked: false,
+    },
+  ],
+};
 const initState =
   localStorage.getItem("filter") !== null
     ? JSON.parse(localStorage.getItem("filter"))
-    : [];
+    : a;
 // : copiedData;
 
 export const filterReducer = (state = initState, action) => {
@@ -12,6 +23,8 @@ export const filterReducer = (state = initState, action) => {
     case filterTypes.initFilter: {
       let filter = JSON.stringify(action.payload);
       localStorage.setItem("filter", filter);
+      console.log(filter);
+
       return action.payload;
     }
     case filterTypes.checkbox: {
