@@ -9,9 +9,16 @@ const url = {
 const authorization =
   "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtYXJreHVAbWFyazJ3aW4uY29tIiwiaXAiOiIxIiwiYnJvd3NlciI6IkNocm9tZS8xMDEuMC4wLjA7IEJsaW5rLzEwMS4wLjAuMCIsImRldmljZSI6Ik1hYyBPUyAxMC4xNS43IiwiaWF0IjoxNjU4MTYxMDg1LCJleHAiOjE2NjA3NTMwODV9.JOp9Ytw0ptPa-y0IgZqrD7FuOiGRGerOxo7Xg5R-SpQ";
 
-export const filterTypes = { checkbox: "CHECKBOX", initFilter: "INITFILTER" };
+export const filterTypes = {
+  checkbox: "CHECKBOX",
+  initFilter: "INITFILTER",
+  sort: "SORT",
+};
 
 export const filterActions = {
+  sort(id) {
+    return { type: filterTypes.sort, payload: id };
+  },
   checkbox(key, index) {
     return { type: filterTypes.checkbox, payload: [key, index] };
   },
