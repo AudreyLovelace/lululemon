@@ -9,11 +9,18 @@ $light-grey: #e6e6e6;
   // transition: all ease-in-out 200ms;
 }
 .filters {
+  width: 300px;
+  h1 {
+    padding: 35px 0 35px 10px;
+    font-size: 30px;
+  }
+
   .filter {
+    background-color: white;
     padding: 15px 10px;
-    border-top: 1px solid $light-grey;
-    border-bottom: 0.3px solid $light-grey;
-    width: 250px;
+    // border-top: 1px solid $light-grey;
+    border-top: 0.3px solid $light-grey;
+
     &_expand {
       display: flex;
       align-items: center;

@@ -2,7 +2,10 @@ import axios from "axios";
 const key =
   "mykey=UnxYe8qDRHZDXDCRlm/7k/AmqiMOZGSTUkG0l2ZXVBW2p%2BcEQJGJY2WberfSythE5v0OpktC6E92rssg4Gc4WA==";
 const urlHead = "http://api-lulu.hibitbyte.com/";
-const url = { getFilter: `${urlHead}product/filter?${key}` };
+const url = {
+  getFilter: `${urlHead}product/filter?${key}`,
+  allProduct: `${urlHead}product/allProducts?${key}&sortingId=`,
+};
 const authorization =
   "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtYXJreHVAbWFyazJ3aW4uY29tIiwiaXAiOiIxIiwiYnJvd3NlciI6IkNocm9tZS8xMDEuMC4wLjA7IEJsaW5rLzEwMS4wLjAuMCIsImRldmljZSI6Ik1hYyBPUyAxMC4xNS43IiwiaWF0IjoxNjU4MTYxMDg1LCJleHAiOjE2NjA3NTMwODV9.JOp9Ytw0ptPa-y0IgZqrD7FuOiGRGerOxo7Xg5R-SpQ";
 
@@ -21,6 +24,21 @@ export const filterActions = {
       .then((response) => {
         console.log(response.data.rs);
         dispatch(filterActions.initFilter(response.data.rs));
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {});
+  },
+  filterProduct(dispatch, sortId, filterBody) {
+    //npm install axios
+    axios
+      .get(url.allProduct + sortId, {
+        headers: { authorization: authorization },
+        body: filterBody,
+      })
+      .then((response) => {
+        console.log(response);
       })
       .catch((error) => {
         console.log(error);

@@ -19,10 +19,25 @@ export default function Filter(props) {
   const filterKeys = Object.keys(filter);
   const expands = {};
   const mores = {};
+  const titleKey = ["Gender", "Men", "Women"];
+  const titles = ["Men's What's New", "Women's What's New", "What's New"];
+  const title = () => {
+    const gender = filter[titleKey[0]];
+    const men = gender.filter((e) => e.name === titleKey[1]);
+    const women = gender.filter((e) => e.name === titleKey[2]);
+    if (men[0].isChecked) {
+      return titles[0];
+    }
+    if (women[0].isChecked) {
+      return titles[1];
+    }
+    return titles[2];
+  };
+
   const [loadPage, setLoadPage] = useState(true);
   useEffect(() => {
     setLoadPage(true);
-    console.log(loadPage);
+    // console.log(loadPage);
 
     if (localStorage.getItem("filter") !== null) {
       return;
@@ -32,9 +47,16 @@ export default function Filter(props) {
   }, []);
 
   useEffect(() => {
+    if (!loadPage) {
+      return;
+    }
     setLoadPage(false);
-    console.log(loadPage);
+    // console.log(loadPage);
   }, [expands, mores]);
+
+  // useEffect(() => {
+  //   filterActions.filterProduct(dispatch, 1, filter);
+  // }, [filter]);
 
   filterKeys.forEach((element) => {
     expands[element] = true;
@@ -45,6 +67,7 @@ export default function Filter(props) {
   if (filter) {
     return (
       <div className="filters">
+        <h1>{title()}</h1>
         {filterKeys.map((e, index) => {
           return (
             <div className="filter" key={index}>
