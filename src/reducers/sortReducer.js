@@ -2,7 +2,7 @@ import { filterTypes } from "../actions/filterAction";
 const initState =
   localStorage.getItem("sort") !== null
     ? JSON.parse(localStorage.getItem("sort"))
-    : { id: 1, options: { 1: "one", 2: "two", 3: "three" } };
+    : { id: 1, options: { 1: "Featured", 2: "New Arrivals", 3: "Top Rated" } };
 
 export const sortReducer = (state = initState, action) => {
   switch (action.type) {

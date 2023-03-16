@@ -54,9 +54,14 @@ export default function Filter(props) {
     // console.log(loadPage);
   }, [expands, mores]);
 
+  const sortId = useSelector((state) => {
+    return state?.sortReducer.id;
+  });
+
+  //fetch product data when filter and sortId changed
   // useEffect(() => {
-  //   filterActions.filterProduct(dispatch, 1, filter);
-  // }, [filter]);
+  //   filterActions.filterProduct(dispatch, sortId, filter);
+  // }, [filter, sortId]);
 
   filterKeys.forEach((element) => {
     expands[element] = true;

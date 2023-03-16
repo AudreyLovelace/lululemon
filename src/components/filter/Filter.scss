@@ -5,15 +5,27 @@ $light-grey: #e6e6e6;
 * {
   margin: 0;
   padding: 0;
-  font-family: calibre;
+
   // transition: all ease-in-out 200ms;
 }
 .filters {
-  width: 300px;
+  font-family: calibre;
   h1 {
     padding: 35px 0 35px 10px;
     font-size: 30px;
   }
+  h4 {
+    font-size: 19px;
+    font-weight: 400;
+  }
+  p {
+    font-weight: 350;
+    font-size: 18px;
+    margin-right: 5px;
+  }
+}
+.filters {
+  width: 300px;
 
   .filter {
     background-color: white;
@@ -26,20 +38,13 @@ $light-grey: #e6e6e6;
       align-items: center;
       justify-content: space-between;
       margin-bottom: 13px;
-      h4 {
-        font-size: 19px;
-        font-weight: 400;
-      }
     }
     &_expand:hover {
       cursor: pointer;
     }
     &_choice {
       // transition: all ease-in-out 200ms;
-      p {
-        font-weight: 350;
-        font-size: 18px;
-      }
+
       .fold {
         margin: -10px;
         height: 0;
@@ -100,11 +105,7 @@ $light-grey: #e6e6e6;
         align-items: center;
         line-height: 60px;
         color: $checkbox-grey;
-        p {
-          font-weight: 350;
-          font-size: 18px;
-          margin-right: 5px;
-        }
+
         svg {
           fill: $checkbox-grey;
         }

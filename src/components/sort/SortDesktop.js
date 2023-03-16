@@ -19,21 +19,22 @@ export default function SortDesktop(props) {
   return (
     <div className="sort-desktop">
       <div className="sort-desktop-head">
-        Sort by{" "}
-        <div
+        <p className="sort-desktop-head-title"> Sort by </p>
+        <span
           onClick={() => {
             setOpen(true);
           }}
         >
-          {sortOption} <BsChevronDown />
-        </div>
+          <p> {sortOption} </p>
+          <BsChevronDown />
+        </span>
       </div>
       {open && (
         <div className="sort-desktop-body">
           <div className="sort-desktop-body-option">
             {sortKeys.map((e, index) => {
               return (
-                <div
+                <p
                   key={index}
                   onClick={(event) => {
                     // console.log(filterActions.sort(e));
@@ -43,7 +44,7 @@ export default function SortDesktop(props) {
                   }}
                 >
                   {sort.options[e]}
-                </div>
+                </p>
               );
             })}
           </div>
