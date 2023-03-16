@@ -47,3 +47,32 @@
     }
   }
 }
+
+
+@media screen and (max-width: 990px) {
+  .thirdLine,
+  .thirdLine_otherTwo_term{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  span {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .thirdLine_otherTwo_term {
+    padding: 10px 0;
+    margin: 10px 0 ;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .thirdLine_otherTwo_term::before {
+    bottom: 5px;
+  }
+}

@@ -12,7 +12,7 @@ export default function PlusMinus(props) {
       width="24"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
-      class="accordionItemToggleIcon-2RhVn"
+      className="accordionItemToggleIcon-2RhVn"
       focusable="false"
       role="presentation"
       aria-hidden="true"

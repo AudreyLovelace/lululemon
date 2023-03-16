@@ -14,9 +14,9 @@ const MainFooter = () => {
         <div className="mainFooter">
             <div className="mainFooter_grid">
                 <MyAcc/>
-                <ContactUs/>
-                <AboutUs/>
                 <Help/>
+                <AboutUs/>
+                <ContactUs/>
                 <LuluDetails/>
                 <GiftAndLocate/>
                 <Logo/>

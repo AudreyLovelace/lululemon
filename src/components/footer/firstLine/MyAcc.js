@@ -1,31 +1,51 @@
 import "./boxes.scss"
 import {Link} from "react-router-dom";
 import {useState} from "react";
+import {arrow} from "../../../helper/constants";
 
 const MyAcc = () => {
 
-    const [showDetail, setShowDetail] = useState(false)
 
-    const cbHandle = () => {
-        setShowDetail(!showDetail)
-    }
+    const data = [{id: 0, label: "Membership Program"}, {id: 1, label: "Sign In"},
+        {id: 3, label: "Register"}, {id: 4, label: "Order Status"}, {id: 5, label: "Returns"}
+    ];
+
+    const [isOpen, setOpen] = useState(false);
+
+    const dropdown = () => setOpen(!isOpen);
 
 
     return (
-        <div className="box">
-            <Link to="/" className="box_title" type='button' onClick={cbHandle}>
-                MY ACCOUNT
-            </Link>
-
-
-            <div className="box_detail">
-                <Link to="/" className="box_detail_text" type="button">Membership Program</Link>
-                <Link to="/" className="box_detail_text" type="button">Sign In</Link>
-                <Link to="/" className="box_detail_text" type="button">Register</Link>
-                <Link to="/" className="box_detail_text" type="button">Order Status</Link>
-                <Link to="/" className="box_detail_text" type="button">Returns</Link>
+        <>
+            <div className="box">
+                <Link to="/" className="box_header_title" type='button'>
+                    MY ACCOUNT
+                </Link>
+                <div className="box_detail">
+                    {data.map((item) => {
+                        return (<Link to="/" key={item.id} className="box_detail text">{item.label} </Link>
+                        )
+                    })}
+                </div>
             </div>
-        </div>
+
+
+            <div className='dropdown'>
+                <div className='dropdown-header ' onClick={dropdown}>
+                    MY ACCOUNT
+                    <div className={isOpen ? "iconFirst open" : "iconFirst"}>{arrow}</div>
+                </div>
+
+                <div className={`dropdown-body ${isOpen && 'open'}`}>
+                    {data.map(item => (
+                        <Link to='./' className="box_detail dropdown-item text" key={item.id}>
+                            {item.label}
+                        </Link>
+                    ))}
+                </div>
+                <hr/>
+            </div>
+        </>
     )
 }
 

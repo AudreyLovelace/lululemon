@@ -1,4 +1,5 @@
 .mainFooter {
+  padding: 10px;
 
 
   &_grid {
@@ -11,6 +12,7 @@
     .mainFooter_grid {
       display: flex;
       flex-direction: column;
+      flex: 0 0 100%;
     }
   }
 
