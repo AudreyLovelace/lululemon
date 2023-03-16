@@ -9,6 +9,7 @@ import MoreOrLess from "./MoreOrLess";
 import FilterChoices from "./FilterChoices";
 import SizeChoices from "./SizeChoices";
 import ColorChoices from "./ColorChoices";
+import SortTablet from "../sort/SortTablet";
 
 export default function Filter(props) {
   const dispatch = useDispatch();
@@ -72,7 +73,7 @@ export default function Filter(props) {
   if (filter) {
     return (
       <div className="filters">
-        <h1>{title()}</h1>
+        <h1>{title()}</h1> <SortTablet />
         {filterKeys.map((e, index) => {
           return (
             <div className="filter" key={index}>

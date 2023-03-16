@@ -1,6 +1,7 @@
 @import url("https://fonts.cdnfonts.com/css/calibre");
 $checkbox-grey: #57585b;
 $light-grey: #e6e6e6;
+$radio-red: #d31334;
 
 * {
   margin: 0;
@@ -70,7 +71,6 @@ $light-grey: #e6e6e6;
         display: flex;
         div {
           padding: 1px;
-
           box-sizing: border-box;
           font-weight: 500;
           color: white;
@@ -82,7 +82,22 @@ $light-grey: #e6e6e6;
           border: 1.5px solid $checkbox-grey;
           margin-right: 5px;
         }
-
+        .sort_radio {
+          border-radius: 30px;
+          border-width: 1px;
+        }
+        .sort_radio_checked {
+          border-color: $radio-red;
+          border-radius: 30px;
+          border-width: 1px;
+        }
+        .sort_radio_checked::after {
+          content: "";
+          background-color: $radio-red;
+          width: 10px;
+          height: 10px;
+          border-radius: 30px;
+        }
         .checkbox {
           color: white !important;
           background-color: $checkbox-grey;
