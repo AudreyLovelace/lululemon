@@ -329,14 +329,20 @@ const copiedData = {
     },
   ],
 };
-
+// const initState = [];
 const initState =
   localStorage.getItem("filter") !== null
     ? JSON.parse(localStorage.getItem("filter"))
-    : copiedData;
+    : [];
+// : copiedData;
 
 export const filterReducer = (state = initState, action) => {
   switch (action.type) {
+    case filterTypes.initFilter: {
+      let filter = JSON.stringify(action.payload);
+      localStorage.setItem("filter", filter);
+      return action.payload;
+    }
     case filterTypes.checkbox: {
       //   console.log(action.payload);
 

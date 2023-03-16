@@ -6,10 +6,10 @@ import { filterActions } from "../../actions/filterAction";
 import "./Filter.scss";
 import PlusMinus from "./PlusMinus";
 import MoreOrLess from "./MoreOrLess";
-import FilterRow from "./FilterRow";
 import FilterChoices from "./FilterChoices";
 import SizeChoices from "./SizeChoices";
 import ColorChoices from "./ColorChoices";
+import axios from "axios";
 export default function Filter(props) {
   const dispatch = useDispatch();
   //const ??? = useSelector(state => state?.reducer?.???)
@@ -20,56 +20,30 @@ export default function Filter(props) {
   const expands = {};
   const mores = {};
 
+  useEffect(() => {
+    if (localStorage.getItem("filter") !== null) {
+      return;
+    } else {
+      filterActions.initPage(dispatch);
+    }
+  }, []);
+
   filterKeys.forEach((element) => {
     expands[element] = true;
     mores[element] = false;
   });
   const [expand, setExpand] = useState(expands);
   const [more, setMore] = useState(mores);
-  return (
-    <div className="filters">
-      {filterKeys.map((e, index) => {
-        return (
-          <div className="filter" key={index}>
-            <div
-              className="filter_expand"
-              onClick={() => {
-                setExpand((prev) => {
-                  // console.log(prev[e]);
-
-                  if (prev[e]) {
-                    prev[e] = false;
-                  } else {
-                    prev[e] = true;
-                  }
-                  const a = { ...prev };
-                  return a;
-                });
-              }}
-            >
-              <h4>{e}</h4>
-              <PlusMinus expand={expand[e]} />
-            </div>
-
-            {!specialTypes.includes(e) && (
-              <FilterChoices
-                filter={filter}
-                e={e}
-                expand={expand}
-                more={more}
-              />
-            )}
-            {e === specialTypes[0] && (
-              <SizeChoices type={e} expand={expand[e]} />
-            )}
-            {e === specialTypes[1] && (
-              <ColorChoices type={e} expand={expand[e]} />
-            )}
-            {expand[e] && !specialTypes.includes(e) ? (
+  if (more) {
+    return (
+      <div className="filters">
+        {filterKeys.map((e, index) => {
+          return (
+            <div className="filter" key={index}>
               <div
-                className="filter_more"
+                className="filter_expand"
                 onClick={() => {
-                  setMore((prev) => {
+                  setExpand((prev) => {
                     // console.log(prev[e]);
 
                     if (prev[e]) {
@@ -82,12 +56,50 @@ export default function Filter(props) {
                   });
                 }}
               >
-                {filter[e].length > 5 ? <MoreOrLess more={more[e]} /> : <></>}
+                <h4>{e}</h4>
+                <PlusMinus expand={expand[e]} />
               </div>
-            ) : null}
-          </div>
-        );
-      })}
-    </div>
-  );
+
+              {!specialTypes.includes(e) && (
+                <FilterChoices
+                  filter={filter}
+                  e={e}
+                  expand={expand}
+                  more={more}
+                />
+              )}
+              {e === specialTypes[0] && (
+                <SizeChoices type={e} expand={expand[e]} />
+              )}
+              {e === specialTypes[1] && (
+                <ColorChoices type={e} expand={expand[e]} />
+              )}
+              {expand[e] && !specialTypes.includes(e) ? (
+                <div
+                  className="filter_more"
+                  onClick={() => {
+                    setMore((prev) => {
+                      // console.log(prev[e]);
+
+                      if (prev[e]) {
+                        prev[e] = false;
+                      } else {
+                        prev[e] = true;
+                      }
+                      const a = { ...prev };
+                      return a;
+                    });
+                  }}
+                >
+                  {filter[e].length > 5 ? <MoreOrLess more={more[e]} /> : <></>}
+                </div>
+              ) : null}
+            </div>
+          );
+        })}
+      </div>
+    );
+  } else {
+    return null;
+  }
 }
