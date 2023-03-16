@@ -9,6 +9,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import { useEffect } from "react";
+import './app.scss'
 
 import Test from "./Test";
 export default function App() {

@@ -1,0 +1,40 @@
+.topLine {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin: 0 auto;
+
+  &_details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    line-height: 20px;
+    margin-left: 30px;
+    position: relative;
+
+    &_names {
+      font-size: 14px;
+      color: #000000;
+    }
+
+    white-space: nowrap;
+
+    width: fit-content;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: red;
+      transition: width 0.3s ease-in-out;
+    }
+
+    &:hover::before {
+      width: 100%;
+    }
+  }
+}
