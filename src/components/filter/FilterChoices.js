@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useNavigate, useParams, Navigate } from "react-router-dom";
 import FilterRow from "./FilterRow";
 
-export default function FilterChoices({ filter, expand, more, e }) {
+export default function FilterChoices({ filter, expand, more, e, loadPage }) {
   //const dispatch=useDispatch()
   //const ??? = useSelector(state => state?.reducer?.???)
   const total = filter[e];
@@ -19,6 +19,10 @@ export default function FilterChoices({ filter, expand, more, e }) {
     }
   }, [expand[e]]);
   useEffect(() => {
+    if (loadPage) {
+      setRowClass("fold");
+      return;
+    }
     if (more[e]) {
       setRowClass("more");
     } else {
@@ -38,8 +42,8 @@ export default function FilterChoices({ filter, expand, more, e }) {
             className={i > 4 ? rowClass : ""}
             style={{
               animationDelay: more[e]
-                ? `${50 * (i - 5)}ms`
-                : `${50 * (total.length - i - 5)}ms`,
+                ? `${20 * (i - 5)}ms`
+                : `${20 * (total.length - i - 1)}ms`,
             }}
           >
             <FilterRow e={e} i={i} choice={choice} key={i} />

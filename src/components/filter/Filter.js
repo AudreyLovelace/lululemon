@@ -9,7 +9,7 @@ import MoreOrLess from "./MoreOrLess";
 import FilterChoices from "./FilterChoices";
 import SizeChoices from "./SizeChoices";
 import ColorChoices from "./ColorChoices";
-import axios from "axios";
+
 export default function Filter(props) {
   const dispatch = useDispatch();
   //const ??? = useSelector(state => state?.reducer?.???)
@@ -19,8 +19,11 @@ export default function Filter(props) {
   const filterKeys = Object.keys(filter);
   const expands = {};
   const mores = {};
-
+  const [loadPage, setLoadPage] = useState(true);
   useEffect(() => {
+    setLoadPage(true);
+    console.log(loadPage);
+
     if (localStorage.getItem("filter") !== null) {
       return;
     } else {
@@ -28,13 +31,18 @@ export default function Filter(props) {
     }
   }, []);
 
+  useEffect(() => {
+    setLoadPage(false);
+    console.log(loadPage);
+  }, [expands, mores]);
+
   filterKeys.forEach((element) => {
     expands[element] = true;
     mores[element] = false;
   });
   const [expand, setExpand] = useState(expands);
   const [more, setMore] = useState(mores);
-  if (more) {
+  if (filter) {
     return (
       <div className="filters">
         {filterKeys.map((e, index) => {
@@ -62,6 +70,7 @@ export default function Filter(props) {
 
               {!specialTypes.includes(e) && (
                 <FilterChoices
+                  loadPage={loadPage}
                   filter={filter}
                   e={e}
                   expand={expand}
