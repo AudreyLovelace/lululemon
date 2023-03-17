@@ -1,9 +1,12 @@
 import './feedback.scss';
 import React, {useState} from "react";
-import StarIcon from '@mui/icons-material/Star';
+/*import StarIcon from '@mui/icons-material/Star'*/
 
 const Feedback = () => {
+    const number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
     return (
+
         <div>
             <img
                 src="https://resources.digital-cloud.medallia.com/wdcus/55284/resources/image/1587642806364_rsz_lululemon_yogo_rgb_clr-54.jpg"
@@ -20,7 +23,11 @@ const Feedback = () => {
             </div>
 
             <div>
-                <p>Overall, how satisfied are you with your experience?</p>
+                <p>Overall, how satisfied are you with your experience?
+                    //todo
+                    <span>*</span> //scss: margin top -10
+                </p>
+
             </div>
             <div>
                 {[...Array(5)].map((star) => {
@@ -37,20 +44,12 @@ const Feedback = () => {
             </div>
 
             <div>
-                {[...Array(11)].map((numbers) => {
+                {number.map((numbers) => {
                     return (
-                        <button>0</button>
-                    <button>1</button>
-                    <button>2</button>
-                    <button>3</button>
-                    <button>4</button>
-                    <button>5</button>
-                    <button>6</button>
-                    <button>7</button>
-                    <button>8</button>
-                    <button>9</button>
-                    <button>10</button>
-                );
+                        <div>
+                            <button>{numbers}</button>
+                        </div>
+                    );
                 })}
                 <br/>
                 <br/>

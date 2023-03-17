@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useNavigate, useParams, Navigate } from "react-router-dom";
 import PlusMinus from "./components/PlusMinus";
+import Feedback from "./components/Feedback";
 
 export default function Test(props) {
   //const dispatch=useDispatch()
@@ -14,6 +15,7 @@ export default function Test(props) {
     <h1>
       {currentIndex}
       <span>{id}</span>
+        <Feedback/>
       <PlusMinus />
     </h1>
   );
