@@ -7,9 +7,11 @@ export default function TabletFilter(props) {
   //const dispatch=useDispatch()
   //const ??? = useSelector(state => state?.reducer?.???)
   const [open, setOpen] = useState(false);
+  const [title, setTitle] = useState("What's New");
   const lableNum = useSelector((state) => state?.lableReducer.length);
   return (
     <>
+      <h1>{title}</h1>
       <div
         className="filter_and_sort"
         onClick={() => {

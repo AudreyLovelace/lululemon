@@ -6,13 +6,15 @@ import Filter from "./components/filter/Filter";
 import SortDesktop from "./components/sort/SortDesktop";
 import FilterLable from "./components/filter/FilterLable";
 import TabletFilter from "./components/filter/TabletFilter";
-
-export default function AudreyTest(props) {
+import TopNavigation from "./components/navigation component/TopNavigation";
+import MainFooter from "./components/footer/MainFooter";
+export default function WhatsNew(props) {
   //const dispatch=useDispatch()
   //const ??? = useSelector(state => state?.reducer?.???)
 
   return (
-    <h1>
+    <>
+      <TopNavigation />
       <div className="lable_desktop">
         <FilterLable />
       </div>
@@ -22,7 +24,8 @@ export default function AudreyTest(props) {
       </div>
       <div className="filter_desktop">
         <Filter />
-      </div>
-    </h1>
+      </div>{" "}
+      <MainFooter />
+    </>
   );
 }

@@ -13,7 +13,7 @@ import SortTablet from "../sort/SortTablet";
 import FilterLable from "./FilterLable";
 import { TfiClose } from "react-icons/tfi";
 
-export default function Filter({ setOpen }) {
+export default function Filter({ setOpen, setTitle }) {
   const dispatch = useDispatch();
   //const ??? = useSelector(state => state?.reducer?.???)
   useEffect(() => {
@@ -55,10 +55,19 @@ export default function Filter({ setOpen }) {
     const men = gender?.filter((e) => e.name === titleKey[1]);
     const women = gender?.filter((e) => e.name === titleKey[2]);
     if (men[0].isChecked) {
+      if (setTitle) {
+        setTitle(titles[0]);
+      }
       return titles[0];
     }
     if (women[0].isChecked) {
+      if (setTitle) {
+        setTitle(titles[1]);
+      }
       return titles[1];
+    }
+    if (setTitle) {
+      setTitle(titles[2]);
     }
     return titles[2];
   };
