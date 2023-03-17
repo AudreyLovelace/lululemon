@@ -11,8 +11,9 @@ import SizeChoices from "./SizeChoices";
 import ColorChoices from "./ColorChoices";
 import SortTablet from "../sort/SortTablet";
 import FilterLable from "./FilterLable";
+import { TfiClose } from "react-icons/tfi";
 
-export default function Filter(props) {
+export default function Filter({ setOpen }) {
   const dispatch = useDispatch();
   //const ??? = useSelector(state => state?.reducer?.???)
   useEffect(() => {
@@ -82,7 +83,16 @@ export default function Filter(props) {
   const sort = useSelector((state) => state.sortReducer);
   return (
     <div className="filters">
-      <h1>{title()}</h1>
+      <h1>
+        {title()}
+        <span
+          onClick={() => {
+            setOpen(false);
+          }}
+        >
+          <TfiClose />
+        </span>
+      </h1>
       {sort && (
         <div className="filter lable_tablet">
           <FilterLable />

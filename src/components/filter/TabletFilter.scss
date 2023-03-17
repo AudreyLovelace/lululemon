@@ -1,4 +1,21 @@
 .filter_tablet {
+  .filter_and_sort {
+    font-family: calibre;
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: 3px;
+    border: 1px black solid;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    display: flex;
+  }
+  .filter_and_sort:hover {
+    color: white;
+    background-color: black;
+    cursor: pointer;
+  }
   .pop-window-back {
     z-index: 99;
     position: fixed;
@@ -14,7 +31,7 @@
     top: 0;
     width: 320px;
     animation-name: slidein;
-    animation-duration: 1s;
+    animation-duration: 500ms;
   }
 }
 @keyframes slidein {

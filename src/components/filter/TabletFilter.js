@@ -7,14 +7,16 @@ export default function TabletFilter(props) {
   //const dispatch=useDispatch()
   //const ??? = useSelector(state => state?.reducer?.???)
   const [open, setOpen] = useState(false);
+  const lableNum = useSelector((state) => state?.lableReducer.length);
   return (
     <>
       <div
+        className="filter_and_sort"
         onClick={() => {
           setOpen(true);
         }}
       >
-        FILTER & SORT
+        FILTER & SORT ({lableNum})
       </div>
       {open && (
         <>
@@ -24,7 +26,7 @@ export default function TabletFilter(props) {
               e.stopPropagation();
             }}
           >
-            <Filter />
+            <Filter setOpen={setOpen} />
           </div>
           <div
             className="pop-window-back"

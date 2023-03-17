@@ -14,6 +14,16 @@ $radio-red: #d31334;
   h1 {
     padding: 35px 0 35px 10px;
     font-size: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    svg {
+      height: 20px;
+      margin-top: -8px;
+    }
+    span:hover {
+      cursor: pointer;
+    }
   }
   h4 {
     font-size: 19px;
@@ -173,10 +183,22 @@ $radio-red: #d31334;
 @media (max-width: 992px) {
   .filter_desktop {
     display: none;
+    h1 {
+      span {
+        display: none;
+      }
+    }
   }
 }
 @media (min-width: 992px) {
   .filter_tablet {
     display: none;
+  }
+  .filter_desktop {
+    h1 {
+      span {
+        display: none;
+      }
+    }
   }
 }
