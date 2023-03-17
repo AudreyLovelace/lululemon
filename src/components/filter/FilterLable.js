@@ -16,7 +16,8 @@ export default function FilterLable(props) {
         const ele = JSON.parse(e);
         console.log(ele);
 
-        const lableName = filter[ele[0]][ele[1]].name;
+        const lableName =
+          filter[ele[0]][ele[1]].name || filter[ele[0]][ele[1]].alt;
         return (
           <div
             key={index}
