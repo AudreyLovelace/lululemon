@@ -84,6 +84,28 @@
       }
 
       &_under {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        &_activity{
+          margin: 20px 20px;
+          color: #57585B;
+          font-size: 15px;
+          font-weight: 400;
+        }
+
+        &_sports {
+          display: flex;
+          flex-direction: row;
+        }
+
+        &_shop {
+          font-weight: 600;
+          font-size: 15px;
+          color: #57585B;
+        }
 
 
       }

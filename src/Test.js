@@ -17,6 +17,6 @@ export default function Test(props) {
 
 
         <TopNavigation/>
-        {/*<MainFooter/>*/}
+        <MainFooter/>
     </>)
 }
