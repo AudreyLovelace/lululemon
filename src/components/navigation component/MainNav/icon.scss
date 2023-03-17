@@ -6,6 +6,12 @@
   margin-right: 30px;
 }
 
+@media screen and (max-width: 990px) {
+  .logo {
+    display: none;
+  }
+}
+
 
 .checkout {
   position: relative;
@@ -32,7 +38,12 @@
     font-size: 14px;
     bottom: -3px;
 
-
   }
 }
+
+  @media screen and (max-width: 990px){
+    .checkout {
+      display: none;
+    }
+  }
 

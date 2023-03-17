@@ -11,8 +11,12 @@ const MainNavigation = () => {
 
         </div>
         <div className="rightSide">
-            <InputInfo/>
-            <Bag/>
+            <div className="rightSide_input">
+                <InputInfo/>
+            </div>
+            <div className='rightSide_bag'>
+                <Bag/>
+            </div>
         </div>
     </>)
 }

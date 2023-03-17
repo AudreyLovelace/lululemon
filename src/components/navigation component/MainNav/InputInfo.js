@@ -15,11 +15,11 @@ export const InputInfo = () => {
         }
     }
 
+
     return (
-        <>
+        <div className='searchBar'>
             <form className="search_form">
                 <Search/>
-
                 <input
                     type="text"
                     placeholder="Search"
@@ -30,9 +30,9 @@ export const InputInfo = () => {
                 />
 
                 {showCloseIcon && <Close/>}
-                 {/*todo onclick with fetch data*/}
+                {/*todo onclick with fetch data*/}
             </form>
-        </>
+        </div>
     )
 }
 

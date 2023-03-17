@@ -3,6 +3,7 @@
   flex-direction: row;
   justify-content: flex-end;
   margin: 0 auto;
+  padding: 0 10px;
 
   &_details {
     display: flex;
@@ -36,5 +37,37 @@
     &:hover::before {
       width: 100%;
     }
+  }
+
+}
+
+
+@media screen and (max-width: 990px) {
+  .topLine {
+    display: none;
+  }
+}
+
+
+.resDesLogo {
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+
+  &_fiveLoge {
+    display: flex;
+    justify-content: space-between;
+
+    &_each {
+      margin: 5px;
+    }
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .resDesLogo {
+    display: none;
   }
 }

@@ -14,19 +14,9 @@ export default function Test(props) {
     });
     const id = useSelector((state) => state.cartReducer.a);
     return (<>
-        <h1>
-            {currentIndex}
-            <span>{id}</span>
-            <PlusMinus/>
 
 
-        </h1>
-        {/*<div>*/}
-        {/*    <TopNavigation/>*/}
-        {/*</div>*/}
-
-        <div>
-            <MainFooter/>
-        </div>
+        <TopNavigation/>
+        {/*<MainFooter/>*/}
     </>)
 }

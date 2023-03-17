@@ -1,8 +1,143 @@
-.mainBtn {
-  font-size: 16px;
-  padding: 5px 20px;
-  color: #000000 ;
-  text-decoration: none;
-  font-weight: 600;
-  text-align: center;
+.fiveLogo {
+
+
+  &_mainBtn {
+
+    font-size: 16px;
+    padding: 5px 20px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+
+    &_dropdown {
+      margin: 0 auto;
+      position: absolute;
+      //top: 20%;
+      //left: 0;
+      width: fit-content;
+      background-color: white;
+      border: 1px solid black;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      z-index: 100;
+
+
+      &_main {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+
+        &_left {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          border-right: 1px solid #57585B;
+
+        }
+
+        &_middle {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+
+          &_topic {
+
+          }
+
+          &_detail {
+            display: flex;
+            flex-direction: row;
+          }
+
+          &_detailRight {
+            display: flex;
+            flex-direction: column;
+
+            &_topic {
+
+            }
+
+            &_detail {
+              display: flex;
+              flex-direction: row;
+            }
+          }
+        }
+
+        &_right {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+
+          &_highLight {
+            font-size: 20px;
+            font-weight: 600;
+          }
+          &_normal {
+            color: #57585B;
+          }
+
+        }
+
+
+      }
+
+      &_under {
+
+
+      }
+
+    }
+
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 20px;
+      width: 0;
+      height: 2px;
+      background-color: red;
+      transition: width 0.3s ease-in-out;
+    }
+
+    &:hover::before {
+      width: 30%;
+    }
+  }
+
+  @media screen and (max-width: 990px) {
+    .fiveLogo_mainBtn {
+      display: none;
+    }
+  }
 }
+
+.text {
+  font-size: 14px;
+  padding: 10px 20px;
+  color: #57585B;
+  text-decoration: none;
+  font-weight: 400;
+  text-align: center;
+  position: relative;
+
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    width: fit-content;
+    height: 2px;
+    background-color: red;
+    transition: width 0.3s ease-in-out;
+  }
+
+  &:hover::before {
+    width: 30%;
+  }
+}
+
+
