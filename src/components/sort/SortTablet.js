@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useNavigate, useParams, Navigate } from "react-router-dom";
 import PlusMinus from "../filter/PlusMinus";
 import { filterActions } from "../../actions/filterAction";
-import "./SortTablet.scss";
+
 export default function SortTablet(props) {
   const dispatch = useDispatch();
   //const ??? = useSelector(state => state?.reducer?.???)
@@ -14,7 +14,7 @@ export default function SortTablet(props) {
   const sortId = sort.id;
   const sortOption = sort.options[sortId];
   const sortKeys = Object.keys(sort.options);
-  const [expand, setExpand] = useState(true);
+  const [expand, setExpand] = useState(false);
   return (
     <div className="filter sort_tablet">
       <div

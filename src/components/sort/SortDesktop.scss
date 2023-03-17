@@ -64,3 +64,11 @@ $light-grey: #e6e6e6;
     display: none;
   }
 }
+@media (min-width: 992px) {
+  .lable_tablet {
+    display: none;
+  }
+  .sort_tablet {
+    display: none;
+  }
+}

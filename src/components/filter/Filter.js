@@ -15,14 +15,38 @@ import FilterLable from "./FilterLable";
 export default function Filter(props) {
   const dispatch = useDispatch();
   //const ??? = useSelector(state => state?.reducer?.???)
-  const filter = useSelector((state) => state?.filterReducer);
-  console.log(filter);
+  useEffect(() => {
+    setLoadPage(true);
+    // console.log(loadPage);
+    // filterActions.initPage(dispatch);
+    if (localStorage.getItem("filter") !== null) {
+      // console.log(localStorage.getItem("filter").Category);
 
-  // const title = "women's what's new";
-  const specialTypes = ["Size", "Colour"];
-  const filterKeys = Object.keys(filter);
+      return;
+    } else {
+      filterActions.initPage(dispatch);
+    }
+  }, []);
+  const filter = useSelector((state) => state?.filterReducer);
+  // console.log(filter);
   const expands = {};
   const mores = {};
+
+  const [loadPage, setLoadPage] = useState(true);
+
+  useEffect(() => {
+    if (!loadPage) {
+      return;
+    }
+    setLoadPage(false);
+    // console.log(loadPage);
+  }, [expands, mores]);
+
+  // const title = "women's what's new";
+
+  const specialTypes = ["Size", "Colour"];
+  const filterKeys = Object.keys(filter);
+
   const titleKey = ["Gender", "Men", "Women"];
   const titles = ["Men's What's New", "Women's What's New", "What's New"];
   const title = () => {
@@ -38,53 +62,76 @@ export default function Filter(props) {
     return titles[2];
   };
 
-  const [loadPage, setLoadPage] = useState(true);
-  useEffect(() => {
-    setLoadPage(true);
-    console.log(loadPage);
-    // filterActions.initPage(dispatch);
-    if (localStorage.getItem("filter") !== null) {
-      return;
-    } else {
-      filterActions.initPage(dispatch);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (!loadPage) {
-      return;
-    }
-    setLoadPage(false);
-    // console.log(loadPage);
-  }, [expands, mores]);
-
-  const sortId = useSelector((state) => {
-    return state?.sortReducer.id;
-  });
-
   //fetch product data when filter and sortId changed
+  // const sortId = useSelector((state) => {
+  //   return state?.sortReducer.id;
+  // });
+
   // useEffect(() => {
   //   filterActions.filterProduct(dispatch, sortId, filter);
   // }, [filter, sortId]);
 
-  filterKeys.forEach((element) => {
+  filterKeys?.forEach((element) => {
     expands[element] = true;
     mores[element] = false;
   });
+
   const [expand, setExpand] = useState(expands);
   const [more, setMore] = useState(mores);
-  if (filter?.Gender) {
-    return (
-      <div className="filters">
-        <h1>{title()}</h1>
-        <FilterLable /> <SortTablet />
-        {filterKeys.map((e, index) => {
-          return (
-            <div className="filter" key={index}>
+
+  const sort = useSelector((state) => state.sortReducer);
+  return (
+    <div className="filters">
+      <h1>{title()}</h1>
+      {sort && (
+        <div className="filter lable_tablet">
+          <FilterLable />
+        </div>
+      )}
+      <SortTablet />
+      {filterKeys.map((e, index) => {
+        return (
+          <div className="filter" key={index}>
+            <div
+              className="filter_expand"
+              onClick={() => {
+                setExpand((prev) => {
+                  // console.log(prev[e]);
+
+                  if (prev[e]) {
+                    prev[e] = false;
+                  } else {
+                    prev[e] = true;
+                  }
+                  const a = { ...prev };
+                  return a;
+                });
+              }}
+            >
+              <h4>{e}</h4>
+              <PlusMinus expand={expand[e]} />
+            </div>
+
+            {!specialTypes.includes(e) && (
+              <FilterChoices
+                loadPage={loadPage}
+                filter={filter}
+                e={e}
+                expand={expand}
+                more={more}
+              />
+            )}
+            {e === specialTypes[0] && (
+              <SizeChoices type={e} expand={expand[e]} />
+            )}
+            {e === specialTypes[1] && (
+              <ColorChoices type={e} expand={expand[e]} />
+            )}
+            {expand[e] && !specialTypes.includes(e) ? (
               <div
-                className="filter_expand"
+                className="filter_more"
                 onClick={() => {
-                  setExpand((prev) => {
+                  setMore((prev) => {
                     // console.log(prev[e]);
 
                     if (prev[e]) {
@@ -97,51 +144,12 @@ export default function Filter(props) {
                   });
                 }}
               >
-                <h4>{e}</h4>
-                <PlusMinus expand={expand[e]} />
+                {filter[e].length > 5 ? <MoreOrLess more={more[e]} /> : <></>}
               </div>
-
-              {!specialTypes.includes(e) && (
-                <FilterChoices
-                  loadPage={loadPage}
-                  filter={filter}
-                  e={e}
-                  expand={expand}
-                  more={more}
-                />
-              )}
-              {e === specialTypes[0] && (
-                <SizeChoices type={e} expand={expand[e]} />
-              )}
-              {e === specialTypes[1] && (
-                <ColorChoices type={e} expand={expand[e]} />
-              )}
-              {expand[e] && !specialTypes.includes(e) ? (
-                <div
-                  className="filter_more"
-                  onClick={() => {
-                    setMore((prev) => {
-                      // console.log(prev[e]);
-
-                      if (prev[e]) {
-                        prev[e] = false;
-                      } else {
-                        prev[e] = true;
-                      }
-                      const a = { ...prev };
-                      return a;
-                    });
-                  }}
-                >
-                  {filter[e].length > 5 ? <MoreOrLess more={more[e]} /> : <></>}
-                </div>
-              ) : null}
-            </div>
-          );
-        })}
-      </div>
-    );
-  } else {
-    return null;
-  }
+            ) : null}
+          </div>
+        );
+      })}
+    </div>
+  );
 }

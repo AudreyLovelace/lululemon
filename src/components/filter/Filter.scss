@@ -130,6 +130,9 @@ $radio-red: #d31334;
       cursor: pointer;
     }
   }
+  .lable_tablet {
+    border-top: none;
+  }
 }
 @keyframes show {
   0% {
@@ -164,5 +167,16 @@ $radio-red: #d31334;
     height: 0;
     opacity: 0;
     pointer-events: none;
+  }
+}
+
+@media (max-width: 992px) {
+  .filter_desktop {
+    display: none;
+  }
+}
+@media (min-width: 992px) {
+  .filter_tablet {
+    display: none;
   }
 }

@@ -1,0 +1,51 @@
+$light-grey: rgb(230, 230, 230);
+.lable {
+  display: flex;
+  p {
+    font-family: calibre;
+    font-size: 13px;
+    font-weight: 500;
+    margin-right: 5px;
+  }
+  svg {
+    width: 8px;
+    margin-top: -3px;
+  }
+  .filter_lable {
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    border: 1px solid $light-grey;
+  }
+  .filter_lable:hover {
+    cursor: pointer;
+  }
+}
+
+.lable_tablet {
+  .lable {
+    flex-wrap: wrap;
+    .filter_lable {
+      padding: 2px 10px 0;
+      margin-right: 12px;
+      margin-bottom: 12px;
+    }
+  }
+}
+.lable_desktop {
+  .lable {
+    overflow-x: scroll;
+    .filter_lable {
+      padding: 5px 15px;
+      margin-right: 10px;
+    }
+    .filter_lable:hover {
+      border-color: black;
+    }
+  }
+}
+@media (max-width: 992px) {
+  .lable_desktop {
+    display: none;
+  }
+}
