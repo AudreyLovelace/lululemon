@@ -9,11 +9,11 @@ function FiveListDes() {
     <>
       <nav
         onMouseEnter={() => {
-          console.log("Mouse entered.");
+          // console.log("Mouse entered.");
           setShowDropdown(true);
         }}
         onMouseLeave={() => {
-          console.log("Mouse left.");
+          // console.log("Mouse left.");
           setShowDropdown(false);
         }}
         className="fiveLogo"

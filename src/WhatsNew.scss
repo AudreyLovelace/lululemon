@@ -1,0 +1,13 @@
+.whats_new {
+  main {
+    width: 100%;
+    display: flex;
+    .main_right {
+      width: 100%;
+    }
+    .main_right_top {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

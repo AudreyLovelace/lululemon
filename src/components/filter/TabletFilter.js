@@ -11,7 +11,10 @@ export default function TabletFilter(props) {
   const lableNum = useSelector((state) => state?.lableReducer.length);
   return (
     <>
-      <h1>{title}</h1>
+      <h1>
+        {title}
+        <span>All Items</span>
+      </h1>
       <div
         className="filter_and_sort"
         onClick={() => {

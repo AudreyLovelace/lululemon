@@ -5,9 +5,8 @@
   align-items: center;
   margin: 20px;
 
-
   &_localAddName {
-    color: #57585B;
+    color: #57585b;
     font-size: 12px;
     font-weight: lighter;
     align-items: center;
@@ -17,7 +16,7 @@
 
   &_otherTwo {
     &_term {
-      color: #57585B;
+      color: #57585b;
       font-size: 12px;
       font-weight: lighter;
       text-align: center;
@@ -38,7 +37,6 @@
       &:hover::before {
         width: 100%;
       }
-
     }
 
     span {
@@ -48,10 +46,9 @@
   }
 }
 
-
 @media screen and (max-width: 990px) {
   .thirdLine,
-  .thirdLine_otherTwo_term{
+  .thirdLine_otherTwo_term {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -59,15 +56,17 @@
 }
 
 @media screen and (max-width: 990px) {
-  span {
-    display: none;
+  .thirdLine {
+    span {
+      display: none;
+    }
   }
 }
 
 @media screen and (max-width: 990px) {
   .thirdLine_otherTwo_term {
     padding: 10px 0;
-    margin: 10px 0 ;
+    margin: 10px 0;
   }
 }
 

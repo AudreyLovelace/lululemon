@@ -8,24 +8,32 @@ import FilterLable from "./components/filter/FilterLable";
 import TabletFilter from "./components/filter/TabletFilter";
 import TopNavigation from "./components/navigation component/TopNavigation";
 import MainFooter from "./components/footer/MainFooter";
+import "./WhatsNew.scss";
 export default function WhatsNew(props) {
   //const dispatch=useDispatch()
   //const ??? = useSelector(state => state?.reducer?.???)
 
   return (
-    <>
+    <div className="whats_new">
       <TopNavigation />
-      <div className="lable_desktop">
-        <FilterLable />
-      </div>
-      <SortDesktop />
+      <main>
+        <div className="filter_desktop">
+          <Filter />
+        </div>
+        <div className="main_right">
+          <div className="main_right_top">
+            <SortDesktop />
+          </div>{" "}
+          <div className="lable_desktop">
+            <FilterLable />
+          </div>
+        </div>
+      </main>
       <div className="filter_tablet">
         <TabletFilter />
       </div>
-      <div className="filter_desktop">
-        <Filter />
-      </div>{" "}
+
       <MainFooter />
-    </>
+    </div>
   );
 }

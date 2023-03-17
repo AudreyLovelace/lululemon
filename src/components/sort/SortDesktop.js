@@ -19,15 +19,18 @@ export default function SortDesktop(props) {
   return (
     <div className="sort-desktop">
       <div className="sort-desktop-head">
-        <p className="sort-desktop-head-title"> Sort by </p>
-        <span
-          onClick={() => {
-            setOpen(true);
-          }}
-        >
-          <p> {sortOption} </p>
-          <BsChevronDown />
-        </span>
+        <p>All Items</p>
+        <div>
+          <p className="sort-desktop-head-title">Sort by </p>
+          <span
+            onClick={() => {
+              setOpen(true);
+            }}
+          >
+            {sortOption}
+            <BsChevronDown />
+          </span>
+        </div>
       </div>
       {open && (
         <div className="sort-desktop-body">
