@@ -11,6 +11,7 @@ import {
 import { useEffect } from "react";
 
 import Test from "./Test";
+import {Feedback} from "./components/Feedback";
 export default function App() {
   const { pathname } = useLocation();
 
