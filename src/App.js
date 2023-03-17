@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 import { useEffect } from "react";
 
-import Test from "./Test";
+import AudreyTest from "./AudreyTest";
 export default function App() {
   const { pathname } = useLocation();
 
@@ -20,7 +20,7 @@ export default function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Test />}>
+      <Route path="/" element={<AudreyTest />}>
         <Route path="blogs" element={<></>} />
         <Route path="/books/:id" element={<></>} />
         <Route path="*" element={<></>} />
