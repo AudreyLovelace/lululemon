@@ -10,10 +10,7 @@ import TabletFilter from "./components/filter/TabletFilter";
 export default function AudreyTest(props) {
   //const dispatch=useDispatch()
   //const ??? = useSelector(state => state?.reducer?.???)
-  const currentIndex = useSelector((state) => {
-    return state?.lululemonReducer?.currentIndex;
-  });
-  const id = useSelector((state) => state.cartReducer.a);
+
   return (
     <h1>
       <div className="lable_desktop">
