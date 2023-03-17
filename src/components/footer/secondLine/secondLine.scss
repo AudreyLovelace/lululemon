@@ -1,0 +1,71 @@
+.box_second {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+  justify-content: flex-start;
+
+
+  &_detail {
+    color: #57585B;
+    font-weight: 550;
+    font-size: 13px;
+    text-decoration: none;
+    margin-bottom: 20px;
+    line-height: 20px;
+    position: relative;
+    width: fit-content;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: red;
+      transition: width 0.3s ease-in-out;
+    }
+
+    &:hover::before {
+      width: 100%;
+    }
+  }
+
+  &_other_four {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+
+    &_detail {
+      color: #57585B;
+      font-weight: 400;
+      font-size: 13px;
+      text-decoration: none;
+      margin-bottom: 20px;
+      line-height: 20px;
+      position: relative;
+      width: fit-content;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: red;
+        transition: width 0.3s ease-in-out;
+      }
+
+      &:hover::before {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .box_second {
+    padding:  15px;
+  }
+}
