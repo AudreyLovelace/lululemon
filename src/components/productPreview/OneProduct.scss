@@ -39,6 +39,10 @@ $color-checkbox: rgb(222, 217, 217);
   }
   img {
     width: 100%;
+    margin-bottom: 10px;
+  }
+  .description {
+    margin-top: 10px;
   }
   .swatches-desktop {
     display: grid;
@@ -96,6 +100,13 @@ $color-checkbox: rgb(222, 217, 217);
   .product {
     .swatches-tablet {
       display: none;
+    }
+    .description {
+      display: grid;
+      grid-template-columns: 7fr 3fr;
+      p {
+        text-align: right;
+      }
     }
   }
 }
