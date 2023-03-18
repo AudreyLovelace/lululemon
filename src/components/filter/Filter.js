@@ -72,7 +72,7 @@ export default function Filter({ setOpen, setTitle }) {
     return titles[2];
   };
 
-  //fetch product data when filter and sortId changed
+  // fetch product data when filter and sortId changed
   // const sortId = useSelector((state) => {
   //   return state?.sortReducer.id;
   // });
