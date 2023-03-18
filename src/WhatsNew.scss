@@ -36,7 +36,7 @@ $light-grey: #e0e0e0;
 @media (min-width: 992px) {
   main {
     display: grid;
-    grid-template-columns: 300px minmax(880px, 1fr);
+    grid-template-columns: 300px minmax(580px, 1fr);
     grid-gap: 20px;
   }
   .main_right_top {
@@ -45,7 +45,7 @@ $light-grey: #e0e0e0;
   .products {
     // border: 1px solid black;
     margin-top: 10px;
-    width: 100%;
+    // width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;

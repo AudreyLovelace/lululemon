@@ -324,6 +324,7 @@ export default function OneProduct(props) {
   const [colorId, setColorId] = useState(one[types[1]][0].colorId);
   const [i, setI] = useState(1);
   const [tabletI, setTabletI] = useState(1);
+
   const desktopMax = 7;
   const tabletMax = 5;
   const productNum = one.swatches.length;
@@ -367,7 +368,6 @@ export default function OneProduct(props) {
                     backgroundImage: `url(${e.swatch})`,
                   }}
                 ></div>
-                <p>{e.alt}</p>
               </div>
             );
           })}
@@ -415,7 +415,6 @@ export default function OneProduct(props) {
                     backgroundImage: `url(${e.swatch})`,
                   }}
                 ></div>
-                <p>{e.alt}</p>
               </div>
             );
           })}
@@ -429,6 +428,41 @@ export default function OneProduct(props) {
           >
             <BsChevronRight />
           </div>
+        </div>
+      </div>
+      <div className="swatches-mobile">
+        <div className="color-checkboxes">
+          {one[types[1]].map((e, index) => {
+            if (index > tabletMax) {
+              return null;
+            }
+            if (index === tabletMax) {
+              return (
+                <div key={index}>
+                  <div className="more">+</div>
+                </div>
+              );
+            }
+            return (
+              <div
+                className="color-checkbox"
+                onMouseEnter={() => {
+                  setColorId(e.colorId);
+                }}
+                onMouseLeave={() => {}}
+                key={index}
+              >
+                <div
+                  className={
+                    e.colorId === colorId ? "color-checkbox-checked" : ""
+                  }
+                  style={{
+                    backgroundImage: `url(${e.swatch})`,
+                  }}
+                ></div>
+              </div>
+            );
+          })}
         </div>
       </div>
       <div className="description">
