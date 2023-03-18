@@ -1,16 +1,19 @@
 
-
 body {
   margin: 0;
+
 }
 
-.feedback{
+.feedback {
+  //align-content: center;
+  margin: 10px 20%;
   position: relative;
-  padding: 0 500px;
-  border-color: aqua;
+  padding: 20px 20px;
+  border-color: #dedede;
+  border-style: solid;
   text-align: left;
-  height: 50vh;
-  width: 50vw;
+  height: 830px;
+  width: 500px;
 }
 
 .close {
@@ -25,11 +28,62 @@ body {
 }
 
 
-.number {
+.numbers {
   position: relative;
-  display: inline;
+  display: flex;
+  //margin: 10px 10px 10px 10px;
+  //padding: 10px 10px 10px 10px;
 }
 
-//li.starListItem {
-//  display: inline;
-//}
+.messageBox {
+  //margin: 0 10px 0 10px;
+  //padding: 0 10em 20px 0;
+  width: 400px;
+  height: 80px;
+  position: relative;
+  text-align: left;
+
+}
+
+.closeBtn {
+  margin-right: 10px;
+  padding: 6px 12px;
+ justify-content: right;
+  line-height: 1.42857143;
+  transition: all 0.3s ease 0s !important;
+  position: relative;
+  color: rgb(91, 91, 91);
+  background-color: rgb(226, 226, 226);
+  float: left;
+  font-size: 0.875rem;
+  display: inline-block;
+  font-weight: 400;
+  border-radius: 0.25rem;
+  border: 1px solid;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  overflow: visible;
+}
+
+.submitBtn {
+  margin: 0;
+  padding: 6px 12px;
+  background-color: rgb(74, 74, 74);
+  color: rgb(255, 255, 255);
+  float: right;
+  font-size: 0.875rem;
+  line-height: 1.42857143;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border-radius: 0.25rem;
+}
+
+.medallia{
+  text-align: right;
+}

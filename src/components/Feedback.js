@@ -1,10 +1,11 @@
 import './feedback.scss';
 import React, {useState} from "react";
 import {red} from "@mui/material/colors";
-// import StarIcon from '@mui/icons-material/Star'
+import StarIcon from '@mui/icons-material/Star';
 
 const Feedback = () => {
     const number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    const star = [StarIcon, StarIcon, StarIcon, StarIcon, StarIcon]
 
     return (
 
@@ -19,7 +20,6 @@ const Feedback = () => {
             <div>
                 <h5>We're listening!</h5>
                 <h6>We love to sweat the details. Tell us what you think.</h6>
-                <br/>
             </div>
 
             <div>
@@ -27,22 +27,22 @@ const Feedback = () => {
                     {/*todo*/}
                     <span className="asterisk">*</span> {/*scss: margin top -10*/}
                 </h6>
-
             </div>
             <div>
-                {[...Array(5)].map((star) => {
+                {star.map((star) => {
                     return (
+                        // <starIcon/>
                         <span className="star">&#9733;</span>
                     );
                 })}
-                <br/>
+                <h6> This Field is Required.</h6>
             </div>
 
             <div>
                 <h6>How likely are you to recommend lululemon to a friend or family member?</h6>
             </div>
 
-            <div>
+            <div className='numbers'>
                 {number.map((numbers) => {
                     return (
                         <div>
@@ -55,7 +55,7 @@ const Feedback = () => {
 
             <div>
                 <h6>Please tell us about your experience.</h6>
-                <input type="text"/>
+                <input className='messageBox' type="text"/>
             </div>
 
             <div>
@@ -65,18 +65,20 @@ const Feedback = () => {
             </div>
 
             <div>
-                <h6>We really appreciate your feedback. Have questions or need immediate support? Click here and contact the Guest Education Center.
+                <h6>We really appreciate your feedback. Have questions or need immediate support? Click here and contact
+                    the Guest Education Center.
                 </h6>
                 <br/>
                 <h6>Your responses will be used in accordance with our privacy policy</h6>
             </div>
 
             <div>
-                <button>Close</button>
-                <button>Submit</button>
+                <button className='closeBtn'>Close</button>
+                <button className='submitBtn'>Submit</button>
+                <br/>
             </div>
 
-            <div>
+            <div className='medallia'>
                 <h6>Powered by Medallia</h6>
             </div>
         </div>
