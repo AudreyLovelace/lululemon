@@ -1,19 +1,18 @@
 .searchBar {
   z-index: 2;
-
+  width: 100%;
   .search_form {
     display: flex;
     align-items: center;
     position: relative;
     justify-content: space-between;
-
+    width: 100%;
 
     .search_search {
       position: absolute;
       left: 10px;
       width: 20px;
       z-index: 2;
-
 
       :hover {
         cursor: pointer;
@@ -34,9 +33,7 @@
       color: black;
       outline: 1px solid black;
       z-index: 2;
-
     }
-
 
     .search_closeIcon {
       position: absolute;
@@ -50,18 +47,9 @@
   }
 }
 
-
 @media screen and (max-width: 990px) {
-
   .search_input {
     width: 100%;
     margin: 0 auto;
   }
 }
-
-
-
-
-
-
-

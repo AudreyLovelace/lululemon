@@ -15,25 +15,34 @@ export default function WhatsNew(props) {
 
   return (
     <div className="whats_new">
-      <TopNavigation />
-      <main>
-        <div className="filter_desktop">
-          <Filter />
+      <nav>
+        <div className="container">
+          <TopNavigation />
         </div>
-        <div className="main_right">
-          <div className="main_right_top">
-            <SortDesktop />
-          </div>{" "}
-          <div className="lable_desktop">
-            <FilterLable />
+      </nav>
+      <div className="container">
+        <main>
+          <div className="filter_desktop">
+            <Filter />
           </div>
-        </div>
-      </main>
-      <div className="filter_tablet">
-        <TabletFilter />
+
+          <div className="main_right">
+            <div className="main_right_top">
+              <SortDesktop />
+            </div>
+            <div className="lable_desktop">
+              <FilterLable />
+            </div>
+          </div>
+        </main>
       </div>
 
-      <MainFooter />
+      <div className="container">
+        <div className="filter_tablet">
+          <TabletFilter />
+        </div>
+        <MainFooter />
+      </div>
     </div>
   );
 }
