@@ -1,4 +1,35 @@
 
-li.starListItem {
+
+body {
+  margin: 0;
+}
+
+.feedback{
+  position: relative;
+  padding: 0 500px;
+  border-color: aqua;
+  text-align: left;
+  height: 50vh;
+  width: 50vw;
+}
+
+.close {
+  position: relative;
+
+}
+
+.asterisk {
+  color: red;
+  position: relative;
+  margin-top: -50px; //doesn't reflect on UI
+}
+
+
+.number {
+  position: relative;
   display: inline;
 }
+
+//li.starListItem {
+//  display: inline;
+//}
