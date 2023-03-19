@@ -7,7 +7,9 @@ export const InputInfo = () => {
   const dispatch = useDispatch();
   const [message, setMessage] = useState("");
   const showCloseIcon = message.length > 0;
+  //get all products
   const products = useSelector((state) => state?.lululemonReducer);
+
   useEffect(() => {
     if (message) {
       //filter products which name contains message
