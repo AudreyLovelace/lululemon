@@ -1,4 +1,5 @@
 import { filterTypes } from "../actions/filterAction";
+import { searchTypes } from "../actions/searchAction";
 function uniqueProducts(products) {
   const uniqueProducts = products.filter((item, index) => {
     const id = item.productId;
