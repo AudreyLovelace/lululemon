@@ -1,12 +1,12 @@
 import './feedback.scss';
 import React, {useState} from "react";
-import {red} from "@mui/material/colors";
+// import {red} from "@mui/material/colors";
 import StarIcon from '@mui/icons-material/Star';
 import CloseModal from "./CloseModal";
 
 const Feedback = (onClose) => {
-    const number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     const star = [StarIcon, StarIcon, StarIcon, StarIcon, StarIcon]
+    const number = [' 0' , ' 1' , ' 2 ', ' 3 ', ' 4 ', ' 5 ', ' 6 ', ' 7 ', ' 8 ', ' 9 ', ' 10 ']
 
     // function setOpenModal(b) {
     //     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -17,18 +17,21 @@ const Feedback = (onClose) => {
     return (
 
         <div className='feedback'>
-            <img
-                src="https://resources.digital-cloud.medallia.com/wdcus/55284/resources/image/1587642806364_rsz_lululemon_yogo_rgb_clr-54.jpg"
-                alt="logo"/>
+            <div className='topLogoX'>
+                <img
+                    src="https://resources.digital-cloud.medallia.com/wdcus/55284/resources/image/1587642806364_rsz_lululemon_yogo_rgb_clr-54.jpg"
+                    alt="logo"/>
 
-            <CloseModal/>
-            {/*<div className='modalRight'>*/}
-            {/*    /!*<button onClick={()=>setOpenModal(true)}>Modal</button>*!/*/}
-            {/*   <p onClick={onclose} className='xBtn'>X</p>*/}
-            {/*</div>*/}
+                <CloseModal/>
+                {/*<div className='modalRight'>*/}
+                {/*    /!*<button onClick={()=>setOpenModal(true)}>Modal</button>*!/*/}
+                {/*   <p onClick={onclose} className='xBtn'>X</p>*/}
+                {/*</div>*/}
+            </div>
             <div>
-                <div className='bold'>
-                    <p>We're listening!</p>
+                <div>
+                    {/*<p className='bold'>We're listening!</p>*/}
+                    <strong>We're listening!</strong>
                 </div>
                 <p>
                     We love to sweat the details. Tell us what you think.
@@ -36,7 +39,7 @@ const Feedback = (onClose) => {
             </div>
 
             <div>
-                <p>Overall, how satisfied are you with your experience?
+                <p color='red'>Overall, how satisfied are you with your experience?
                     {/*todo*/}
                     <span className="asterisk">*</span> {/*scss: margin top -10*/}
                 </p>
@@ -59,7 +62,7 @@ const Feedback = (onClose) => {
                 {number.map((numbers) => {
                     return (
                         <div>
-                            <button>{numbers}</button>
+                            <button >{numbers}</button>
                         </div>
                     );
                 })}
@@ -79,16 +82,21 @@ const Feedback = (onClose) => {
 
             <div>
                 <p>We really appreciate your feedback. Have questions or need immediate support?
-                    <a href="https://shop.lululemon.com/contact" target='_blank' rel="noreferrer" color='#0071EB'> Click here </a>
-                     and contact the Guest Education Center.
+                    <a href="https://shop.lululemon.com/contact" target='_blank' rel="noreferrer" color='#0071EB'> Click
+                        here </a>
+                    and contact the Guest Education Center.
                 </p>
                 <p>Your responses will be used in accordance with our
-                    <a href="https://info.lululemon.com/legal/privacy-policy" target='_blank' rel="noreferrer" color='#0071EB'> privacy policy </a>
+                    <a href="https://info.lululemon.com/legal/privacy-policy" target='_blank' rel="noreferrer"
+                       color='#0071EB'> privacy policy </a>
                 </p>
             </div>
 
-            <div>
-                <button className='closeBtn'>Close</button>
+            <div className='twoBtns'>
+                <button className='closeBtn'
+                    /*style={{float:'right'}}/*/
+                >Close
+                </button>
                 <button className='submitBtn'>Submit</button>
             </div>
 

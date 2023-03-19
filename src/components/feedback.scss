@@ -15,8 +15,24 @@ body {
   border-style: solid;
   text-align: left;
   height: 816.5px;
-  width:438px;
+  width: 438px;
   //width: 25%;
+}
+
+.topLogoX {
+  display: flex;
+  justify-content: space-between;
+  //float: right;
+}
+
+
+.close {
+  font-size: 20px;
+  //cursor: pointer;
+}
+
+.close:hover {
+  cursor: pointer;
 }
 
 .feedback p {
@@ -27,19 +43,16 @@ body {
   //font-family: 'Open Sans' !important;
 }
 
-.feedback .bold p{
-  color: #40404a;
-  font-size: 14px;
-  font-weight: bolder;
-}
+//#listening {
+//  font-weight: bold;
+//}
 
+//strong {
+//  color: #40404a;
+//  font-size: 14px;
+//  font-weight: bolder !important;
+//}
 
-
-.close {
-  display: flex;
-  position: relative;
-
-}
 
 .asterisk {
   color: red;
@@ -47,27 +60,45 @@ body {
   margin-top: -50px; //doesn't reflect on UI
 }
 
+.star:hover {
+  cursor: pointer;
+}
 
 .numbers {
-  position: relative;
+  //position: relative;
   display: flex;
-  //margin: 10px 10px 10px 10px;
-  //padding: 10px 10px 10px 10px;
+  justify-content: space-evenly;
+  flex-direction: row;
+  box-sizing: border-box;
+  line-height: normal;
+  margin: 10px 10px 10px 10px;
+  padding: 0;
 }
+
+.numbers:hover {
+  cursor: pointer;
+}
+
+//.numbers button {
+//  font-size: 50%;
+//  font-family: Roboto, "Helvetica Neue", sans-serif;
+//    width: 27px;
+//    height: 27px;
+//}
 
 .messageBox {
   //margin: 0 10px 0 10px;
   //padding: 0 10em 20px 0;
-  background:#FFFFFF;
+  background: #FFFFFF;
   padding: 6px 4px;
   border-radius: 4px !important;
   color: #1e1e1e;
-  width:378px;
+  width: 378px;
   height: 77px;
   line-height: 1.5;
   background-clip: padding-box;
   border: 1px solid #595959;
-  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
   display: block;
   position: relative;
   margin: auto;
@@ -75,7 +106,7 @@ body {
 
 }
 
-input[type='text']{
+input[type='text'] {
   color: #595959 !important;
   font-size: 13px;
   position: relative;
@@ -85,29 +116,30 @@ input[type='text']{
 }
 
 a {
-  color:#0071EB;
+  color: #0071EB;
   text-decoration: none;
 }
 
+.twoBtns {
+  display: flex;
+  justify-content: flex-end;
+  float: right;
+}
+
 .closeBtn {
-  margin-right: 10px;
+  margin: 0 10px 0 0;
   padding: 6px 12px;
- justify-content: right;
+  justify-content: flex-end;
   line-height: 1.42857143;
   transition: all 0.3s ease 0s !important;
   position: relative;
   color: rgb(91, 91, 91);
   background-color: rgb(226, 226, 226);
-  float: left;
   font-size: 0.875rem;
-  display: inline-block;
   font-weight: 400;
   border-radius: 0.25rem;
   border: 1px solid;
-  box-sizing: border-box;
   cursor: pointer;
-  font-family: Roboto,"Helvetica Neue",sans-serif;
-  overflow: visible;
 }
 
 .submitBtn {
@@ -115,12 +147,10 @@ a {
   padding: 6px 12px;
   background-color: rgb(74, 74, 74);
   color: rgb(255, 255, 255);
-  float: right;
   font-size: 0.875rem;
   line-height: 1.42857143;
   cursor: pointer;
   position: relative;
-  display: inline-block;
   font-weight: 400;
   text-align: center;
   white-space: nowrap;
@@ -128,6 +158,6 @@ a {
   border-radius: 0.25rem;
 }
 
-.medallia{
+.medallia {
   text-align: right;
 }
