@@ -10,27 +10,15 @@ import TopNavigation from "./components/navigation component/TopNavigation";
 import MainFooter from "./components/footer/MainFooter";
 import "./WhatsNew.scss";
 import OneProduct from "./components/productPreview/OneProduct";
+import { filterActions } from "./actions/filterAction";
 export default function WhatsNew(props) {
-  //const dispatch=useDispatch()
-  //const ??? = useSelector(state => state?.reducer?.???)
+  const dispatch = useDispatch();
   const products = useSelector((state) => {
     return state?.lululemonReducer;
   });
-  // let uniqueProducts = [];
-  // if (products) {
-  //   // console.log(products, "products");
-  //   uniqueProducts = products.filter((item, index) => {
-  //     const id = item.productId;
-  //     const i = products.findIndex((e) => {
-  //       // console.log(e, "a");
-
-  //       return e.productId === id;
-  //     });
-  //     // console.log(index, i);
-
-  //     return index === i;
-  //   });
-  // }
+  const sordId = useSelector((state) => state?.sortReducer.id);
+  const filter = useSelector((state) => state?.filterReducer);
+  const pages = useSelector((state) => state?.pageReducer);
   return (
     <div className="whats_new">
       <nav>
@@ -60,7 +48,24 @@ export default function WhatsNew(props) {
               })}
             </div>
           </div>
-          <div>viewing 60 of 159 more</div>
+          {pages.totalPage > pages.curPage && (
+            <div
+              onClick={() => {
+                filterActions.filterProduct(
+                  dispatch,
+                  sordId,
+                  filter,
+                  pages.curPage + 1
+                );
+              }}
+            >
+              <p>
+                {" "}
+                viewing {products.length} of {pages.totalProducts} more
+              </p>
+              <h4>+ VIEW MORE PRODUCTS</h4>
+            </div>
+          )}
         </main>
       </div>
 

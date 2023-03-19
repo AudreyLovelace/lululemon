@@ -23,20 +23,9 @@ export const filterActions = {
     return { type: filterTypes.moreProducts, payload: products };
   },
   initProducts(products) {
-    const uniqueProducts = products[0].filter((item, index) => {
-      const id = item.productId;
-      const i = products[0].findIndex((e) => {
-        // console.log(e, "a");
-        return e.productId === id;
-      });
-      // console.log(index, i);
-      return index === i;
-    });
-    console.log(uniqueProducts);
-
     return {
       type: filterTypes.initProducts,
-      payload: [uniqueProducts, products[1]],
+      payload: products,
     };
   },
   sort(id) {
@@ -75,15 +64,35 @@ export const filterActions = {
     axios(request)
       .then((response) => {
         // console.log(response);
-        console.log(response.data.rs);
+        // console.log(response.data.rs);
 
         if (response.statusText === "OK") {
-          dispatch(
-            filterActions.initProducts([
-              response.data.rs.products,
-              response.data.rs.pageParams,
-            ])
-          );
+          const products = response.data.rs.products;
+          // console.log(products);
+          // const uniqueProducts = products.filter((item, index) => {
+          //   const id = item.productId;
+          //   const i = products.findIndex((e) => {
+          //     // console.log(e, "a");
+          //     return e.productId === id;
+          //   });
+          //   // console.log(index, i);
+          //   return index === i;
+          // });
+          if (page === 1) {
+            dispatch(
+              filterActions.initProducts([
+                products,
+                response.data.rs.pageParams,
+              ])
+            );
+          } else {
+            dispatch(
+              filterActions.moreProducts([
+                products,
+                response.data.rs.pageParams,
+              ])
+            );
+          }
         }
       })
       .catch((error) => {
