@@ -1,6 +1,8 @@
 
 body {
   margin: 0;
+  line-height: 1.5;
+  text-align: left;
 
 }
 
@@ -12,9 +14,26 @@ body {
   border-color: #dedede;
   border-style: solid;
   text-align: left;
-  //height: 830px;
-  width: 25%;
+  height: 816.5px;
+  width:438px;
+  //width: 25%;
 }
+
+.feedback p {
+  font-size: 14px;
+  text-align: left;
+  color: #595959;
+  margin-bottom: 5px;
+  //font-family: 'Open Sans' !important;
+}
+
+.feedback .bold p{
+  color: #40404a;
+  font-size: 14px;
+  font-weight: bolder;
+}
+
+
 
 .close {
   display: flex;
@@ -39,11 +58,35 @@ body {
 .messageBox {
   //margin: 0 10px 0 10px;
   //padding: 0 10em 20px 0;
-  width: 400px;
-  height: 80px;
+  background:#FFFFFF;
+  padding: 6px 4px;
+  border-radius: 4px !important;
+  color: #1e1e1e;
+  width:378px;
+  height: 77px;
+  line-height: 1.5;
+  background-clip: padding-box;
+  border: 1px solid #595959;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  display: block;
   position: relative;
+  margin: auto;
   text-align: left;
 
+}
+
+input[type='text']{
+  color: #595959 !important;
+  font-size: 13px;
+  position: relative;
+  display: block;
+  margin: 0 0 0 31px !important;
+  cursor: inherit;
+}
+
+a {
+  color:#0071EB;
+  text-decoration: none;
 }
 
 .closeBtn {

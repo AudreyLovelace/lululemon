@@ -27,15 +27,19 @@ const Feedback = (onClose) => {
             {/*   <p onClick={onclose} className='xBtn'>X</p>*/}
             {/*</div>*/}
             <div>
-                <h5>We're listening!</h5>
-                <h6>We love to sweat the details. Tell us what you think.</h6>
+                <div className='bold'>
+                    <p>We're listening!</p>
+                </div>
+                <p>
+                    We love to sweat the details. Tell us what you think.
+                </p>
             </div>
 
             <div>
-                <h6>Overall, how satisfied are you with your experience?
+                <p>Overall, how satisfied are you with your experience?
                     {/*todo*/}
                     <span className="asterisk">*</span> {/*scss: margin top -10*/}
-                </h6>
+                </p>
             </div>
             <div>
                 {star.map((star) => {
@@ -44,11 +48,11 @@ const Feedback = (onClose) => {
                         <span className="star">&#9733;</span>
                     );
                 })}
-                <h6> This Field is Required.</h6>
+                <p> This Field is Required.</p>
             </div>
 
             <div>
-                <h6>How likely are you to recommend lululemon to a friend or family member?</h6>
+                <p>How likely are you to recommend lululemon to a friend or family member?</p>
             </div>
 
             <div className='numbers'>
@@ -63,34 +67,34 @@ const Feedback = (onClose) => {
             </div>
 
             <div>
-                <h6>Please tell us about your experience.</h6>
+                <p>Please tell us about your experience.</p>
                 <input className='messageBox' type="text"/>
             </div>
 
             <div>
-                <h6>Would you like us to follow up with you?</h6>
+                <p>Would you like us to follow up with you?</p>
                 <input type="radio" value='Yes' name='Yes'/> Yes
                 <input type="radio" value='No' name='No'/> No
             </div>
 
             <div>
-                <h6>We really appreciate your feedback. Have questions or need immediate support? Click here and contact
-                    the Guest Education Center.
-                </h6>
-                <br/>
-                <h6>Your responses will be used in accordance with our privacy policy</h6>
+                <p>We really appreciate your feedback. Have questions or need immediate support?
+                    <a href="https://shop.lululemon.com/contact" target='_blank' rel="noreferrer" color='#0071EB'> Click here </a>
+                     and contact the Guest Education Center.
+                </p>
+                <p>Your responses will be used in accordance with our
+                    <a href="https://info.lululemon.com/legal/privacy-policy" target='_blank' rel="noreferrer" color='#0071EB'> privacy policy </a>
+                </p>
             </div>
 
             <div>
                 <button className='closeBtn'>Close</button>
                 <button className='submitBtn'>Submit</button>
-                <br/>
             </div>
 
             <div className='medallia'>
                 <h6>Powered by Medallia</h6>
             </div>
-
         </div>
     )
 }
