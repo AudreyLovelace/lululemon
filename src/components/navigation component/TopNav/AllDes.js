@@ -5,13 +5,26 @@ import {BagLogo, GiftCard1, LuluLogo, SignIn1, StoreLocation1, WishList1} from "
 import {useState} from "react";
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 // import MenuBar from "./MenuBar";
+import Typography from '@mui/material/Typography';
+import Popover from '@mui/material/Popover';
+
 
 const AllDes = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen)
+
+    // popover
+    const [anchorEl, setAnchorEl] = useState(null);
+
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
     };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+    const open = Boolean(anchorEl);
+    const id = open ? 'simple-popover' : undefined;
 
 
     return (<div className='allLine'>
@@ -21,10 +34,24 @@ const AllDes = () => {
                     <p className="topLine_details_names">Store Location</p>
                 </Link>
 
-                <Link to="/" className="topLine_details">
+                <div className="topLine_details" onClick={handleClick}>
                     <SignIn/>
                     <p className="topLine_details_names">Sign In</p>
-                </Link>
+                </div>
+                <Popover
+                    id={id}
+                    open={open}
+                    anchorEl={anchorEl}
+                    onClose={handleClose}
+                    anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'left',
+                    }}
+                >
+                    <Typography sx={{p: 2}}>Creat New Account</Typography>
+                    <br/>
+                    <Typography sx={{p: 2}}>Sign in</Typography>
+                </Popover>
 
                 <Link to="/" className="topLine_details">
                     <WishList/>
@@ -50,9 +77,26 @@ const AllDes = () => {
                     </Link>
                 </div>
                 <div className='resDesLogo_fiveLoge'>
-                    <Link to="./" className='resDesLogo_fiveLoge_each'>
+                    <div className='resDesLogo_fiveLoge_each' onClick={handleClick}>
                         <SignIn1/>
-                    </Link>
+                    </div>
+                    <Popover
+                        id={id}
+                        open={open}
+                        anchorEl={anchorEl}
+                        onClose={handleClose}
+                        anchorOrigin={{
+                            vertical: 'bottom',
+                            horizontal: 'left',
+                        }}
+                    >
+                        <Typography sx={{p: 2}}>Creat New Account</Typography>
+                        <br/>
+                        <Typography sx={{p: 2}}>Sign in</Typography>
+                    </Popover>
+
+
+
                     <Link to="./" className='resDesLogo_fiveLoge_each'>
                         <StoreLocation1/>
                     </Link>

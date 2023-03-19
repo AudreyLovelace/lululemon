@@ -5,6 +5,7 @@ import PlusMinus from "./components/PlusMinus";
 import TopNavigation from "./components/navigation component/TopNavigation";
 import {findAllByDisplayValue} from "@testing-library/react";
 import MainFooter from "./components/footer/MainFooter";
+import {MyComponent} from "./components/navigation component/MainNav/practive";
 
 export default function Test(props) {
     //const dispatch=useDispatch()
@@ -18,5 +19,6 @@ export default function Test(props) {
 
         <TopNavigation/>
         <MainFooter/>
+        {/*<MyComponent/>*/}
     </>)
 }
