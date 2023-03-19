@@ -16,7 +16,8 @@ export default function SortDesktop(props) {
   const sortKeys = Object.keys(sort.options);
   // console.log(sortId);
   // console.log(sortKeys);
-  const productsNum = useSelector((state) => state?.lululemonReducer.length);
+  const productsNum = useSelector((state) => state?.pageReducer?.totalProducts);
+
   return (
     <div className="sort-desktop">
       <div className="sort-desktop-head">

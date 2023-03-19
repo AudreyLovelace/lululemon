@@ -16,6 +16,21 @@ export default function WhatsNew(props) {
   const products = useSelector((state) => {
     return state?.lululemonReducer;
   });
+  // let uniqueProducts = [];
+  // if (products) {
+  //   // console.log(products, "products");
+  //   uniqueProducts = products.filter((item, index) => {
+  //     const id = item.productId;
+  //     const i = products.findIndex((e) => {
+  //       // console.log(e, "a");
+
+  //       return e.productId === id;
+  //     });
+  //     // console.log(index, i);
+
+  //     return index === i;
+  //   });
+  // }
   return (
     <div className="whats_new">
       <nav>
@@ -41,14 +56,11 @@ export default function WhatsNew(props) {
             </div>
             <div className="products">
               {products.map((e, index) => {
-                return (
-                  <div key={index}>
-                    <OneProduct one={e} />
-                  </div>
-                );
+                return <OneProduct one={e} key={index} />;
               })}
             </div>
           </div>
+          <div>viewing 60 of 159 more</div>
         </main>
       </div>
 

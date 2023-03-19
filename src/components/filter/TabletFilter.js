@@ -9,7 +9,7 @@ export default function TabletFilter(props) {
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState("What's New");
   const lableNum = useSelector((state) => state?.lableReducer.length);
-  const productsNum = useSelector((state) => state?.lululemonReducer.length);
+  const productsNum = useSelector((state) => state?.pageReducer?.totalProducts);
   return (
     <>
       <h1>

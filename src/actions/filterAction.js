@@ -4,7 +4,8 @@ const key =
 const urlHead = "http://api-lulu.hibitbyte.com/";
 const url = {
   getFilter: `${urlHead}product/filter?${key}`,
-  allProduct: `${urlHead}product/allProducts?${key}&sortingId=`,
+  allProduct: `${urlHead}product/allProducts?`,
+  sortingId: "sortingId",
 };
 const authorization =
   "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtYXJreHVAbWFyazJ3aW4uY29tIiwiaXAiOiIxIiwiYnJvd3NlciI6IkNocm9tZS8xMDEuMC4wLjA7IEJsaW5rLzEwMS4wLjAuMCIsImRldmljZSI6Ik1hYyBPUyAxMC4xNS43IiwiaWF0IjoxNjU4MTYxMDg1LCJleHAiOjE2NjA3NTMwODV9.JOp9Ytw0ptPa-y0IgZqrD7FuOiGRGerOxo7Xg5R-SpQ";
@@ -14,11 +15,29 @@ export const filterTypes = {
   initFilter: "INITFILTER",
   sort: "SORT",
   initProducts: "INITPRODUCTS",
+  moreProducts: "MOREPRODUCTS",
 };
 
 export const filterActions = {
+  moreProducts(products) {
+    return { type: filterTypes.moreProducts, payload: products };
+  },
   initProducts(products) {
-    return { type: filterTypes.initProducts, payload: products };
+    const uniqueProducts = products[0].filter((item, index) => {
+      const id = item.productId;
+      const i = products[0].findIndex((e) => {
+        // console.log(e, "a");
+        return e.productId === id;
+      });
+      // console.log(index, i);
+      return index === i;
+    });
+    console.log(uniqueProducts);
+
+    return {
+      type: filterTypes.initProducts,
+      payload: [uniqueProducts, products[1]],
+    };
   },
   sort(id) {
     return { type: filterTypes.sort, payload: id };
@@ -41,21 +60,30 @@ export const filterActions = {
       })
       .finally(() => {});
   },
-  filterProduct(dispatch, sortId, filterBody) {
+  filterProduct(dispatch, sortId, filterBody, page = 1) {
     //npm install axios
     // console.log(filterBody);
     // console.log("search product");
-
-    axios({
+    let request = {
       method: "post",
-      url: url.allProduct + sortId,
+      url: url.allProduct + key,
+      params: { sortingId: sortId, page: page },
       headers: { authorization: authorization },
       data: filterBody,
-    })
+    };
+
+    axios(request)
       .then((response) => {
         // console.log(response);
+        console.log(response.data.rs);
+
         if (response.statusText === "OK") {
-          dispatch(filterActions.initProducts(response.data.rs.products));
+          dispatch(
+            filterActions.initProducts([
+              response.data.rs.products,
+              response.data.rs.pageParams,
+            ])
+          );
         }
       })
       .catch((error) => {

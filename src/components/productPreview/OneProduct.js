@@ -23,12 +23,12 @@ export default function OneProduct({ one }) {
   const [colorId, setColorId] = useState(null);
   const [i, setI] = useState(1);
   const [tabletI, setTabletI] = useState(1);
-
+  const [load, setLoad] = useState(0);
   const desktopMax = 7;
   const tabletMax = 5;
-  const productNum = one.swatches.length;
+  const productNum = one.swatches?.length;
   function productImg(id) {
-    const product = one[types[2]].filter((e) => e.colorId === id);
+    const product = one[types[2]]?.filter((e) => e.colorId === id);
 
     const imgArray = product[0]?.mainCarousel.media.split("|");
 
@@ -66,11 +66,17 @@ export default function OneProduct({ one }) {
               return (
                 <div className="color-checkbox" key={index}>
                   <div
+                    title={e.swatchAlt}
                     onMouseEnter={() => {
                       setColorId(e.colorId);
+                      if (load === 0) {
+                        setLoad(-1);
+                      }
                     }}
                     className={
-                      e.colorId === colorId ? "color-checkbox-checked" : ""
+                      e.colorId === colorId || index === load
+                        ? "color-checkbox-checked"
+                        : ""
                     }
                     style={{
                       backgroundImage: `url(${e.swatch})`,
@@ -113,11 +119,17 @@ export default function OneProduct({ one }) {
               return (
                 <div className="color-checkbox" key={index}>
                   <div
+                    title={e.swatchAlt}
                     onMouseEnter={() => {
                       setColorId(e.colorId);
+                      if (load === 0) {
+                        setLoad(-1);
+                      }
                     }}
                     className={
-                      e.colorId === colorId ? "color-checkbox-checked" : ""
+                      e.colorId === colorId || index === load
+                        ? "color-checkbox-checked"
+                        : ""
                     }
                     style={{
                       backgroundImage: `url(${e.swatch})`,
@@ -147,22 +159,27 @@ export default function OneProduct({ one }) {
               if (index === tabletMax) {
                 return (
                   <div key={index}>
-                    <div className="more">+</div>
+                    <div className="more" title="more color">
+                      +
+                    </div>
                   </div>
                 );
               }
+
               return (
-                <div
-                  className="color-checkbox"
-                  onMouseEnter={() => {
-                    setColorId(e.colorId);
-                  }}
-                  onMouseLeave={() => {}}
-                  key={index}
-                >
+                <div className="color-checkbox" key={index}>
                   <div
+                    title={e.swatchAlt}
+                    onMouseEnter={() => {
+                      setColorId(e.colorId);
+                      if (load === 0) {
+                        setLoad(-1);
+                      }
+                    }}
                     className={
-                      e.colorId === colorId ? "color-checkbox-checked" : ""
+                      e.colorId === colorId || index === load
+                        ? "color-checkbox-checked"
+                        : ""
                     }
                     style={{
                       backgroundImage: `url(${e.swatch})`,
@@ -180,6 +197,6 @@ export default function OneProduct({ one }) {
       </div>
     );
   } else {
-    return <p>loading</p>;
+    return null;
   }
 }
