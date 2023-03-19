@@ -11,6 +11,7 @@ export const InputInfo = () => {
   useEffect(() => {
     if (message) {
       //filter products which name contains message
+      const keyWord = message;
       setMessage("");
     }
   }, [products]);
@@ -31,6 +32,7 @@ export const InputInfo = () => {
           console.log(e.target);
           e.preventDefault();
           e.target[0].value = null;
+          //clear filter
           filterActions.initPage(dispatch);
         }}
       >
