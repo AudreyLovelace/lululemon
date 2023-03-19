@@ -13,9 +13,13 @@ export const filterTypes = {
   checkbox: "CHECKBOX",
   initFilter: "INITFILTER",
   sort: "SORT",
+  initProducts: "INITPRODUCTS",
 };
 
 export const filterActions = {
+  initProducts(products) {
+    return { type: filterTypes.initProducts, payload: products };
+  },
   sort(id) {
     return { type: filterTypes.sort, payload: id };
   },
@@ -39,13 +43,20 @@ export const filterActions = {
   },
   filterProduct(dispatch, sortId, filterBody) {
     //npm install axios
-    axios
-      .get(url.allProduct + sortId, {
-        headers: { authorization: authorization },
-        body: filterBody,
-      })
+    // console.log(filterBody);
+    // console.log("search product");
+
+    axios({
+      method: "post",
+      url: url.allProduct + sortId,
+      headers: { authorization: authorization },
+      data: filterBody,
+    })
       .then((response) => {
-        console.log(response);
+        // console.log(response);
+        if (response.statusText === "OK") {
+          dispatch(filterActions.initProducts(response.data.rs.products));
+        }
       })
       .catch((error) => {
         console.log(error);

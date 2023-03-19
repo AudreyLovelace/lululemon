@@ -13,7 +13,9 @@ import OneProduct from "./components/productPreview/OneProduct";
 export default function WhatsNew(props) {
   //const dispatch=useDispatch()
   //const ??? = useSelector(state => state?.reducer?.???)
-
+  const products = useSelector((state) => {
+    return state?.lululemonReducer;
+  });
   return (
     <div className="whats_new">
       <nav>
@@ -38,7 +40,13 @@ export default function WhatsNew(props) {
               <TabletFilter />
             </div>
             <div className="products">
-              <OneProduct /> <OneProduct /> <OneProduct />
+              {products.map((e, index) => {
+                return (
+                  <div key={index}>
+                    <OneProduct one={e} />
+                  </div>
+                );
+              })}
             </div>
           </div>
         </main>

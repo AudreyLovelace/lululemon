@@ -9,11 +9,12 @@ export default function TabletFilter(props) {
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState("What's New");
   const lableNum = useSelector((state) => state?.lableReducer.length);
+  const productsNum = useSelector((state) => state?.lululemonReducer.length);
   return (
     <>
       <h1>
         {title}
-        <span>All Items</span>
+        <span> All Items ({productsNum})</span>
       </h1>
       <div
         className="filter_and_sort"

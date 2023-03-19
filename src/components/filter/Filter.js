@@ -73,13 +73,13 @@ export default function Filter({ setOpen, setTitle }) {
   };
 
   // fetch product data when filter and sortId changed
-  // const sortId = useSelector((state) => {
-  //   return state?.sortReducer.id;
-  // });
+  const sortId = useSelector((state) => {
+    return state?.sortReducer.id;
+  });
 
-  // useEffect(() => {
-  //   filterActions.filterProduct(dispatch, sortId, filter);
-  // }, [filter, sortId]);
+  useEffect(() => {
+    filterActions.filterProduct(dispatch, sortId, filter);
+  }, [filter, sortId]);
 
   filterKeys?.forEach((element) => {
     expands[element] = true;

@@ -1,15 +1,12 @@
-import { types } from "../helper/constants";
+import { filterTypes } from "../actions/filterAction";
 
-const initState = {
-  imgLibrary: [],
-  currentIndex: 0,
-  keyWord: null,
-};
-
+const initState = [];
 export const lululemonReducer = (state = initState, action) => {
   switch (action.type) {
-    case types.actionName:
-      return { ...state, imgLibrary: action?.payload };
+    case filterTypes.initProducts:
+      // console.log(action.payload);
+
+      return action?.payload;
 
     default:
       return state;

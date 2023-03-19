@@ -16,10 +16,11 @@ export default function SortDesktop(props) {
   const sortKeys = Object.keys(sort.options);
   // console.log(sortId);
   // console.log(sortKeys);
+  const productsNum = useSelector((state) => state?.lululemonReducer.length);
   return (
     <div className="sort-desktop">
       <div className="sort-desktop-head">
-        <p>All Items</p>
+        <p>All Items ({productsNum})</p>
         <div>
           <p className="sort-desktop-head-title">Sort by </p>
           <span
