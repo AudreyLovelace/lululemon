@@ -6,17 +6,18 @@ body {
 
 .feedback {
   //align-content: center;
-  margin: 10px 20%;
+  margin: auto;
   position: relative;
   padding: 20px 20px;
   border-color: #dedede;
   border-style: solid;
   text-align: left;
-  height: 830px;
-  width: 500px;
+  //height: 830px;
+  width: 25%;
 }
 
 .close {
+  display: flex;
   position: relative;
 
 }

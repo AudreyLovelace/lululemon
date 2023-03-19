@@ -2,6 +2,7 @@ import './feedback.scss';
 import React, {useState} from "react";
 import {red} from "@mui/material/colors";
 import StarIcon from '@mui/icons-material/Star';
+import CloseModal from "./CloseModal";
 
 const Feedback = (onClose) => {
     const number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -20,10 +21,11 @@ const Feedback = (onClose) => {
                 src="https://resources.digital-cloud.medallia.com/wdcus/55284/resources/image/1587642806364_rsz_lululemon_yogo_rgb_clr-54.jpg"
                 alt="logo"/>
 
-            <div className='modalRight'>
-                {/*<button onClick={()=>setOpenModal(true)}>Modal</button>*/}
-               <p onClick={onclose} className='xBtn'>X</p>
-            </div>
+            <CloseModal/>
+            {/*<div className='modalRight'>*/}
+            {/*    /!*<button onClick={()=>setOpenModal(true)}>Modal</button>*!/*/}
+            {/*   <p onClick={onclose} className='xBtn'>X</p>*/}
+            {/*</div>*/}
             <div>
                 <h5>We're listening!</h5>
                 <h6>We love to sweat the details. Tell us what you think.</h6>
@@ -88,6 +90,7 @@ const Feedback = (onClose) => {
             <div className='medallia'>
                 <h6>Powered by Medallia</h6>
             </div>
+
         </div>
     )
 }
