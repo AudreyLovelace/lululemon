@@ -14,8 +14,8 @@ class Modal extends Component {
         const { isModalVisible } = this.state;
 
         return (
-            <div className='close'>
-                <button onClick={this.toggleModal}>X</button>
+            <div >
+                <button onClick={this.toggleModal} className='close'>X</button>
 
                 {isModalVisible && (
                     <div className="modal">

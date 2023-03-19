@@ -62,7 +62,7 @@ const Feedback = (onClose) => {
                 {number.map((numbers) => {
                     return (
                         <div>
-                            <button >{numbers}</button>
+                            <button className='numbersBtn' >{numbers}</button>
                         </div>
                     );
                 })}

@@ -7,6 +7,8 @@
 # 7. How to make the cursor inside of "message box" on top left? (it's located in the middle left now)
 # 8. How can I give a text font and font-size value to the "message box" input texts?
 # 9. How to adjust "Yes" and "No" font-size?
-# 10. Why my cursor doesn't change to a "pointer" when I hover over the element, but changes right under the element?
+
+[//]: # (Solved # 10. Why my cursor doesn't change to a "pointer" when I hover over the element, 
+but changes right under the element? Solution: hover must be give to the relevant "button"'s className )
 
 [//]: # (# 10. How set the value of the height for the entire "Feedback Popup Window"?)
