@@ -1,10 +1,9 @@
-
-body {
-  margin: 0;
-  line-height: 1.5;
-  text-align: left;
-
-}
+//body {
+//  margin: 0;
+//  line-height: 1.5;
+//  text-align: left;
+//
+//}
 
 .feedback {
   //align-content: center;
@@ -14,12 +13,12 @@ body {
   border-color: #dedede;
   border-style: solid;
   text-align: left;
-  height: 816.5px;
+  //height: 816.5px;
   width: 438px;
   //width: 25%;
 }
 
-.topLogoX {
+.topLogos {
   display: flex;
   justify-content: space-between;
   //float: right;
@@ -28,12 +27,18 @@ body {
 
 .close {
   font-size: 20px;
-  //cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: black;
+  //width: 15.72px;
+  //height: 20px;
 }
 
 .close:hover {
   cursor: pointer;
 }
+
 
 .feedback p {
   font-size: 14px;
@@ -43,14 +48,16 @@ body {
   //font-family: 'Open Sans' !important;
 }
 
-//#listening {
-//  font-weight: bold;
-//}
+.topLine{
+  margin: 20px 0 0 0;
+  font-weight: bold;
+  font-size: 14px;
+}
 
-//strong {
+//.feedback p .listening {
 //  color: #40404a;
 //  font-size: 14px;
-//  font-weight: bolder !important;
+//  font-weight: bold;  //??why it's still not BOLD yet?
 //}
 
 
@@ -161,4 +168,14 @@ a {
 
 .medallia {
   text-align: right;
+  cursor: pointer;
 }
+
+.bottomTwoLines{
+  display: flex;
+  flex-direction: column;
+  //flex-wrap: wrap;
+  float: right;
+  color: black !important;
+}
+

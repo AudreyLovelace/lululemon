@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CloseModal from "./CloseModal";
 import './feedback.scss';
+import 'font-awesome/css/font-awesome.min.css';
 class Modal extends Component {
     state = {
         isModalVisible: false
@@ -15,7 +16,11 @@ class Modal extends Component {
 
         return (
             <div >
-                <button onClick={this.toggleModal} className='close'>X</button>
+                <button style={{outline: 'none'}}
+                        onClick={this.toggleModal}
+                        className='close'>
+                    <i className="fa fa-times" ></i>
+                </button>
 
                 {isModalVisible && (
                     <div className="modal">

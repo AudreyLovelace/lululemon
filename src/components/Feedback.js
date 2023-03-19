@@ -6,7 +6,7 @@ import CloseModal from "./CloseModal";
 
 const Feedback = (onClose) => {
     const star = [StarIcon, StarIcon, StarIcon, StarIcon, StarIcon]
-    const number = [' 0' , ' 1' , ' 2 ', ' 3 ', ' 4 ', ' 5 ', ' 6 ', ' 7 ', ' 8 ', ' 9 ', ' 10 ']
+    const number = [' 0', ' 1', ' 2 ', ' 3 ', ' 4 ', ' 5 ', ' 6 ', ' 7 ', ' 8 ', ' 9 ', ' 10 ']
 
     // function setOpenModal(b) {
     //     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -17,7 +17,7 @@ const Feedback = (onClose) => {
     return (
 
         <div className='feedback'>
-            <div className='topLogoX'>
+            <div className='topLogos'>
                 <img
                     src="https://resources.digital-cloud.medallia.com/wdcus/55284/resources/image/1587642806364_rsz_lululemon_yogo_rgb_clr-54.jpg"
                     alt="logo"/>
@@ -28,14 +28,16 @@ const Feedback = (onClose) => {
                 {/*   <p onClick={onclose} className='xBtn'>X</p>*/}
                 {/*</div>*/}
             </div>
-            <div>
+            <div className='topLine'>
+                {/*<div className='listening' style={{fontWeight: 'bold !important'}}>*/}
                 <div>
-                    {/*<p className='bold'>We're listening!</p>*/}
+                    {/*We're listening!*/}
                     <strong>We're listening!</strong>
                 </div>
                 <p>
                     We love to sweat the details. Tell us what you think.
                 </p>
+                <br/>
             </div>
 
             <div>
@@ -55,6 +57,7 @@ const Feedback = (onClose) => {
             </div>
 
             <div>
+                <br/>
                 <p>How likely are you to recommend lululemon to a friend or family member?</p>
             </div>
 
@@ -62,7 +65,7 @@ const Feedback = (onClose) => {
                 {number.map((numbers) => {
                     return (
                         <div>
-                            <button className='numbersBtn' >{numbers}</button>
+                            <button className='numbersBtn'>{numbers}</button>
                         </div>
                     );
                 })}
@@ -70,17 +73,20 @@ const Feedback = (onClose) => {
             </div>
 
             <div>
+                <br/>
                 <p>Please tell us about your experience.</p>
                 <input className='messageBox' type="text"/>
             </div>
 
             <div>
+                <br/>
                 <p>Would you like us to follow up with you?</p>
                 <input type="radio" value='Yes' name='Yes'/> Yes
                 <input type="radio" value='No' name='No'/> No
             </div>
 
             <div>
+                <br/>
                 <p>We really appreciate your feedback. Have questions or need immediate support?
                     <a href="https://shop.lululemon.com/contact" target='_blank' rel="noreferrer" color='#0071EB'> Click
                         here </a>
@@ -90,18 +96,23 @@ const Feedback = (onClose) => {
                     <a href="https://info.lululemon.com/legal/privacy-policy" target='_blank' rel="noreferrer"
                        color='#0071EB'> privacy policy </a>
                 </p>
+                <br/>
             </div>
 
-            <div className='twoBtns'>
-                <button className='closeBtn'
-                    /*style={{float:'right'}}/*/
-                >Close
-                </button>
-                <button className='submitBtn'>Submit</button>
-            </div>
+            <div className='bottomTwoLines'>
+                <div className='twoBtns'>
+                    <button className='closeBtn'
+                        /*style={{float:'right'}}/*/
+                    >Close
+                    </button>
+                    <button className='submitBtn'>Submit</button>
+                </div>
 
-            <div className='medallia'>
-                <h6>Powered by Medallia</h6>
+                <div className='medallia'>
+                    <p>
+                        <a href="https://www.medallia.com/">Powered by Medallia</a>
+                    </p>
+                </div>
             </div>
         </div>
     )
