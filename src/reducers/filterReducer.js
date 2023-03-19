@@ -23,7 +23,7 @@ export const filterReducer = (state = initState, action) => {
     case filterTypes.initFilter: {
       let filter = JSON.stringify(action.payload);
       localStorage.setItem("filter", filter);
-      console.log(filter);
+      // console.log(filter);
 
       return action.payload;
     }

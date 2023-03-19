@@ -41,7 +41,7 @@ export const filterActions = {
     axios
       .get(url.getFilter, { headers: { authorization: authorization } })
       .then((response) => {
-        console.log(response.data.rs);
+        // console.log(response.data.rs);
         dispatch(filterActions.initFilter(response.data.rs));
       })
       .catch((error) => {

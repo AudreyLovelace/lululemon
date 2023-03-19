@@ -26,6 +26,9 @@ export const lableReducer = (state = initState, action) => {
       localStorage.setItem("lable", strLable);
       return result;
     }
+    case filterTypes.initFilter: {
+      return [];
+    }
     default:
       return state;
   }
