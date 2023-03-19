@@ -1,6 +1,9 @@
 $color-checkbox: rgb(222, 217, 217);
 .product {
   //   width: 100%;
+  animation-name: show_one_product;
+  animation-duration: 1000ms;
+  animation-fill-mode: backwards;
   .disable {
     pointer-events: none;
     opacity: 0.3;
@@ -120,6 +123,19 @@ $color-checkbox: rgb(222, 217, 217);
         cursor: pointer;
       }
     }
+  }
+}
+
+@keyframes show_one_product {
+  0% {
+    opacity: 0;
+    filter: contrast(0%);
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    filter: contrast(1);
   }
 }
 
