@@ -19,7 +19,7 @@ class Modal extends Component {
                 <button style={{outline: 'none'}}
                         onClick={this.toggleModal}
                         className='close'>
-                    <i className="fa fa-times" ></i>
+                    <i className="fa fa-times"  ></i>
                 </button>
 
                 {isModalVisible && (

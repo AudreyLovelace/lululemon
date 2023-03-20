@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
 //body {
 //  margin: 0;
 //  line-height: 1.5;
@@ -21,6 +23,7 @@
   .topLogos {
     display: flex;
     justify-content: space-between;
+    align-items: start;
     //float: right;
   };
 
@@ -45,7 +48,7 @@
     text-align: left;
     color: #595959;
     margin-bottom: 5px;
-    //font-family: 'Open Sans' !important;
+    font-family: "Open Sans", serif;
   };
 
   .topLine {
@@ -70,6 +73,11 @@
   .star:hover {
     cursor: pointer;
   };
+
+  .star {
+    color: grey;
+
+  }
 
   .numbers {
     //position: relative;
@@ -123,6 +131,11 @@
     cursor: pointer;
   };
 
+  form label {
+    font-size: 14px;
+    font-family: "Open Sans", serif;
+  }
+
   a {
     color: #0071EB;
     text-decoration: none;
@@ -166,10 +179,20 @@
     border-radius: 0.25rem;
   };
 
-  .medallia {
+  .medallia a {
     text-align: right;
     cursor: pointer;
+    color: #595959;
+    font-size: 14px;
+    font-family: "Open Sans", serif;
+
+    span {
+      font-weight: bold;
+      color: black;
+    }
   };
+
+
 
   .bottomTwoLines {
     display: flex;

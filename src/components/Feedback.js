@@ -5,8 +5,9 @@ import StarIcon from '@mui/icons-material/Star';
 import CloseModal from "./CloseModal";
 
 const Feedback = (onClose) => {
-    const star = [StarIcon, StarIcon, StarIcon, StarIcon, StarIcon]
-    const number = [' 0', ' 1', ' 2 ', ' 3 ', ' 4 ', ' 5 ', ' 6 ', ' 7 ', ' 8 ', ' 9 ', ' 10 ']
+    const star = [0, 1, 2, 3, 4]
+    
+    const number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
     // function setOpenModal(b) {
     //     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -75,14 +76,20 @@ const Feedback = (onClose) => {
             <div>
                 {/*<br/>*/}
                 <p>Please tell us about your experience.</p>
-                <input className='messageBox' type="text"/>
+                <textarea className='messageBox' type="text" rows="5"/>
             </div>
 
             <div>
                 {/*<br/>*/}
                 <p>Would you like us to follow up with you?</p>
-                <input type="radio" value='Yes' name='Yes'/> Yes
-                <input type="radio" value='No' name='No'/> No
+                <form action="">
+                    <input type="radio" name="yesOrNo" value='Yes' id="yes"/>
+                    <label htmlFor="yes">Yes</label>
+                    <input type="radio" name="yesOrNo" value='No' id='no'/>
+                    <label htmlFor="no">No</label>
+                </form>
+
+
             </div>
 
             <div>
@@ -110,12 +117,12 @@ const Feedback = (onClose) => {
 
                 <div className='medallia'>
                     <p>
-                        <a href="https://www.medallia.com/">Powered by Medallia</a>
+                        <a href="https://www.medallia.com/">Powered by <span>Medallia</span></a>
                     </p>
                 </div>
             </div>
         </div>
-    )
+)
 }
 
 
