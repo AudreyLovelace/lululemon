@@ -50,6 +50,9 @@ $radio-red: #d31334;
       align-items: center;
       justify-content: space-between;
       margin-bottom: 13px;
+      .move {
+        margin-top: -10px !important;
+      }
     }
     &_expand:hover {
       cursor: pointer;
@@ -126,6 +129,7 @@ $radio-red: #d31334;
       margin-top: 10px;
       background-color: white;
       transition: all ease-in-out 1000ms;
+
       .more_or_less {
         display: flex;
         align-items: center;
