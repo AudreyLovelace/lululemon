@@ -6,11 +6,11 @@ import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 export default function Carousel({ media }) {
   //const dispatch=useDispatch()
   //const ??? = useSelector(state => state?.reducer?.???)
+  const dotWidth = "8px";
   const [page, setPage] = useState(0);
   return (
     <div className="carousel">
       <div className="library">
-        {" "}
         <div
           className="left"
           onClick={() => {
@@ -51,6 +51,22 @@ export default function Carousel({ media }) {
                 setPage(index);
               }}
             />
+          );
+        })}
+      </div>
+      <div
+        className="dots"
+        style={{ gridTemplateColumns: `repeat(${media.length}, ${dotWidth})` }}
+      >
+        {media.map((e, index) => {
+          return (
+            <div
+              className="dot"
+              key={index}
+              onClick={() => {
+                setPage(index);
+              }}
+            ></div>
           );
         })}
       </div>
