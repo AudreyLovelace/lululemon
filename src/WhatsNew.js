@@ -12,6 +12,7 @@ import "./WhatsNew.scss";
 import OneProduct from "./components/productPreview/OneProduct";
 import MoreProduct from "./components/filter/MoreProduct";
 import {MyComponent} from "./components/navigation component/MainNav/practive";
+import {DropDown} from "./components/navigation component/DropDown/DropDown";
 
 export default function WhatsNew(props) {
     const products = useSelector((state) => {

@@ -1,8 +1,8 @@
-import './hoverItem.scss'
+import './DropDown.scss'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
-export const HoverItem = () => {
-
+export const DropDown = () => {
+    console.log('hellooooo')
 
     const whatsNew = [
         {id: 0, label: "What's New"},
@@ -57,10 +57,10 @@ export const HoverItem = () => {
         {id: 5, label: 'Yoga'}]
 
 
-    return (<>
-        <div className='dropdown'>
-            <div className='dropdown_main'>
-                <div className='dropdown_main_left'>
+    return (
+        <div className='dropdownFile'>
+            <div className='dropdownFile_main'>
+                <div className='dropdownFile_main_left'>
                     {whatsNew.map(item => {
                         return (
                             <div key={item.id} className='textHover'>
@@ -71,12 +71,12 @@ export const HoverItem = () => {
                 </div>
 
 
-                <div className='dropdown_main_middle'>
+                <div className='dropdownFile_main_middle'>
                     <div className='textHover'>
                         WOMEN CLOTHES
                     </div>
-                    <div className='dropdown_main_middle_detail'>
-                        <div className='dropdown_main_middle_detail_eachRow'>
+                    <div className='dropdownFile_main_middle_detail'>
+                        <div className='dropdownFile_main_middle_detail_eachRow'>
                             {womenLeft.map(item => {
                                 return (
                                     <div key={item.id} className='textHover'>
@@ -85,7 +85,7 @@ export const HoverItem = () => {
                                 )
                             })}
                         </div>
-                        <div className='dropdown_main_middle_detail_eachRow'>
+                        <div className='dropdownFile_main_middle_detail_eachRow'>
                             {womenRight.map(item => {
                                 return (
                                     <div key={item.id} className='textHover'>
@@ -97,13 +97,13 @@ export const HoverItem = () => {
                     </div>
                 </div>
 
-                <div className='dropdown_main_middle_detailRight'>
+                <div className='dropdownFile_main_middle_detailRight'>
                     <div className='textHover'>
                         ACCESSORIES
                     </div>
 
-                    <div className='dropdown_main_middle_detailRight_detail'>
-                        <div className='dropdown_main_middle_detailRight_detail_eachRow'>
+                    <div className='dropdownFile_main_middle_detailRight_detail'>
+                        <div className='dropdownFile_main_middle_detailRight_detail_eachRow'>
                             {accessories.map(item => {
                                 return (
                                     <div key={item.id} className='textHover'>
@@ -116,7 +116,7 @@ export const HoverItem = () => {
                 </div>
 
 
-                <div className='dropdown_main_right'>
+                <div className='dropdownFile_main_right'>
                     <img width='300px' height='200px'
                          src="NA_Mar23_Membership_EA_Ecomm_teaser_MegaNav_D.webp" alt=""/>
                     <div className='dropdown_main_right_highLight'>
@@ -127,18 +127,18 @@ export const HoverItem = () => {
                         be first to shop new styles <br/> and
                         accessories that always keep up.
                     </div>
-                    <div className='dropdown_main_right_download'>
+                    <div className='dropdownFile_main_right_download'>
                         Download the App
                         <ArrowForwardIcon style={{color: 'red'}}/>
                     </div>
                 </div>
             </div>
 
-            <div className='dropdown_under'>
-                <div className='dropdown_under_activity'>
+            <div className='dropdownFile_under'>
+                <div className='dropdownFile_under_activity'>
                     ACTIVITY
                 </div>
-                <div className='dropdown_under_sports '>
+                <div className='dropdownFile_under_sports '>
                     {activity.map(item => {
                         return (<div key={item.id} className='textHover'>
                                 {item.label}
@@ -146,12 +146,12 @@ export const HoverItem = () => {
                         )
                     })}
                 </div>
-                <div className='dropdown_under_shop'>
+                <div className='dropdownFile_under_shop'>
                     SHOP ALL WOMEN
 
                     <ArrowForwardIcon style={{color: 'red'}}/>
                 </div>
             </div>
         </div>
-    </>)
+    )
 }

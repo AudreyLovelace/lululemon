@@ -1,4 +1,4 @@
-.dropdown {
+.dropdownFile {
   margin: 0 auto;
   position: absolute;
   width: 100%;
@@ -8,6 +8,7 @@
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: auto;
+  padding: 15px 0;
 
 
   &_main {
@@ -20,7 +21,7 @@
       flex-direction: column;
       justify-content: space-evenly;
       border-right: 1px solid #57585B;
-      align-items: flex-start
+      align-items: flex-start;
 
 
     }
@@ -36,6 +37,7 @@
       &_detail {
         display: flex;
         flex-direction: row;
+
 
         &_eachRow {
           display: flex;
@@ -150,7 +152,7 @@
     width: fit-content;
     height: 2px;
     background-color: red;
-    transition: width ease-in-out 0.3s;
+    transition: all ease-in-out 0.3s;
   }
 
   &:hover::before {

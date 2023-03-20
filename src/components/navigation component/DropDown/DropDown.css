@@ -1,0 +1,120 @@
+.dropdownFile {
+  margin: 0 auto;
+  position: absolute;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  padding: 15px 0;
+}
+.dropdownFile_main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.dropdownFile_main_left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-right: 1px solid #57585B;
+  align-items: flex-start;
+}
+.dropdownFile_main_middle {
+  display: flex;
+  flex-direction: column;
+}
+.dropdownFile_main_middle_detail {
+  display: flex;
+  flex-direction: row;
+}
+.dropdownFile_main_middle_detail_eachRow {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+}
+.dropdownFile_main_middle_detailRight {
+  display: flex;
+  flex-direction: column;
+}
+.dropdownFile_main_middle_detailRight_detail {
+  display: flex;
+  flex-direction: row;
+}
+.dropdownFile_main_middle_detailRight_detail_eachRow {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+}
+.dropdownFile_main_right {
+  display: flex;
+  flex-direction: column;
+}
+.dropdownFile_main_right_highLight {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 20px 0;
+}
+.dropdownFile_main_right_normal {
+  color: #57585B;
+}
+.dropdownFile_main_right_download {
+  margin: 20px 0;
+  font-weight: bold;
+  font-size: 16px;
+  display: flex;
+  flex-direction: row;
+}
+.dropdownFile_under {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.dropdownFile_under_activity {
+  margin: 20px 20px;
+  color: #57585B;
+  font-size: 15px;
+  font-weight: 400;
+}
+.dropdownFile_under_sports {
+  display: flex;
+  flex-direction: row;
+}
+.dropdownFile_under_shop {
+  font-weight: 600;
+  font-size: 15px;
+  color: #57585B;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.textHover {
+  font-size: 14px;
+  padding: 10px 20px;
+  color: #57585B;
+  text-decoration: none;
+  font-weight: 400;
+  text-align: center;
+  position: relative;
+}
+.textHover::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  width: fit-content;
+  height: 2px;
+  background-color: red;
+  transition: all ease-in-out 0.3s;
+}
+.textHover:hover::before {
+  width: 100%;
+}
+
+/*# sourceMappingURL=DropDown.css.map */

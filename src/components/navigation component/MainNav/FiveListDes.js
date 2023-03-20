@@ -1,120 +1,58 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import './fiveListDes.scss';
-import {Popover, Typography} from "@mui/material";
-import {HoverItem} from "./HoverItem";
+import {DropDown} from "../DropDown/DropDown";
 
 function FiveListDes() {
 
-    const [anchorEl, setAnchorEl] = useState(null);
-
-    const handleMouseEnter = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handleMouseLeave = () => {
-        setAnchorEl(null);
-    };
-
-    const open = Boolean(anchorEl);
+    // const [onButton, setOnButton] = useState(null)
+    //
+    // const handleEnter = () => {
+    //     setOnButton(true)
+    // }
+    //
+    // const handleClose = () => {
+    //     setOnButton(false)
+    // }
 
 
     return (<>
             <nav className='fiveLogo'>
+                <div className='fiveLogo_dropDown'>
+                    <div className="fiveLogo_dropDown_mainBtn"> WOMEN</div>
 
-                <div
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                    className="fiveLogo_mainBtn"
-                > WOMEN
+                    <div
+                        // style={{display: onButton ? 'block' : 'none'}}
+                        // onMouseEnter={handleEnter}
+                        // onclose={handleClose}
+                        className="fiveLogo_dropDown_page">
+                        <DropDown/>
+                    </div>
                 </div>
-                <Popover
-                    id="mouse-over-popover"
-                    sx={{
-                        pointerEvents: 'none',
-                    }}
-                    open={open}
-                    anchorEl={anchorEl}
-                    anchorOrigin={{
-                        vertical: 'bottom',
-                        horizontal: 'left',
-                    }}
-                    transformOrigin={{
-                        vertical: 'top',
-                        horizontal: 'left',
-                    }}
-                    onClose={handleMouseLeave}
-                    disableRestoreFocus>
-                    <Typography>
-                        <HoverItem/>
-                    </Typography>
-                </Popover>
 
-
-                <div className='fiveLogo_mainBtn'
-                     onMouseEnter={handleMouseEnter}
-                     onMouseLeave={handleMouseLeave}>
-                    MEN
+                <div className='fiveLogo_dropDown'>
+                    <div className="fiveLogo_dropDown_mainBtn"> MEN</div>
+                    <div className="fiveLogo_dropDown_page">
+                        <DropDown/>
+                    </div>
                 </div>
-                <Popover
-                    id="mouse-over-popover"
-                    sx={{
-                        pointerEvents: 'none',
-                    }}
-                    open={open}
-                    anchorEl={anchorEl}
-                    anchorOrigin={{
-                        vertical: 'bottom',
-                        horizontal: 'left',
-                    }}
-                    transformOrigin={{
-                        vertical: 'top',
-                        horizontal: 'left',
-                    }}
-                    onClose={handleMouseLeave}
-                    disableRestoreFocus>
-                    <Typography>
-                        <HoverItem/>
-                    </Typography>
-                </Popover>
 
 
-                <div className='fiveLogo_mainBtn'
-                     onMouseEnter={handleMouseEnter}
-                     onMouseLeave={handleMouseLeave}
-                >
-                    ACCESSORIES
+                <div className='fiveLogo_dropDown'>
+                    <div className="fiveLogo_dropDown_mainBtn"> ACCESSORIES</div>
+                    <div className="fiveLogo_dropDown_page">
+                        <DropDown/>
+                    </div>
                 </div>
-                <Popover
-                    id="mouse-over-popover"
-                    sx={{
-                        pointerEvents: 'none',
-                    }}
-                    open={open}
-                    anchorEl={anchorEl}
-                    anchorOrigin={{
-                        vertical: 'bottom',
-                        horizontal: 'left',
-                    }}
-                    transformOrigin={{
-                        vertical: 'top',
-                        horizontal: 'left',
-                    }}
-                    onClose={handleMouseLeave}
-                    disableRestoreFocus>
-                    <Typography>
-                        <HoverItem/>
-                    </Typography>
-                </Popover>
 
 
             </nav>
 
 
-            <Link to='/' type='button' className='fiveLogo_mainBtn'>
+            <Link to='/' type='button' className='fiveLogo_dropDown_mainBtn'>
                 SHOES
             </Link>
-            <Link to='/' type='button' className='fiveLogo_mainBtn'>
+            <Link to='/' type='button' className='fiveLogo_dropDown_mainBtn'>
                 STUDIO
             </Link>
         </>
