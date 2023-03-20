@@ -1,0 +1,29 @@
+.carousel {
+  width: 50%;
+  .thumbnails {
+    display: grid;
+
+    width: 70%;
+    margin: 0 auto;
+    grid-gap: 20px;
+    img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      object-position: 50% 0%;
+    }
+  }
+  .library {
+    display: flex;
+    // width: 100%;
+    width: 100%;
+
+    overflow: hidden;
+    img {
+      aspect-ratio: 9/10;
+      width: 100%;
+      //   object-position: 50% 0%;
+      object-fit: cover;
+    }
+  }
+}

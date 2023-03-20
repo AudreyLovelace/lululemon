@@ -12,6 +12,7 @@ import { useEffect } from "react";
 import "./app.scss";
 
 import WhatsNew from "./WhatsNew";
+import Product from "./components/product/Product";
 export default function App() {
   const { pathname } = useLocation();
 
@@ -21,11 +22,10 @@ export default function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<WhatsNew />}>
-        <Route path="blogs" element={<></>} />
-        <Route path="/books/:id" element={<></>} />
-        <Route path="*" element={<></>} />
-      </Route>
+      <Route path="/" element={<WhatsNew />} />
+      <Route path="/p/:productId/:colorId" element={<Product />} />
+      <Route path="/books/:id" element={<></>} />
+      <Route path="*" element={<></>} />
     </Routes>
   );
 }
