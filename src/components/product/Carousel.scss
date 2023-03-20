@@ -1,5 +1,5 @@
 .carousel {
-  width: 50%;
+  width: 500px;
   .thumbnails {
     display: grid;
 
@@ -14,16 +14,31 @@
     }
   }
   .library {
-    display: flex;
     // width: 100%;
+    aspect-ratio: 9/10;
     width: 100%;
-
     overflow: hidden;
+    position: relative;
+    .left,
+    .right {
+      position: absolute;
+      top: 50%;
+      transform: scale(2);
+      z-index: 900;
+    }
+    .right {
+      right: 0;
+    }
+    .frame {
+      display: flex;
+      transition: all ease-out 300ms;
+    }
+
     img {
       aspect-ratio: 9/10;
       width: 100%;
       //   object-position: 50% 0%;
-      object-fit: cover;
+      // object-fit: cover;
     }
   }
 }

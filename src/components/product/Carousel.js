@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useNavigate, useParams, Navigate } from "react-router-dom";
 import "./Carousel.scss";
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 export default function Carousel({ media }) {
   //const dispatch=useDispatch()
   //const ??? = useSelector(state => state?.reducer?.???)
@@ -9,7 +10,28 @@ export default function Carousel({ media }) {
   return (
     <div className="carousel">
       <div className="library">
-        <div>
+        {" "}
+        <div
+          className="left"
+          onClick={() => {
+            if (page > 0) {
+              setPage((prev) => prev - 1);
+            }
+          }}
+        >
+          <BsChevronLeft />
+        </div>
+        <div
+          className="right"
+          onClick={() => {
+            if (page < media.length - 1) {
+              setPage((prev) => prev + 1);
+            }
+          }}
+        >
+          <BsChevronRight />
+        </div>
+        <div className="frame" style={{ transform: `translateX(-${page}00%)` }}>
           {media.map((e, index) => {
             return <img src={e} key={index} alt="" />;
           })}
