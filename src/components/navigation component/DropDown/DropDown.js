@@ -2,7 +2,6 @@ import './DropDown.scss'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 export const DropDown = () => {
-    console.log('hellooooo')
 
     const whatsNew = [
         {id: 0, label: "What's New"},

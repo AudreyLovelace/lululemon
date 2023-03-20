@@ -16,10 +16,24 @@ function FiveListDes() {
     // }
 
 
+    const meunList = [
+        {id: 0, label: 'WOMEN'},
+        {id: 1, label: "MEN"},
+        {id: 2, label: "ACCESSORIES"}]
+
+
     return (<>
             <nav className='fiveLogo'>
                 <div className='fiveLogo_dropDown'>
-                    <div className="fiveLogo_dropDown_mainBtn"> WOMEN</div>
+                    <div className="fiveLogo_dropDown_menuList">{
+                        meunList.map((item)=>{
+                            return (
+                                <div key={item.id} className="fiveLogo_dropDown_menuList_mainBtn">
+                                    {item.label}
+                                </div>
+                            )
+                        })
+                    }</div>
 
                     <div
                         // style={{display: onButton ? 'block' : 'none'}}
@@ -30,29 +44,17 @@ function FiveListDes() {
                     </div>
                 </div>
 
-                <div className='fiveLogo_dropDown'>
-                    <div className="fiveLogo_dropDown_mainBtn"> MEN</div>
-                    <div className="fiveLogo_dropDown_page">
-                        <DropDown/>
-                    </div>
-                </div>
 
 
-                <div className='fiveLogo_dropDown'>
-                    <div className="fiveLogo_dropDown_mainBtn"> ACCESSORIES</div>
-                    <div className="fiveLogo_dropDown_page">
-                        <DropDown/>
-                    </div>
-                </div>
 
 
             </nav>
 
 
-            <Link to='/' type='button' className='fiveLogo_dropDown_mainBtn'>
+            <Link to='/' type='button' className='fiveLogo_dropDown_menuList_mainBtn'>
                 SHOES
             </Link>
-            <Link to='/' type='button' className='fiveLogo_dropDown_mainBtn'>
+            <Link to='/' type='button' className='fiveLogo_dropDown_menuList_mainBtn'>
                 STUDIO
             </Link>
         </>

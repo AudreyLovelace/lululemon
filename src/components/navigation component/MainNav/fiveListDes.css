@@ -5,7 +5,12 @@
 .fiveLogo_dropDown {
   position: relative;
 }
-.fiveLogo_dropDown_mainBtn {
+.fiveLogo_dropDown_menuList {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.fiveLogo_dropDown_menuList_mainBtn {
   font-size: 16px;
   padding: 5px 20px;
   color: #000000;
@@ -14,7 +19,7 @@
   text-align: center;
   position: relative;
 }
-.fiveLogo_dropDown_mainBtn::before {
+.fiveLogo_dropDown_menuList_mainBtn::before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -24,7 +29,7 @@
   background-color: red;
   transition: width 0.3s ease-in-out;
 }
-.fiveLogo_dropDown_mainBtn:hover::before {
+.fiveLogo_dropDown_menuList_mainBtn:hover::before {
   width: 30%;
 }
 .fiveLogo_dropDown:hover_page {
@@ -35,7 +40,7 @@
   position: absolute;
   background-color: #f9f9f9;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  min-width: 1100px;
+  min-width: 990px;
 }
 @media screen and (max-width: 990px) {
   .fiveLogo .fiveLogo_mainBtn {
