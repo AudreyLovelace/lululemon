@@ -16,166 +16,172 @@
   //height: 816.5px;
   width: 438px;
   //width: 25%;
+
+
+  .topLogos {
+    display: flex;
+    justify-content: space-between;
+    //float: right;
+  };
+
+
+  .close {
+    font-size: 20px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: black;
+    //width: 15.72px;
+    //height: 20px;
+  };
+
+  .close:hover {
+    cursor: pointer;
+  };
+
+
+  p {
+    font-size: 14px;
+    text-align: left;
+    color: #595959;
+    margin-bottom: 5px;
+    //font-family: 'Open Sans' !important;
+  };
+
+  .topLine {
+    margin: 20px 0 0 0;
+    font-weight: bold;
+    font-size: 14px;
+  };
+
+  //.feedback p .listening {
+  //  color: #40404a;
+  //  font-size: 14px;
+  //  font-weight: bold;  //??why it's still not BOLD yet?
+  //}
+
+
+  .asterisk {
+    color: red;
+    position: relative;
+    margin-top: -50px; //doesn't reflect on UI
+  };
+
+  .star:hover {
+    cursor: pointer;
+  };
+
+  .numbers {
+    //position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    box-sizing: border-box;
+    line-height: normal;
+    margin: 10px 10px 10px 10px;
+    padding: 0;
+  };
+
+  .numbersBtn:hover {
+    cursor: pointer;
+    background-color: #595959;
+  };
+
+  //.numbers button {
+  //  font-size: 50%;
+  //  font-family: Roboto, "Helvetica Neue", sans-serif;
+  //    width: 27px;
+  //    height: 27px;
+  //}
+
+  .messageBox {
+    //margin: 0 10px 0 10px;
+    //padding: 0 10em 20px 0;
+    background: #FFFFFF;
+    padding: 6px 4px;
+    border-radius: 4px !important;
+    color: #1e1e1e;
+    width: 378px;
+    height: 77px;
+    line-height: 1.5;
+    background-clip: padding-box;
+    border: 1px solid #595959;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    display: block;
+    position: relative;
+    margin: auto;
+    text-align: left;
+
+  };
+
+  input[type='text'] {
+    color: #595959 !important;
+    font-size: 13px;
+    position: relative;
+    display: block;
+    margin: 0 0 0 31px !important;
+    cursor: inherit;
+  };
+
+  a {
+    color: #0071EB;
+    text-decoration: none;
+  };
+
+  .twoBtns {
+    display: flex;
+    justify-content: flex-end;
+    float: right;
+  };
+
+  .closeBtn {
+    margin: 0 10px 0 0;
+    padding: 6px 12px;
+    justify-content: flex-end;
+    line-height: 1.42857143;
+    transition: all 0.3s ease 0s !important;
+    position: relative;
+    color: rgb(91, 91, 91);
+    background-color: rgb(226, 226, 226);
+    font-size: 0.875rem;
+    font-weight: 400;
+    border-radius: 0.25rem;
+    border: 1px solid;
+    cursor: pointer;
+  };
+
+  .submitBtn {
+    margin: 0;
+    padding: 6px 12px;
+    background-color: rgb(74, 74, 74);
+    color: rgb(255, 255, 255);
+    font-size: 0.875rem;
+    line-height: 1.42857143;
+    cursor: pointer;
+    position: relative;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border-radius: 0.25rem;
+  };
+
+  .medallia {
+    text-align: right;
+    cursor: pointer;
+  };
+
+  .bottomTwoLines {
+    display: flex;
+    flex-direction: column;
+    //flex-wrap: wrap;
+    float: right;
+    color: black !important;
+  };
+
 }
 
-.topLogos {
-  display: flex;
-  justify-content: space-between;
-  //float: right;
-}
 
 
-.close {
-  font-size: 20px;
-  border: none;
-  outline: none;
-  background-color: transparent;
-  color: black;
-  //width: 15.72px;
-  //height: 20px;
-}
 
-.close:hover {
-  cursor: pointer;
-}
-
-
-.feedback p {
-  font-size: 14px;
-  text-align: left;
-  color: #595959;
-  margin-bottom: 5px;
-  //font-family: 'Open Sans' !important;
-}
-
-.topLine{
-  margin: 20px 0 0 0;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-//.feedback p .listening {
-//  color: #40404a;
-//  font-size: 14px;
-//  font-weight: bold;  //??why it's still not BOLD yet?
-//}
-
-
-.asterisk {
-  color: red;
-  position: relative;
-  margin-top: -50px; //doesn't reflect on UI
-}
-
-.star:hover {
-  cursor: pointer;
-}
-
-.numbers {
-  //position: relative;
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: row;
-  box-sizing: border-box;
-  line-height: normal;
-  margin: 10px 10px 10px 10px;
-  padding: 0;
-}
-
-.numbersBtn:hover {
-  cursor: pointer;
-  background-color: #595959;
-}
-
-//.numbers button {
-//  font-size: 50%;
-//  font-family: Roboto, "Helvetica Neue", sans-serif;
-//    width: 27px;
-//    height: 27px;
-//}
-
-.messageBox {
-  //margin: 0 10px 0 10px;
-  //padding: 0 10em 20px 0;
-  background: #FFFFFF;
-  padding: 6px 4px;
-  border-radius: 4px !important;
-  color: #1e1e1e;
-  width: 378px;
-  height: 77px;
-  line-height: 1.5;
-  background-clip: padding-box;
-  border: 1px solid #595959;
-  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-  display: block;
-  position: relative;
-  margin: auto;
-  text-align: left;
-
-}
-
-input[type='text'] {
-  color: #595959 !important;
-  font-size: 13px;
-  position: relative;
-  display: block;
-  margin: 0 0 0 31px !important;
-  cursor: inherit;
-}
-
-a {
-  color: #0071EB;
-  text-decoration: none;
-}
-
-.twoBtns {
-  display: flex;
-  justify-content: flex-end;
-  float: right;
-}
-
-.closeBtn {
-  margin: 0 10px 0 0;
-  padding: 6px 12px;
-  justify-content: flex-end;
-  line-height: 1.42857143;
-  transition: all 0.3s ease 0s !important;
-  position: relative;
-  color: rgb(91, 91, 91);
-  background-color: rgb(226, 226, 226);
-  font-size: 0.875rem;
-  font-weight: 400;
-  border-radius: 0.25rem;
-  border: 1px solid;
-  cursor: pointer;
-}
-
-.submitBtn {
-  margin: 0;
-  padding: 6px 12px;
-  background-color: rgb(74, 74, 74);
-  color: rgb(255, 255, 255);
-  font-size: 0.875rem;
-  line-height: 1.42857143;
-  cursor: pointer;
-  position: relative;
-  font-weight: 400;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  border-radius: 0.25rem;
-}
-
-.medallia {
-  text-align: right;
-  cursor: pointer;
-}
-
-.bottomTwoLines{
-  display: flex;
-  flex-direction: column;
-  //flex-wrap: wrap;
-  float: right;
-  color: black !important;
-}
 

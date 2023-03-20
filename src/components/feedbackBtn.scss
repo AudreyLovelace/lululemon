@@ -1,3 +1,18 @@
-.feedbackBtn {
-position: fixed;
+.feedback-button {
+  cursor: pointer;
+  height: 40px;
+  width: 100px;
+  //line-height: 32px;
+  //font-weight: 600;
+  text-align: center;
+  //font-size: 17px;
+  position: fixed;
+  right: -40px;
+  top: 45%;
+  //font-family: "Roboto", helvetica, arial, sans-serif;
+  z-index: 999;
+  border:none;
+  outline:none;
+  background-color: transparent;
 }
+

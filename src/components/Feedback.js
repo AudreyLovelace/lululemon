@@ -53,11 +53,11 @@ const Feedback = (onClose) => {
                         <span className="star">&#9733;</span>
                     );
                 })}
-                <p> This Field is Required.</p>
+                {/*<p> This Field is Required.</p>*/}
             </div>
 
             <div>
-                <br/>
+                {/*<br/>*/}
                 <p>How likely are you to recommend lululemon to a friend or family member?</p>
             </div>
 
@@ -69,24 +69,24 @@ const Feedback = (onClose) => {
                         </div>
                     );
                 })}
-                <br/>
+                {/*<br/>*/}
             </div>
 
             <div>
-                <br/>
+                {/*<br/>*/}
                 <p>Please tell us about your experience.</p>
                 <input className='messageBox' type="text"/>
             </div>
 
             <div>
-                <br/>
+                {/*<br/>*/}
                 <p>Would you like us to follow up with you?</p>
                 <input type="radio" value='Yes' name='Yes'/> Yes
                 <input type="radio" value='No' name='No'/> No
             </div>
 
             <div>
-                <br/>
+                {/*<br/>*/}
                 <p>We really appreciate your feedback. Have questions or need immediate support?
                     <a href="https://shop.lululemon.com/contact" target='_blank' rel="noreferrer" color='#0071EB'> Click
                         here </a>
