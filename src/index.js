@@ -7,16 +7,17 @@ import { Provider } from "react-redux";
 import reducers from "./reducers";
 import { BrowserRouter } from "react-router-dom";
 import { AddToHomeScreen } from "@mui/icons-material";
-// import { ThemeProvider, theme } from "@mui/styles";
+import { ThemeProvider } from "@mui/styles";
+import { theme } from "./theme";
 
 const reduxStore = createStore(reducers, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={reduxStore}>
     <BrowserRouter>
-      {/* <ThemeProvider> */}
-      <App />
-      {/* </ThemeProvider> */}
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
     </BrowserRouter>
   </Provider>,
   document.getElementById("root")
