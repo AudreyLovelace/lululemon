@@ -11,25 +11,43 @@ import MainFooter from "./components/footer/MainFooter";
 import "./WhatsNew.scss";
 import OneProduct from "./components/productPreview/OneProduct";
 import MoreProduct from "./components/filter/MoreProduct";
-import { MyComponent } from "./components/navigation component/MainNav/practive";
-import { DropDown } from "./components/navigation component/DropDown/DropDown";
 
 export default function WhatsNew(props) {
   const products = useSelector((state) => {
     return state?.lululemonReducer;
   });
   console.log(products);
-
+  const [fixNav, setFixNav] = useState(false);
+  function handleScroll() {
+    console.log(
+      window.innerHeight,
+      document.documentElement.scrollTop,
+      document.documentElement.offsetHeight
+    );
+    if (document.documentElement.scrollTop >= 24) {
+      setFixNav(true);
+    } else {
+      setFixNav(false);
+    }
+  }
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      handleScroll();
+    });
+    return () => {
+      window.removeEventListener("scroll", handleScroll());
+    };
+  }, []);
   return (
     <div className="whats_new">
-      <nav>
+      <nav className={fixNav ? "fix_nav" : ""}>
         <div className="container">
           <TopNavigation />
           {/*<DropDown/>*/}
         </div>
       </nav>
       <div className="container">
-        <main>
+        <main className={fixNav ? "avoid_jump" : ""}>
           <div className="filter_desktop">
             <Filter />
           </div>
@@ -58,6 +76,9 @@ export default function WhatsNew(props) {
           </div>
         </main>
         <MoreProduct />
+      </div>{" "}
+      <div className="container">
+        <MainFooter />
       </div>
     </div>
   );
