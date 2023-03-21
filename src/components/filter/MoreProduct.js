@@ -12,6 +12,41 @@ export default function MoreProduct(props) {
   const products = useSelector((state) => {
     return state?.lululemonReducer;
   });
+  // const [products, setProducts] = useState(wholeProducts.slice(0, -20));
+  // const productsEle = useRef();
+  // useEffect(() => {
+  //   function handleScroll() {
+  //     // console.log(
+  //     //   window.innerHeight,
+  //     //   document.documentElement.scrollTop,
+  //     //   document.documentElement.offsetHeight
+  //     // );
+  //     // if (productsEle.current) {
+  //     //   console.log(
+  //     //     productsEle.current.getBoundingClientRect().bottom,
+  //     //     window.innerHeight
+  //     //   );
+  //     // }
+  //     // if (
+  //     //   productsEle.current &&
+  //     //   productsEle.current.getBoundingClientRect().bottom <= window.innerHeight
+  //     // ) {
+  //     //   setProducts(wholeProducts);
+  //     // } else if (
+  //     //   productsEle.current &&
+  //     //   productsEle.current.getBoundingClientRect().bottom > window.innerHeight
+  //     // ) {
+  //     //   setProducts(wholeProducts.slice(0, -20));
+  //     // }
+  //   }
+  //   window.addEventListener("scroll", () => {
+  //     handleScroll();
+  //   });
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll());
+  //   };
+  // }, []);
+
   const minus = (
     <svg
       height="19"
