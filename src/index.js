@@ -8,13 +8,14 @@ import reducers from "./reducers";
 import {BrowserRouter} from "react-router-dom";
 import {AddToHomeScreen} from "@mui/icons-material";
 import {ThemeProvider} from "@mui/styles";
+import {theme} from "./theme";
 
 const reduxStore = createStore(reducers, applyMiddleware(thunk));
 
 ReactDOM.render(
     <Provider store={reduxStore}>
         <BrowserRouter>
-            <ThemeProvider>
+            <ThemeProvider theme={theme}>
                 <App/>
             </ThemeProvider>
         </BrowserRouter>
