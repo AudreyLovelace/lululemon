@@ -16,21 +16,29 @@ export default function WhatsNew(props) {
   const products = useSelector((state) => {
     return state?.lululemonReducer;
   });
-  console.log(products);
+  // console.log(products);
   const [fixNav, setFixNav] = useState(false);
-  function handleScroll() {
-    console.log(
-      window.innerHeight,
-      document.documentElement.scrollTop,
-      document.documentElement.offsetHeight
-    );
-    if (document.documentElement.scrollTop >= 24) {
-      setFixNav(true);
-    } else {
-      setFixNav(false);
-    }
-  }
+  const productsEle = useRef(null);
+
   useEffect(() => {
+    function handleScroll() {
+      // console.log(
+      //   window.innerHeight,
+      //   document.documentElement.scrollTop,
+      //   document.documentElement.offsetHeight
+      // );
+      if (productsEle.current) {
+        console.log(
+          productsEle.current.getBoundingClientRect().bottom,
+          window.innerHeight
+        );
+      }
+      if (document.documentElement.scrollTop >= 24) {
+        setFixNav(true);
+      } else {
+        setFixNav(false);
+      }
+    }
     window.addEventListener("scroll", () => {
       handleScroll();
     });
@@ -62,7 +70,7 @@ export default function WhatsNew(props) {
             <div className="filter_tablet">
               <TabletFilter />
             </div>
-            <div className="products">
+            <div className="products" ref={productsEle}>
               {products.map((e, index) => {
                 return <OneProduct one={e} key={index} />;
               })}{" "}
