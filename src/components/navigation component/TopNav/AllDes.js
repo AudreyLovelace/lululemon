@@ -2,15 +2,20 @@ import {GiftCard, Global, SignIn, StoreLocation, WishList} from "./TopIcon";
 import "./AllDes.scss"
 import {Link} from "react-router-dom";
 import {BagLogo, GiftCard1, LuluLogo, SignIn1, StoreLocation1, WishList1} from "./NewLogo";
+import Typography from '@mui/material/Typography';
+import Popover from '@mui/material/Popover';
+import {Menu, MenuItem} from "@mui/material";
 import {useState} from "react";
-import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
-// import MenuBar from "./MenuBar";
+
 
 const AllDes = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen)
+    const [anchorEl, setAnchorEl] = useState(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
     };
 
 
@@ -21,10 +26,22 @@ const AllDes = () => {
                     <p className="topLine_details_names">Store Location</p>
                 </Link>
 
-                <Link to="/" className="topLine_details">
+                <div className="topLine_details" onClick={handleClick}>
                     <SignIn/>
                     <p className="topLine_details_names">Sign In</p>
-                </Link>
+                </div>
+                <Menu
+                    id="basic-menu"
+                    anchorEl={anchorEl}
+                    open={open}
+                    onClose={handleClose}
+                    MenuListProps={{
+                        'aria-labelledby': 'basic-button',
+                    }}
+                >
+                    <MenuItem onClick={handleClose}>Sign In</MenuItem>
+                    <MenuItem onClick={handleClose}>Log In</MenuItem>
+                </Menu>
 
                 <Link to="/" className="topLine_details">
                     <WishList/>
@@ -50,9 +67,23 @@ const AllDes = () => {
                     </Link>
                 </div>
                 <div className='resDesLogo_fiveLoge'>
-                    <Link to="./" className='resDesLogo_fiveLoge_each'>
+                    <div className='resDesLogo_fiveLoge_each' onClick={handleClick}>
                         <SignIn1/>
-                    </Link>
+                    </div>
+                    <Menu
+                        id="basic-menu"
+                        anchorEl={anchorEl}
+                        open={open}
+                        onClose={handleClose}
+                        MenuListProps={{
+                            'aria-labelledby': 'basic-button',
+                        }}
+                    >
+                        <MenuItem onClick={handleClose}>Sign In</MenuItem>
+                        <MenuItem onClick={handleClose}>Log In</MenuItem>
+                    </Menu>
+
+
                     <Link to="./" className='resDesLogo_fiveLoge_each'>
                         <StoreLocation1/>
                     </Link>

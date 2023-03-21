@@ -1,0 +1,143 @@
+.dropdownFile {
+  margin: 0 auto;
+  position: absolute;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  padding: 15px 0;
+
+  &_main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    &_left {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      border-right: 1px solid #57585b;
+      align-items: flex-start;
+    }
+
+    &_middle {
+      display: flex;
+      flex-direction: column;
+
+      &_topic {
+      }
+
+      &_detail {
+        display: flex;
+        flex-direction: row;
+
+        &_eachRow {
+          display: flex;
+          flex-direction: column;
+          flex-wrap: nowrap;
+          align-items: flex-start;
+        }
+      }
+
+      &_detailRight {
+        display: flex;
+        flex-direction: column;
+
+        &_topic {
+        }
+
+        &_detail {
+          display: flex;
+          flex-direction: row;
+
+          &_eachRow {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: flex-start;
+          }
+        }
+      }
+    }
+
+    &_right {
+      display: flex;
+      flex-direction: column;
+      //justify-content: space-evenly;
+
+      &_highLight {
+        font-size: 20px;
+        font-weight: 600;
+        margin: 20px 0;
+      }
+
+      &_normal {
+        color: #57585b;
+      }
+
+      &_download {
+        margin: 20px 0;
+        font-weight: bold;
+        font-size: 16px;
+        display: flex;
+        flex-direction: row;
+      }
+    }
+  }
+
+  &_under {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+    &_activity {
+      margin: 20px 20px;
+      color: #57585b;
+      font-size: 15px;
+      font-weight: 400;
+    }
+
+    &_sports {
+      display: flex;
+      flex-direction: row;
+    }
+
+    &_shop {
+      font-weight: 600;
+      font-size: 15px;
+      color: #57585b;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+}
+
+.textHover {
+  font-size: 14px;
+  padding: 10px 20px;
+  color: #57585b;
+  text-decoration: none;
+  font-weight: 400;
+  text-align: center;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    left: 5px;
+    width: 0;
+    height: 2px;
+    background-color: red;
+    transition: width ease-in-out 0.3s;
+  }
+
+  &:hover::before {
+    width: 100%;
+  }
+}
