@@ -15,6 +15,7 @@ export default function WhatsNew(props) {
   const products = useSelector((state) => {
     return state?.lululemonReducer;
   });
+  console.log(products);
 
   return (
     <div className="whats_new">
@@ -43,6 +44,12 @@ export default function WhatsNew(props) {
               {products.map((e, index) => {
                 return <OneProduct one={e} key={index} />;
               })}
+              {products.length === 0 && (
+                <h2>
+                  Opps! There's something wrong with the server. Please try
+                  again later~~
+                </h2>
+              )}
             </div>
           </div>
         </main>
