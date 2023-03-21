@@ -1,5 +1,5 @@
 import { filterTypes } from "../actions/filterAction";
-import { searchTypes } from "../actions/searchAction";
+
 function uniqueProducts(products) {
   const uniqueProducts = products.filter((item, index) => {
     const id = item.productId;
@@ -18,6 +18,8 @@ export const lululemonReducer = (state = initState, action) => {
     case filterTypes.moreProducts:
       return uniqueProducts([...state, ...action.payload[0]]);
     //case search keyword
+    case filterTypes.searchProducts:
+      return action.payload[0];
     default:
       return state;
   }

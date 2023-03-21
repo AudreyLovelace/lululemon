@@ -68,12 +68,7 @@ export default function WhatsNew(props) {
               {products.map((e, index) => {
                 return <OneProduct one={e} key={index} />;
               })}{" "}
-              {products.length === 0 && (
-                <h2>
-                  Opps! There's something wrong with the server. Please try
-                  again later~~
-                </h2>
-              )}
+              {products.length === 0 && <h2>Loading...</h2>}
             </div>
           </div>
         </main>

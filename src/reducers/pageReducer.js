@@ -8,6 +8,8 @@ export const pageReducer = (state = initState, action) => {
     case filterTypes.moreProducts:
       // console.log(action.payload[1]);
       return action?.payload[1];
+    case filterTypes.searchProducts:
+      return action?.payload[1];
     default:
       return state;
   }

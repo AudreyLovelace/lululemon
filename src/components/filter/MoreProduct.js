@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
+
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useNavigate, useParams, Navigate } from "react-router-dom";
 import { filterActions } from "../../actions/filterAction";
@@ -12,40 +13,27 @@ export default function MoreProduct(props) {
   const products = useSelector((state) => {
     return state?.lululemonReducer;
   });
-  // const [products, setProducts] = useState(wholeProducts.slice(0, -20));
-  // const productsEle = useRef();
-  // useEffect(() => {
-  //   function handleScroll() {
-  //     // console.log(
-  //     //   window.innerHeight,
-  //     //   document.documentElement.scrollTop,
-  //     //   document.documentElement.offsetHeight
-  //     // );
-  //     // if (productsEle.current) {
-  //     //   console.log(
-  //     //     productsEle.current.getBoundingClientRect().bottom,
-  //     //     window.innerHeight
-  //     //   );
-  //     // }
-  //     // if (
-  //     //   productsEle.current &&
-  //     //   productsEle.current.getBoundingClientRect().bottom <= window.innerHeight
-  //     // ) {
-  //     //   setProducts(wholeProducts);
-  //     // } else if (
-  //     //   productsEle.current &&
-  //     //   productsEle.current.getBoundingClientRect().bottom > window.innerHeight
-  //     // ) {
-  //     //   setProducts(wholeProducts.slice(0, -20));
-  //     // }
-  //   }
-  //   window.addEventListener("scroll", () => {
-  //     handleScroll();
-  //   });
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll());
-  //   };
-  // }, []);
+  const observer = useRef();
+  const moreProduct = useCallback((node) => {
+    observer.current = new IntersectionObserver(
+      (entry) => {
+        if (entry[0].isIntersecting) {
+          setTimeout(() => {
+            filterActions.filterProduct(
+              dispatch,
+              sordId,
+              filter,
+              pages.curPage + 1
+            );
+          }, 100);
+        }
+      },
+      { rootMargin: "50px" }
+    );
+    if (node) {
+      observer.current.observe(node);
+    }
+  });
 
   const minus = (
     <svg
@@ -67,15 +55,16 @@ export default function MoreProduct(props) {
   if (pages.totalPage > pages.curPage) {
     return (
       <div
-        className="more_product"
-        onClick={() => {
-          filterActions.filterProduct(
-            dispatch,
-            sordId,
-            filter,
-            pages.curPage + 1
-          );
-        }}
+        ref={moreProduct}
+        // className="more_product"
+        // onClick={() => {
+        //   filterActions.filterProduct(
+        //     dispatch,
+        //     sordId,
+        //     filter,
+        //     pages.curPage + 1
+        //   );
+        // }}
       >
         <p>
           viewing {products.length} of {pages.totalProducts} more
@@ -85,7 +74,7 @@ export default function MoreProduct(props) {
           <div className="plus-minus">
             <div className="fixed">{minus}</div>
             <div className={"move"}>{minus}</div>
-          </div>{" "}
+          </div>
           VIEW MORE PRODUCTS
         </h4>
       </div>

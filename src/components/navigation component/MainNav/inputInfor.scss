@@ -48,8 +48,10 @@
 }
 
 @media screen and (max-width: 990px) {
-  .search_input {
+  form {
     width: 100%;
-    margin: 0 auto;
+    input {
+      width: 100%;
+    }
   }
 }

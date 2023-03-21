@@ -16,9 +16,13 @@ export const filterTypes = {
   sort: "SORT",
   initProducts: "INITPRODUCTS",
   moreProducts: "MOREPRODUCTS",
+  searchProducts: "SEARCHPRODUCTS",
 };
 
 export const filterActions = {
+  searchProducts(products, pageInfo) {
+    return { type: filterTypes.searchProducts, payload: [products, pageInfo] };
+  },
   moreProducts(products) {
     return { type: filterTypes.moreProducts, payload: products };
   },
@@ -63,21 +67,8 @@ export const filterActions = {
 
     axios(request)
       .then((response) => {
-        // console.log(response);
-        // console.log(response.data.rs);
-
         if (response.statusText === "OK") {
           const products = response.data.rs.products;
-          // console.log(products);
-          // const uniqueProducts = products.filter((item, index) => {
-          //   const id = item.productId;
-          //   const i = products.findIndex((e) => {
-          //     // console.log(e, "a");
-          //     return e.productId === id;
-          //   });
-          //   // console.log(index, i);
-          //   return index === i;
-          // });
           if (page === 1) {
             dispatch(
               filterActions.initProducts([
@@ -99,16 +90,6 @@ export const filterActions = {
         console.log(error);
       })
       .finally(() => {});
-  },
-};
-
-export const helpers = {
-  firstLetter(sententce) {
-    let a = sententce.split(" ");
-    a = a.map((e, index) => (e = e.charAt(0).toUpperCase() + e.slice(1)));
-    a = a.join(" ");
-    console.log(a);
-    return a;
   },
 };
 
