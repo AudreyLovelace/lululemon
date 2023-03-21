@@ -2,9 +2,6 @@
   display: flex;
   flex-direction: row;
 }
-.fiveLogo_dropDown {
-  position: relative;
-}
 .fiveLogo_dropDown_menuList {
   display: flex;
   flex-direction: row;
@@ -40,7 +37,8 @@
   position: absolute;
   background-color: #f9f9f9;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  min-width: 990px;
+  left: 0;
+  width: 100%;
 }
 @media screen and (max-width: 990px) {
   .fiveLogo .fiveLogo_mainBtn {

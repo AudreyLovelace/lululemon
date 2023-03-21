@@ -24,6 +24,7 @@ export default function WhatsNew(props) {
             <nav>
                 <div className="container">
                     <TopNavigation/>
+                    {/*<DropDown/>*/}
                 </div>
             </nav>
             <div className="container">
