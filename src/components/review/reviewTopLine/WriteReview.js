@@ -31,7 +31,7 @@ const useStyle = makeStyles((theme) => ({
         bottom: 0,
         margin: "auto",
         [theme.breakpoints.down("md")]: {
-            height: '200vh',
+            height: '100vh',
             width: '100vw',
             maxWidth: '100%', maxHeight: '100%'
         },
@@ -87,7 +87,7 @@ export const WriteReview = () => {
 
 
     // media quary ing
-    const isSmallScreen = useMediaQuery('(max-width:600px)');
+    const isSmallScreen = useMediaQuery('(max-width:990px)');
 
 
     return (
@@ -98,12 +98,13 @@ export const WriteReview = () => {
                 <Button
                     variant="contained"
                     sx={{color: '#ffffff', bgcolor: '#000000'}}
-                    size="large">
+                    size="large"
+                >
                     WRITE A REVIEW
                 </Button>
             </Tooltip>
             <Modal open={open} onClose={() => setOpen(false)} style={{overflow: 'auto'}}>
-                <Container  className={classes.container}>
+                <Container className={classes.container}>
                     <Grid container spacing={2}>
                         <Grid item xs={12} sm={6}>
                             <Box mt={3}>
@@ -120,7 +121,7 @@ export const WriteReview = () => {
                               xs={10}
                               sm={6}
                               style={{maxWidth: '100%', maxHeight: '100%'}}>
-                            <Card >
+                            <Card>
                                 <Typography variant="h5" component="h2" sx={{p: 2}}>
                                     Write a review for
                                     Commission Slim-Fit Pant 32" Wov ...
@@ -153,7 +154,7 @@ export const WriteReview = () => {
                                             <TextField
                                                 id="outlined-multiline-static"
                                                 multiline
-                                                rows={4}
+                                                rows={3}
                                                 fullWidth
                                             />
                                         </Box>
@@ -248,15 +249,20 @@ export const WriteReview = () => {
 
 
                                 <Stack spacing={2} sx={{width: '100%'}}>
-                                    <Button variant="contained" onClick={handleClick}
-                                            sx={{m: 2}}>
-                                        Submit
-                                    </Button>
-                                    <Snackbar open={openAbt} autoHideDuration={6000} onClose={handleClose}>
-                                        <AlertMessage onClose={handleClose} severity="success" sx={{width: '100%'}}>
-                                            This is a success message!
-                                        </AlertMessage>
-                                    </Snackbar>
+                                    <Box style={{display: "flex", flexDirection: "row"}}>
+                                        <Button variant="contained" onClick={handleClick} sx={{m: 2, width: "50%"}}>
+                                            Submit
+                                        </Button>
+                                        <Button variant="contained" onClick={() => setOpen(false)}
+                                                sx={{m: 2, width: "50%"}}>
+                                            Back
+                                        </Button>
+                                        <Snackbar open={openAbt} autoHideDuration={6000} onClose={handleClose}>
+                                            <AlertMessage onClose={handleClose} severity="success" sx={{width: '100%'}}>
+                                                This is a success message!
+                                            </AlertMessage>
+                                        </Snackbar>
+                                    </Box>
                                 </Stack>
 
                             </Card>

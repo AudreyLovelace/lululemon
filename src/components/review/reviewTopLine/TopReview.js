@@ -49,7 +49,7 @@ export const TopReview = () => {
                 </div>
             </div>
 
-            <WriteReview/>
+            <WriteReview />
         </div>
     )
 }

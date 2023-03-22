@@ -85,8 +85,13 @@
 @media screen and (max-width: 990px) {
   .topLineReview_text,
   .topLineReview_rating,
-  .topLineReview_size{
+  .topLineReview_size {
     margin: 5px;
   }
 }
 
+@media screen and (max-width: 990px) {
+  .WriteReview {
+    width: 100%;
+  }
+}
