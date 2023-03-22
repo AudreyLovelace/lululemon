@@ -1,5 +1,5 @@
 import "./inputInfor.scss";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Search } from "./Icon";
 import { filterActions } from "../../../actions/filterAction";
 import { useSelector, useDispatch } from "react-redux";
@@ -16,11 +16,12 @@ export const InputInfo = () => {
   useEffect(() => {
     if (message.length && products.length) {
       //filter products which name contains message
-
-      const message1 = message;
+      const message1 = message.toLowerCase().split(" ");
+      const message2 = message;
+      //   console.log(message1);
       setMessage([]);
       const newProduct = products.filter((product) => {
-        const rightMatch = message.length;
+        const rightMatch = message1.length;
         let result = 0;
         message1.forEach((word) => {
           if (product?.name?.toLowerCase().includes(word)) {
@@ -30,11 +31,12 @@ export const InputInfo = () => {
         return result === rightMatch;
       });
       const pageParams = {
-        totalProducts: newProduct.length,
+        totalProducts: `${newProduct.length} results for "${message2}"`,
         perPage: newProduct.length,
         curPage: 1,
         totalPage: 1,
       };
+
       dispatch(filterActions.searchProducts(newProduct, pageParams));
     }
   }, [products]);
@@ -44,10 +46,10 @@ export const InputInfo = () => {
       <form
         className="search_form"
         onSubmit={(e) => {
-          console.log(e.target);
+          //   console.log(e.target);
           e.preventDefault();
-          const words = e.target[0].value.toLowerCase().split(" ");
-          setMessage(words);
+
+          setMessage(e.target[0].value);
           e.target[0].value = null;
           //clear filter
           filterActions.initPage(dispatch);
@@ -55,7 +57,7 @@ export const InputInfo = () => {
       >
         <Search />
 
-        <input type="text" placeholder="Search" className="search_input" />
+        <input type="search" placeholder="Search" className="search_input" />
       </form>
     </div>
   );
