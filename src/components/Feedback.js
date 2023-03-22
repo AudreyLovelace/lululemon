@@ -2,13 +2,20 @@ import './feedback.scss';
 import './feedbackBtn.scss'
 import React, {useState} from "react";
 import StarIcon from '@mui/icons-material/Star';
-// import CloseModal from "./CloseModal";
+import CloseModal from "./CloseModal";
+import Box from '@mui/material/Box';
+import Rating from '@mui/material/Rating';
+import Typography from '@mui/material/Typography';
 
 const Feedback = ({open, onClose}) => {
     // if (!open) return null;  ????
 
-    const star = [0, 1, 2, 3, 4]
+    const [value, setValue] = React.useState(2);
 
+    let [starRatingValue, setStarRatingValue] = useState(null);
+    // const star = [0, 1, 2, 3, 4]
+
+    let [numRatingValue, setNumRatingValue] = useState(null);
     const number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
     // function setOpenModal(b) {
@@ -24,15 +31,18 @@ const Feedback = ({open, onClose}) => {
                     src="https://resources.digital-cloud.medallia.com/wdcus/55284/resources/image/1587642806364_rsz_lululemon_yogo_rgb_clr-54.jpg"
                     alt="logo"/>
 
-                <div>
-                    <button style={{outline: 'none'}}
-                        className='close'>
-                        {/*<i className="fa fa-times"></i>*/}
-                        <p onClick={onclose} className='fa fa-times xBtn'
-                           style={{ fontWeight: 24}}>X</p>
-                    </button>
+                <CloseModal/>
 
-                </div>
+                {/*<div>*/}
+                {/*    <button style={{outline: 'none'}}*/}
+                {/*        className='close'>*/}
+                {/*        /!*<i className="fa fa-times"></i>*!/*/}
+                {/*        <p onClick={onclose} className='fa fa-times xBtn'*/}
+                {/*           style={{ fontWeight: 24}}>X</p>*/}
+                {/*    </button>*/}
+
+                {/*</div>*/}
+
             </div>
             <div className='topLine'>
                 {/*<div className='listening' style={{fontWeight: 'bold !important'}}>*/}
@@ -47,20 +57,32 @@ const Feedback = ({open, onClose}) => {
             </div>
 
             <div>
-                <p color='red'>Overall, how satisfied are you with your experience?
+                <p>Overall, how satisfied are you with your experience?
                     {/*todo*/}
                     <span className="asterisk">*</span> {/*scss: margin top -10*/}
                 </p>
             </div>
-            <div>
-                {star.map((star) => {
-                    return (
-                        // <starIcon/>
-                        <span className="star">&#9733;</span>
-                    );
-                })}
-                {/*<p> This Field is Required.</p>*/}
-            </div>
+
+            <Box className='starsRating'>
+                <input id='starRadio' type="radio" name='rating'
+                       value={starRatingValue}
+                       onClick={() => setStarRatingValue = {starRatingValue}}
+                />
+                <Rating name="no-value"
+                    // value={null}
+                        className='stars'/>
+            </Box>
+
+            {/*<div>*/}
+            {/*    {star.map((star) => {*/}
+            {/*        return (*/}
+            {/*            // <starIcon/>*/}
+            {/*            <span className="star">&#9733;</span>*/}
+
+            {/*        );*/}
+            {/*    })}*/}
+            {/*    /!*<p> This Field is Required.</p>*!/*/}
+            {/*</div>*/}
 
             <div>
                 {/*<br/>*/}
@@ -68,6 +90,10 @@ const Feedback = ({open, onClose}) => {
             </div>
 
             <div className='numbers'>
+                <input id='numRadio' type="radio" name='numbers'
+                       value={numRatingValue}
+                       onClick={() => setNumRatingValue = {numRatingValue}}
+                />
                 {number.map((numbers) => {
                     return (
                         <div>

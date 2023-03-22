@@ -25,7 +25,8 @@
     justify-content: space-between;
     align-items: start;
     //float: right;
-  };
+  }
+;
 
 
   .close {
@@ -36,11 +37,13 @@
     color: black;
     //width: 15.72px;
     //height: 20px;
-  };
+  }
+;
 
   .close:hover {
     cursor: pointer;
-  };
+  }
+;
 
 
   p {
@@ -49,13 +52,15 @@
     color: #595959;
     margin-bottom: 5px;
     font-family: "Open Sans", serif;
-  };
+  }
+;
 
   .topLine {
     margin: 20px 0 0 0;
     font-weight: bold;
     font-size: 14px;
-  };
+  }
+;
 
   //.feedback p .listening {
   //  color: #40404a;
@@ -68,15 +73,26 @@
     color: red;
     position: relative;
     margin-top: -50px; //doesn't reflect on UI
-  };
+  }
+;
 
-  .star:hover {
+  .stars:hover {
     cursor: pointer;
-  };
+  }
+;
 
-  .star {
+  .stars {
     color: grey;
+    font-size: 35px;
+    margin: 10px 0 10px -20px;
+  }
+;
+ #starRadio {
+  visibility: hidden;
+  }
 
+  #numRadio{
+    visibility: hidden;
   }
 
   .numbers {
@@ -86,14 +102,16 @@
     flex-direction: row;
     box-sizing: border-box;
     line-height: normal;
-    margin: 10px 10px 10px 10px;
+    margin: 10px 40px 10px -40px;
     padding: 0;
-  };
+  }
+;
 
   .numbersBtn:hover {
     cursor: pointer;
     background-color: #595959;
-  };
+  }
+;
 
   //.numbers button {
   //  font-size: 50%;
@@ -120,7 +138,8 @@
     margin: auto;
     text-align: left;
 
-  };
+  }
+;
 
   input[type='text'] {
     color: #595959 !important;
@@ -129,7 +148,8 @@
     display: block;
     margin: 0 0 0 31px !important;
     cursor: pointer;
-  };
+  }
+;
 
   form label {
     font-size: 14px;
@@ -139,13 +159,15 @@
   a {
     color: #0071EB;
     text-decoration: none;
-  };
+  }
+;
 
   .twoBtns {
     display: flex;
     justify-content: flex-end;
     float: right;
-  };
+  }
+;
 
   .closeBtn {
     margin: 0 10px 0 0;
@@ -161,7 +183,8 @@
     border-radius: 0.25rem;
     border: 1px solid;
     cursor: pointer;
-  };
+  }
+;
 
   .submitBtn {
     margin: 0;
@@ -177,7 +200,8 @@
     white-space: nowrap;
     vertical-align: middle;
     border-radius: 0.25rem;
-  };
+  }
+;
 
   .medallia a {
     text-align: right;
@@ -190,8 +214,8 @@
       font-weight: bold;
       color: black;
     }
-  };
-
+  }
+;
 
 
   .bottomTwoLines {
@@ -200,7 +224,8 @@
     //flex-wrap: wrap;
     float: right;
     color: black !important;
-  };
+  }
+;
 
 }
 
