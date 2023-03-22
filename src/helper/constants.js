@@ -10,3 +10,5 @@ export const arrow = (
 
         </svg>
     )
+
+export const FETCH_DATA = 'FETCH_DATA'

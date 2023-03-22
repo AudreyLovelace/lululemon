@@ -1,0 +1,92 @@
+.topLineReview {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+
+
+  &_text {
+    font-size: 55px;
+    font-weight: bold;
+  }
+
+  &_rating {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: flex-start;
+
+    &_first {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+
+      &_text {
+        font-size: 30px;
+        font-weight: 600;
+      }
+
+      &_star {
+        display: flex;
+      }
+    }
+
+    &_second {
+      font-size: 14px;
+      font-weight: 300;
+
+    }
+  }
+
+
+  &_size {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    &_text {
+      font-size: 30px;
+      font-weight: 500;
+    }
+
+    &_sizeRating {
+      display: flex;
+      flex-direction: row;
+
+      &_text {
+        font-size: 14px;
+        font-weight: 300;
+      }
+
+      &_lineForSize {
+        display: flex;
+        flex-direction: row;
+      }
+    }
+  }
+
+  &_write {
+  }
+}
+
+
+@media screen and (max-width: 990px) {
+  .topLineReview {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+  }
+}
+
+
+@media screen and (max-width: 990px) {
+  .topLineReview_text,
+  .topLineReview_rating,
+  .topLineReview_size{
+    margin: 5px;
+  }
+}
+

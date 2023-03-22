@@ -13,6 +13,8 @@ import OneProduct from "./components/productPreview/OneProduct";
 import MoreProduct from "./components/filter/MoreProduct";
 import {MyComponent} from "./components/navigation component/MainNav/practive";
 import {DropDown} from "./components/navigation component/DropDown/DropDown";
+import {TopReview} from "./components/review/reviewTopLine/TopReview";
+import Review from "./components/review/Review";
 
 export default function WhatsNew(props) {
     const products = useSelector((state) => {
@@ -24,7 +26,6 @@ export default function WhatsNew(props) {
             <nav>
                 <div className="container">
                     <TopNavigation/>
-                    {/*<DropDown/>*/}
                 </div>
             </nav>
             <div className="container">
@@ -58,6 +59,6 @@ export default function WhatsNew(props) {
             </div>
         </div>
 
-        // <MyComponent/>
+        // // <MyComponent/>
     );
 }

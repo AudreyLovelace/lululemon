@@ -4,7 +4,9 @@ import {Close, Search} from "./Icon";
 import {filterActions} from "../../../actions/filterAction";
 import {useSelector, useDispatch} from "react-redux";
 import Popover from '@mui/material/Popover';
-import Typography from '@mui/material/Typography';
+import Typography from "@mui/material/Typography";
+
+
 
 export const InputInfo = () => {
     const dispatch = useDispatch();
