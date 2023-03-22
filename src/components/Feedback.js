@@ -1,12 +1,14 @@
 import './feedback.scss';
+import './feedbackBtn.scss'
 import React, {useState} from "react";
-// import {red} from "@mui/material/colors";
 import StarIcon from '@mui/icons-material/Star';
-import CloseModal from "./CloseModal";
+// import CloseModal from "./CloseModal";
 
-const Feedback = (onClose) => {
+const Feedback = ({open, onClose}) => {
+    // if (!open) return null;  ????
+
     const star = [0, 1, 2, 3, 4]
-    
+
     const number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
     // function setOpenModal(b) {
@@ -16,18 +18,21 @@ const Feedback = (onClose) => {
     // }
 
     return (
-
         <div className='feedback'>
             <div className='topLogos'>
                 <img
                     src="https://resources.digital-cloud.medallia.com/wdcus/55284/resources/image/1587642806364_rsz_lululemon_yogo_rgb_clr-54.jpg"
                     alt="logo"/>
 
-                <CloseModal/>
-                {/*<div className='modalRight'>*/}
-                {/*    /!*<button onClick={()=>setOpenModal(true)}>Modal</button>*!/*/}
-                {/*   <p onClick={onclose} className='xBtn'>X</p>*/}
-                {/*</div>*/}
+                <div>
+                    <button style={{outline: 'none'}}
+                        className='close'>
+                        {/*<i className="fa fa-times"></i>*/}
+                        <p onClick={onclose} className='fa fa-times xBtn'
+                           style={{ fontWeight: 24}}>X</p>
+                    </button>
+
+                </div>
             </div>
             <div className='topLine'>
                 {/*<div className='listening' style={{fontWeight: 'bold !important'}}>*/}
@@ -122,8 +127,9 @@ const Feedback = (onClose) => {
                 </div>
             </div>
         </div>
-)
+    )
 }
 
 
 export default Feedback
+
