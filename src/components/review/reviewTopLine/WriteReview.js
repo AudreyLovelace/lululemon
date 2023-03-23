@@ -98,10 +98,8 @@ export const WriteReview = () => {
                      }}>
                 <Button
                     variant="contained"
-                    sx={{color: '#ffffff', bgcolor: '#000000'}}
+                    sx={{color: '#ffffff', bgcolor: '#000000', width: isSmallScreen ? '100%' : 'auto',}}
                     size="large"
-                    // fullwidth
-                    style={{width: isSmallScreen ? '50%' : '100%'}}
                 >
                     WRITE A REVIEW
                 </Button>

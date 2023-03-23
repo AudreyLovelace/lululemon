@@ -5,7 +5,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import ForumIcon from '@mui/icons-material/Forum';
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {addReview, sortReview} from "../../../actions/reviewAction";
 
 export const ResultsReviews = () => {
@@ -34,6 +34,7 @@ export const ResultsReviews = () => {
                     onChange={handleSort}
                     displayEmpty
                     inputProps={{"aria-label": "Without label"}}
+                    style={{marginLeft:"15px", marginRight:'20px'}}
                 >
                     <MenuItem value="Most Recent">Most Recent</MenuItem>
                     <MenuItem value="Highest to Lowest Rating">
@@ -81,14 +82,14 @@ export const ResultsReviews = () => {
                                     <Typography variant="body2">{item.des}</Typography>
                                 </CardContent>
 
-                                <CardContent color="text.secondary">
+                                <CardContent  style={{marginTop:'-10px'}}>
                                     <span>{item.UsualSize}</span>
                                     <span style={{marginLeft: "20px"}}>
                     {item.SizePurchased}
                   </span>
                                 </CardContent>
 
-                                <CardContent>
+                                <CardContent style={{marginTop:'-20px'}}>
                                     <ThumbUpOffAltIcon/>
                                     <ForumIcon style={{marginLeft: "20px"}}/>
                                 </CardContent>

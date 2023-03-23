@@ -1,0 +1,184 @@
+@import url("https://fonts.cdnfonts.com/css/calibre");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.filters {
+  font-family: calibre;
+  background-color: white;
+}
+.filters h1 {
+  padding: 35px 20px;
+  font-size: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.filters h1 svg {
+  height: 20px;
+  margin-top: -8px;
+}
+.filters h1 span:hover {
+  cursor: pointer;
+}
+.filters h4 {
+  font-size: 19px;
+  font-weight: 400;
+}
+.filters p {
+  font-weight: 350;
+  font-size: 18px;
+  margin-right: 5px;
+}
+
+.filters .filter {
+  background-color: white;
+  padding: 15px 20px;
+  border-top: 0.3px solid #e6e6e6;
+}
+.filters .filter_expand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 13px;
+}
+.filters .filter_expand:hover {
+  cursor: pointer;
+}
+.filters .filter_choice .fold {
+  margin: -10px;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+.filters .filter_choice .more {
+  animation-fill-mode: backwards;
+  animation-duration: 500ms;
+  animation-name: more;
+}
+.filters .filter_choice .less {
+  animation-fill-mode: forwards;
+  animation-duration: 500ms;
+  animation-name: less;
+}
+.filters .filter_choice_row {
+  animation-name: show;
+  animation-duration: 1000ms;
+  animation-fill-mode: backwards;
+  margin-top: 10px;
+  display: flex;
+}
+.filters .filter_choice_row div {
+  padding: 1px;
+  box-sizing: border-box;
+  font-weight: 500;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 17px;
+  height: 17px;
+  border: 1.5px solid #57585b;
+  margin-right: 5px;
+}
+.filters .filter_choice_row .sort_radio {
+  border-radius: 30px;
+  border-width: 1px;
+}
+.filters .filter_choice_row .sort_radio_checked {
+  border-color: #d31334;
+  border-radius: 30px;
+  border-width: 1px;
+}
+.filters .filter_choice_row .sort_radio_checked::after {
+  content: "";
+  background-color: #d31334;
+  width: 10px;
+  height: 10px;
+  border-radius: 30px;
+}
+.filters .filter_choice_row .checkbox {
+  color: white !important;
+  background-color: #57585b;
+}
+.filters .filter_choice_row:hover {
+  cursor: default;
+}
+.filters .filter_choice_row:hover div {
+  color: rgb(197, 197, 197);
+}
+.filters .filter_more {
+  transition: all ease-out 200ms;
+  margin-top: 10px;
+  background-color: white;
+  transition: all ease-in-out 1000ms;
+}
+.filters .filter_more .more_or_less {
+  display: flex;
+  align-items: center;
+  line-height: 60px;
+  color: #57585b;
+}
+.filters .filter_more .more_or_less svg {
+  fill: #57585b;
+}
+.filters .filter_more:hover {
+  cursor: pointer;
+}
+.filters .lable_tablet {
+  border-top: none;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+@keyframes more {
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+  50% {
+    height: auto;
+  }
+}
+@keyframes less {
+  0% {
+    height: auto;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    margin: -10px;
+    height: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+@media (max-width: 992px) {
+  .filter_desktop {
+    display: none;
+  }
+  .filter_desktop h1 span {
+    display: none;
+  }
+}
+@media (min-width: 992px) {
+  .filter_tablet {
+    display: none;
+  }
+  .filter_desktop h1 span {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=Filter.css.map */

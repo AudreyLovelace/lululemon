@@ -1,0 +1,45 @@
+.whats_new .more_product:hover {
+  cursor: pointer;
+}
+.whats_new .more_product {
+  width: 100%;
+  background-color: white;
+  text-align: center;
+  padding: 30px 0;
+  margin-bottom: 60px;
+}
+.whats_new .more_product p {
+  margin-bottom: 10px;
+}
+.whats_new .more_product .plus-minus {
+  position: relative;
+  width: 20px;
+  margin-top: 5px;
+  margin-right: 20px;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.whats_new .more_product .plus-minus svg {
+  color: #d31334;
+}
+.whats_new .more_product .plus-minus div {
+  transition: all ease-in 200ms;
+}
+.whats_new .more_product .plus-minus div:nth-child(2) {
+  margin-left: -100%;
+}
+.whats_new .more_product .plus-minus .move {
+  transform: rotate(90deg);
+  margin-top: -12px;
+  margin-left: -23px !important;
+}
+.whats_new .more_product h4 {
+  font-size: 19px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*# sourceMappingURL=MoreProduct.css.map */

@@ -1,0 +1,51 @@
+.searchBar {
+  z-index: 2;
+  width: 100%;
+}
+.searchBar .search_form {
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: space-between;
+  width: 100%;
+}
+.searchBar .search_form .search_search {
+  position: absolute;
+  left: 10px;
+  width: 20px;
+  z-index: 2;
+}
+.searchBar .search_form .search_search :hover {
+  cursor: pointer;
+}
+.searchBar .search_form .search_input {
+  height: 30px;
+  border: none;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  padding: 10px 10px 10px 40px;
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.6);
+  opacity: 0.6;
+  transition: all ease-in-out 0.3s;
+  color: black;
+  outline: 1px solid black;
+  z-index: 2;
+}
+.searchBar .search_form .search_closeIcon {
+  position: absolute;
+  right: 5px;
+  z-index: 2;
+}
+.searchBar .search_form .search_closeIcon :hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 990px) {
+  .search_input {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+/*# sourceMappingURL=inputInfor.css.map */
