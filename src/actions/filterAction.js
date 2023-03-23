@@ -12,16 +12,23 @@ const authorization =
 
 export const filterTypes = {
   checkbox: "CHECKBOX",
-  initFilter: "INITFILTER",
+  initFilter: "INIT_FILTER",
   sort: "SORT",
-  initProducts: "INITPRODUCTS",
-  moreProducts: "MOREPRODUCTS",
-  searchProducts: "SEARCHPRODUCTS",
+  initProducts: "INIT_PRODUCTS",
+  moreProducts: "MORE_PRODUCTS",
+  searchProducts: "SEARCH_PRODUCTS",
+  clearSearchHistory: "CLEAR_SEARCH_HISTORY",
 };
 
 export const filterActions = {
-  searchProducts(products, pageInfo) {
-    return { type: filterTypes.searchProducts, payload: [products, pageInfo] };
+  clearSearchHistory() {
+    return { type: filterTypes.clearSearchHistory };
+  },
+  searchProducts(products, pageInfo, keyword) {
+    return {
+      type: filterTypes.searchProducts,
+      payload: [products, pageInfo, keyword],
+    };
   },
   moreProducts(products) {
     return { type: filterTypes.moreProducts, payload: products };

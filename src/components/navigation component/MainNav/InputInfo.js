@@ -3,6 +3,7 @@ import { useEffect, useState, useRef } from "react";
 import { Search } from "./Icon";
 import { filterActions } from "../../../actions/filterAction";
 import { useSelector, useDispatch } from "react-redux";
+import PopUpSearch from "./PopUpSearch";
 // import Popover from "@mui/material/Popover";
 // import Typography from "@mui/material/Typography";
 
@@ -12,7 +13,7 @@ export const InputInfo = () => {
 
   //get all products
   const products = useSelector((state) => state?.lululemonReducer);
-
+  const [open, setOpen] = useState(false);
   useEffect(() => {
     if (message.length && products.length) {
       //filter products which name contains message
@@ -37,7 +38,7 @@ export const InputInfo = () => {
         totalPage: 1,
       };
 
-      dispatch(filterActions.searchProducts(newProduct, pageParams));
+      dispatch(filterActions.searchProducts(newProduct, pageParams, message2));
     }
   }, [products]);
 
@@ -57,7 +58,21 @@ export const InputInfo = () => {
       >
         <Search />
 
-        <input type="search" placeholder="Search" className="search_input" />
+        <input
+          type="search"
+          placeholder="Search"
+          className="search_input"
+          onClick={() => {
+            setOpen(true);
+          }}
+        />
+        {open && (
+          <PopUpSearch
+            setOpen={setOpen}
+            setMessage={setMessage}
+            dispatch={dispatch}
+          />
+        )}
       </form>
     </div>
   );
