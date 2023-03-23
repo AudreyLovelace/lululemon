@@ -321,9 +321,11 @@ export default function ProductPage(props) {
   //const dispatch=useDispatch()
   //const ??? = useSelector(state => state?.reducer?.???)
   //   const { productId, colorId } = useParams();
-  const colorId = "47824";
+  const initColorId = "47824";
   const productId = "prod9820681";
-  const [id, setId] = useState(colorId);
+  const [id, setId] = useState(initColorId);
+  const alt = one.swatches.filter((e) => e.colorId === id)[0].swatchAlt;
+
   const media = one.images
     .filter((e) => {
       return e.colorId === id;
@@ -331,12 +333,39 @@ export default function ProductPage(props) {
     .mainCarousel.media.split("|");
 
   return (
-    <>
+    <div className="product_page">
       <h1>{one.name}</h1>
       <p>{one.price}</p>
       <Carousel media={media} name={one.name} />
       <h1>{one.name}</h1>
       <p>{one.price}</p>
-    </>
+      <div className="colors">
+        <h2>
+          Colour <span>{alt}</span>
+        </h2>
+        <div className="color">
+          {one.swatches.map((e, i) => {
+            return (
+              <img
+                src={e.swatch}
+                alt={e.swatchAlt}
+                key={i}
+                onClick={() => {
+                  setId(e.colorId);
+                }}
+              />
+            );
+          })}
+        </div>
+      </div>
+      <div className="sizes">
+        <h2>Select Size</h2>
+        <div>
+          {one.sizes[0].details.map((e, i) => {
+            return <div key={i}>{e}</div>;
+          })}
+        </div>
+      </div>
+    </div>
   );
 }
