@@ -11,4 +11,6 @@ export const arrow = (
         </svg>
     )
 
-export const FETCH_DATA = 'FETCH_DATA'
+export const ADD_REVIEW = 'ADD_REVIEW';
+
+export const SORT_REVIEW = 'SORT_REVIEW'

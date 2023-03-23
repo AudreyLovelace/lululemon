@@ -23,8 +23,8 @@ export default function App() {
 
     return (
         <Routes>
-            {/*<Route path="/" element={<WhatsNew />}>*/}
             <Route path="/" element={<Review/>}>
+                <Route path="/" element={<></>}/>
                 <Route path="/books/:id" element={<></>}/>
                 <Route path="*" element={<></>}/>
             </Route>

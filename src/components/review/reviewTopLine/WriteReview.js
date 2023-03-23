@@ -92,13 +92,16 @@ export const WriteReview = () => {
 
     return (
         <div>
-            <Tooltip title="Add" onClick={() => {
-                setOpen(true)
-            }}>
+            <Tooltip title="Add"
+                     onClick={() => {
+                         setOpen(true)
+                     }}>
                 <Button
                     variant="contained"
                     sx={{color: '#ffffff', bgcolor: '#000000'}}
                     size="large"
+                    // fullwidth
+                    style={{width: isSmallScreen ? '50%' : '100%'}}
                 >
                     WRITE A REVIEW
                 </Button>
@@ -193,9 +196,9 @@ export const WriteReview = () => {
                                                 fullWidth
                                                 pl={1}
                                             >
-                                                <MenuItem>Select...</MenuItem>
-                                                <MenuItem>Yoga</MenuItem>
-                                                <MenuItem>Dance</MenuItem>
+                                                <MenuItem value={'Select...'}>Select...</MenuItem>
+                                                <MenuItem value={'Yogo'}>Yoga</MenuItem>
+                                                <MenuItem value={'Dance value='}>Dance</MenuItem>
                                             </Select><Typography pl={1} pt={1}>
                                             What size did you purchase?
                                         </Typography>
@@ -207,9 +210,9 @@ export const WriteReview = () => {
                                                 fullWidth
                                                 pl={1}
                                             >
-                                                <MenuItem>Select...</MenuItem>
-                                                <MenuItem>29</MenuItem>
-                                                <MenuItem> 30</MenuItem>
+                                                <MenuItem value={'Select...'}>Select...</MenuItem>
+                                                <MenuItem value={'29'}>29</MenuItem>
+                                                <MenuItem value={'30'}> 30</MenuItem>
                                             </Select>
 
                                         </Box>

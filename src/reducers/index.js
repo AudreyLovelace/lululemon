@@ -5,6 +5,8 @@ import { filterReducer } from "./filterReducer";
 import { sortReducer } from "./sortReducer";
 import { lableReducer } from "./lableReducer";
 import { pageReducer } from "./pageReducer";
+import reviewReducer from "./reviewReducerRating";
+
 export default combineReducers({
   lululemonReducer,
   cartReducer,
@@ -12,4 +14,5 @@ export default combineReducers({
   sortReducer,
   lableReducer,
   pageReducer,
+  reviewReducer,
 });
