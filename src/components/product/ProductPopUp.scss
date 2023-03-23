@@ -1,0 +1,47 @@
+$red: #d31334;
+.product_pop_up {
+  position: absolute;
+  z-index: 1000;
+  &_top {
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    svg {
+      color: black;
+    }
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    div {
+      height: 100%;
+      width: 300px;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      p {
+        font-size: 18px;
+        border-bottom: 1px solid rgb(220, 220, 220);
+        margin-left: 20px;
+      }
+      p:hover {
+        border-bottom: 1px solid $red;
+      }
+    }
+    div:hover {
+      cursor: pointer;
+    }
+    div:last-child {
+      justify-content: right;
+    }
+  }
+  &_bottom {
+    img {
+      width: 100%;
+      margin-top: 20px;
+    }
+    img:hover {
+      cursor: zoom-out;
+    }
+  }
+}

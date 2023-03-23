@@ -6,15 +6,35 @@
   align-items: center;
   .thumbnails {
     display: grid;
-
-    width: 70%;
+    margin-top: 20px;
+    width: 50%;
     // margin: 0 auto;
-    grid-gap: 20px;
-    img {
-      width: 100%;
-      aspect-ratio: 1/1;
-      object-fit: cover;
-      object-position: 50% 0%;
+    grid-gap: 10px;
+    &_one {
+      img {
+        border-radius: 5px;
+        width: 100%;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        object-position: 50% 0%;
+      }
+      div {
+        height: 2px;
+        margin-top: -3px;
+        transition: all ease-in-out 200ms;
+      }
+      .chosen {
+        background-color: black;
+      }
+    }
+    &_one:hover {
+      cursor: pointer;
+      div {
+        background-color: gray;
+      }
+      .chosen {
+        background-color: black;
+      }
     }
   }
   .library {
@@ -24,18 +44,46 @@
     overflow: hidden;
     position: relative;
     .left,
-    .right {
+    .right,
+    .zoom_in {
       position: absolute;
       top: 50%;
       transform: scale(2);
       z-index: 900;
+      margin: 0 30px;
+      background-color: rgba(255, 255, 255, 0.7);
+      transition: all ease-in-out 200ms;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 5px;
+      border-radius: 3px;
+      svg {
+        transform: scale(0.8);
+      }
+    }
+    .right:hover,
+    .left:hover {
+      cursor: pointer;
+      background-color: white;
     }
     .right {
       right: 0;
     }
+    .zoom_in {
+      top: unset;
+      bottom: 30px;
+      right: 0;
+    }
+    .zoom_in:hover {
+      cursor: zoom-in;
+    }
     .frame {
       display: flex;
       transition: all ease-out 300ms;
+    }
+    .frame:hover {
+      cursor: zoom-in;
     }
 
     img {
@@ -47,15 +95,21 @@
   }
   .dots {
     display: grid;
-    // width: 50%;
     margin: 0 auto;
-
     grid-gap: 8px;
-    .dot {
+    div {
       width: 8px;
       height: 8px;
       border-radius: 20px;
       background-color: grey;
+    }
+    div:hover {
+      background-color: black;
+      cursor: pointer;
+      transition: all ease-in-out 200ms;
+    }
+    .chosen {
+      background-color: black;
     }
   }
 }

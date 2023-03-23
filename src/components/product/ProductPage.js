@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useNavigate, useParams, Navigate } from "react-router-dom";
 import Carousel from "./Carousel";
 
-export default function Product(props) {
+export default function ProductPage(props) {
   const one = {
     productId: "prod9820681",
     swatches: [
@@ -332,7 +332,11 @@ export default function Product(props) {
 
   return (
     <>
-      <Carousel media={media} />
+      <h1>{one.name}</h1>
+      <p>{one.price}</p>
+      <Carousel media={media} name={one.name} />
+      <h1>{one.name}</h1>
+      <p>{one.price}</p>
     </>
   );
 }

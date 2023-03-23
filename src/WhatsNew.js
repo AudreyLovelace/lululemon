@@ -33,11 +33,9 @@ export default function WhatsNew(props) {
         setFixNav(false);
       }
     }
-    window.addEventListener("scroll", () => {
-      handleScroll();
-    });
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll());
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
   return (

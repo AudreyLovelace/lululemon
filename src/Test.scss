@@ -1,0 +1,17 @@
+.test {
+  display: flex;
+  height: 500px;
+  .left,
+  .right {
+    height: 500px;
+    width: 500px;
+  }
+  .left {
+  }
+  .right {
+    overflow-y: auto;
+  }
+  .right_inner {
+    height: 1000px;
+  }
+}
