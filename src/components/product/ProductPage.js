@@ -372,73 +372,75 @@ export default function ProductPage(props) {
 
   if (id) {
     return (
-      <div className="product_page">
-        <div className="product_page_left">
-          <div className="product_page_left_top">
-            <h1>{one.name}</h1>
-            <p>
-              {price[0]}
-              <span> {price[1]}</span>
-            </p>
-            <small>
-              or 4 payments of ${(priceNum / 4).toFixed(2)} with {afterPay} or{" "}
-              {klarna}
-              <BsInfoCircle />
-            </small>
-          </div>
-          <Carousel media={media} name={one.name} />
-        </div>
-        <div className="product_page_right">
-          <div className="product_page_right_top">
-            <h1>{one.name}</h1>
-            <p>
-              {price[0]}
-              <span> {price[1]}</span>
-            </p>{" "}
-            <small>
-              or 4 payments of ${(priceNum / 4).toFixed(2)} with {afterPay} or{" "}
-              {klarna}
-              <BsInfoCircle />{" "}
-            </small>
-          </div>
-          <div className="colors">
-            <h2>
-              Colour <span>{alt}</span>
-            </h2>
-            <div className="color">
-              {one.swatches.map((e, i) => {
-                return (
-                  <div
-                    key={i}
-                    onClick={() => {
-                      setId(e.colorId);
-                    }}
-                    className={id === e.colorId ? "chosen" : ""}
-                    style={{ backgroundImage: `url(${e.swatch})` }}
-                    title={e.swatchAlt}
-                  ></div>
-                );
-              })}
+      <div className="container">
+        <div className="product_page">
+          <div className="product_page_left">
+            <div className="product_page_left_top">
+              <h1>{one.name}</h1>
+              <p>
+                {price[0]}
+                <span> {price[1]}</span>
+              </p>
+              <small>
+                or 4 payments of ${(priceNum / 4).toFixed(2)} with {afterPay} or{" "}
+                {klarna}
+                <BsInfoCircle />
+              </small>
             </div>
+            <Carousel media={media} name={one.name} />
           </div>
-          <div className="sizes">
-            <h2>
-              Select Size <span>{size}</span>
-            </h2>
-            <div className="size">
-              {one.sizes[0].details.map((e, i) => {
-                return (
-                  <div
-                    className={size === e ? "chosen" : ""}
-                    key={i}
-                    onClick={() => {
-                      setSize(e);
-                    }}
-                  >
-                    <p>{e}</p>
-                  </div>
-                );
-              })}
+          <div className="product_page_right">
+            <div className="product_page_right_top">
+              <h1>{one.name}</h1>
+              <p>
+                {price[0]}
+                <span> {price[1]}</span>
+              </p>{" "}
+              <small>
+                or 4 payments of ${(priceNum / 4).toFixed(2)} with {afterPay} or{" "}
+                {klarna}
+                <BsInfoCircle />{" "}
+              </small>
+            </div>
+            <div className="colors">
+              <h2>
+                Colour <span>{alt}</span>
+              </h2>
+              <div className="color">
+                {one.swatches.map((e, i) => {
+                  return (
+                    <div
+                      key={i}
+                      onClick={() => {
+                        setId(e.colorId);
+                      }}
+                      className={id === e.colorId ? "chosen" : ""}
+                      style={{ backgroundImage: `url(${e.swatch})` }}
+                      title={e.swatchAlt}
+                    ></div>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="sizes">
+              <h2>
+                Select Size <span>{size}</span>
+              </h2>
+              <div className="size">
+                {one.sizes[0].details.map((e, i) => {
+                  return (
+                    <div
+                      className={size === e ? "chosen" : ""}
+                      key={i}
+                      onClick={() => {
+                        setSize(e);
+                      }}
+                    >
+                      <p>{e}</p>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
