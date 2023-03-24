@@ -51,15 +51,11 @@ const reviewReducer = (state = initState, action) => {
                 }
                 return state
 
+
+
             case CHECK_FILTER:
                 const filter = action.payload
                 state = {...state, review: review}
-
-                // console.log('5', [...state.review]?.filter((item) => item.id === 5))
-                // console.log('4', [...state.review]?.filter((item) => item.id === 4))
-                // console.log('3', [...state.review]?.filter((item) => item.id === 3))
-                // console.log('2', [...state.review]?.filter((item) => item.id === 2))
-                // console.log('1', [...state.review]?.filter((item) => item.id === 1))
 
                 if (filter === 1) {
                     return {
@@ -96,13 +92,6 @@ const reviewReducer = (state = initState, action) => {
                         review: [...state.review]?.filter((item) => item.id === 5)
                     }
                 }
-                // else {
-                //     return {
-                //         ...state,
-                //         filter: null,
-                //         review: [...state.review]
-                //     }
-                // }
 
             default:
                 return state;
