@@ -10,88 +10,92 @@ export default function Carousel({ media, name }) {
   const dotWidth = "8px";
   const [page, setPage] = useState(0);
   const [open, setOpen] = useState(false);
-  return (
-    <>
-      {open && <ProductPopUp media={media} name={name} setOpen={setOpen} />}
-      <div className="carousel">
-        <div
-          className="library"
-          onClick={() => {
-            setOpen(true);
-          }}
-        >
+  if (media) {
+    return (
+      <>
+        {open && <ProductPopUp media={media} name={name} setOpen={setOpen} />}
+        <div className="carousel">
           <div
-            className="left"
-            onClick={(e) => {
-              e.stopPropagation();
-              if (page > 0) {
-                setPage((prev) => prev - 1);
-              }
+            className="library"
+            onClick={() => {
+              setOpen(true);
             }}
           >
-            <BsChevronLeft />
+            <div
+              className="left"
+              onClick={(e) => {
+                e.stopPropagation();
+                if (page > 0) {
+                  setPage((prev) => prev - 1);
+                }
+              }}
+            >
+              <BsChevronLeft />
+            </div>
+            <div
+              className="right"
+              onClick={(e) => {
+                e.stopPropagation();
+                if (page < media.length - 1) {
+                  setPage((prev) => prev + 1);
+                }
+              }}
+            >
+              <BsChevronRight />
+            </div>
+            <div className="zoom_in">
+              <BsZoomIn />
+            </div>
+            <div
+              className="frame"
+              style={{ transform: `translateX(-${page}00%)` }}
+            >
+              {media?.map((e, index) => {
+                return <img src={e} key={index} alt="" />;
+              })}
+            </div>
           </div>
           <div
-            className="right"
-            onClick={(e) => {
-              e.stopPropagation();
-              if (page < media.length - 1) {
-                setPage((prev) => prev + 1);
-              }
-            }}
-          >
-            <BsChevronRight />
-          </div>
-          <div className="zoom_in">
-            <BsZoomIn />
-          </div>
-          <div
-            className="frame"
-            style={{ transform: `translateX(-${page}00%)` }}
+            className="thumbnails"
+            style={{ gridTemplateColumns: `repeat(${media?.length}, 1fr)` }}
           >
             {media.map((e, index) => {
-              return <img src={e} key={index} alt="" />;
+              return (
+                <div className="thumbnails_one" key={index}>
+                  <img
+                    src={e}
+                    alt=""
+                    onClick={() => {
+                      setPage(index);
+                    }}
+                  />
+                  <div className={page === index ? "chosen" : ""}></div>
+                </div>
+              );
             })}
           </div>
-        </div>
-        <div
-          className="thumbnails"
-          style={{ gridTemplateColumns: `repeat(${media.length}, 1fr)` }}
-        >
-          {media.map((e, index) => {
-            return (
-              <div className="thumbnails_one" key={index}>
-                <img
-                  src={e}
-                  alt=""
+          <div
+            className="dots"
+            style={{
+              gridTemplateColumns: `repeat(${media.length}, ${dotWidth})`,
+            }}
+          >
+            {media.map((e, index) => {
+              return (
+                <div
+                  className={page === index ? "chosen" : ""}
+                  key={index}
                   onClick={() => {
                     setPage(index);
                   }}
-                />
-                <div className={page === index ? "chosen" : ""}></div>
-              </div>
-            );
-          })}
+                ></div>
+              );
+            })}
+          </div>
         </div>
-        <div
-          className="dots"
-          style={{
-            gridTemplateColumns: `repeat(${media.length}, ${dotWidth})`,
-          }}
-        >
-          {media.map((e, index) => {
-            return (
-              <div
-                className={page === index ? "chosen" : ""}
-                key={index}
-                onClick={() => {
-                  setPage(index);
-                }}
-              ></div>
-            );
-          })}
-        </div>
-      </div>
-    </>
-  );
+      </>
+    );
+  } else {
+    return <p>loading</p>;
+  }
 }

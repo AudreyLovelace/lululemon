@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { NavLink, useNavigate, useParams, Navigate } from "react-router-dom";
+import { Link, useNavigate, useParams, Navigate } from "react-router-dom";
 import "./OneProduct.scss";
 import { BsChevronLeft, BsChevronRight, BsTypeH1 } from "react-icons/bs";
 
@@ -43,157 +43,166 @@ export default function OneProduct({ one }) {
   if (one.swatches) {
     return (
       <div className="product">
-        <div className="preview">
-          <img src={productImg(colorId) || defaultImg()} alt="" />
-        </div>
-        <div className="swatches-desktop">
-          <div className="swatches-desktop-arrow">
-            <div
-              className={i === 1 ? "disable" : ""}
-              onClick={() => {
-                setI((prev) => prev - 1);
-              }}
-            >
-              <BsChevronLeft />
-            </div>
+        {" "}
+        <Link
+          to={
+            colorId
+              ? `/p/${one?.productId}/${colorId}`
+              : `/p/${one?.productId}/0`
+          }
+        >
+          <div className="preview">
+            <img src={productImg(colorId) || defaultImg()} alt="" />
           </div>
-          <div className="color-checkboxes">
-            {one[types[1]].map((e, index) => {
-              if (index < (i - 1) * desktopMax || index >= i * desktopMax) {
-                return null;
-              }
+          <div className="swatches-desktop">
+            <div className="swatches-desktop-arrow">
+              <div
+                className={i === 1 ? "disable" : ""}
+                onClick={() => {
+                  setI((prev) => prev - 1);
+                }}
+              >
+                <BsChevronLeft />
+              </div>
+            </div>
+            <div className="color-checkboxes">
+              {one[types[1]].map((e, index) => {
+                if (index < (i - 1) * desktopMax || index >= i * desktopMax) {
+                  return null;
+                }
 
-              return (
-                <div className="color-checkbox" key={index}>
-                  <div
-                    title={e.swatchAlt}
-                    onMouseEnter={() => {
-                      setColorId(e.colorId);
-                      if (load === 0) {
-                        setLoad(-1);
-                      }
-                    }}
-                    className={
-                      e.colorId === colorId || index === load
-                        ? "color-checkbox-checked"
-                        : ""
-                    }
-                    style={{
-                      backgroundImage: `url(${e.swatch})`,
-                    }}
-                  ></div>
-                </div>
-              );
-            })}
-          </div>
-          <div className="swatches-desktop-arrow">
-            <div
-              className={i * desktopMax >= productNum ? "disable" : ""}
-              onClick={() => {
-                setI((prev) => prev + 1);
-              }}
-            >
-              <BsChevronRight />
-            </div>
-          </div>
-        </div>{" "}
-        <div className="swatches-tablet">
-          <div className="swatches-desktop-arrow">
-            <div
-              className={tabletI === 1 ? "disable" : ""}
-              onClick={() => {
-                setTabletI((prev) => prev - 1);
-              }}
-            >
-              <BsChevronLeft />
-            </div>
-          </div>
-          <div className="color-checkboxes">
-            {one[types[1]].map((e, index) => {
-              if (
-                index < (tabletI - 1) * tabletMax ||
-                index >= tabletI * tabletMax
-              ) {
-                return null;
-              }
-              return (
-                <div className="color-checkbox" key={index}>
-                  <div
-                    title={e.swatchAlt}
-                    onMouseEnter={() => {
-                      setColorId(e.colorId);
-                      if (load === 0) {
-                        setLoad(-1);
-                      }
-                    }}
-                    className={
-                      e.colorId === colorId || index === load
-                        ? "color-checkbox-checked"
-                        : ""
-                    }
-                    style={{
-                      backgroundImage: `url(${e.swatch})`,
-                    }}
-                  ></div>
-                </div>
-              );
-            })}
-          </div>
-          <div className="swatches-desktop-arrow">
-            <div
-              className={tabletI * tabletMax > productNum ? "disable" : ""}
-              onClick={() => {
-                setTabletI((prev) => prev + 1);
-              }}
-            >
-              <BsChevronRight />
-            </div>
-          </div>
-        </div>
-        <div className="swatches-mobile">
-          <div className="color-checkboxes">
-            {one[types[1]].map((e, index) => {
-              if (index > tabletMax) {
-                return null;
-              }
-              if (index === tabletMax) {
                 return (
-                  <div key={index}>
-                    <div className="more" title="more color">
-                      +
-                    </div>
+                  <div className="color-checkbox" key={index}>
+                    <div
+                      title={e.swatchAlt}
+                      onMouseEnter={() => {
+                        setColorId(e.colorId);
+                        if (load === 0) {
+                          setLoad(-1);
+                        }
+                      }}
+                      className={
+                        e.colorId === colorId || index === load
+                          ? "color-checkbox-checked"
+                          : ""
+                      }
+                      style={{
+                        backgroundImage: `url(${e.swatch})`,
+                      }}
+                    ></div>
                   </div>
                 );
-              }
-
-              return (
-                <div className="color-checkbox" key={index}>
-                  <div
-                    title={e.swatchAlt}
-                    onMouseEnter={() => {
-                      setColorId(e.colorId);
-                      if (load === 0) {
-                        setLoad(-1);
+              })}
+            </div>
+            <div className="swatches-desktop-arrow">
+              <div
+                className={i * desktopMax >= productNum ? "disable" : ""}
+                onClick={() => {
+                  setI((prev) => prev + 1);
+                }}
+              >
+                <BsChevronRight />
+              </div>
+            </div>
+          </div>{" "}
+          <div className="swatches-tablet">
+            <div className="swatches-desktop-arrow">
+              <div
+                className={tabletI === 1 ? "disable" : ""}
+                onClick={() => {
+                  setTabletI((prev) => prev - 1);
+                }}
+              >
+                <BsChevronLeft />
+              </div>
+            </div>
+            <div className="color-checkboxes">
+              {one[types[1]].map((e, index) => {
+                if (
+                  index < (tabletI - 1) * tabletMax ||
+                  index >= tabletI * tabletMax
+                ) {
+                  return null;
+                }
+                return (
+                  <div className="color-checkbox" key={index}>
+                    <div
+                      title={e.swatchAlt}
+                      onMouseEnter={() => {
+                        setColorId(e.colorId);
+                        if (load === 0) {
+                          setLoad(-1);
+                        }
+                      }}
+                      className={
+                        e.colorId === colorId || index === load
+                          ? "color-checkbox-checked"
+                          : ""
                       }
-                    }}
-                    className={
-                      e.colorId === colorId || index === load
-                        ? "color-checkbox-checked"
-                        : ""
-                    }
-                    style={{
-                      backgroundImage: `url(${e.swatch})`,
-                    }}
-                  ></div>
-                </div>
-              );
-            })}
+                      style={{
+                        backgroundImage: `url(${e.swatch})`,
+                      }}
+                    ></div>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="swatches-desktop-arrow">
+              <div
+                className={tabletI * tabletMax > productNum ? "disable" : ""}
+                onClick={() => {
+                  setTabletI((prev) => prev + 1);
+                }}
+              >
+                <BsChevronRight />
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="description">
-          <h3>{one[types[3]]}</h3>
-          <p>{one[types[4]]}</p>
-        </div>
+          <div className="swatches-mobile">
+            <div className="color-checkboxes">
+              {one[types[1]].map((e, index) => {
+                if (index > tabletMax) {
+                  return null;
+                }
+                if (index === tabletMax) {
+                  return (
+                    <div key={index}>
+                      <div className="more" title="more color">
+                        +
+                      </div>
+                    </div>
+                  );
+                }
+
+                return (
+                  <div className="color-checkbox" key={index}>
+                    <div
+                      title={e.swatchAlt}
+                      onMouseEnter={() => {
+                        setColorId(e.colorId);
+                        if (load === 0) {
+                          setLoad(-1);
+                        }
+                      }}
+                      className={
+                        e.colorId === colorId || index === load
+                          ? "color-checkbox-checked"
+                          : ""
+                      }
+                      style={{
+                        backgroundImage: `url(${e.swatch})`,
+                      }}
+                    ></div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          <div className="description">
+            <h3>{one[types[3]]}</h3>
+            <p>{one[types[4]]}</p>
+          </div>
+        </Link>
       </div>
     );
   } else {

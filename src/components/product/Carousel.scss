@@ -1,5 +1,5 @@
-.carousel {
-  width: 500px;
+.product_page .carousel {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -95,8 +95,8 @@
   }
   .dots {
     display: grid;
-    margin: 0 auto;
-    grid-gap: 8px;
+    margin: 20px auto;
+    grid-gap: 10px;
     div {
       width: 8px;
       height: 8px;
@@ -110,6 +110,29 @@
     }
     .chosen {
       background-color: black;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .product_page .carousel {
+    .dots {
+      display: none;
+    }
+  }
+}
+@media (max-width: 992px) {
+  .product_page {
+    .library {
+      pointer-events: none;
+    }
+    .carousel {
+      .thumbnails,
+      .left,
+      .right,
+      .zoom_in {
+        display: none !important;
+      }
     }
   }
 }

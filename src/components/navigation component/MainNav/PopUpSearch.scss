@@ -71,3 +71,26 @@ $red: #d31334;
     width: 100;
   }
 }
+@media (max-width: 992px) {
+  .search_form {
+    svg,
+    input {
+      z-index: 100 !important;
+
+      position: relative;
+    }
+    .pop_up_search {
+      ul {
+        padding: 0;
+        li {
+          padding: 20px 0;
+        }
+      }
+    }
+    .pop_up_search_back {
+      z-index: 50;
+      background-color: white;
+      opacity: 1;
+    }
+  }
+}

@@ -18,15 +18,10 @@ export default function WhatsNew(props) {
   });
   // console.log(products);
   const [fixNav, setFixNav] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     function handleScroll() {
-      // console.log(
-      //   window.innerHeight,
-      //   document.documentElement.scrollTop,
-      //   document.documentElement.offsetHeight
-      // );
-
       if (document.documentElement.scrollTop >= 24) {
         setFixNav(true);
       } else {
@@ -60,7 +55,7 @@ export default function WhatsNew(props) {
               <FilterLable />
             </div>
             <div className="filter_tablet">
-              <TabletFilter />
+              <TabletFilter setOpen={setOpen} open={open} />
             </div>
             <div className="products">
               {products.map((e, index) => {

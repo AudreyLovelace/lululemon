@@ -1,15 +1,21 @@
+import { BoyRounded } from "@mui/icons-material";
 import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useNavigate, useParams, Navigate } from "react-router-dom";
 import Filter from "./Filter";
 import "./TabletFilter.scss";
-export default function TabletFilter(props) {
+export default function TabletFilter({ setOpen, open }) {
   //const dispatch=useDispatch()
   //const ??? = useSelector(state => state?.reducer?.???)
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
   const [title, setTitle] = useState("What's New");
   const lableNum = useSelector((state) => state?.lableReducer.length);
   const productsNum = useSelector((state) => state?.pageReducer?.totalProducts);
+  // if (open) {
+  //   document.body.style.overflow = "hidden";
+  // } else {
+  //   document.body.style.overflow = "auto";
+  // }
   return (
     <>
       <h1>

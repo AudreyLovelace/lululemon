@@ -49,7 +49,7 @@ export const InputInfo = () => {
         onSubmit={(e) => {
           //   console.log(e.target);
           e.preventDefault();
-
+          setOpen(false);
           setMessage(e.target[0].value);
           e.target[0].value = null;
           //clear filter

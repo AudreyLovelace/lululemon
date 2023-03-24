@@ -32,8 +32,8 @@ export default function PopUpSearch({ setOpen, setMessage, dispatch }) {
                 <h3
                   onClick={(e) => {
                     e.stopPropagation();
-                    setOpen(false);
-                    dispatch(filterActions.initPage(dispatch));
+
+                    dispatch(filterActions.clearSearchHistory());
                   }}
                 >
                   {titles[2]}

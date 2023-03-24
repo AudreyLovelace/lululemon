@@ -11,36 +11,40 @@ export default function ProductPopUp({ media, name, setOpen }) {
   return (
     <div className="product_pop_up">
       <div className="product_pop_up_top">
-        <div
-          onClick={() => {
-            setOpen(false);
-          }}
-        >
-          <BsChevronLeft /> <p>Back to Product</p>
-        </div>
-        <h1>{name}</h1>
-        <div
-          onClick={() => {
-            setOpen(false);
-          }}
-        >
-          <TfiClose />
+        <div className="container">
+          <div
+            onClick={() => {
+              setOpen(false);
+            }}
+          >
+            <BsChevronLeft /> <p>Back to Product</p>
+          </div>
+          <h1>{name}</h1>
+          <div
+            onClick={() => {
+              setOpen(false);
+            }}
+          >
+            <TfiClose />
+          </div>
         </div>
       </div>
 
       <div className="product_pop_up_bottom">
-        {media.map((e, index) => {
-          return (
-            <img
-              key={index}
-              src={e}
-              alt=""
-              onClick={() => {
-                setOpen(false);
-              }}
-            />
-          );
-        })}
+        <div className="container">
+          {media.map((e, index) => {
+            return (
+              <img
+                key={index}
+                src={e}
+                alt=""
+                onClick={() => {
+                  setOpen(false);
+                }}
+              />
+            );
+          })}
+        </div>
       </div>
     </div>
   );
