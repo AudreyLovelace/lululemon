@@ -13,28 +13,30 @@ export const ResultsReviews = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(addReview());
+        dispatch(addReview(null));
     }, []);
 
 
-    const sortType = useSelector((state) => state?.reviewReducer?.sortType);
+    // const sortType = useSelector((state) => state?.reviewReducer?.sortType);
 
     const handleSort = (event) => {
         const sortType = event.target.value;
         dispatch(sortReview(sortType))
     };
 
+    //filter
+
 
 
     return (
         <>
-            <FormControl sx={{m: 1, minWidth: 120}}>
+            <FormControl sx={{m: 1, minWidth: 250}}>
                 <Select
-                    value={sortType}
+                    // value={}
                     onChange={handleSort}
                     displayEmpty
                     inputProps={{"aria-label": "Without label"}}
-                    style={{marginLeft:"15px", marginRight:'20px'}}
+                    style={{marginLeft: "15px", marginRight: '20px'}}
                 >
                     <MenuItem value="Most Recent">Most Recent</MenuItem>
                     <MenuItem value="Highest to Lowest Rating">
@@ -46,56 +48,57 @@ export const ResultsReviews = () => {
                 </Select>
             </FormControl>
 
+
             <Box>
                 {reviews &&
                     reviews.map((item) => {
-                        return (
-                            <Card sx={{m: "20px"}} key={item.id}>
-                                <CardHeader
-                                    avatar={
-                                        <Avatar
-                                            sx={{bgcolor: "#57585B", width: 30, height: 30}}
-                                            aria-label="recipe"
-                                        >
-                                            {item.name.charAt(0)}
-                                        </Avatar>
-                                    }
-                                    action={
-                                        <IconButton aria-label="settings">
-                                            <MoreVertIcon/>
-                                        </IconButton>
-                                    }
-                                    subheader={item.name}
-                                />
-
-                                <CardContent>
-                                    {item.rating}
-                                    <Typography
-                                        style={{
-                                            fontSize: "20px",
-                                            fontWeight: "600",
-                                            marginTop: "5px",
-                                        }}
+                    return (
+                        <Card sx={{m: "20px"}} key={item.id}>
+                            <CardHeader
+                                avatar={
+                                    <Avatar
+                                        sx={{bgcolor: "#57585B", width: 30, height: 30}}
+                                        aria-label="recipe"
                                     >
-                                        {item.title}
-                                    </Typography>
-                                    <Typography variant="body2">{item.des}</Typography>
-                                </CardContent>
+                                        {item.name.charAt(0)}
+                                    </Avatar>
+                                }
+                                action={
+                                    <IconButton aria-label="settings">
+                                        <MoreVertIcon/>
+                                    </IconButton>
+                                }
+                                subheader={item.name}
+                            />
 
-                                <CardContent  style={{marginTop:'-10px'}}>
-                                    <span>{item.UsualSize}</span>
-                                    <span style={{marginLeft: "20px"}}>
-                    {item.SizePurchased}
-                  </span>
-                                </CardContent>
+                            <CardContent>
+                                {item.rating}
+                                <Typography
+                                    style={{
+                                        fontSize: "20px",
+                                        fontWeight: "600",
+                                        marginTop: "5px",
+                                    }}
+                                >
+                                    {item.title}
+                                </Typography>
+                                <Typography variant="body2">{item.des}</Typography>
+                            </CardContent>
 
-                                <CardContent style={{marginTop:'-20px'}}>
-                                    <ThumbUpOffAltIcon/>
-                                    <ForumIcon style={{marginLeft: "20px"}}/>
-                                </CardContent>
-                            </Card>
-                        );
-                    })}
+                            <CardContent style={{marginTop: '-10px'}}>
+                                <span>{item.UsualSize}</span>
+                                <span style={{marginLeft: "20px"}}>
+                                        {item.SizePurchased}
+                                    </span>
+                            </CardContent>
+
+                            <CardContent style={{marginTop: '-20px'}}>
+                                <ThumbUpOffAltIcon/>
+                                <ForumIcon style={{marginLeft: "20px"}}/>
+                            </CardContent>
+                        </Card>
+                    );
+                })}
             </Box>
         </>
     );

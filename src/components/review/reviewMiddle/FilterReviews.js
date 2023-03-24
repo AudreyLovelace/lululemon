@@ -3,6 +3,8 @@ import Typography from "@mui/material/Typography";
 import {Search} from "@mui/icons-material";
 import {styled} from "@mui/styles";
 import SearchIcon from '@mui/icons-material/Search';
+import {useDispatch, useSelector} from "react-redux";
+import {checkFilter,} from "../../../actions/reviewAction";
 
 const ReviewFilter = () => {
 
@@ -23,7 +25,7 @@ const ReviewFilter = () => {
 
         marginLeft: 0,
         maxWidth: '100%',
-        marginTop:'10px',
+        marginTop: '10px',
 
         [theme.breakpoints.up('md')]: {
             marginLeft: theme.spacing(1),
@@ -63,6 +65,16 @@ const ReviewFilter = () => {
     const label = {inputProps: {'aria-label': 'Checkbox demo'}};
 
 
+    const review = useSelector((state) => state?.reviewReducer?.review);
+
+
+    const dispatch = useDispatch();
+
+    const handleFilterChange = (id) => {
+        dispatch(checkFilter(id))
+    };
+
+
     return (
         <>
             <Box>
@@ -78,75 +90,60 @@ const ReviewFilter = () => {
                         inputProps={{'aria-label': 'search'}}
                     />
                 </Search>
+
+
                 <Hidden mdDown>
                     <Card sx={{minWidth: 275, marginTop: '20px'}}>
                         <CardContent>
                             <Typography sx={{fontSize: 18}}>
                                 Rating
                             </Typography>
-                            <Typography style={{
-                                display: 'flex',
-                                flexDirection: 'row',
-                                alignItems: 'center',
-                            }}>
-                                <Checkbox {...label} color="default"/>
-                                <Typography pl={1} pr={1.5}>5 stars</Typography>
-                                <Typography>1</Typography>
-                            </Typography>
+                            {review &&
+                                review
+                                    .slice()
+                                    .sort((a, b) => b.id - a.id)
+                                    .map((item) => {
+                                        return (
+                                            <Typography
+                                                style={{
+                                                    display: "flex",
+                                                    flexDirection: "row",
+                                                    alignItems: "center",
+                                                }}
+                                                key={item.id}
 
-                            <Typography style={{
-                                display: 'flex',
-                                flexDirection: 'row',
-                                alignItems: 'center',
-                            }}>
-                                <Checkbox {...label} color="default"/>
-                                <Typography pl={1} pr={1.5}>4 stars</Typography>
-                                <Typography>1</Typography>
-                            </Typography>
-                            <Typography style={{
-                                display: 'flex',
-                                flexDirection: 'row',
-                                alignItems: 'center',
-                            }}>
-                                <Checkbox {...label} color="default"/>
-                                <Typography pl={1} pr={1.5}>3 stars</Typography>
-                                <Typography>1</Typography>
-                            </Typography>
 
-                            <Typography style={{
-                                display: 'flex',
-                                flexDirection: 'row',
-                                alignItems: 'center',
-                            }}>
-                                <Checkbox {...label} color="default"/>
-                                <Typography pl={1} pr={1.5}>2 stars</Typography>
-                                <Typography>1</Typography>
-                            </Typography>
-
-                            <Typography style={{
-                                display: 'flex',
-                                flexDirection: 'row',
-                                alignItems: 'center',
-                                marginBottom:'20px'
-                            }}>
-                                <Checkbox {...label} color="default"/>
-                                <Typography pl={1} pr={1.5}>1 stars</Typography>
-                                <Typography>1</Typography>
-                            </Typography>
+                                            >
+                                                <Checkbox {...label}
+                                                          onClick={() => {
+                                                              handleFilterChange(item.id)
+                                                          }}
+                                                          color="default"/>
+                                                <span style={{paddingLeft: "4px", paddingRight: "6px"}}>
+                                                    {item.ratingId}
+                                                </span>
+                                                <span style={{marginLeft: "10px"}}>{item.number}</span>
+                                            </Typography>
+                                        );
+                                    })}
 
                             <Box sx={{borderTop: 1, borderColor: 'grey.500'}}/>
 
 
-                            <Typography sx={{fontSize: 18 , marginTop:'20px'}}>
+                            <Typography sx={{fontSize: 18, marginTop: '20px'}}>
                                 Photos
                             </Typography>
                             <Typography style={{
                                 display: 'flex',
                                 flexDirection: 'row',
                                 alignItems: 'center',
+                                marginTop: '10px'
                             }}>
                                 <Checkbox {...label} color="default"/>
-                                <Typography pl={1} pr={1.5}>Only show posts with images</Typography>
+                                <span style={{
+                                    paddingLeft: '4px',
+                                    paddingRight: '6px'
+                                }}>Only show posts with images</span>
                             </Typography>
 
                         </CardContent>

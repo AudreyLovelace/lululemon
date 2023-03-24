@@ -1,6 +1,6 @@
 import {FiveStar, FourStar, ThreeStar, TwoStar} from "../components/review/reviewMiddle/star/MuliStar";
 import {Star} from "../components/review/reviewMiddle/star/Star";
-import {ADD_REVIEW, SORT_REVIEW} from "../helper/constants";
+import {ADD_REVIEW, CHECK_FILTER,  SORT_REVIEW} from "../helper/constants";
 
 const review = [
     {
@@ -11,7 +11,10 @@ const review = [
         UsualSize: '',
         SizePurchased: '',
         isChecked: false,
-        id: 4
+        id: 4,
+        ratingId: '4 stars',
+        number: 1
+
     },
 
     {
@@ -22,7 +25,11 @@ const review = [
         UsualSize: '',
         SizePurchased: '',
         isChecked: false,
-        id: 2
+        id: 2,
+        ratingId: '2 stars',
+        number: 1
+
+
     },
 
 
@@ -34,7 +41,11 @@ const review = [
         UsualSize: 'Usual Size: 31',
         SizePurchased: 'Size Purchased: 30',
         isChecked: false,
-        id: 5
+        id: 5,
+        ratingId: '5 stars',
+        number: 1
+
+
     },
 
 
@@ -46,7 +57,10 @@ const review = [
         UsualSize: '',
         SizePurchased: '',
         isChecked: false,
-        id: 3
+        id: 3,
+        ratingId: '3 stars',
+        number: 1
+
     },
 
 
@@ -58,7 +72,10 @@ const review = [
         UsualSize: 'Usual Size: 32',
         SizePurchased: 'Size Purchased:32',
         isChecked: false,
-        id: 1
+        id: 1,
+        ratingId: '1 stars',
+        number: 1
+
     },
 ]
 
@@ -71,9 +88,16 @@ export const addReview = () => {
 };
 
 
-export let sortReview = (rating) => {
+export const sortReview = (id) => {
     return {
         type: SORT_REVIEW,
-        payload: rating,review
+        payload: id,
     }
+}
+
+export const checkFilter = (filterValue) => {
+    return {
+        type: CHECK_FILTER,
+        payload: filterValue
+    };
 }

@@ -8,7 +8,7 @@ const Review = () => {
     return (
         <div className='review'>
             <Grid>
-                <Grid item xs={6} md={12} mb={3}>
+                <Grid item xs={6} md={12} mb={3} mt={3}>
                     <TopReview/>
                 </Grid>
                 <Grid

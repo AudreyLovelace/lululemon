@@ -7,7 +7,7 @@ import StarOutlineIcon from '@mui/icons-material/StarOutline';
 
 export const TopReview = () => {
     return (
-        <div className='topLineReview' >
+        <div className='topLineReview'>
             <div className='topLineReview_text'>
                 Reviews
             </div>

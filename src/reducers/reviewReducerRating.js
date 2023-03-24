@@ -1,9 +1,10 @@
-import {ADD_REVIEW, SORT_REVIEW} from "../helper/constants";
+import {ADD_REVIEW, CHECK_FILTER, CHECK_REVIEW, SORT_REVIEW} from "../helper/constants";
 
 
 const initState = {
     review: [],
-    sortType: 'Most Recent',
+    sortType: '',
+    filter: ''
 }
 
 const reviewReducer = (state = initState, action) => {
@@ -29,22 +30,64 @@ const reviewReducer = (state = initState, action) => {
 
 
                 if (sortType === 'Highest to Lowest Rating') {
+                    console.log([...state.review].sort((a, b) => b.id - a.id))
+
                     return {
                         ...state,
                         sortType: sortType,
-                        review: [...state.review].sort((a, b) => b.rating.value - a.rating.value)
+                        review: [...state.review].sort((a, b) => b.id - a.id)
                     }
                 }
 
-                if (sortType === ' Lowest to Highest Rating') {
+                if (sortType === 'Lowest to Highest Rating') {
+                    console.log([...state.review].sort((a, b) => a.id - b.id))
+
                     return {
                         ...state,
                         sortType: sortType,
-                        review: [...state.review].sort((a, b) => a.rating.value - b.rating.value)
+                        review: [...state.review].sort((a, b) => a.id - b.id)
                     }
                 }
-
                 return state
+
+            case CHECK_FILTER:
+                const filter = action.payload
+
+                if (filter === 1) {
+                    return {
+                        ...state,
+                        filter: filter,
+                        review: [...state.review].filter((item) => item.id === 1)
+                    }
+                }
+                if (filter === 2) {
+                    return {
+                        ...state,
+                        filter: filter,
+                        review: [...state.review].filter((item) => item.id === 2)
+                    }
+                }
+                if (filter === 3) {
+                    return {
+                        ...state,
+                        filter: filter,
+                        review: [...state.review].filter((item) => item.id === 3)
+                    }
+                }
+                if (filter === 4) {
+                    return {
+                        ...state,
+                        filter: filter,
+                        review: [...state.review].filter((item) => item.id === 4)
+                    }
+                }
+                if (filter === 5) {
+                    return {
+                        ...state,
+                        filter: filter,
+                        review: [...state.review].filter((item) => item.id === 5)
+                    }
+                }
 
             default:
                 return state;

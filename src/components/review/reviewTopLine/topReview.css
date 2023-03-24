@@ -33,7 +33,7 @@
 .topLineReview_size {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
 }
 .topLineReview_size_text {
   font-size: 30px;
