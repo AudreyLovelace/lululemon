@@ -3,8 +3,11 @@ import './review.scss'
 import {ResultsReviews} from "./reviewMiddle/ResultsReviews";
 import ReviewFilter from "./reviewMiddle/FilterReviews";
 import {Grid} from "@mui/material";
+import {useState} from "react";
 
 const Review = () => {
+
+
     return (
         <div className='review'>
             <Grid>
@@ -20,10 +23,10 @@ const Review = () => {
                     }}
                 >
                     <Grid item xs={6} md={4}>
-                        <ReviewFilter/>
+                        <ReviewFilter />
                     </Grid>
                     <Grid item xs={6} md={8}>
-                        <ResultsReviews/>
+                        <ResultsReviews  />
                     </Grid>
                 </Grid>
             </Grid>

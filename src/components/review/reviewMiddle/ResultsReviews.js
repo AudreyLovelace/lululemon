@@ -13,15 +13,13 @@ export const ResultsReviews = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(addReview(null));
+        dispatch(addReview());
     }, []);
 
 
-    // const sortType = useSelector((state) => state?.reviewReducer?.sortType);
 
     const handleSort = (event) => {
-        const sortType = event.target.value;
-        dispatch(sortReview(sortType))
+        dispatch(sortReview(event.target.value))
     };
 
     //filter
@@ -51,7 +49,8 @@ export const ResultsReviews = () => {
 
             <Box>
                 {reviews &&
-                    reviews.map((item) => {
+                    reviews
+                        .map((item) => {
                     return (
                         <Card sx={{m: "20px"}} key={item.id}>
                             <CardHeader

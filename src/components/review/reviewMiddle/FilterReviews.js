@@ -4,7 +4,7 @@ import {Search} from "@mui/icons-material";
 import {styled} from "@mui/styles";
 import SearchIcon from '@mui/icons-material/Search';
 import {useDispatch, useSelector} from "react-redux";
-import {checkFilter,} from "../../../actions/reviewAction";
+import {checkFilter} from "../../../actions/reviewAction";
 
 const ReviewFilter = () => {
 
@@ -65,13 +65,17 @@ const ReviewFilter = () => {
     const label = {inputProps: {'aria-label': 'Checkbox demo'}};
 
 
-    const review = useSelector((state) => state?.reviewReducer?.review);
+    const filter = useSelector((state) => state?.reviewReducer?.filter);
 
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
 
     const handleFilterChange = (id) => {
-        dispatch(checkFilter(id))
+        if (id !== filter) {
+            dispatch(checkFilter(id))
+        } else {
+            dispatch(checkFilter(null))
+        }
     };
 
 
@@ -98,34 +102,104 @@ const ReviewFilter = () => {
                             <Typography sx={{fontSize: 18}}>
                                 Rating
                             </Typography>
-                            {review &&
-                                review
-                                    .slice()
-                                    .sort((a, b) => b.id - a.id)
-                                    .map((item) => {
-                                        return (
-                                            <Typography
-                                                style={{
-                                                    display: "flex",
-                                                    flexDirection: "row",
-                                                    alignItems: "center",
-                                                }}
-                                                key={item.id}
 
-
-                                            >
-                                                <Checkbox {...label}
-                                                          onClick={() => {
-                                                              handleFilterChange(item.id)
-                                                          }}
-                                                          color="default"/>
-                                                <span style={{paddingLeft: "4px", paddingRight: "6px"}}>
-                                                    {item.ratingId}
+                            <Typography
+                                style={{
+                                    display: "flex",
+                                    flexDirection: "row",
+                                    alignItems: "center",
+                                }}>
+                                <label>
+                                    <Checkbox {...label}
+                                              onClick={() => {
+                                                  handleFilterChange(5)
+                                              }}
+                                              color="default"
+                                              name={'star'}/>
+                                </label>
+                                <span style={{paddingLeft: "4px", paddingRight: "6px"}}>
+                                                    5 Star
                                                 </span>
-                                                <span style={{marginLeft: "10px"}}>{item.number}</span>
-                                            </Typography>
-                                        );
-                                    })}
+                                <span style={{marginLeft: "10px"}}>1</span>
+                            </Typography>
+
+                            <Typography
+                                style={{
+                                    display: "flex",
+                                    flexDirection: "row",
+                                    alignItems: "center",
+                                }}>
+                                <label>
+                                    <Checkbox {...label}
+                                              onClick={() => {
+                                                  handleFilterChange(4)
+                                              }}
+                                              color="default"
+                                              name={'star'}/>
+                                </label>
+                                <span style={{paddingLeft: "4px", paddingRight: "6px"}}>
+                                                    4 Star
+                                                </span>
+                                <span style={{marginLeft: "10px"}}>1</span>
+                            </Typography>
+                            <Typography
+                                style={{
+                                    display: "flex",
+                                    flexDirection: "row",
+                                    alignItems: "center",
+                                }}>
+                                <label>
+                                    <Checkbox {...label}
+                                              onClick={() => {
+                                                  handleFilterChange(3)
+                                              }}
+                                              color="default"
+                                              name={'star'}/>
+                                </label>
+                                <span style={{paddingLeft: "4px", paddingRight: "6px"}}>
+                                                    3 Star
+                                                </span>
+                                <span style={{marginLeft: "10px"}}>1</span>
+                            </Typography>
+                            <Typography
+                                style={{
+                                    display: "flex",
+                                    flexDirection: "row",
+                                    alignItems: "center",
+                                }}>
+                                <label>
+                                    <Checkbox {...label}
+                                              onClick={() => {
+                                                  handleFilterChange(2)
+                                              }}
+                                              color="default"
+                                              name={'star'}/>
+                                </label>
+                                <span style={{paddingLeft: "4px", paddingRight: "6px"}}>
+                                                    2 Star
+                                                </span>
+                                <span style={{marginLeft: "10px"}}>1</span>
+                            </Typography>
+                            <Typography
+                                style={{
+                                    display: "flex",
+                                    flexDirection: "row",
+                                    alignItems: "center",
+                                }}>
+                                <label>
+                                    <Checkbox {...label}
+                                              onClick={() => {
+                                                  handleFilterChange(1)
+                                              }}
+                                              color="default"
+                                              name={'star'}/>
+                                </label>
+                                <span style={{paddingLeft: "4px", paddingRight: "6px"}}>
+                                                    1 Star
+                                                </span>
+                                <span style={{marginLeft: "10px"}}>1</span>
+                            </Typography>
+
 
                             <Box sx={{borderTop: 1, borderColor: 'grey.500'}}/>
 

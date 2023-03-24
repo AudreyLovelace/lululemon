@@ -1,4 +1,5 @@
-import {ADD_REVIEW, CHECK_FILTER, CHECK_REVIEW, SORT_REVIEW} from "../helper/constants";
+import {ADD_REVIEW, CHECK_FILTER, SORT_REVIEW} from "../helper/constants";
+import {review} from "../actions/reviewAction";
 
 
 const initState = {
@@ -52,42 +53,56 @@ const reviewReducer = (state = initState, action) => {
 
             case CHECK_FILTER:
                 const filter = action.payload
+                state = {...state, review: review}
+
+                // console.log('5', [...state.review]?.filter((item) => item.id === 5))
+                // console.log('4', [...state.review]?.filter((item) => item.id === 4))
+                // console.log('3', [...state.review]?.filter((item) => item.id === 3))
+                // console.log('2', [...state.review]?.filter((item) => item.id === 2))
+                // console.log('1', [...state.review]?.filter((item) => item.id === 1))
 
                 if (filter === 1) {
                     return {
                         ...state,
                         filter: filter,
-                        review: [...state.review].filter((item) => item.id === 1)
+                        review: [...state.review]?.filter((item) => item.id === 1)
                     }
                 }
                 if (filter === 2) {
                     return {
                         ...state,
                         filter: filter,
-                        review: [...state.review].filter((item) => item.id === 2)
+                        review: [...state.review]?.filter((item) => item.id === 2)
                     }
                 }
                 if (filter === 3) {
                     return {
                         ...state,
                         filter: filter,
-                        review: [...state.review].filter((item) => item.id === 3)
+                        review: [...state.review]?.filter((item) => item.id === 3)
                     }
                 }
                 if (filter === 4) {
                     return {
                         ...state,
                         filter: filter,
-                        review: [...state.review].filter((item) => item.id === 4)
+                        review: [...state.review]?.filter((item) => item.id === 4)
                     }
                 }
                 if (filter === 5) {
                     return {
                         ...state,
                         filter: filter,
-                        review: [...state.review].filter((item) => item.id === 5)
+                        review: [...state.review]?.filter((item) => item.id === 5)
                     }
                 }
+                // else {
+                //     return {
+                //         ...state,
+                //         filter: null,
+                //         review: [...state.review]
+                //     }
+                // }
 
             default:
                 return state;

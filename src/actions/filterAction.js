@@ -39,7 +39,9 @@ export const filterActions = {
   },
   initPage(dispatch) {
     axios
-      .get(url.getFilter, { headers: { authorization: authorization } })
+      .get(url.getFilter,
+          { headers: { authorization: authorization } }
+      )
       .then((response) => {
         // console.log(response.data.rs);
         dispatch(filterActions.initFilter(response.data.rs));
@@ -64,7 +66,7 @@ export const filterActions = {
     axios(request)
       .then((response) => {
         // console.log(response);
-        // console.log(response.data.rs);
+        console.log(response.data.rs.products);
 
         if (response.statusText === "OK") {
           const products = response.data.rs.products;

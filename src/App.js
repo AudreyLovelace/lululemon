@@ -13,6 +13,7 @@ import "./app.scss";
 
 import WhatsNew from "./WhatsNew";
 import Review from "./components/review/Review";
+import Detail from "./components/detailInfo/Detail";
 
 export default function App() {
     const {pathname} = useLocation();

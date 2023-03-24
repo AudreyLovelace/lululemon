@@ -2,7 +2,7 @@ import {FiveStar, FourStar, ThreeStar, TwoStar} from "../components/review/revie
 import {Star} from "../components/review/reviewMiddle/star/Star";
 import {ADD_REVIEW, CHECK_FILTER,  SORT_REVIEW} from "../helper/constants";
 
-const review = [
+export const review = [
     {
         rating: <FourStar/>,
         name: 'cokeJS',
@@ -21,7 +21,7 @@ const review = [
         rating: <TwoStar/>,
         name: 'beepboopboopbeep',
         title: 'Not for me',
-        des: 'a little too flimsy feeling, and almost see through at that size and color (light blue)',
+        des: 'I have 15+ pair of ABC pants, all the way back to OG pairs. The latest pair is crazy different waist size than the last several. They all fit a bit different in the waist and leg, but these really are snug. Even compared to a pair I bought less than 6 months ago. Crazy!',
         UsualSize: '',
         SizePurchased: '',
         isChecked: false,
@@ -53,7 +53,7 @@ const review = [
         rating: <ThreeStar/>,
         name: 'Lisa',
         title: 'See through?',
-        des: "Didn't realize there were little holes in the fabric that make the fabric see through",
+        des: "This my 2nd pair of these. I loved the first pair, but the 2nd pair does not fit nearly as well – not as slim and probably an inch larger around the waist despite ordering the same size and fit. Great pants, but be aware that the sizing is inconsistent.",
         UsualSize: '',
         SizePurchased: '',
         isChecked: false,
@@ -80,6 +80,7 @@ const review = [
 ]
 
 
+
 export const addReview = () => {
     return {
         type: ADD_REVIEW,
@@ -95,9 +96,9 @@ export const sortReview = (id) => {
     }
 }
 
-export const checkFilter = (filterValue) => {
+export const checkFilter = (id) => {
     return {
         type: CHECK_FILTER,
-        payload: filterValue
+        payload: id
     };
 }
