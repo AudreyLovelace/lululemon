@@ -4,6 +4,9 @@ import { NavLink, useNavigate, useParams, Navigate } from "react-router-dom";
 import { BsInfoCircle } from "react-icons/bs";
 import Carousel from "./Carousel";
 import "./ProductPage.scss";
+import SearchLink from "./SearchLink";
+import { IoRadioButtonOnOutline } from "react-icons/io5";
+import PlusMinus from "../filter/PlusMinus";
 export default function ProductPage(props) {
   const one = {
     productId: "prod9820681",
@@ -322,6 +325,23 @@ export default function ProductPage(props) {
   //const dispatch=useDispatch()
   //const ??? = useSelector(state => state?.reducer?.???)
   //   const { productId, colorId } = useParams();
+  const store = (
+    <svg
+      height="24"
+      width="24"
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+      className="accordionItemHeadingIcon-3fkWR"
+      focusable="false"
+      role="img"
+      aria-hidden="true"
+    >
+      <path
+        d="M14.667 14.167h-.834v-8.62l.667.246a.5.5 0 0 0 .667-.46V2.667a.5.5 0 0 0-.307-.46 17.68 17.68 0 0 0-13.72 0 .5.5 0 0 0-.307.46v2.666a.5.5 0 0 0 .667.46s.667-.253.667-.246v8.62h-.834a.667.667 0 0 0-.666.666v.334h14.666v-.334a.667.667 0 0 0-.666-.666Zm-8.834 0V9.833H7.5v4.334H5.833Zm3.667 0h-1V9.833h1.667v4.334H9.5Zm3.333 0h-1.666V9.333a.507.507 0 0 0-.5-.5H5.333a.507.507 0 0 0-.5.5v4.834H3.167V5.213a17.393 17.393 0 0 1 9.666 0v8.954Zm-11-9.567V3a17.18 17.18 0 0 1 12.334 0v1.6a18.147 18.147 0 0 0-12.334 0Z"
+        fill="currentColor"
+      ></path>
+    </svg>
+  );
   const afterPay = (
     <svg
       height="24"
@@ -352,12 +372,15 @@ export default function ProductPage(props) {
       <path d="M431.9 28.8c-2.7 0-4.9 2.2-4.9 4.9.1 2.7 2.2 4.9 4.9 4.9s4.9-2.2 4.9-4.9-2.2-4.9-4.9-4.9zm0 8.9c-2.2 0-3.9-1.8-3.9-4s1.8-4 3.9-4c2.2 0 3.9 1.8 3.9 4s-1.8 4-3.9 4zm8.1 37.2c-7.1 0-12.9 5.8-12.9 12.9 0 7.1 5.8 12.9 12.9 12.9 7.1 0 12.9-5.8 12.9-12.9 0-7.2-5.8-12.9-12.9-12.9z"></path>
     </svg>
   );
-  const initColorId = "0";
+  const initColorId = useParams().colorId;
+  // console.log(initColorId);
+
   const productId = "prod9820681";
-  const [id, setId] = useState(
-    initColorId === 0 || "0" ? one?.swatches[0]?.colorId : initColorId
-  );
-  const [size, setSize] = useState(null);
+
+  const id = initColorId == 0 ? one?.swatches[0]?.colorId : initColorId;
+  // console.log(id);
+
+  const [size, setSize] = useState({});
   // console.log(id);
   const alt = one?.swatches?.filter((e) => e?.colorId === id)[0]?.swatchAlt;
   const price = one?.price?.split(" ");
@@ -369,13 +392,15 @@ export default function ProductPage(props) {
       return e?.colorId === id;
     })[0]
     ?.mainCarousel?.media?.split("|");
-
+  const navigate = useNavigate();
+  const [expand, setExpand] = useState(false);
   if (id) {
     return (
       <div className="container">
         <div className="product_page">
           <div className="product_page_left">
             <div className="product_page_left_top">
+              <SearchLink />
               <h1>{one.name}</h1>
               <p>
                 {price[0]}
@@ -391,6 +416,7 @@ export default function ProductPage(props) {
           </div>
           <div className="product_page_right">
             <div className="product_page_right_top">
+              <SearchLink />
               <h1>{one.name}</h1>
               <p>
                 {price[0]}
@@ -412,7 +438,7 @@ export default function ProductPage(props) {
                     <div
                       key={i}
                       onClick={() => {
-                        setId(e.colorId);
+                        navigate(`/p/${productId}/${e.colorId}`);
                       }}
                       className={id === e.colorId ? "chosen" : ""}
                       style={{ backgroundImage: `url(${e.swatch})` }}
@@ -423,25 +449,70 @@ export default function ProductPage(props) {
               </div>
             </div>
             <div className="sizes">
-              <h2>
-                Select Size <span>{size}</span>
-              </h2>
-              <div className="size">
-                {one.sizes[0].details.map((e, i) => {
-                  return (
-                    <div
-                      className={size === e ? "chosen" : ""}
-                      key={i}
-                      onClick={() => {
-                        setSize(e);
-                      }}
-                    >
-                      <p>{e}</p>
+              {one.sizes.map((sizes, index) => {
+                return (
+                  <div key={index}>
+                    <h2>
+                      {sizes.title} <span>{size[sizes.title]}</span>
+                    </h2>
+                    <div className="size">
+                      {sizes.details.map((e, i) => {
+                        return (
+                          <div
+                            className={size[sizes.title] === e ? "chosen" : ""}
+                            key={i}
+                            onClick={() => {
+                              console.log(size);
+
+                              setSize((prev) => {
+                                prev = { ...prev };
+                                prev[sizes.title] = e;
+                                return prev;
+                              });
+                            }}
+                          >
+                            <p>{e}</p>
+                          </div>
+                        );
+                      })}
                     </div>
-                  );
-                })}
+                  </div>
+                );
+              })}
+            </div>
+            <div className="add_to_bag">
+              <div className="ship">
+                <IoRadioButtonOnOutline />
+                <div>
+                  <h1>Ship it to me</h1>
+                  <h3>Free shipping and returns</h3>
+                </div>
+              </div>
+              <div className="in_store">
+                <div
+                  className="in_store_title"
+                  onClick={() => {
+                    if (expand) {
+                      setExpand(false);
+                    } else {
+                      setExpand(true);
+                    }
+                  }}
+                >
+                  <h1>{store}Pick up in store</h1>
+                  <PlusMinus expand={expand} />
+                </div>
+                {expand && (
+                  <p>
+                    This size/colour combination is not available for Buy &
+                    Pick-up at any stores near you. Try selecting another size,
+                    colour or check all store inventory.
+                  </p>
+                )}
               </div>
             </div>
+
+            <button>ADD TO BAG</button>
           </div>
         </div>
       </div>

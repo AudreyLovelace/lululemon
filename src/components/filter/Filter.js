@@ -15,6 +15,9 @@ import { TfiClose } from "react-icons/tfi";
 
 export default function Filter({ setOpen, setTitle }) {
   const dispatch = useDispatch();
+  const searchLink = useSelector((state) => state?.searchReducer?.searchLink);
+  // console.log(searchLink);
+
   //const ??? = useSelector(state => state?.reducer?.???)
   useEffect(() => {
     setLoadPage(true);
@@ -78,7 +81,14 @@ export default function Filter({ setOpen, setTitle }) {
   });
 
   useEffect(() => {
-    filterActions.filterProduct(dispatch, sortId, filter);
+    // console.log(searchLink);
+    // console.log(!searchLink);
+
+    if (!searchLink) {
+      // console.log("search");
+
+      filterActions.filterProduct(dispatch, sortId, filter);
+    }
   }, [filter, sortId]);
 
   filterKeys?.forEach((element) => {

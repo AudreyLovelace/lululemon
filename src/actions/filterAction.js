@@ -18,9 +18,17 @@ export const filterTypes = {
   moreProducts: "MORE_PRODUCTS",
   searchProducts: "SEARCH_PRODUCTS",
   clearSearchHistory: "CLEAR_SEARCH_HISTORY",
+  searchLink: "SEARCH_LINK",
+  clearSearchLink: "CLEAR_SEARCH_LINK",
 };
 
 export const filterActions = {
+  clearSearchLink() {
+    return { type: filterTypes.clearSearchLink };
+  },
+  searchLink(words) {
+    return { type: filterTypes.searchLink, payload: words };
+  },
   clearSearchHistory() {
     return { type: filterTypes.clearSearchHistory };
   },

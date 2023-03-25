@@ -9,18 +9,22 @@ import PopUpSearch from "./PopUpSearch";
 
 export const InputInfo = () => {
   const dispatch = useDispatch();
-  const [message, setMessage] = useState([]);
+
+  const searchLink = useSelector((state) => state?.searchReducer?.searchLink);
+  // console.log(searchLink);
 
   //get all products
+  const [message, setMessage] = useState(searchLink);
   const products = useSelector((state) => state?.lululemonReducer);
   const [open, setOpen] = useState(false);
   useEffect(() => {
-    if (message.length && products.length) {
+    if (message && products.length) {
       //filter products which name contains message
       const message1 = message.toLowerCase().split(" ");
       const message2 = message;
-      //   console.log(message1);
-      setMessage([]);
+      // console.log(message1);
+      setMessage(null);
+      // dispatch(filterActions.clearSearchLink());
       const newProduct = products.filter((product) => {
         const rightMatch = message1.length;
         let result = 0;

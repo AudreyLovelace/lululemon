@@ -1,7 +1,27 @@
 $light-grey: #fafafa;
 $dark-grey: rgb(202, 202, 202);
+$red: #d31334;
 .product_page {
   background-color: $light-grey;
+  .search_link {
+    display: flex;
+    color: $dark-grey;
+    margin-bottom: 20px;
+    p {
+      font-weight: 200;
+      margin-right: 5px;
+      span {
+        color: black;
+        margin-right: 5px;
+        border-bottom: 1px solid $dark-grey;
+        transition: all ease-in-out 200ms;
+      }
+      span:hover {
+        cursor: pointer;
+        border-bottom: 1px solid $red;
+      }
+    }
+  }
   &_left_top,
   &_right {
     h1 {
@@ -54,7 +74,70 @@ $dark-grey: rgb(202, 202, 202);
   grid-template-columns: 1fr 1fr;
 
   &_right {
-    padding: 40px;
+    padding: 10px 40px;
+    .add_to_bag {
+      border: 1px $dark-grey solid;
+      border-radius: 5px;
+      h1 {
+        font-size: 25px;
+        font-weight: 600;
+      }
+      h3 {
+        color: grey;
+        font-weight: 400;
+      }
+      .in_store {
+        padding: 10px;
+        border-top: 1px solid $dark-grey;
+        p {
+          padding: 10px;
+          margin-top: 0;
+        }
+        &_title {
+          // border-bottom: 1px solid $dark-grey;
+          padding: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          h1 svg {
+            transform: scale(0.7);
+            position: relative;
+            top: 5px;
+            margin-right: 5px;
+            margin-left: -15px;
+          }
+        }
+      }
+      .ship {
+        padding: 10px;
+        display: flex;
+        background-color: white;
+        svg {
+          transform: scale(1.3);
+          color: $red;
+          position: relative;
+          top: 10px;
+          margin-right: 10px;
+        }
+      }
+      button {
+        letter-spacing: 1px;
+        font-weight: 700;
+        border: none;
+        border-radius: 5px;
+        width: 100%;
+        background-color: $red;
+        color: white;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      button:hover {
+        cursor: pointer;
+        filter: grayscale(0.2);
+      }
+    }
     .color {
       display: grid;
       grid-template-columns: repeat(8, 36px);
@@ -138,7 +221,7 @@ $dark-grey: rgb(202, 202, 202);
         display: flex;
         flex-wrap: wrap;
       }
-      &_right_top {
+      &_top {
         display: none;
       }
       .color {
