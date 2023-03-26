@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useNavigate, useParams, Navigate } from "react-router-dom";
 import { BsInfoCircle } from "react-icons/bs";
@@ -334,28 +334,51 @@ export default function ProductPage(props) {
 
   const productId = "prod9820681";
 
-  const id = initColorId == 0 ? one?.swatches[0]?.colorId : initColorId;
+  const id =
+    initColorId == (0 || null) ? one?.swatches[0]?.colorId : initColorId;
   // console.log(id);
   const [panelIndex, setPanelIndex] = useState(-1);
   const panelRef = useRef();
+  const observer = useRef();
+  const [showChoice, setShowChoice] = useState(false);
+  const topChoice = useCallback((node) => {
+    console.log(node);
+    observer.current = new IntersectionObserver((entries) => {
+      console.log(entries[0].isIntersecting);
+      setShowChoice(!entries[0].isIntersecting);
+    });
+    if (node) {
+      observer.current.observe(node);
+    }
+  }, []);
   if (id) {
     return (
-      <div className="container">
-        <ProductPageTop
-          one={one}
-          id={id}
-          productId={productId}
-          setPanelIndex={setPanelIndex}
-          panelRef={panelRef}
-        />
-
+      <>
+        {showChoice && (
+          <div className="topChoice">
+            <h1>{one?.name}</h1>
+            <div>
+              <p>Colour:</p>
+            </div>
+          </div>
+        )}
+        <div className="container">
+          <ProductPageTop
+            one={one}
+            id={id}
+            productId={productId}
+            setPanelIndex={setPanelIndex}
+            panelRef={panelRef}
+            topChoice={topChoice}
+          />
+        </div>
         <FeaturePanels
           panel={one.featurePanels}
           panelIndex={panelIndex}
           setPanelIndex={setPanelIndex}
           panelRef={panelRef}
         />
-      </div>
+      </>
     );
   } else {
     return <p>loading</p>;

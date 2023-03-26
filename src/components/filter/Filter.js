@@ -21,8 +21,8 @@ export default function Filter({ setOpen, setTitle }) {
   //const ??? = useSelector(state => state?.reducer?.???)
   useEffect(() => {
     setLoadPage(true);
-    // console.log(loadPage);
-    // filterActions.initPage(dispatch);
+
+    //filterActions.initPage(dispatch);
     if (localStorage.getItem("filter") !== null) {
       // console.log(localStorage.getItem("filter").Category);
 

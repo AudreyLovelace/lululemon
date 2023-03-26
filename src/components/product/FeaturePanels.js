@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useNavigate, useParams, Navigate } from "react-router-dom";
 import PlusMinus from "../filter/PlusMinus";
-
+import "./FeaturePanels.scss";
 export default function FeaturePanels({
   panel,
   panelIndex,
@@ -29,6 +29,9 @@ export default function FeaturePanels({
             key={index}
             className="feature_panel"
             onClick={() => {
+              if (!e.isPanel) {
+                return;
+              }
               if (index !== panelIndex) {
                 setPanelIndex(index);
               } else {
@@ -36,17 +39,22 @@ export default function FeaturePanels({
               }
             }}
           >
-            <div className="feature_panel_title">
-              {trimExtraWords(e.title)}
-              {e.isPanel && <PlusMinus expand={panelIndex === index} />}
+            <div className="container">
+              <div className="feature_panel_title">
+                <h1>
+                  <img src={e.iconPath} alt="/" />
+                  {trimExtraWords(e.title)}
+                </h1>
+                {e.isPanel && <PlusMinus expand={panelIndex === index} />}
+              </div>
+              {e.isPanel && index === panelIndex && (
+                <ul>
+                  {e.content.map((content, i) => {
+                    return <li key={i}>{content}</li>;
+                  })}
+                </ul>
+              )}
             </div>
-            {e.isPanel && index === panelIndex && (
-              <ul>
-                {e.content.map((content, i) => {
-                  return <li key={i}>{content}</li>;
-                })}
-              </ul>
-            )}
           </div>
         );
       })}

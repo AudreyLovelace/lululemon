@@ -7,6 +7,7 @@ import Carousel from "./Carousel";
 import "./ProductPage.scss";
 import { IoRadioButtonOnOutline } from "react-icons/io5";
 import PlusMinus from "../filter/PlusMinus";
+import { useCallback } from "react";
 
 export default function ProductPageTop({
   one,
@@ -14,6 +15,7 @@ export default function ProductPageTop({
   productId,
   setPanelIndex,
   panelRef,
+  topChoice,
 }) {
   //const dispatch=useDispatch()
   //const ??? = useSelector(state => state?.reducer?.???)
@@ -81,9 +83,12 @@ export default function ProductPageTop({
   const [expand, setExpand] = useState(false);
   const [marginTop, setMarginTop] = useState(0);
   const height = 200;
+
   function handleScroll() {
+    // console.log(right.current.offsetLeft);
+
     if (right.current.offsetLeft < 100) {
-      return;
+      setMarginTop(0);
     }
     // if (left.current.clientHeight >= right.current.clientHeight) {
     //   return;
@@ -96,7 +101,7 @@ export default function ProductPageTop({
     setMarginTop((prev) => {
       if (
         (window.scrollY > prev &&
-          left.current.offsetHeight > right.current.offsetHeight - 20) ||
+          left.current.offsetHeight >= right.current.offsetHeight - 10) ||
         (window.scrollY > prev && window.scrollY < height)
       ) {
         return prev;
@@ -117,6 +122,7 @@ export default function ProductPageTop({
 
   return (
     <div className="product_page">
+      {/* {showChoice && <div className="top_choice">a</div>} */}
       <div
         className="product_page_left"
         ref={left}
@@ -175,7 +181,7 @@ export default function ProductPageTop({
             })}
           </div>
         </div>
-        <div className="sizes">
+        <div className="sizes" ref={topChoice}>
           {one.sizes.map((sizes, index) => {
             return (
               <div key={index}>
