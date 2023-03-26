@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useNavigate, useParams, Navigate } from "react-router-dom";
 import { BsInfoCircle } from "react-icons/bs";
@@ -394,11 +394,51 @@ export default function ProductPage(props) {
     ?.mainCarousel?.media?.split("|");
   const navigate = useNavigate();
   const [expand, setExpand] = useState(false);
+  const [marginTop, setMarginTop] = useState(0);
+  const height = 200;
+  function handleScroll() {
+    if (right.current.offsetLeft < 100) {
+      return;
+    }
+    // if (left.current.clientHeight >= right.current.clientHeight) {
+    //   return;
+    // }
+    console.log(
+      window.scrollY,
+      left.current.offsetHeight,
+      right.current.offsetHeight
+    );
+    setMarginTop((prev) => {
+      if (
+        (window.scrollY > prev &&
+          left.current.offsetHeight > right.current.offsetHeight - 20) ||
+        (window.scrollY > prev && window.scrollY < height)
+      ) {
+        return prev;
+      }
+      if (window.scrollY > prev) {
+        return window.scrollY - height;
+      } else {
+        return window.scrollY;
+      }
+    });
+  }
+  const left = useRef();
+  const right = useRef();
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   if (id) {
     return (
       <div className="container">
         <div className="product_page">
-          <div className="product_page_left">
+          <div
+            className="product_page_left"
+            ref={left}
+            style={{ paddingTop: marginTop }}
+          >
             <div className="product_page_left_top">
               <SearchLink />
               <h1>{one.name}</h1>
@@ -414,7 +454,11 @@ export default function ProductPage(props) {
             </div>
             <Carousel media={media} name={one.name} />
           </div>
-          <div className="product_page_right">
+          <div
+            className="product_page_right"
+            ref={right}
+            // style={{ marginTop: -marginTop }}
+          >
             <div className="product_page_right_top">
               <SearchLink />
               <h1>{one.name}</h1>
@@ -489,30 +533,47 @@ export default function ProductPage(props) {
                 </div>
               </div>
               <div className="in_store">
-                <div
-                  className="in_store_title"
-                  onClick={() => {
-                    if (expand) {
-                      setExpand(false);
-                    } else {
-                      setExpand(true);
-                    }
-                  }}
-                >
-                  <h1>{store}Pick up in store</h1>
-                  <PlusMinus expand={expand} />
+                <div className="in_store_left"> {store}</div>
+                <div className="in_store_right">
+                  <div
+                    className="in_store_right_title"
+                    onClick={() => {
+                      if (expand) {
+                        setExpand(false);
+                      } else {
+                        setExpand(true);
+                      }
+                    }}
+                  >
+                    <h1>Pick up in store</h1>
+                    <PlusMinus expand={expand} />
+                  </div>
+                  {expand && (
+                    <p>
+                      This size/colour combination is not available for Buy &
+                      Pick-up at any stores near you. Try selecting another
+                      size, colour or check all store inventory.
+                    </p>
+                  )}
                 </div>
-                {expand && (
-                  <p>
-                    This size/colour combination is not available for Buy &
-                    Pick-up at any stores near you. Try selecting another size,
-                    colour or check all store inventory.
-                  </p>
-                )}
+              </div>
+              <div className="button">
+                <button>ADD TO BAG</button>
               </div>
             </div>
-
-            <button>ADD TO BAG</button>
+            <div className="details">
+              <h3>Details</h3>
+              <ul>
+                {one.featureTitles.map((e, i) => {
+                  return (
+                    <li key={i}>
+                      <img src={e.iconPath} alt="/" />
+                      <h2>{e.title}</h2>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
