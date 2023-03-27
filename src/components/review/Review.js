@@ -7,7 +7,7 @@ import { useState } from "react";
 
 const Review = () => {
   return (
-    <div className="review">
+    <div className="review" style={{ marginTop: 100, marginBottom: 100 }}>
       <Grid>
         <Grid item xs={6} md={12} mb={3} mt={3}>
           <TopReview />

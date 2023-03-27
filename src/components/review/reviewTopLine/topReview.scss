@@ -1,8 +1,24 @@
 .topLineReview {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-
+  .container_review {
+    width: 100%;
+    display: grid;
+    div:nth-child(1) {
+      grid-area: a;
+    }
+    div:nth-child(2) {
+      grid-area: b;
+    }
+    div:nth-child(3) {
+      grid-area: c;
+    }
+    div:nth-child(4) {
+      grid-area: d;
+    }
+    button {
+      height: 40px;
+      // min-width: unset !important;
+    }
+  }
 
   &_text {
     font-size: 55px;
@@ -34,10 +50,8 @@
     &_second {
       font-size: 14px;
       font-weight: 300;
-
     }
   }
-
 
   &_size {
     display: flex;
@@ -69,15 +83,13 @@
   }
 }
 
-
 @media screen and (max-width: 990px) {
-  .topLineReview {
-    display: flex;
-    flex-direction: column;
-    margin: 0 20px;
-  }
+  // .topLineReview {
+  //   display: flex;
+  //   flex-direction: column;
+  //   margin: 0 20px;
+  // }
 }
-
 
 @media screen and (max-width: 990px) {
   .topLineReview_text,
@@ -85,6 +97,23 @@
   .topLineReview_size {
     margin-bottom: 10px;
   }
+  .topLineReview {
+    .container_review {
+      grid-template-areas: "a a a" " b c d";
+    }
+  }
 }
-
-
+@media screen and (min-width: 990px) {
+  .topLineReview {
+    .container_review {
+      grid-template-areas: "a b c d";
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .topLineReview {
+    .container_review {
+      grid-template-areas: "a" "b" "c" "d";
+    }
+  }
+}

@@ -82,9 +82,14 @@ const ReviewFilter = () => {
 
   return (
     <>
-      <Box>
+      <Box style={{ marginRight: 20 }}>
         <div className="review_header">
-          <Typography variant="h5" component="h5" pl={1}>
+          <Typography
+            variant="h5"
+            component="h5"
+            pl={1}
+            style={{ paddingLeft: 0 }}
+          >
             Filter Review
           </Typography>
         </div>

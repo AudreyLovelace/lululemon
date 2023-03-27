@@ -36,13 +36,13 @@ export const ResultsReviews = () => {
     <>
       {" "}
       <div className="review_header">
-        <FormControl sx={{ m: 1, minWidth: 250 }}>
+        <FormControl sx={{ minWidth: 250 }}>
           <Select
             // value={}
             onChange={handleSort}
             displayEmpty
             inputProps={{ "aria-label": "Without label" }}
-            style={{ marginLeft: "15px", marginRight: "20px" }}
+            // style={{ marginLeft: "15px", marginRight: "20px", }}
           >
             <MenuItem value="Most Recent">Most Recent</MenuItem>
             <MenuItem value="Highest to Lowest Rating">
@@ -58,7 +58,11 @@ export const ResultsReviews = () => {
         {reviews &&
           reviews.map((item) => {
             return (
-              <Card sx={{ m: "20px" }} key={item.id}>
+              <Card
+                sx={{ m: "20px" }}
+                key={item.id}
+                style={{ marginRight: 0, marginLeft: 0 }}
+              >
                 <CardHeader
                   avatar={
                     <Avatar

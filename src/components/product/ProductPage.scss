@@ -1,6 +1,7 @@
 $light-grey: #fafafa;
 $dark-grey: rgb(202, 202, 202);
 $red: #d31334;
+
 .fixed_add_to_bag {
   z-index: 999;
   position: fixed;
@@ -350,6 +351,7 @@ $red: #d31334;
     }
   }
 }
+
 @media (min-width: 992px) {
   .product_page {
     &_left_top {

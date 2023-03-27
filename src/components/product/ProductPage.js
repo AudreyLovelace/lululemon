@@ -412,7 +412,7 @@ export default function ProductPage(props) {
 
   if (!!id) {
     return (
-      <div>
+      <div className="product_whole_page">
         {showBottom && (
           <div className="fixed_add_to_bag">
             <div className="container">
