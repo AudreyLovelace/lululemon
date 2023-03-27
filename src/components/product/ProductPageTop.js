@@ -16,6 +16,9 @@ export default function ProductPageTop({
   setPanelIndex,
   panelRef,
   topChoice,
+  size,
+  setSize,
+  bottomBag,
 }) {
   //const dispatch=useDispatch()
   //const ??? = useSelector(state => state?.reducer?.???)
@@ -67,7 +70,6 @@ export default function ProductPageTop({
     </svg>
   );
 
-  const [size, setSize] = useState({});
   // console.log(id);
   const alt = one?.swatches?.filter((e) => e?.colorId === id)[0]?.swatchAlt;
   const price = one?.price?.split(" ");
@@ -85,10 +87,15 @@ export default function ProductPageTop({
   const height = 200;
 
   function handleScroll() {
-    // console.log(right.current.offsetLeft);
+    // console.log(marginTop);
 
     if (right.current.offsetLeft < 100) {
-      setMarginTop(0);
+      if (marginTop == 0) {
+        return;
+      } else {
+        setMarginTop(0);
+        return;
+      }
     }
     // if (left.current.clientHeight >= right.current.clientHeight) {
     //   return;
@@ -121,7 +128,7 @@ export default function ProductPageTop({
   }, []);
 
   return (
-    <div className="product_page">
+    <div className="product_page" ref={bottomBag}>
       {/* {showChoice && <div className="top_choice">a</div>} */}
       <div
         className="product_page_left"
@@ -181,7 +188,7 @@ export default function ProductPageTop({
             })}
           </div>
         </div>
-        <div className="sizes" ref={topChoice}>
+        <div className="sizes">
           {one.sizes.map((sizes, index) => {
             return (
               <div key={index}>
@@ -195,7 +202,7 @@ export default function ProductPageTop({
                         className={size[sizes.title] === e ? "chosen" : ""}
                         key={i}
                         onClick={() => {
-                          console.log(size);
+                          // console.log(size);
 
                           setSize((prev) => {
                             prev = { ...prev };
@@ -213,7 +220,7 @@ export default function ProductPageTop({
             );
           })}
         </div>
-        <div className="add_to_bag">
+        <div className="add_to_bag" ref={topChoice}>
           <div className="ship">
             <IoRadioButtonOnOutline />
             <div>

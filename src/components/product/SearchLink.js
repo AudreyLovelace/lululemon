@@ -23,7 +23,7 @@ export default function SearchLink(props) {
 
                 dispatch(filterActions.searchLink(e));
                 filterActions.initPage(dispatch);
-                setTimeout(() => {}, 500);
+                setTimeout(() => {}, 1000);
                 navigate("/whatsnew");
               }}
             >

@@ -10,6 +10,7 @@ import PlusMinus from "../filter/PlusMinus";
 
 import FeaturePanels from "./FeaturePanels";
 import ProductPageTop from "./ProductPageTop";
+import WhyWeMadeThis from "./WhyWeMadeThis";
 export default function ProductPage(props) {
   const one = {
     productId: "prod9820681",
@@ -328,37 +329,111 @@ export default function ProductPage(props) {
   //const dispatch=useDispatch()
   //const ??? = useSelector(state => state?.reducer?.???)
   //   const { productId, colorId } = useParams();
-
-  const initColorId = useParams().colorId;
+  const { colorId } = useParams();
+  const initColorId = colorId.colorId;
   // console.log(initColorId);
 
   const productId = "prod9820681";
 
   const id =
-    initColorId == (0 || null) ? one?.swatches[0]?.colorId : initColorId;
+    initColorId == 0 || initColorId == undefined
+      ? one?.swatches[0]?.colorId
+      : initColorId;
   // console.log(id);
   const [panelIndex, setPanelIndex] = useState(-1);
   const panelRef = useRef();
   const observer = useRef();
+  const observer1 = useRef();
   const [showChoice, setShowChoice] = useState(false);
+  const [showBottom, setShowBottom] = useState(false);
+  const sizeKeys = [];
+  const initSizes = {};
+  one?.sizes?.forEach((element) => {
+    sizeKeys.push(element.title);
+    initSizes[element.title] = null;
+  });
+  const [size, setSize] = useState(initSizes);
   const topChoice = useCallback((node) => {
-    console.log(node);
+    // console.log(node);
     observer.current = new IntersectionObserver((entries) => {
-      console.log(entries[0].isIntersecting);
+      // console.log(entries[0].isIntersecting);
       setShowChoice(!entries[0].isIntersecting);
     });
     if (node) {
       observer.current.observe(node);
     }
   }, []);
-  if (id) {
+  const bottomBag = useCallback((node) => {
+    observer1.current = new IntersectionObserver((entries) => {
+      // console.log(entries[0].isIntersecting);
+      setShowBottom(!entries[0].isIntersecting);
+    });
+    if (node) {
+      observer1.current.observe(node);
+    }
+  }, []);
+  function isSizeSelected() {
+    let result = 0;
+    sizeKeys.forEach((e) => {
+      // console.log(size);
+
+      if (size[e]) {
+        result++;
+      }
+    });
+    if (result === sizeKeys.length) {
+      return <button>ADD TO BAG</button>;
+    } else {
+      return (
+        <button
+          onClick={() => {
+            window.scrollTo(0, 0);
+          }}
+        >
+          SELECT SIZE
+        </button>
+      );
+    }
+  }
+
+  if (!!id) {
     return (
       <>
+        {showBottom && (
+          <div className="fixed_add_to_bag">
+            <div className="container">
+              <button onClick={() => window.scrollTo(0, 0)}>ADD TO BAG</button>
+            </div>
+          </div>
+        )}
         {showChoice && (
-          <div className="topChoice">
-            <h1>{one?.name}</h1>
-            <div>
-              <p>Colour:</p>
+          <div className="top_choice">
+            <div className="container">
+              {" "}
+              <h1>{one?.name}</h1>
+              <div>
+                <p>Colour: </p>
+                <img
+                  src={
+                    one?.swatches?.filter((e) => {
+                      return e.colorId === id;
+                    })[0]?.swatch
+                  }
+                  alt="/"
+                />
+                {sizeKeys.map((e, index) => {
+                  if (size[e]) {
+                    return (
+                      <p key={index}>
+                        {e}:<span>{size[e]}</span>
+                      </p>
+                    );
+                  } else {
+                    return null;
+                  }
+                })}
+                {isSizeSelected()}
+              </div>
             </div>
           </div>
         )}
@@ -370,8 +445,19 @@ export default function ProductPage(props) {
             setPanelIndex={setPanelIndex}
             panelRef={panelRef}
             topChoice={topChoice}
+            size={size}
+            setSize={setSize}
+            bottomBag={bottomBag}
           />
         </div>
+        <WhyWeMadeThis
+          why={one?.whyWeMadeThis}
+          pictures={
+            one?.images?.filter((e) => {
+              return e.colorId === id;
+            })[0]?.whyWeMadeThis || []
+          }
+        />
         <FeaturePanels
           panel={one.featurePanels}
           panelIndex={panelIndex}
