@@ -33,6 +33,7 @@ export default function WhatsNew(props) {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   return (
     <div className="whats_new">
       <nav className={fixNav ? "fix_nav" : ""}>
@@ -58,10 +59,10 @@ export default function WhatsNew(props) {
               <TabletFilter setOpen={setOpen} open={open} />
             </div>
             <div className="products">
-              {products.map((e, index) => {
+              {products?.map((e, index) => {
                 return <OneProduct one={e} key={index} />;
               })}{" "}
-              {products.length === 0 && <h2>Loading...</h2>}
+              {/* {products.length === 0 && <h2>Loading...</h2>} */}
             </div>
           </div>
         </main>

@@ -33,8 +33,18 @@ export const InputInfo = () => {
             result++;
           }
         });
+        setTimeout(() => {}, 2000);
         return result === rightMatch;
       });
+      // const newProduct = products.filter((product) => {
+      //   let result = false;
+      //   message1.forEach((word) => {
+      //     if (product?.name?.toLowerCase().includes(word)) {
+      //       result = true;
+      //     }
+      //   });
+      //   return result;
+      // });
       const pageParams = {
         totalProducts: `${newProduct.length} results for "${message2}"`,
         perPage: newProduct.length,
