@@ -3,11 +3,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useNavigate, useParams, Navigate } from "react-router-dom";
 import { filterActions } from "../../../actions/filterAction";
 import "./PopUpSearch.scss";
-export default function PopUpSearch({ setOpen, setMessage, dispatch }) {
+import { useLocation } from "react-router-dom";
+
+export default function PopUpSearch({ setOpen, dispatch }) {
   //   const dispatch = useDispatch();
   //const ??? = useSelector(state => state?.reducer?.???)
   const recent = useSelector((state) => state?.searchReducer?.recent);
   const trending = useSelector((state) => state?.searchReducer?.trending);
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
   function hasRecent(recent) {
     if (recent.length) {
       return true;
@@ -42,15 +46,20 @@ export default function PopUpSearch({ setOpen, setMessage, dispatch }) {
               {recent?.map((e, index) => {
                 return (
                   <li key={index}>
-                    <p
+                    <div
+                      className="p"
                       onClick={() => {
-                        setMessage(e);
+                        // setMessage(e);
+                        dispatch(filterActions.searchLink(e));
                         filterActions.initPage(dispatch);
+                        if (pathname !== "/") {
+                          navigate("/");
+                        }
                       }}
                     >
                       {e}
                       <div></div>
-                    </p>
+                    </div>
                   </li>
                 );
               })}
@@ -64,15 +73,20 @@ export default function PopUpSearch({ setOpen, setMessage, dispatch }) {
               {trending?.map((e, index) => {
                 return (
                   <li key={index}>
-                    <p
+                    <div
+                      className="p"
                       onClick={() => {
-                        setMessage(e);
+                        // setMessage(e);
+                        dispatch(filterActions.searchLink(e));
                         filterActions.initPage(dispatch);
+                        if (pathname !== "/") {
+                          navigate("/");
+                        }
                       }}
                     >
                       {e}
                       <div></div>
-                    </p>
+                    </div>
                   </li>
                 );
               })}

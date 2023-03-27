@@ -33,7 +33,7 @@ $red: #d31334;
       border-color: $red;
       cursor: pointer;
     }
-    p {
+    .p {
       width: max-content;
       font-size: 18px;
       color: rgb(42, 42, 42);
@@ -43,7 +43,7 @@ $red: #d31334;
         width: 100%;
       }
     }
-    p:hover {
+    .p:hover {
       cursor: pointer;
       div {
         background-color: $red;

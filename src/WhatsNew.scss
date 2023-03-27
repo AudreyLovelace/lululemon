@@ -3,6 +3,10 @@ $light-grey: #e0e0e0;
 .whats_new {
   nav {
     background-color: white;
+    height: fit-content;
+    .container {
+      height: fit-content;
+    }
   }
   main {
     width: 100%;

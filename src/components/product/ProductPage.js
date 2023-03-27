@@ -11,6 +11,7 @@ import PlusMinus from "../filter/PlusMinus";
 import FeaturePanels from "./FeaturePanels";
 import ProductPageTop from "./ProductPageTop";
 import WhyWeMadeThis from "./WhyWeMadeThis";
+import TopNavigation from "../navigation component/TopNavigation";
 export default function ProductPage(props) {
   const one = {
     productId: "prod9820681",
@@ -410,7 +411,7 @@ export default function ProductPage(props) {
 
   if (!!id) {
     return (
-      <>
+      <div>
         {showBottom && (
           <div className="fixed_add_to_bag">
             <div className="container">
@@ -418,8 +419,9 @@ export default function ProductPage(props) {
             </div>
           </div>
         )}
+
         {showChoice && (
-          <div className="top_choice">
+          <div className="top_choice sticky">
             <div className="container">
               {" "}
               <h1>{one?.name}</h1>
@@ -449,19 +451,19 @@ export default function ProductPage(props) {
             </div>
           </div>
         )}
-        <div className="container">
-          <ProductPageTop
-            one={one}
-            id={id}
-            productId={productId}
-            setPanelIndex={setPanelIndex}
-            panelRef={panelRef}
-            topChoice={topChoice}
-            size={size}
-            setSize={setSize}
-            bottomBag={bottomBag}
-          />
-        </div>
+
+        <ProductPageTop
+          one={one}
+          id={id}
+          productId={productId}
+          setPanelIndex={setPanelIndex}
+          panelRef={panelRef}
+          topChoice={topChoice}
+          size={size}
+          setSize={setSize}
+          bottomBag={bottomBag}
+        />
+
         <WhyWeMadeThis
           why={one?.whyWeMadeThis}
           pictures={
@@ -476,7 +478,7 @@ export default function ProductPage(props) {
           setPanelIndex={setPanelIndex}
           panelRef={panelRef}
         />
-      </>
+      </div>
     );
   } else {
     return <p>loading</p>;

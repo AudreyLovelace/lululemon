@@ -17,33 +17,29 @@ export default function WhatsNew(props) {
     return state?.lululemonReducer;
   });
   // console.log(products);
-  const [fixNav, setFixNav] = useState(false);
+  // const [fixNav, setFixNav] = useState(false);
   const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    function handleScroll() {
-      if (document.documentElement.scrollTop >= 24) {
-        setFixNav(true);
-      } else {
-        setFixNav(false);
-      }
-    }
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  // useEffect(() => {
+  //   function handleScroll() {
+  //     if (document.documentElement.scrollTop >= 24) {
+  //       setFixNav(true);
+  //     } else {
+  //       setFixNav(false);
+  //     }
+  //   }
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   return (
     <div className="whats_new">
-      <nav className={fixNav ? "fix_nav" : ""}>
-        <div className="container">
-          <TopNavigation />
-          {/*<DropDown/>*/}
-        </div>
-      </nav>
+      <TopNavigation />
+      {/*<DropDown/>*/}
       <div className="container">
-        <main className={fixNav ? "avoid_jump" : ""}>
+        <main>
           <div className="filter_desktop">
             <Filter />
           </div>

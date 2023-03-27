@@ -4,26 +4,28 @@ import { Search } from "./Icon";
 import { filterActions } from "../../../actions/filterAction";
 import { useSelector, useDispatch } from "react-redux";
 import PopUpSearch from "./PopUpSearch";
+import { useLocation, useNavigate } from "react-router-dom";
 // import Popover from "@mui/material/Popover";
 // import Typography from "@mui/material/Typography";
 
 export const InputInfo = () => {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const searchLink = useSelector((state) => state?.searchReducer?.searchLink);
-  // console.log(searchLink);
+  console.log(searchLink);
 
   //get all products
-  const [message, setMessage] = useState(searchLink);
+  // const [message, setMessage] = useState(searchLink);
   const products = useSelector((state) => state?.lululemonReducer);
   const [open, setOpen] = useState(false);
+  let loading = true;
   useEffect(() => {
-    if (message && products.length) {
+    if (searchLink.length && products.length) {
       //filter products which name contains message
-      const message1 = message.toLowerCase().split(" ");
-      const message2 = message;
+      const message1 = searchLink?.toLowerCase().split(" ");
+      const message2 = searchLink;
       // console.log(message1);
-      setMessage(null);
+      // setMessage(null);
       // dispatch(filterActions.clearSearchLink());
       const newProduct = products.filter((product) => {
         const rightMatch = message1.length;
@@ -36,15 +38,7 @@ export const InputInfo = () => {
         setTimeout(() => {}, 2000);
         return result === rightMatch;
       });
-      // const newProduct = products.filter((product) => {
-      //   let result = false;
-      //   message1.forEach((word) => {
-      //     if (product?.name?.toLowerCase().includes(word)) {
-      //       result = true;
-      //     }
-      //   });
-      //   return result;
-      // });
+
       const pageParams = {
         totalProducts: `${newProduct.length} results for "${message2}"`,
         perPage: newProduct.length,
@@ -54,7 +48,13 @@ export const InputInfo = () => {
 
       dispatch(filterActions.searchProducts(newProduct, pageParams, message2));
     }
-  }, [products]);
+    return () => {
+      loading = false;
+    };
+  }, [searchLink]);
+  const { pathname } = useLocation();
+
+  console.log(pathname);
 
   return (
     <div className="searchBar">
@@ -64,10 +64,14 @@ export const InputInfo = () => {
           //   console.log(e.target);
           e.preventDefault();
           setOpen(false);
-          setMessage(e.target[0].value);
+          // setMessage(e.target[0].value);
+          dispatch(filterActions.searchLink(e.target[0].value));
           e.target[0].value = null;
           //clear filter
           filterActions.initPage(dispatch);
+          if (pathname !== "/") {
+            navigate("/");
+          }
         }}
       >
         <Search />
@@ -83,7 +87,7 @@ export const InputInfo = () => {
         {open && (
           <PopUpSearch
             setOpen={setOpen}
-            setMessage={setMessage}
+            // setMessage={setMessage}
             dispatch={dispatch}
           />
         )}

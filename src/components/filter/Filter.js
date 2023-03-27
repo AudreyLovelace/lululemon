@@ -84,7 +84,7 @@ export default function Filter({ setOpen, setTitle }) {
     // console.log(searchLink);
     // console.log(!searchLink);
 
-    if (!searchLink) {
+    if (!searchLink.length) {
       // console.log("search");
 
       filterActions.filterProduct(dispatch, sortId, filter);

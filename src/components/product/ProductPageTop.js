@@ -8,7 +8,7 @@ import "./ProductPage.scss";
 import { IoRadioButtonOnOutline } from "react-icons/io5";
 import PlusMinus from "../filter/PlusMinus";
 import { useCallback } from "react";
-
+import TopNavigation from "../navigation component/TopNavigation";
 export default function ProductPageTop({
   one,
   id,
@@ -125,156 +125,162 @@ export default function ProductPageTop({
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [right?.current?.offsetLeft]);
 
   return (
-    <div className="product_page" ref={bottomBag}>
-      {/* {showChoice && <div className="top_choice">a</div>} */}
-      <div
-        className="product_page_left"
-        ref={left}
-        style={{ paddingTop: marginTop }}
-      >
-        <div className="product_page_left_top">
-          <SearchLink />
-          <h1>{one.name}</h1>
-          <p>
-            {price[0]}
-            <span> {price[1]}</span>
-          </p>
-          <small>
-            or 4 payments of ${(priceNum / 4).toFixed(2)} with {afterPay} or{" "}
-            {klarna}
-            <BsInfoCircle />
-          </small>
-        </div>
-        <Carousel media={media} name={one.name} />
-      </div>
-      <div
-        className="product_page_right"
-        ref={right}
-        // style={{ marginTop: -marginTop }}
-      >
-        <div className="product_page_right_top">
-          <SearchLink />
-          <h1>{one.name}</h1>
-          <p>
-            {price[0]}
-            <span> {price[1]}</span>
-          </p>{" "}
-          <small>
-            or 4 payments of ${(priceNum / 4).toFixed(2)} with {afterPay} or{" "}
-            {klarna}
-            <BsInfoCircle />{" "}
-          </small>
-        </div>
-        <div className="colors">
-          <h2>
-            Colour <span>{alt}</span>
-          </h2>
-          <div className="color">
-            {one.swatches.map((e, i) => {
-              return (
-                <div
-                  key={i}
-                  onClick={() => {
-                    navigate(`/p/${productId}/${e.colorId}`);
-                  }}
-                  className={id === e.colorId ? "chosen" : ""}
-                  style={{ backgroundImage: `url(${e.swatch})` }}
-                  title={e.swatchAlt}
-                ></div>
-              );
-            })}
-          </div>
-        </div>
-        <div className="sizes">
-          {one.sizes.map((sizes, index) => {
-            return (
-              <div key={index}>
-                <h2>
-                  {sizes.title} <span>{size[sizes.title]}</span>
-                </h2>
-                <div className="size">
-                  {sizes.details.map((e, i) => {
-                    return (
-                      <div
-                        className={size[sizes.title] === e ? "chosen" : ""}
-                        key={i}
-                        onClick={() => {
-                          // console.log(size);
+    <div>
+      <TopNavigation />
+      <div className="container">
+        <div className="product_page" ref={bottomBag}>
+          {/* {showChoice && <div className="top_choice">a</div>} */}
 
-                          setSize((prev) => {
-                            prev = { ...prev };
-                            prev[sizes.title] = e;
-                            return prev;
-                          });
-                        }}
-                      >
-                        <p>{e}</p>
-                      </div>
-                    );
-                  })}
+          <div
+            className="product_page_left"
+            ref={left}
+            style={{ paddingTop: marginTop }}
+          >
+            <div className="product_page_left_top">
+              <SearchLink />
+              <h1>{one.name}</h1>
+              <p>
+                {price[0]}
+                <span> {price[1]}</span>
+              </p>
+              <small>
+                or 4 payments of ${(priceNum / 4).toFixed(2)} with {afterPay} or{" "}
+                {klarna}
+                <BsInfoCircle />
+              </small>
+            </div>
+            <Carousel media={media} name={one.name} />
+          </div>
+          <div
+            className="product_page_right"
+            ref={right}
+            // style={{ marginTop: -marginTop }}
+          >
+            <div className="product_page_right_top">
+              <SearchLink />
+              <h1>{one.name}</h1>
+              <p>
+                {price[0]}
+                <span> {price[1]}</span>
+              </p>{" "}
+              <small>
+                or 4 payments of ${(priceNum / 4).toFixed(2)} with {afterPay} or{" "}
+                {klarna}
+                <BsInfoCircle />{" "}
+              </small>
+            </div>
+            <div className="colors">
+              <h2>
+                Colour <span>{alt}</span>
+              </h2>
+              <div className="color">
+                {one.swatches.map((e, i) => {
+                  return (
+                    <div
+                      key={i}
+                      onClick={() => {
+                        navigate(`/p/${productId}/${e.colorId}`);
+                      }}
+                      className={id === e.colorId ? "chosen" : ""}
+                      style={{ backgroundImage: `url(${e.swatch})` }}
+                      title={e.swatchAlt}
+                    ></div>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="sizes">
+              {one.sizes.map((sizes, index) => {
+                return (
+                  <div key={index}>
+                    <h2>
+                      {sizes.title} <span>{size[sizes.title]}</span>
+                    </h2>
+                    <div className="size">
+                      {sizes.details.map((e, i) => {
+                        return (
+                          <div
+                            className={size[sizes.title] === e ? "chosen" : ""}
+                            key={i}
+                            onClick={() => {
+                              // console.log(size);
+
+                              setSize((prev) => {
+                                prev = { ...prev };
+                                prev[sizes.title] = e;
+                                return prev;
+                              });
+                            }}
+                          >
+                            <p>{e}</p>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="add_to_bag" ref={topChoice}>
+              <div className="ship">
+                <IoRadioButtonOnOutline />
+                <div>
+                  <h1>Ship it to me</h1>
+                  <h3>Free shipping and returns</h3>
                 </div>
               </div>
-            );
-          })}
-        </div>
-        <div className="add_to_bag" ref={topChoice}>
-          <div className="ship">
-            <IoRadioButtonOnOutline />
-            <div>
-              <h1>Ship it to me</h1>
-              <h3>Free shipping and returns</h3>
-            </div>
-          </div>
-          <div className="in_store">
-            <div className="in_store_left"> {store}</div>
-            <div className="in_store_right">
-              <div
-                className="in_store_right_title"
-                onClick={() => {
-                  if (expand) {
-                    setExpand(false);
-                  } else {
-                    setExpand(true);
-                  }
-                }}
-              >
-                <h1>Pick up in store</h1>
-                <PlusMinus expand={expand} />
+              <div className="in_store">
+                <div className="in_store_left"> {store}</div>
+                <div className="in_store_right">
+                  <div
+                    className="in_store_right_title"
+                    onClick={() => {
+                      if (expand) {
+                        setExpand(false);
+                      } else {
+                        setExpand(true);
+                      }
+                    }}
+                  >
+                    <h1>Pick up in store</h1>
+                    <PlusMinus expand={expand} />
+                  </div>
+                  {expand && (
+                    <p>
+                      This size/colour combination is not available for Buy &
+                      Pick-up at any stores near you. Try selecting another
+                      size, colour or check all store inventory.
+                    </p>
+                  )}
+                </div>
               </div>
-              {expand && (
-                <p>
-                  This size/colour combination is not available for Buy &
-                  Pick-up at any stores near you. Try selecting another size,
-                  colour or check all store inventory.
-                </p>
-              )}
+              <div className="button">
+                <button>ADD TO BAG</button>
+              </div>
+            </div>
+            <div className="details">
+              <h3>Details</h3>
+              <ul>
+                {one.featureTitles.map((e, i) => {
+                  return (
+                    <li
+                      key={i}
+                      onClick={() => {
+                        setPanelIndex(i);
+                        panelRef.current.children[i].scrollIntoView();
+                      }}
+                    >
+                      <img src={e.iconPath} alt="/" />
+                      <h2>{e.title}</h2>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
           </div>
-          <div className="button">
-            <button>ADD TO BAG</button>
-          </div>
-        </div>
-        <div className="details">
-          <h3>Details</h3>
-          <ul>
-            {one.featureTitles.map((e, i) => {
-              return (
-                <li
-                  key={i}
-                  onClick={() => {
-                    setPanelIndex(i);
-                    panelRef.current.children[i].scrollIntoView();
-                  }}
-                >
-                  <img src={e.iconPath} alt="/" />
-                  <h2>{e.title}</h2>
-                </li>
-              );
-            })}
-          </ul>
         </div>
       </div>
     </div>
