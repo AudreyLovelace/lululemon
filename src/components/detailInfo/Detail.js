@@ -49,19 +49,17 @@ export default function SimpleAccordion() {
                             expandIcon={<ExpandMoreIcon/>}
                             aria-controls="panel2a-content"
                             id="panel2a-header"
-                            sx={{display: 'flex', flexDirection: 'row'}}
-                        >
+                            sx={{display: 'flex', flexDirection: 'row'}}>
                             <img src={item.iconPath} alt="" style={{marginRight: '10px'}}/>
                             <Typography>
                                 {item?.title}
                             </Typography>
-
                         </AccordionSummary>
 
-                        <Grid container spacing={2} >
+                        <Grid container spacing={1}>
                             {item?.content?.map((cardItem, cardIndex) => (
                                 <Grid item xs={3} key={cardIndex} mb={2}>
-                                    <Card sx={{minWidth: 175}}>
+                                    <Card sx={{minWidth: 175, minHeight:85, textAlign:'center',}}>
                                         <Typography m={1} color="text.secondary">
                                             {cardItem}
                                         </Typography>
@@ -72,8 +70,6 @@ export default function SimpleAccordion() {
                     </Accordion>
                 )
             })}
-
-
         </div>
     )
 }
