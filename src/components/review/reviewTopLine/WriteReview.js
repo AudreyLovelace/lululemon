@@ -258,7 +258,9 @@ export const WriteReview = () => {
                                                 sx={{m: 2, width: "50%"}}>
                                             Back
                                         </Button>
-                                        <Snackbar open={openAbt} autoHideDuration={6000} onClose={()=>{setOpenAbt(false)}}>
+                                        <Snackbar open={openAbt} autoHideDuration={6000} onClose={() => {
+                                            setOpenAbt(false)
+                                        }}>
                                             <AlertMessage onClose={handleClose} severity="success" sx={{width: '100%'}}>
                                                 This is a success message!
                                             </AlertMessage>

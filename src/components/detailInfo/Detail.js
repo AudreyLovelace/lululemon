@@ -6,8 +6,8 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import axios from "axios";
 import {useEffect, useState} from "react";
-import {Card, Grid} from "@mui/material";
-import CardContent from "@mui/material/CardContent";
+import {Card, Grid, Hidden} from "@mui/material";
+import './detail.scss'
 
 export default function SimpleAccordion() {
     const key =
@@ -56,17 +56,27 @@ export default function SimpleAccordion() {
                             </Typography>
                         </AccordionSummary>
 
-                        <Grid container spacing={1}>
-                            {item?.content?.map((cardItem, cardIndex) => (
-                                <Grid item xs={3} key={cardIndex} mb={2}>
-                                    <Card sx={{minWidth: 175, minHeight:85, textAlign:'center',}}>
-                                        <Typography m={1} color="text.secondary">
-                                            {cardItem}
-                                        </Typography>
-                                    </Card>
-                                </Grid>
-                            ))}
-                        </Grid>
+                        <Hidden mdDown>
+                            <Grid container spacing={1}>
+                                {item?.content?.map((cardItem, cardIndex) => (
+                                    <Grid item xs={3} key={cardIndex} mb={2}>
+                                        <Card sx={{minWidth: 175, minHeight: 85, textAlign: 'center',}}>
+                                            <Typography m={1} color="text.secondary">
+                                                {cardItem}
+                                            </Typography>
+                                        </Card>
+                                    </Grid>
+                                ))}
+                            </Grid>
+                        </Hidden>
+
+                        <div className='eachDetail'>
+                            <ul>
+                                {item?.content?.map((cardItem,cardIndex)=>{
+                                    return (<li key={cardIndex}>{cardItem}</li>)
+                                })}
+                            </ul>
+                        </div>
                     </Accordion>
                 )
             })}
