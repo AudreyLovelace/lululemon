@@ -9,7 +9,12 @@ export default function SearchLink(props) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   //get all products
-
+  let loading = true;
+  useEffect(() => {
+    return () => {
+      loading = false;
+    };
+  }, []);
   const keyWord = ["Online", "Shirt", "Long"];
 
   return (
@@ -21,10 +26,14 @@ export default function SearchLink(props) {
               onClick={() => {
                 // console.log(e);
 
-                dispatch(filterActions.searchLink(e));
-                filterActions.initPage(dispatch);
-                setTimeout(() => {}, 1000);
-                navigate("/whatsnew");
+                if (loading) {
+                  dispatch(filterActions.searchLink(e));
+
+                  filterActions.initPage(dispatch);
+                  setTimeout(() => {
+                    navigate("/whatsnew");
+                  }, 2000);
+                }
               }}
             >
               {e}

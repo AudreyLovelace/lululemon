@@ -353,11 +353,14 @@ export default function ProductPage(props) {
     initSizes[element.title] = null;
   });
   const [size, setSize] = useState(initSizes);
+  let load = true;
   const topChoice = useCallback((node) => {
     // console.log(node);
     observer.current = new IntersectionObserver((entries) => {
       // console.log(entries[0].isIntersecting);
-      setShowChoice(!entries[0].isIntersecting);
+      if (load) {
+        setShowChoice(!entries[0].isIntersecting);
+      }
     });
     if (node) {
       observer.current.observe(node);
@@ -366,11 +369,20 @@ export default function ProductPage(props) {
   const bottomBag = useCallback((node) => {
     observer1.current = new IntersectionObserver((entries) => {
       // console.log(entries[0].isIntersecting);
-      setShowBottom(!entries[0].isIntersecting);
+      if (load) {
+        setShowBottom(!entries[0].isIntersecting);
+      }
     });
     if (node) {
       observer1.current.observe(node);
     }
+  }, []);
+  useEffect(() => {
+    return () => {
+      observer.current = null;
+      observer1.current = null;
+      load = false;
+    };
   }, []);
   function isSizeSelected() {
     let result = 0;
