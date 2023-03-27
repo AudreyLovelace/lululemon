@@ -7,7 +7,8 @@ import "./ProductPage.scss";
 import SearchLink from "./SearchLink";
 import { IoRadioButtonOnOutline } from "react-icons/io5";
 import PlusMinus from "../filter/PlusMinus";
-
+import MainFooter from "../footer/MainFooter";
+import Review from "../review/Review";
 import FeaturePanels from "./FeaturePanels";
 import ProductPageTop from "./ProductPageTop";
 import WhyWeMadeThis from "./WhyWeMadeThis";
@@ -478,6 +479,12 @@ export default function ProductPage(props) {
           setPanelIndex={setPanelIndex}
           panelRef={panelRef}
         />
+
+        <div className="container">
+          {" "}
+          <Review />
+          <MainFooter />
+        </div>
       </div>
     );
   } else {
