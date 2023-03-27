@@ -15,8 +15,11 @@ const Feedback = ({open, onClose}) => {
     let [starRatingValue, setStarRatingValue] = useState(null);
     // const star = [0, 1, 2, 3, 4]
 
-    let [numRatingValue, setNumRatingValue] = useState(null);
-    const number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+    // const number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    // const [numRatingValue, setNumRatingValue] = useState(null);
+    const [selectedRating, setSelectedRating] = useState(0);
+    const handleRatingSelect = (value) => {setSelectedRating(value)};
 
     // function setOpenModal(b) {
     //     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -84,25 +87,62 @@ const Feedback = ({open, onClose}) => {
             {/*    /!*<p> This Field is Required.</p>*!/*/}
             {/*</div>*/}
 
-            <div>
-                {/*<br/>*/}
+
+            {/*NumbersRating-Version-1: Numbers in a row; but click no reqction*/}
+            {/*<div className='numbers'>*/}
+            {/*    <input id='numRadio' type="radio" name='numbers'*/}
+            {/*           value={numRatingValue}*/}
+            {/*           onClick={() => setNumRatingValue = {numRatingValue}}*/}
+            {/*    />*/}
+            {/*    {number.map((numbers) => {*/}
+            {/*        return (*/}
+            {/*            <div>*/}
+
+            {/*                <button className='numbersBtn'>{numbers}</button>*/}
+            {/*            </div>*/}
+            {/*        );*/}
+            {/*    })}*/}
+            {/*</div>*/}
+
+            {/*NumberRating-Version-2*/}
+            {/*<div className='recommendation'>*/}
+            {/*    <p>How likely are you to recommend lululemon to a friend or family member?</p>*/}
+            {/*    <div className='numbers' style={{display: 'flex'}}>*/}
+            {/*        {number.map((numbers, i) => {*/}
+            {/*            return (*/}
+            {/*                <div id={i} onClick={(event) => {*/}
+            {/*                    for (let i = 0; i < numbers.length; i++) {*/}
+            {/*                        document.getElementById(i).classList.remove('choose')*/}
+            {/*                    }*/}
+            {/*                    document.getElementById(i).classList.add('choose')*/}
+            {/*                }}>*/}
+            {/*                    /!*<label htmlFor="numRadio"></label>*!/*/}
+            {/*                    /!*<input id='numRadio' type="radio" name='numbers'*!/*/}
+            {/*                    /!*       value={numRatingValue}*!/*/}
+            {/*                    /!*       onClick={() => setNumRatingValue = {numRatingValue}}*!/*/}
+            {/*/>*/}
+            {/*                    </button>*/}
+            {/*                </div>)*/}
+            {/*        })}*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+
+            {/*NumberRating-Version-ChatGPT*/}
+            <div className="review-form">
                 <p>How likely are you to recommend lululemon to a friend or family member?</p>
+                <div className="number-buttons">
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((value) => (
+                        <button
+                            key={value}
+                            className={`number-button ${selectedRating === value ? 'selected' : ''}`}
+                            onClick={() => handleRatingSelect(value)}
+                        >
+                            {value}
+                        </button>
+                    ))}
+                </div>
             </div>
 
-            <div className='numbers'>
-                <input id='numRadio' type="radio" name='numbers'
-                       value={numRatingValue}
-                       onClick={() => setNumRatingValue = {numRatingValue}}
-                />
-                {number.map((numbers) => {
-                    return (
-                        <div>
-                            <button className='numbersBtn'>{numbers}</button>
-                        </div>
-                    );
-                })}
-                {/*<br/>*/}
-            </div>
 
             <div>
                 {/*<br/>*/}
@@ -119,8 +159,6 @@ const Feedback = ({open, onClose}) => {
                     <input type="radio" name="yesOrNo" value='No' id='no'/>
                     <label htmlFor="no">No</label>
                 </form>
-
-
             </div>
 
             <div>
