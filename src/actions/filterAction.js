@@ -1,6 +1,6 @@
 import axios from "axios";
 const key =
-    'jYwrtdSw7iO92ambpJ8UsNYXXIFTp2eIImew8gPTqYsNV3TWe7YzuSl4tx%2BarSsa15aOnNN2j8L%2BlsPM2JZ52A=='
+    'mykey=jYwrtdSw7iO92ambpJ8UsNYXXIFTp2eIImew8gPTqYsNV3TWe7YzuSl4tx%2BarSsa15aOnNN2j8L%2BlsPM2JZ52A=='
 const urlHead = "http://api-lulu.hibitbyte.com/";
 const url = {
   getFilter: `${urlHead}product/filter?${key}`,

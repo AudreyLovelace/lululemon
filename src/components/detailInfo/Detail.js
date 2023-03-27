@@ -1,78 +1,83 @@
-import {styled} from '@mui/material/styles';
-import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
-import MuiAccordion from '@mui/material/Accordion';
-import MuiAccordionSummary from '@mui/material/AccordionSummary';
-import MuiAccordionDetails from '@mui/material/AccordionDetails';
+import * as React from 'react';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
-import {useState} from "react";
-import PlusMinus from "../filter/PlusMinus";
-import {Button, Card, CardActions, CardContent} from "@mui/material";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import axios from "axios";
+import {useEffect, useState} from "react";
+import {Card, Grid} from "@mui/material";
+import CardContent from "@mui/material/CardContent";
 
-const Accordion = styled((props) => (
-    <MuiAccordion disableGutters elevation={0} square {...props} />
-))(({theme}) => ({
-    border: `1px solid ${theme.palette.divider}`,
-    '&:not(:last-child)': {
-        borderBottom: 0,
-    },
-    '&:before': {
-        display: 'none',
-    },
-}));
-
-const AccordionSummary = styled((props) => (
-    <MuiAccordionSummary
-        expandIcon={<PlusMinus sx={{fontSize: '0.9rem'}}/>}
-        {...props}
-    />
-))(({theme}) => ({
-    backgroundColor:
-        theme.palette.mode === 'dark'
-            ? 'rgba(255, 255, 255, .05)'
-            : 'rgba(0, 0, 0, .03)',
-    flexDirection: 'row-reverse',
-    '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
-        transform: 'rotate(90deg)',
-    },
-    '& .MuiAccordionSummary-content': {
-        marginLeft: theme.spacing(1),
-    },
-}));
-
-const AccordionDetails = styled(MuiAccordionDetails)(({theme}) => ({
-    padding: theme.spacing(2),
-    borderTop: '1px solid rgba(0, 0, 0, .125)',
-}));
-
-export default function Detail() {
-    const [expanded, setExpanded] = useState(false);
-
-    const handleChange = (panel) => (event, newExpanded) => {
-        setExpanded(newExpanded ? panel : false);
+export default function SimpleAccordion() {
+    const key =
+        "mykey=jYwrtdSw7iO92ambpJ8UsNYXXIFTp2eIImew8gPTqYsNV3TWe7YzuSl4tx%2BarSsa15aOnNN2j8L%2BlsPM2JZ52A==";
+    const urlHead = "http://api-lulu.hibitbyte.com/";
+    const url = {
+        getFilter: `${urlHead}product/filter?${key}`,
+        allProduct: `${urlHead}product/allProducts?${key}`,
+        productId: "productId",
     };
+
+    const [featurePanels, setFeaturePanels] = useState([]);
+
+    const fetchInfo = () => {
+        axios
+            .get(url.allProduct)
+            .then((res) => {
+                const data = res.data.rs;
+                const products = data.products;
+                const featurePanels = products.map((product) => product.featurePanels);
+                setFeaturePanels(featurePanels);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
+
+    useEffect(() => {
+        fetchInfo();
+    }, []);
 
     return (
         <div>
-            <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-                <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                    <Typography>Collapsible Group Item #1</Typography>
-                </AccordionSummary>
-            </Accordion>
-            <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
-                <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-                    <Typography>Collapsible Group Item #2</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                    <Card sx={{minWidth: 275}}>
-                        <CardContent>
-                            <Typography sx={{fontSize: 14}} color="text.secondary" gutterBottom>
-                                Word of the Day
+            {featurePanels[0]?.map((item, index) => {
+                // console.log(item)
+                return (
+                    <Accordion key={index}>
+                        <AccordionSummary
+                            expandIcon={<ExpandMoreIcon/>}
+                            aria-controls="panel2a-content"
+                            id="panel2a-header"
+                            sx={{display: 'flex', flexDirection: 'row'}}
+                        >
+                            <img src={item.iconPath} alt="" style={{marginRight: '10px'}}/>
+                            <Typography>
+                                {item?.title}
                             </Typography>
-                        </CardContent>
-                    </Card>
-                </AccordionDetails>
-            </Accordion>
+
+                        </AccordionSummary>
+
+                        <Grid container spacing={2} >
+                            {item?.content?.map((cardItem, cardIndex) => (
+                                <Grid item xs={3} key={cardIndex} mb={2}>
+                                    <Card sx={{minWidth: 175}}>
+                                        <Typography m={1} color="text.secondary">
+                                            {cardItem}
+                                        </Typography>
+                                    </Card>
+                                </Grid>
+                            ))}
+                        </Grid>
+                    </Accordion>
+                )
+            })}
+
 
         </div>
-    );
+    )
 }
+
+
+
+
