@@ -479,10 +479,8 @@ export default function ProductPage(props) {
           setPanelIndex={setPanelIndex}
           panelRef={panelRef}
         />
-
+        <Review />
         <div className="container">
-          {" "}
-          <Review />
           <MainFooter />
         </div>
       </div>
