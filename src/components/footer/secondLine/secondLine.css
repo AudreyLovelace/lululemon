@@ -1,0 +1,65 @@
+.box_second {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+  justify-content: flex-start;
+}
+.box_second_detail {
+  color: #57585B;
+  font-weight: 550;
+  font-size: 13px;
+  text-decoration: none;
+  margin-bottom: 20px;
+  line-height: 20px;
+  position: relative;
+  width: fit-content;
+}
+.box_second_detail::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: red;
+  transition: width 0.3s ease-in-out;
+}
+.box_second_detail:hover::before {
+  width: 100%;
+}
+.box_second_other_four {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+.box_second_other_four_detail {
+  color: #57585B;
+  font-weight: 400;
+  font-size: 13px;
+  text-decoration: none;
+  margin-bottom: 20px;
+  line-height: 20px;
+  position: relative;
+  width: fit-content;
+}
+.box_second_other_four_detail::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: red;
+  transition: width 0.3s ease-in-out;
+}
+.box_second_other_four_detail:hover::before {
+  width: 100%;
+}
+
+@media screen and (max-width: 990px) {
+  .box_second {
+    padding: 15px;
+  }
+}
+
+/*# sourceMappingURL=secondLine.css.map */

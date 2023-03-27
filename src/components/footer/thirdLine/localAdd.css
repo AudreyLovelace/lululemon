@@ -1,0 +1,67 @@
+.thirdLine {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+}
+.thirdLine_localAddName {
+  color: #57585b;
+  font-size: 12px;
+  font-weight: lighter;
+  align-items: center;
+  margin: 5px;
+  line-height: 13px;
+}
+.thirdLine_otherTwo_term {
+  color: #57585b;
+  font-size: 12px;
+  font-weight: lighter;
+  text-align: center;
+  text-decoration: none;
+  position: relative;
+}
+.thirdLine_otherTwo_term::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: red;
+  transition: width 0.3s ease-in-out;
+}
+.thirdLine_otherTwo_term:hover::before {
+  width: 100%;
+}
+.thirdLine_otherTwo span {
+  margin: 0 20px;
+  font-weight: lighter;
+}
+
+@media screen and (max-width: 990px) {
+  .thirdLine,
+  .thirdLine_otherTwo_term {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 990px) {
+  .thirdLine span {
+    display: none;
+  }
+}
+@media screen and (max-width: 990px) {
+  .thirdLine_otherTwo_term {
+    padding: 10px 0;
+    margin: 10px 0;
+  }
+}
+@media screen and (max-width: 990px) {
+  .thirdLine_otherTwo_term::before {
+    bottom: 5px;
+  }
+}
+
+/*# sourceMappingURL=localAdd.css.map */

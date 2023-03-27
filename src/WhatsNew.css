@@ -1,0 +1,48 @@
+.whats_new nav {
+  background-color: white;
+}
+.whats_new main {
+  width: 100%;
+  margin-bottom: 60px;
+}
+.whats_new main .main_right {
+  width: 100%;
+}
+.whats_new main .main_right_top {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 992px) {
+  .whats_new .main_right_top {
+    display: none;
+  }
+  .products {
+    margin-top: 20px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+}
+@media (min-width: 992px) {
+  main {
+    display: grid;
+    grid-template-columns: 300px minmax(580px, 1fr);
+    grid-gap: 20px;
+  }
+  .main_right_top {
+    border-bottom: 0.5px solid #e0e0e0;
+  }
+  .products {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+  }
+}
+
+/*# sourceMappingURL=WhatsNew.css.map */

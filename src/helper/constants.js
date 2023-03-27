@@ -10,3 +10,9 @@ export const arrow = (
 
         </svg>
     )
+
+export const ADD_REVIEW = 'ADD_REVIEW';
+
+export const SORT_REVIEW = 'SORT_REVIEW'
+
+export const CHECK_FILTER = 'CHECK_FILTER';

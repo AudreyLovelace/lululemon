@@ -1,0 +1,13 @@
+body {
+  font-family: Calibre, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  background-color: #fafafa;
+}
+body .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+/*# sourceMappingURL=app.css.map */
