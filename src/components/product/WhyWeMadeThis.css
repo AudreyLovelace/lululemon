@@ -1,0 +1,84 @@
+.why_we_desktop {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  margin: 50px 0;
+}
+.why_we_desktop img {
+  width: 100%;
+}
+.why_we_desktop div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.why_we_desktop div h1 {
+  font-size: 70px;
+  font-weight: 600;
+  line-height: 75px;
+}
+.why_we_desktop div div {
+  width: 40px;
+  height: 5px;
+  background-color: #d31334;
+}
+.why_we_desktop div h2 {
+  font-size: 30px;
+  font-weight: 400;
+  margin-top: 20px;
+}
+.why_we_mobile {
+  position: relative;
+}
+.why_we_mobile img {
+  width: 100%;
+}
+.why_we_mobile .container {
+  position: absolute;
+  bottom: 0;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8), rgb(255, 255, 255));
+  height: 150px;
+}
+.why_we_mobile .container h1 {
+  font-size: 40px;
+  line-height: 45px;
+}
+.why_we_mobile .container div {
+  background-image: none;
+  position: static;
+  width: 40px;
+  height: 5px;
+  background-color: #d31334;
+  margin-bottom: 20px;
+}
+.why_we_mobile .container h2 {
+  font-size: 20px;
+}
+
+@media (max-width: 992px) {
+  .why_we_desktop {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .why_we_desktop div h1 {
+    font-size: 40px;
+    line-height: 45px;
+  }
+  .why_we_desktop div h2 {
+    font-size: 20px;
+  }
+  .why_we_desktop img:last-child {
+    display: none;
+  }
+}
+@media (min-width: 600px) {
+  .why_we_mobile {
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  .why_we_desktop {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=WhyWeMadeThis.css.map */

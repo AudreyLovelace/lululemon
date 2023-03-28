@@ -43,6 +43,9 @@
   justify-content: space-between;
   margin-bottom: 13px;
 }
+.filters .filter_expand .move {
+  margin-top: -10px !important;
+}
 .filters .filter_expand:hover {
   cursor: pointer;
 }

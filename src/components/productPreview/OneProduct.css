@@ -3,9 +3,20 @@
   animation-duration: 1000ms;
   animation-fill-mode: backwards;
 }
+.product svg {
+  color: black;
+}
 .product .disable {
   pointer-events: none;
   opacity: 0.3;
+}
+.product * {
+  text-decoration: none;
+}
+.product h3,
+.product p {
+  text-decoration: none !important;
+  color: black;
 }
 .product .color-checkbox div {
   margin: 0 auto;

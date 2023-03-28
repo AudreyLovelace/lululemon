@@ -1,0 +1,17 @@
+.test {
+  display: flex;
+  height: 500px;
+}
+.test .left,
+.test .right {
+  height: 500px;
+  width: 500px;
+}
+.test .right {
+  overflow-y: auto;
+}
+.test .right_inner {
+  height: 1000px;
+}
+
+/*# sourceMappingURL=Test.css.map */
