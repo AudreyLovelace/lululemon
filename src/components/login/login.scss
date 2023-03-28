@@ -1,0 +1,95 @@
+.login {
+  margin: 0 auto;
+  max-width: 1200px;
+
+  &_menberShip {
+
+    &_text::after {
+      content: '';
+      display: block;
+      border-bottom: red 5px solid;
+      max-width: 5%;
+    }
+  }
+
+  &_experienceMem {
+    cursor: pointer;
+
+    &_text {
+      position: relative;
+    }
+
+    &_text::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 1px;
+      width: 30%;
+      border-bottom: 1px solid #57585B;
+    }
+
+    &_text:hover::after {
+      display: inline-block;
+      bottom: 1px;
+      content: '';
+      border-bottom: red 1px solid;
+      width: 30%;
+    }
+  }
+
+  &_vLine {
+    border-left: 1px solid #57585B;
+    height: 70%;
+    left: 50%;
+    position: absolute;
+  }
+
+  &_rightPart {
+    margin-bottom: 20px;
+
+    span {
+      cursor: pointer;
+      position: relative;
+    }
+
+
+    span::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 1px;
+      width: 100%;
+      border-bottom: 1px solid #57585B;
+    }
+
+    span:hover::after {
+      display: inline-block;
+      bottom: 1px;
+      content: '';
+      border-bottom: red 1px solid;
+      width: 100%;
+    }
+
+    &_create {
+      position: relative;
+      font-size: 25px;
+      font-weight: 650;
+      cursor: pointer;
+    }
+
+    &_create::after {
+      position: absolute;
+      content: '';
+      display: inline-block;
+      left: 0;
+      bottom: 1px;
+      border: 1px #57585B solid ;
+      width: 100%;
+    }
+
+    &_create:hover::after {
+      position: absolute;
+      border: 1px red solid;
+    }
+  }
+}
