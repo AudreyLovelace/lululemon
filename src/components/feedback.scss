@@ -117,15 +117,24 @@
 
   .number-button:hover {
     cursor: pointer;
-    background-color: #595959;
-    color: white;
+    //background-color: #595959;
+    //color: white;
   }
 ;
 
-  .number-button .selected {
-    background-color: #1e1e1e;
-    color: #595959;
+  .number-button.selected {
+    background-color: #595959;
+    width: 30px;
+    height: 30px;
+    color: white;
+    border-radius: 10%;
+
   }
+
+
+  //.choose{
+  //  background: red;
+  //}
 
   //.numbers button {
   //  font-size: 50%;

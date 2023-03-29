@@ -2,24 +2,26 @@ import './feedback.scss';
 import './feedbackBtn.scss'
 import React, {useState} from "react";
 import StarIcon from '@mui/icons-material/Star';
-import CloseModal from "./CloseModal";
+// import CloseModal from "./CloseModal";
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
+import 'font-awesome/css/font-awesome.min.css';
 
-const Feedback = ({open, onClose}) => {
-    // if (!open) return null;  ????
+const Feedback = ({ open }) => {
 
-    const [value, setValue] = React.useState(2);
 
     let [starRatingValue, setStarRatingValue] = useState(null);
-    // const star = [0, 1, 2, 3, 4]
 
 
     // const number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     // const [numRatingValue, setNumRatingValue] = useState(null);
-    const [selectedRating, setSelectedRating] = useState(0);
-    const handleRatingSelect = (value) => {setSelectedRating(value)};
+    const [selectedRating, setSelectedRating] = useState(-1);
+    const handleRatingSelect = (value) => {
+        setSelectedRating(value)
+    };
+
+    // if (!open) return null;
 
     // function setOpenModal(b) {
     //     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -29,24 +31,18 @@ const Feedback = ({open, onClose}) => {
 
     return (
         <div className='feedback'>
-            <div className='topLogos'>
+            <div className='topLogos' onClick={onclose}>
                 <img
                     src="https://resources.digital-cloud.medallia.com/wdcus/55284/resources/image/1587642806364_rsz_lululemon_yogo_rgb_clr-54.jpg"
                     alt="logo"/>
 
-                <CloseModal/>
-
-                {/*<div>*/}
-                {/*    <button style={{outline: 'none'}}*/}
-                {/*        className='close'>*/}
-                {/*        /!*<i className="fa fa-times"></i>*!/*/}
-                {/*        <p onClick={onclose} className='fa fa-times xBtn'*/}
-                {/*           style={{ fontWeight: 24}}>X</p>*/}
-                {/*    </button>*/}
-
-                {/*</div>*/}
-
+                <button style={{outline: 'none'}}
+                        className='close'>
+                    <i className="fa fa-times"
+                       style={{fontWeight: 24}}></i>
+                </button>
             </div>
+
             <div className='topLine'>
                 {/*<div className='listening' style={{fontWeight: 'bold !important'}}>*/}
                 <div>
@@ -81,7 +77,6 @@ const Feedback = ({open, onClose}) => {
             {/*        return (*/}
             {/*            // <starIcon/>*/}
             {/*            <span className="star">&#9733;</span>*/}
-
             {/*        );*/}
             {/*    })}*/}
             {/*    /!*<p> This Field is Required.</p>*!/*/}
@@ -111,7 +106,7 @@ const Feedback = ({open, onClose}) => {
             {/*        {number.map((numbers, i) => {*/}
             {/*            return (*/}
             {/*                <div id={i} onClick={(event) => {*/}
-            {/*                    for (let i = 0; i < numbers.length; i++) {*/}
+            {/*                    for (let i = 0; i < number.length; i++) {*/}
             {/*                        document.getElementById(i).classList.remove('choose')*/}
             {/*                    }*/}
             {/*                    document.getElementById(i).classList.add('choose')*/}
@@ -120,21 +115,19 @@ const Feedback = ({open, onClose}) => {
             {/*                    /!*<input id='numRadio' type="radio" name='numbers'*!/*/}
             {/*                    /!*       value={numRatingValue}*!/*/}
             {/*                    /!*       onClick={() => setNumRatingValue = {numRatingValue}}*!/*/}
-            {/*/>*/}
-            {/*                    </button>*/}
-            {/*                </div>)*/}
+            {/*                    {numbers} </div>)*/}
             {/*        })}*/}
             {/*    </div>*/}
             {/*</div>*/}
 
-            {/*NumberRating-Version-ChatGPT*/}
+            {/*/!*NumberRating-Version-ChatGPT*!/*/}
             <div className="review-form">
                 <p>How likely are you to recommend lululemon to a friend or family member?</p>
                 <div className="number-buttons">
-                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((value) => (
+                    {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((value) => (
                         <button
                             key={value}
-                            className={`number-button ${selectedRating === value ? 'selected' : ''}`}
+                            className={`number-button ${selectedRating >= value ? 'selected' : ''}`}
                             onClick={() => handleRatingSelect(value)}
                         >
                             {value}
@@ -181,6 +174,8 @@ const Feedback = ({open, onClose}) => {
                         /*style={{float:'right'}}/*/
                     >Close
                     </button>
+
+
                     <button className='submitBtn'>Submit</button>
                 </div>
 
@@ -188,6 +183,7 @@ const Feedback = ({open, onClose}) => {
                     <p>
                         <a href="https://www.medallia.com/">Powered by <span>Medallia</span></a>
                     </p>
+
                 </div>
             </div>
         </div>
