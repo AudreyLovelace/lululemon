@@ -13,6 +13,7 @@ import FeaturePanels from "./FeaturePanels";
 import ProductPageTop from "./ProductPageTop";
 import WhyWeMadeThis from "./WhyWeMadeThis";
 import TopNavigation from "../navigation component/TopNavigation";
+import { filterActions } from "../../actions/filterAction";
 export default function ProductPage(props) {
   const one = {
     productId: "prod9820681",
@@ -335,7 +336,13 @@ export default function ProductPage(props) {
   const initColorId = colorId.colorId;
   // console.log(initColorId);
 
-  const productId = "prod9820681";
+  const { productId } = useParams();
+  // console.log(productId);
+  useEffect(() => {
+    if (productId?.length) {
+      filterActions.fetchOne(productId);
+    }
+  }, [productId]);
 
   const id =
     initColorId == 0 || initColorId == undefined

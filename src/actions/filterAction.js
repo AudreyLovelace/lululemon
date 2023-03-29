@@ -1,11 +1,12 @@
 import axios from "axios";
 const key =
-  "mykey=jYwrtdSw7iO92ambpJ8UsNYXXIFTp2eIImew8gPTqYsNV3TWe7YzuSl4tx%2BarSsa15aOnNN2j8L%2BlsPM2JZ52A==";
+  "mykey=UnxYe8qDRHZDXDCRlm/7k/AmqiMOZGSTUkG0l2ZXVBW2p%2BcEQJGJY2WberfSythE5v0OpktC6E92rssg4Gc4WA==";
 const urlHead = "http://api-lulu.hibitbyte.com/";
 const url = {
   getFilter: `${urlHead}product/filter?${key}`,
   allProduct: `${urlHead}product/allProducts?`,
   sortingId: "sortingId",
+  fetchOne: `${urlHead}product/`,
 };
 const authorization =
   "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtYXJreHVAbWFyazJ3aW4uY29tIiwiaXAiOiIxIiwiYnJvd3NlciI6IkNocm9tZS8xMDEuMC4wLjA7IEJsaW5rLzEwMS4wLjAuMCIsImRldmljZSI6Ik1hYyBPUyAxMC4xNS43IiwiaWF0IjoxNjU4MTYxMDg1LCJleHAiOjE2NjA3NTMwODV9.JOp9Ytw0ptPa-y0IgZqrD7FuOiGRGerOxo7Xg5R-SpQ";
@@ -23,6 +24,28 @@ export const filterTypes = {
 };
 
 export const filterActions = {
+  fetchOne(productId) {
+    let request = {
+      method: "get",
+      url: "http://api-lulu.hibitbyte.com/product/prod10550089?" + key,
+      headers: {
+        authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtYXJreHVAbWFyazJ3aW4uY29tIiwiaXAiOiIxIiwiYnJvd3NlciI6IkNocm9tZS8xMDEuMC4wLjA7IEJsaW5rLzEwMS4wLjAuMCIsImRldmljZSI6Ik1hYyBPUyAxMC4xNS43IiwiaWF0IjoxNjU4MTYxMDg1LCJleHAiOjE2NjA3NTMwODV9.JOp9Ytw0ptPa-y0IgZqrD7FuOiGRGerOxo7Xg5R-SpQ",
+      },
+    };
+    //npm install axios
+    console.log(request.url);
+
+    axios
+      .get(request)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {});
+  },
   clearSearchLink() {
     return { type: filterTypes.clearSearchLink };
   },
