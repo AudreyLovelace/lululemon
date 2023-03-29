@@ -27,7 +27,7 @@ export default function App() {
       <Route path="/" element={<WhatsNew />} />
       <Route path="/p/:productId/:colorId" element={<ProductPage />} />
       <Route path="/p/:productId/" element={<ProductPage />} />
-      <Route path="/Login" element={<Login />} />
+      <Route path="/login" element={<Login />} />
       <Route path="*" element={<WhatsNew />} />
     </Routes>
   );

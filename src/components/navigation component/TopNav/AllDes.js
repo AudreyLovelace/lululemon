@@ -1,9 +1,7 @@
 import {GiftCard, Global, SignIn, StoreLocation, WishList} from "./TopIcon";
 import "./AllDes.scss"
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {BagLogo, GiftCard1, LuluLogo, SignIn1, StoreLocation1, WishList1} from "./NewLogo";
-import Typography from '@mui/material/Typography';
-import Popover from '@mui/material/Popover';
 import {Menu, MenuItem} from "@mui/material";
 import {useState} from "react";
 
@@ -17,6 +15,8 @@ const AllDes = () => {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
+    const Navigate = useNavigate()
 
 
     return (<div className='allLine'>
@@ -39,8 +39,12 @@ const AllDes = () => {
                         'aria-labelledby': 'basic-button',
                     }}
                 >
-                    <MenuItem onClick={handleClose}>Sign In</MenuItem>
-                    <MenuItem onClick={handleClose}>Log In</MenuItem>
+                    <MenuItem onClick={handleClose}>Sign Up</MenuItem>
+                    <MenuItem onClick={() => {
+                        Navigate("/login")
+                    }}>
+                        Log In
+                    </MenuItem>
                 </Menu>
 
                 <Link to="/" className="topLine_details">
@@ -79,8 +83,11 @@ const AllDes = () => {
                             'aria-labelledby': 'basic-button',
                         }}
                     >
-                        <MenuItem onClick={handleClose}>Sign In</MenuItem>
-                        <MenuItem onClick={handleClose}>Log In</MenuItem>
+                        <MenuItem onClick={handleClose}>Sign Up</MenuItem>
+                        <MenuItem onClick={()=>{
+                             Navigate("/login")}
+                        }>
+                            Log In</MenuItem>
                     </Menu>
 
 

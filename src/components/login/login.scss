@@ -83,7 +83,7 @@
       display: inline-block;
       left: 0;
       bottom: 1px;
-      border: 1px #57585B solid ;
+      border: 1px #57585B solid;
       width: 100%;
     }
 
@@ -91,5 +91,25 @@
       position: absolute;
       border: 1px red solid;
     }
+  }
+}
+
+
+@media screen and (max-width: 960px) {
+  .login {
+    display: none;
+  }
+}
+
+
+
+.loginPhone {
+  margin: 10px ;
+  max-width: 960px;
+}
+
+@media screen and (min-width: 960px) {
+  .loginPhone {
+    display: none;
   }
 }

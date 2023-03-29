@@ -64,6 +64,7 @@ const reviewReducer = (state = initState, action) => {
                         review: [...state.review]?.filter((item) => item.id === 1)
                     }
                 }
+
                 if (filter === 2) {
                     return {
                         ...state,
