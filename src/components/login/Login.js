@@ -148,7 +148,7 @@ export const Login = () => {
                     </Grid>
 
 
-                    <Grid item xs={5} style={{marginTop: '20px', maxWidth: '400px'}}>
+                    <Grid item xs={5} style={{marginTop: '20px', maxWidth: '500px'}}>
                         <form className='login_rightPart' onSubmit={handleSubmit} onClick={handleError}>
                             <h1 className='login_menberShip_text'>
                                 Sign in to your member account
@@ -218,7 +218,7 @@ export const Login = () => {
                         </p>
                     </div>
                     <hr/>
-                    <form className='login_rightPart' onSubmit={handleSubmit} onClick={handleError} >
+                    <form className='login_rightPart' onSubmit={handleSubmit} onClick={handleError}>
                         <h1 className='login_menberShip_text' style={{marginTop: '10px'}}>
                             Sign in to your member account
                         </h1>
@@ -263,11 +263,19 @@ export const Login = () => {
                             acknowledge the <span>Privacy Policy</span>. California consumers, see our <span>Notice of Financial Incentives</span>.
                         </p>
 
-                        <h2 style={{paddingTop:'20px'}}>Not a member yet?</h2>
+                        <h2 style={{paddingTop: '20px'}}>Not a member yet?</h2>
                         <p style={{fontSize: '15px', padding: '10px 0'}}>Members get free hemming, exchange or credit on
                             sale items, early access to product drops, and more.
                         </p>
-                        <button style={{backgroundColor: 'black', color: 'white', width: '100%', height: '50px',fontWeight:'600',fontSize:'18px',marginBottom:'20px'}}>CREATE
+                        <button style={{
+                            backgroundColor: 'black',
+                            color: 'white',
+                            width: '100%',
+                            height: '50px',
+                            fontWeight: '600',
+                            fontSize: '18px',
+                            marginBottom: '20px'
+                        }}>CREATE
                             A MEMBER ACCOUNT
                         </button>
 
