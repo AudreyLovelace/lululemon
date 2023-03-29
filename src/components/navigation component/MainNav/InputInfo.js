@@ -12,7 +12,7 @@ export const InputInfo = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const searchLink = useSelector((state) => state?.searchReducer?.searchLink);
-  console.log(searchLink);
+  // console.log(searchLink);
 
   //get all products
   // const [message, setMessage] = useState(searchLink);
@@ -39,7 +39,7 @@ export const InputInfo = () => {
               result++;
             }
           });
-          setTimeout(() => {}, 2000);
+          // setTimeout(() => {}, 2000);
           return result === rightMatch;
         });
 
@@ -63,7 +63,7 @@ export const InputInfo = () => {
   }, [searchLink]);
   const { pathname } = useLocation();
 
-  console.log(pathname);
+  // console.log(pathname);
 
   return (
     <div className="searchBar">

@@ -21,25 +21,25 @@ export const filterTypes = {
   clearSearchHistory: "CLEAR_SEARCH_HISTORY",
   searchLink: "SEARCH_LINK",
   clearSearchLink: "CLEAR_SEARCH_LINK",
+  fetchOne: "FETCH_ONE",
 };
 
 export const filterActions = {
-  fetchOne(productId) {
-    let request = {
-      method: "get",
-      url: "http://api-lulu.hibitbyte.com/product/prod10550089?" + key,
-      headers: {
-        authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtYXJreHVAbWFyazJ3aW4uY29tIiwiaXAiOiIxIiwiYnJvd3NlciI6IkNocm9tZS8xMDEuMC4wLjA7IEJsaW5rLzEwMS4wLjAuMCIsImRldmljZSI6Ik1hYyBPUyAxMC4xNS43IiwiaWF0IjoxNjU4MTYxMDg1LCJleHAiOjE2NjA3NTMwODV9.JOp9Ytw0ptPa-y0IgZqrD7FuOiGRGerOxo7Xg5R-SpQ",
-      },
-    };
-    //npm install axios
-    console.log(request.url);
-
+  fetchOne(productID, dispatch) {
     axios
-      .get(request)
+      .get(
+        `http://api-lulu.hibitbyte.com/product/${productID}?mykey=UnxYe8qDRHZDXDCRlm/7k/AmqiMOZGSTUkG0l2ZXVBW2p%2BcEQJGJY2WberfSythE5v0OpktC6E92rssg4Gc4WA==`,
+        {
+          headers: {
+            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtYXJreHVAbWFyazJ3aW4uY29tIiwiaXAiOiIxIiwiYnJvd3NlciI6IkNocm9tZS8xMDEuMC4wLjA7IEJsaW5rLzEwMS4wLjAuMCIsImRldmljZSI6Ik1hYyBPUyAxMC4xNS43IiwiaWF0IjoxNjU4MTYxMDg1LCJleHAiOjE2NjA3NTMwODV9.JOp9Ytw0ptPa-y0IgZqrD7FuOiGRGerOxo7Xg5R-SpQ`,
+          },
+        }
+      )
       .then((response) => {
-        console.log(response);
+        // return response.data.rs;
+        // console.log(response.data.rs);
+
+        dispatch({ type: filterTypes.fetchOne, payload: response.data.rs });
       })
       .catch((error) => {
         console.log(error);

@@ -7,6 +7,7 @@ import { lableReducer } from "./lableReducer";
 import { pageReducer } from "./pageReducer";
 import { searchReducer } from "./searchReducer";
 import reviewReducer from "./reviewReducerRating";
+import { oneProductReducer } from "./oneProductReducer";
 
 export default combineReducers({
   lululemonReducer,
@@ -17,4 +18,5 @@ export default combineReducers({
   pageReducer,
   searchReducer,
   reviewReducer,
+  oneProductReducer,
 });

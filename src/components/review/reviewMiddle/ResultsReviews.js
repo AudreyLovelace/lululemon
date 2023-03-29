@@ -38,7 +38,7 @@ export const ResultsReviews = () => {
       <div className="review_header">
         <FormControl sx={{ minWidth: 250 }}>
           <Select
-            // value={}
+            value={"Most Recent"}
             onChange={handleSort}
             displayEmpty
             inputProps={{ "aria-label": "Without label" }}

@@ -9,6 +9,8 @@ import { IoRadioButtonOnOutline } from "react-icons/io5";
 import PlusMinus from "../filter/PlusMinus";
 import { useCallback } from "react";
 import TopNavigation from "../navigation component/TopNavigation";
+import { RiErrorWarningLine } from "react-icons/ri";
+import { cartAction } from "../../actions/cartAction";
 export default function ProductPageTop({
   one,
   id,
@@ -19,9 +21,12 @@ export default function ProductPageTop({
   size,
   setSize,
   bottomBag,
+  isSizeSelected,
 }) {
-  //const dispatch=useDispatch()
+  const dispatch = useDispatch();
   //const ??? = useSelector(state => state?.reducer?.???)
+  // console.log(isSizeSelected);
+
   const store = (
     <svg
       height="24"
@@ -84,6 +89,7 @@ export default function ProductPageTop({
   const navigate = useNavigate();
   const [expand, setExpand] = useState(false);
   const [marginTop, setMarginTop] = useState(0);
+  const [warn, setWarn] = useState(false);
   const height = 200;
 
   function handleScroll() {
@@ -127,10 +133,24 @@ export default function ProductPageTop({
     return () => window.removeEventListener("scroll", handleScroll);
   }, [right?.current?.offsetLeft]);
 
+  const cartInfo = {
+    quantity: 1,
+    productId: productId,
+    colorId: id,
+    size: size,
+    one: one,
+    name: one?.name,
+    picture: media,
+    price: priceNum,
+    colorName: alt,
+  };
+  // console.log(cartInfo);
+
   return (
     <div>
       <TopNavigation />
       <div className="container">
+        {" "}
         <div className="product_page" ref={bottomBag}>
           {/* {showChoice && <div className="top_choice">a</div>} */}
 
@@ -144,7 +164,7 @@ export default function ProductPageTop({
               <h1>{one.name}</h1>
               <p>
                 {price[0]}
-                <span> {price[1]}</span>
+                <span> CAD</span>
               </p>
               <small>
                 or 4 payments of ${(priceNum / 4).toFixed(2)} with {afterPay} or{" "}
@@ -193,7 +213,19 @@ export default function ProductPageTop({
               </div>
             </div>
             <div className="sizes">
+              {warn && !isSizeSelected && (
+                <div className="warn">
+                  <p>
+                    <RiErrorWarningLine /> Please select a size.
+                  </p>
+                </div>
+              )}
               {one.sizes.map((sizes, index) => {
+                // console.log(sizes.details);
+
+                if (!sizes.details.length) {
+                  return null;
+                }
                 return (
                   <div key={index}>
                     <h2>
@@ -258,7 +290,16 @@ export default function ProductPageTop({
                 </div>
               </div>
               <div className="button">
-                <button>ADD TO BAG</button>
+                <button
+                  onClick={() => {
+                    setWarn(true);
+                    if (isSizeSelected) {
+                      dispatch(cartAction.addToCart(cartInfo));
+                    }
+                  }}
+                >
+                  ADD TO BAG
+                </button>
               </div>
             </div>
             <div className="details">

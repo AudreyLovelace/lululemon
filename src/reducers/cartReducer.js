@@ -1,9 +1,10 @@
-import { types } from "../helper/constants";
-const initState = { a: 2 };
+import { cartTypes } from "../actions/cartAction";
+const initState = [];
 export const cartReducer = (state = initState, action) => {
   switch (action.type) {
-    case types:
-      return { ...state, a: action?.payload };
+    case cartTypes.addToCart:
+      console.log(action.payload);
+      return [...state, action?.payload];
     default:
       return state;
   }
