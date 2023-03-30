@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 import "./topIcon.scss";
 import { useSelector, useDispatch } from "react-redux";
+import ImpulseShadow from "../MainNav/ImpulseShadow";
 export const BagLogo = () => {
   const cart = useSelector((state) => state?.cartReducer);
   const total = cart?.reduce((t, b) => {
     return t + b.quantity;
   }, 0);
   return (
-    <div className="checkoutNew">
+    <div className="checkoutNew" style={{ position: "relative" }}>
       <svg
         height="20"
         width="20"
@@ -26,9 +27,13 @@ export const BagLogo = () => {
           fillRule="evenodd"
         ></path>
       </svg>
-      <span className="checkoutNew_bagInside" style={{ top: 4 }}>
+      <span
+        className="checkoutNew_bagInside"
+        style={{ top: 4, transform: "scale(0.8)" }}
+      >
         {total}
       </span>
+      <ImpulseShadow total={total} />
     </div>
   );
 };

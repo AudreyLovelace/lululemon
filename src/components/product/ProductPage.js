@@ -155,11 +155,22 @@ export default function ProductPage(props) {
     };
   }, [searchLink.searchLink]);
   const [cartAdded, setCartAdded] = useState(false);
+  useEffect(() => {
+    if (cartAdded) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "visible";
+    }
+  }, [cartAdded]);
   if (!!id) {
     return (
       <div className="product_whole_page">
         {cartAdded && (
-          <CartAdded cartInfo={cartInfo} setCartAdded={setCartAdded} />
+          <CartAdded
+            cartInfo={cartInfo}
+            setCartAdded={setCartAdded}
+            cartAdded={cartAdded}
+          />
         )}
 
         {open && (

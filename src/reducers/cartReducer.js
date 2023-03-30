@@ -5,7 +5,7 @@ const initState =
     ? JSON.parse(localStorage.getItem("cart"))
     : [];
 export const cartReducer = (state = initState, action) => {
-  console.log(state);
+  // console.log(state);
 
   switch (action.type) {
     case cartTypes.addToCart:
@@ -27,7 +27,7 @@ export const cartReducer = (state = initState, action) => {
         state = [action?.payload, ...state];
       }
       localStorage.setItem("cart", JSON.stringify(state));
-      console.log(state);
+      // console.log(state);
       return state;
 
     default:

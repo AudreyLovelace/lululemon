@@ -1,6 +1,7 @@
 import "./icon.scss";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import ImpulseShadow from "./ImpulseShadow";
 export const Icon = () => {
   return (
     <Link className="logo" to="/">
@@ -22,7 +23,7 @@ export const Bag = () => {
     return t + b.quantity;
   }, 0);
   return (
-    <Link to="/" className="checkout">
+    <Link to="/" className="checkout" style={{ position: "relative" }}>
       <svg
         height="24"
         width="24"
@@ -41,9 +42,13 @@ export const Bag = () => {
           fillRule="evenodd"
         ></path>
       </svg>
-      <span className="checkout_bagInside" style={{ top: 5 }}>
+      <span
+        className="checkout_bagInside"
+        style={{ top: 5, transform: "scale(0.8)" }}
+      >
         {total}
       </span>
+      <ImpulseShadow total={total} />
     </Link>
   );
 };
