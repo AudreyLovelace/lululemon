@@ -33,8 +33,7 @@ function Feedback (props) {
 
 
     return (props.trigger) ? (
-        <>
-            {/*{feedbackModal && (*/}
+        <div className='modalBackground'>
             <div className='feedbackModal'>
                 <div className="overLay"></div>
                 <div>
@@ -148,11 +147,9 @@ function Feedback (props) {
                     </div>
                 </div>
             </div>
-            {/*)}*/}
-        </>
+        </div>
     ) : "";
 }
-
 
 export default Feedback
 
