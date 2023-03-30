@@ -3,7 +3,7 @@ import "./topIcon.scss";
 import { useSelector, useDispatch } from "react-redux";
 export const BagLogo = () => {
   const cart = useSelector((state) => state?.cartReducer);
-  const total = cart?.whole?.reduce((t, b) => {
+  const total = cart?.reduce((t, b) => {
     return t + b.quantity;
   }, 0);
   return (

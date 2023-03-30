@@ -18,7 +18,7 @@ export const Icon = () => {
 
 export const Bag = () => {
   const cart = useSelector((state) => state?.cartReducer);
-  const total = cart?.whole?.reduce((t, b) => {
+  const total = cart?.reduce((t, b) => {
     return t + b.quantity;
   }, 0);
   return (

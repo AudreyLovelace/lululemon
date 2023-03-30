@@ -7,7 +7,7 @@ export default function CartAdded({ cartInfo, setCartAdded }) {
   const dispatch = useDispatch();
   //const ??? = useSelector(state => state?.reducer?.???)
   const cart = useSelector((state) => state?.cartReducer);
-  const subTotal = cart?.whole.reduce((total, p) => {
+  const subTotal = cart?.reduce((total, p) => {
     return total + Number(p.price) * Number(p.quantity);
   }, 0);
 
