@@ -7,7 +7,25 @@
 //
 //}
 
-.feedback {
+#popup {
+  cursor: pointer;
+  height: 40px;
+  width: 100px;
+  //line-height: 32px;
+  //font-weight: 600;
+  text-align: center;
+  //font-size: 17px;
+  position: fixed;
+  right: -40px;
+  top: 45%;
+  //font-family: "Roboto", helvetica, arial, sans-serif;
+  z-index: 999;
+  border:none;
+  outline:none;
+  background-color: transparent;
+}
+
+.feedbackModal {
   //align-content: center;
   //background: #dedede;
   margin: auto;
@@ -19,6 +37,21 @@
   height: 816.5px;
   width: 438px;
   //width: 25%;
+
+  .feedbackModal, .overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+  }
+
+  .overlay {
+    background: rgba(49,49,49,0.8);
+  }
+
 
 
   .topLogos {

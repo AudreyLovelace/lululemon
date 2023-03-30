@@ -1,0 +1,13 @@
+.plus-minus {
+  position: relative;
+}
+.plus-minus div {
+  position: absolute;
+  transition: all ease-in 100ms;
+}
+.plus-minus .move {
+  transform: rotate(90deg);
+  margin-top: -2px;
+}
+
+/*# sourceMappingURL=plusMinus.css.map */

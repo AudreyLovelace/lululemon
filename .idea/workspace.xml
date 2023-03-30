@@ -4,7 +4,6 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="48e0acb8-8157-4f7a-abe6-c6af460d0575" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +12,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -20,32 +20,45 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="744ea92c-8342-4301-a77a-3b8fed38b486" />
-        <option name="url" value="https://github.com/AudreyLovelace/lululemon.git" />
-      </UrlAndAccount>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="jingyuan" />
+                    <option name="lastUsedInstant" value="1679581301" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1679581300" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
     </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+  <component name="ProjectId" id="2N1Ek561jJTTmPRNfkg2BvTsP7w" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectId" id="2N81Wg7VUqXfHccukHUfBZQoB5O" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
@@ -55,49 +68,64 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.maddyhome.idea.vim.ui.VimEmulationConfigurable&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\tjy52\OneDrive\Documents\GitHub\lululemon" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\tjy52\OneDrive\Documents\GitHub\lululemon\src\components\Recommand-Product" />
+      <recent name="C:\Users\tjy52\OneDrive\Documents\GitHub\lululemon\src\components\Preview" />
+      <recent name="C:\Users\tjy52\OneDrive\Documents\GitHub\lululemon\src\components" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="48e0acb8-8157-4f7a-abe6-c6af460d0575" name="Changes" comment="" />
-      <created>1679030928837</created>
+      <changelist id="8a3ef8fc-cf92-45d9-b30d-ab4a87e4ee47" name="Changes" comment="" />
+      <created>1678823328952</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1679030928837</updated>
-      <workItem from="1679030930359" duration="139000" />
-      <workItem from="1679031073027" duration="17000" />
-      <workItem from="1679031165400" duration="10000" />
-      <workItem from="1679031329372" duration="15000" />
-      <workItem from="1679031363250" duration="21000" />
-      <workItem from="1679031434647" duration="19000" />
-      <workItem from="1679031526519" duration="357000" />
-      <workItem from="1679031896268" duration="3000" />
-      <workItem from="1679031929697" duration="4418000" />
-      <workItem from="1679067864860" duration="2954000" />
-      <workItem from="1679190659148" duration="13509000" />
-      <workItem from="1679249454930" duration="11152000" />
-      <workItem from="1679329771739" duration="3840000" />
-      <workItem from="1679378013849" duration="5411000" />
-      <workItem from="1679383888858" duration="91000" />
-      <workItem from="1679417129746" duration="5291000" />
-      <workItem from="1679463773602" duration="5863000" />
-      <workItem from="1679553161595" duration="2771000" />
-      <workItem from="1679634176248" duration="770000" />
-      <workItem from="1679635796320" duration="2545000" />
-      <workItem from="1679692918688" duration="5984000" />
-      <workItem from="1679721761047" duration="3252000" />
-      <workItem from="1679791212993" duration="1659000" />
-      <workItem from="1679890613487" duration="7753000" />
-      <workItem from="1679966673691" duration="7102000" />
-      <workItem from="1680022139718" duration="598000" />
-      <workItem from="1680063811935" duration="5685000" />
+      <updated>1678823328952</updated>
+      <workItem from="1678823332932" duration="133000" />
+      <workItem from="1679010055795" duration="261000" />
+      <workItem from="1679010484528" duration="7211000" />
+      <workItem from="1679061101274" duration="4360000" />
+      <workItem from="1679082580790" duration="4055000" />
+      <workItem from="1679437978296" duration="1745000" />
+      <workItem from="1679611161412" duration="2826000" />
+      <workItem from="1679696675396" duration="460000" />
+      <workItem from="1679843547514" duration="2013000" />
+      <workItem from="1679858148774" duration="1796000" />
+      <workItem from="1679860255979" duration="3638000" />
+      <workItem from="1679961912030" duration="310000" />
+      <workItem from="1680076159843" duration="318000" />
+      <workItem from="1680111823208" duration="905000" />
+      <workItem from="1680148165910" duration="663000" />
+      <workItem from="1680150128038" duration="5483000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/Preview/Preview.js</url>
+          <line>274</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/Preview/Preview.js</url>
+          <line>93</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
