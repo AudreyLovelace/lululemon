@@ -24,7 +24,7 @@ export const cartReducer = (state = initState, action) => {
         }
       });
       if (!same) {
-        state = [...state, action?.payload];
+        state = [action?.payload, ...state];
       }
       localStorage.setItem("cart", JSON.stringify(state));
       console.log(state);
