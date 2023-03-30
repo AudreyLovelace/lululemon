@@ -52,11 +52,11 @@ export default function PopUpSearch({ setOpen, dispatch }) {
                         // setMessage(e);
                         dispatch(filterActions.searchLink(e));
                         filterActions.initPage(dispatch);
-                        setTimeout(() => {
-                          if (pathname !== "/") {
-                            navigate("/");
-                          }
-                        }, 2000);
+                        //   setTimeout(() => {
+                        if (pathname !== "/") {
+                          navigate("/");
+                        }
+                        //   }, 2000);
                       }}
                     >
                       {e}
@@ -81,11 +81,11 @@ export default function PopUpSearch({ setOpen, dispatch }) {
                         // setMessage(e);
                         dispatch(filterActions.searchLink(e));
                         filterActions.initPage(dispatch);
-                        setTimeout(() => {
-                          if (pathname !== "/") {
-                            navigate("/");
-                          }
-                        }, 2000);
+                        // setTimeout(() => {
+                        if (pathname !== "/") {
+                          navigate("/");
+                        }
+                        // }, 2000);
                       }}
                     >
                       {e}

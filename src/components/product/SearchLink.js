@@ -30,9 +30,9 @@ export default function SearchLink(props) {
                   dispatch(filterActions.searchLink(e));
 
                   filterActions.initPage(dispatch);
-                  setTimeout(() => {
-                    navigate("/");
-                  }, 2000);
+                  // setTimeout(() => {
+                  navigate("/");
+                  // }, 2000);
                 }
               }}
             >

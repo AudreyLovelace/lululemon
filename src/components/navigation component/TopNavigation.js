@@ -6,7 +6,10 @@ const TopNavigation = () => {
   return (
     <>
       <div>
-        <AllDes />
+        {" "}
+        <div className="container">
+          <AllDes />
+        </div>
       </div>
 
       <div className="main sticky">

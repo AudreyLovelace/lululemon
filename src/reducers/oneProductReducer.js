@@ -1,6 +1,6 @@
 import { filterTypes } from "../actions/filterAction";
 
-const ons = {
+const one = {
   productId: "prod9820681",
   swatches: [
     {
@@ -313,13 +313,29 @@ const ons = {
     },
   ],
 };
-const initState = ons;
+const ons = {
+  productId: "",
+  swatches: [],
+  images: [],
+  name: "",
+  price: "",
+  sizes: [],
+  featureTitles: [],
+  whyWeMadeThis: "",
+  featurePanels: [],
+};
+
+const initState =
+  localStorage.getItem("one") !== null
+    ? JSON.parse(localStorage.getItem("one"))
+    : ons;
 export const oneProductReducer = (state = initState, action) => {
   // console.log(action);
 
   switch (action.type) {
     case filterTypes.fetchOne:
-      // console.log(action?.payload);
+      // console.log(1);
+      localStorage.setItem("one", JSON.stringify(action?.payload));
       return action?.payload;
     default:
       return state;

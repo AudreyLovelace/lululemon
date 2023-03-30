@@ -42,7 +42,7 @@ export const filterActions = {
         dispatch({ type: filterTypes.fetchOne, payload: response.data.rs });
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       })
       .finally(() => {});
   },
@@ -87,7 +87,7 @@ export const filterActions = {
         dispatch(filterActions.initFilter(response.data.rs));
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       })
       .finally(() => {});
   },
@@ -125,7 +125,7 @@ export const filterActions = {
         }
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       })
       .finally(() => {});
   },

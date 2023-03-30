@@ -1,6 +1,12 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { NavLink, useNavigate, useParams, Navigate } from "react-router-dom";
+import {
+  NavLink,
+  useNavigate,
+  useParams,
+  Navigate,
+  useLocation,
+} from "react-router-dom";
 import { BsInfoCircle } from "react-icons/bs";
 import Carousel from "./Carousel";
 import "./ProductPage.scss";
@@ -16,6 +22,8 @@ import TopNavigation from "../navigation component/TopNavigation";
 import { filterActions } from "../../actions/filterAction";
 import axios from "axios";
 import { cartAction } from "../../actions/cartAction";
+import ProductPopUp from "./ProductPopUp";
+import CartAdded from "./CartAdded";
 export default function ProductPage(props) {
   const dispatch = useDispatch();
   //const ??? = useSelector(state => state?.reducer?.???)
@@ -30,8 +38,14 @@ export default function ProductPage(props) {
   // console.log(productId);
 
   useEffect(() => {
+    if (localStorage.getItem("one") && productId.length) {
+      // console.log(JSON.parse(localStorage.getItem("one")));
+      if (JSON.parse(localStorage.getItem("one")).productId === productId) {
+        return;
+      }
+    }
     if (productId?.length) {
-      // console.log(productId);
+      console.log(productId);
       filterActions.fetchOne(productId, dispatch);
     }
   }, [productId]);
@@ -100,17 +114,6 @@ export default function ProductPage(props) {
     });
     if (result === sizeKeys.length) {
       return true;
-      //   return <button>ADD TO BAG</button>;
-      // } else {
-      //   return (
-      //     <button
-      //       onClick={() => {
-      //         window.scrollTo(0, 0);
-      //       }}
-      //     >
-      //       SELECT SIZE
-      //     </button>
-      //   );
     } else {
       return false;
     }
@@ -135,9 +138,33 @@ export default function ProductPage(props) {
     colorName: alt,
   };
   // console.log(cartInfo);
+
+  const [open, setOpen] = useState(false);
+  const searchLink = useSelector((state) => state?.searchReducer);
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+  useEffect(() => {
+    let timerId;
+    if (pathname !== "/" && searchLink.searchLink.length) {
+      timerId = setTimeout(() => {
+        navigate("/");
+      }, 2000);
+    }
+    return () => {
+      clearTimeout(timerId);
+    };
+  }, [searchLink.searchLink]);
+  const [cartAdded, setCartAdded] = useState(false);
   if (!!id) {
     return (
       <div className="product_whole_page">
+        {cartAdded && (
+          <CartAdded cartInfo={cartInfo} setCartAdded={setCartAdded} />
+        )}
+
+        {open && (
+          <ProductPopUp media={media} name={one?.name} setOpen={setOpen} />
+        )}
         {showBottom && (
           <div className="fixed_add_to_bag">
             <div className="container">
@@ -175,6 +202,7 @@ export default function ProductPage(props) {
                   <button
                     onClick={() => {
                       dispatch(cartAction.addToCart(cartInfo));
+                      setCartAdded(true);
                     }}
                   >
                     ADD TO BAG
@@ -205,6 +233,9 @@ export default function ProductPage(props) {
           isSizeSelected={isSizeSelected()}
           sizeKeys={sizeKeys}
           showChoice={showChoice}
+          open={open}
+          setOpen={setOpen}
+          setCartAdded={setCartAdded}
         />
 
         <WhyWeMadeThis

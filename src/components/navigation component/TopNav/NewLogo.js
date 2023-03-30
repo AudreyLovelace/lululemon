@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import "./topIcon.scss";
-
+import { useSelector, useDispatch } from "react-redux";
 export const BagLogo = () => {
+  const cart = useSelector((state) => state?.cartReducer);
+  const total = cart?.whole?.reduce((t, b) => {
+    return t + b.quantity;
+  }, 0);
   return (
     <div className="checkoutNew">
       <svg
@@ -22,7 +26,9 @@ export const BagLogo = () => {
           fillRule="evenodd"
         ></path>
       </svg>
-      <span className="checkoutNew_bagInside">0</span>
+      <span className="checkoutNew_bagInside" style={{ top: 4 }}>
+        {total}
+      </span>
     </div>
   );
 };

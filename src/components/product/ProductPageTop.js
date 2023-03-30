@@ -22,6 +22,9 @@ export default function ProductPageTop({
   setSize,
   bottomBag,
   isSizeSelected,
+  open,
+  setOpen,
+  setCartAdded,
 }) {
   const dispatch = useDispatch();
   //const ??? = useSelector(state => state?.reducer?.???)
@@ -172,7 +175,12 @@ export default function ProductPageTop({
                 <BsInfoCircle />
               </small>
             </div>
-            <Carousel media={media} name={one.name} />
+            <Carousel
+              media={media}
+              name={one.name}
+              open={open}
+              setOpen={setOpen}
+            />
           </div>
           <div
             className="product_page_right"
@@ -295,6 +303,7 @@ export default function ProductPageTop({
                     setWarn(true);
                     if (isSizeSelected) {
                       dispatch(cartAction.addToCart(cartInfo));
+                      setCartAdded(true);
                     }
                   }}
                 >

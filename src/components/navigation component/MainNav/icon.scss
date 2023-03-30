@@ -12,7 +12,6 @@
   }
 }
 
-
 .checkout {
   position: relative;
   margin: 0 0 6px 30px;
@@ -37,13 +36,11 @@
     color: #d31334;
     font-size: 14px;
     bottom: -3px;
-
   }
 }
 
-  @media screen and (max-width: 990px){
-    .checkout {
-      display: none;
-    }
+@media screen and (max-width: 990px) {
+  .checkout {
+    display: none;
   }
-
+}

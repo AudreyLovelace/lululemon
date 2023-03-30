@@ -4,16 +4,16 @@ import { NavLink, useNavigate, useParams, Navigate } from "react-router-dom";
 import "./Carousel.scss";
 import { BsChevronLeft, BsChevronRight, BsZoomIn } from "react-icons/bs";
 import ProductPopUp from "./ProductPopUp";
-export default function Carousel({ media, name }) {
+export default function Carousel({ media, name, open, setOpen }) {
   //const dispatch=useDispatch()
   //const ??? = useSelector(state => state?.reducer?.???)
   const dotWidth = "8px";
   const [page, setPage] = useState(0);
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
   if (media) {
     return (
       <>
-        {open && <ProductPopUp media={media} name={name} setOpen={setOpen} />}
+        {/* {open && <ProductPopUp media={media} name={name} setOpen={setOpen} />} */}
         <div className="carousel">
           <div
             className="library"

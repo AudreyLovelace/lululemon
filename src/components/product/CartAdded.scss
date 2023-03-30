@@ -1,0 +1,25 @@
+// body {
+//   overflow-y: hidden;
+// }
+.cart_added {
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+
+  &_front {
+    width: 500px;
+    height: 500px;
+    background-color: white;
+    z-index: 1001;
+  }
+  &_back {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.486);
+  }
+}

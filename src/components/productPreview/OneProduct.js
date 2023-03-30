@@ -3,9 +3,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate, useParams, Navigate } from "react-router-dom";
 import "./OneProduct.scss";
 import { BsChevronLeft, BsChevronRight, BsTypeH1 } from "react-icons/bs";
-
+import { filterActions } from "../../actions/filterAction";
 export default function OneProduct({ one }) {
-  //const dispatch=useDispatch()
+  const dispatch = useDispatch();
   //const ??? = useSelector(state => state?.reducer?.???)
 
   const types = [
@@ -42,7 +42,12 @@ export default function OneProduct({ one }) {
   }
   if (one.swatches) {
     return (
-      <div className="product">
+      <div
+        className="product"
+        onClick={() => {
+          dispatch(filterActions.clearSearchLink());
+        }}
+      >
         {" "}
         <Link
           to={

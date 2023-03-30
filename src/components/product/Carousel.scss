@@ -1,4 +1,5 @@
 .product_page .carousel {
+  // border: 1px solid black;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -38,9 +39,10 @@
     }
   }
   .library {
-    // width: 100%;
-    aspect-ratio: 9/10;
+    // border: 1px solid black;
     width: 100%;
+    aspect-ratio: 9/10;
+    // width: 100%;
     overflow: hidden;
     position: relative;
     .left,
@@ -81,6 +83,7 @@
     .frame {
       display: flex;
       transition: all ease-out 300ms;
+      width: 100%;
     }
     .frame:hover {
       cursor: zoom-in;

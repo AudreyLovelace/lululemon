@@ -6,6 +6,10 @@ const initState = {
 };
 export const searchReducer = (state = initState, action) => {
   switch (action.type) {
+    case filterTypes.clearSearchLink:
+      return { ...state, searchLink: [] };
+    case filterTypes.fetchOne:
+      return { ...state, searchLink: [] };
     case filterTypes.checkbox:
       return { ...state, searchLink: [] };
     case filterTypes.sort:
