@@ -3,10 +3,18 @@ import "./AllDes.scss"
 import {Link, useNavigate} from "react-router-dom";
 import {BagLogo, GiftCard1, LuluLogo, SignIn1, StoreLocation1, WishList1} from "./NewLogo";
 import {Menu, MenuItem} from "@mui/material";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 
-const AllDes = () => {
+const AllDes = (props) => {
+    const {dataFromTopNavigation} = props
+    const [isLogin, setLogin] = useState(false)
+
+    const handleMyAcc = (e) => {
+        setLogin(dataFromTopNavigation);
+    };
+
+
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -18,6 +26,8 @@ const AllDes = () => {
 
     const Navigate = useNavigate()
 
+    useEffect((evt)=>{handleMyAcc(evt)},[])
+
 
     return (<div className='allLine'>
             <div className="topLine">
@@ -26,26 +36,36 @@ const AllDes = () => {
                     <p className="topLine_details_names">Store Location</p>
                 </Link>
 
-                <div className="topLine_details" onClick={handleClick}>
-                    <SignIn/>
-                    <p className="topLine_details_names">Sign In</p>
-                </div>
-                <Menu
-                    id="basic-menu"
-                    anchorEl={anchorEl}
-                    open={open}
-                    onClose={handleClose}
-                    MenuListProps={{
-                        'aria-labelledby': 'basic-button',
-                    }}
-                >
-                    <MenuItem onClick={handleClose}>Sign Up</MenuItem>
-                    <MenuItem onClick={() => {
-                        Navigate("/login")
-                    }}>
-                        Log In
-                    </MenuItem>
-                </Menu>
+                {isLogin ?
+                    (<div>
+                        <div className="topLine_details" onClick={handleClick}>
+                            <SignIn/>
+                            <p className="topLine_details_names">My Account</p>
+                        </div>
+                    </div>) :
+                    (<div onClick={handleMyAcc}>
+                        <div className="topLine_details" onClick={handleClick}>
+                            <SignIn/>
+                            <p className="topLine_details_names">Sign In</p>
+                        </div>
+                        <Menu
+                            id="basic-menu"
+                            anchorEl={anchorEl}
+                            open={open}
+                            onClose={handleClose}
+                            MenuListProps={{
+                                'aria-labelledby': 'basic-button',
+                            }}
+                        >
+                            <MenuItem onClick={handleClose}>Sign Up</MenuItem>
+                            <MenuItem onClick={() => {
+                                Navigate("/login")
+                            }}>
+                                Log In
+                            </MenuItem>
+                        </Menu>
+                    </div>)}
+
 
                 <Link to="/" className="topLine_details">
                     <WishList/>
@@ -84,8 +104,9 @@ const AllDes = () => {
                         }}
                     >
                         <MenuItem onClick={handleClose}>Sign Up</MenuItem>
-                        <MenuItem onClick={()=>{
-                             Navigate("/login")}
+                        <MenuItem onClick={() => {
+                            Navigate("/login")
+                        }
                         }>
                             Log In</MenuItem>
                     </Menu>

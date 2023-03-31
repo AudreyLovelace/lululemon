@@ -6,7 +6,10 @@ import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 
 
-export const Login = () => {
+export const Login = (props) => {
+
+    const {showToken} = props
+
 
     const key =
         "mykey=jYwrtdSw7iO92ambpJ8UsNYXXIFTp2eIImew8gPTqYsNV3TWe7YzuSl4tx%2BarSsa15aOnNN2j8L%2BlsPM2JZ52A==";
@@ -15,6 +18,9 @@ export const Login = () => {
     const [email, setEmail] = useState(null)
     const [password, setPassword] = useState(null)
     const [erroMess, setErroMess] = useState(null)
+
+    const [loggedIn, setLoggedIn] = useState(localStorage.getItem('token') !== null);
+
 
     const Navigate = useNavigate();
 
@@ -27,7 +33,13 @@ export const Login = () => {
             password: password
         })
             .then((res) => {
-                console.log(res.data)
+                const token = res.data
+                console.log(res)
+                localStorage.setItem('token', token);
+                setLoggedIn(true);
+                showToken(token)
+                console.log('logintoken', showToken)
+
                 Navigate('/');
 
             })
