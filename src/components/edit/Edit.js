@@ -1,9 +1,12 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Modal from "@mui/material/Modal";
 import {Box} from "@mui/material";
 import './edit.scss'
 import Typography from "@mui/material/Typography";
 import {useNavigate} from "react-router-dom";
+import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
+import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
+import logo from "../footer/secondLine/Logo";
 
 export const Edit = () => {
     const one = {
@@ -152,18 +155,55 @@ export const Edit = () => {
         left: '50%',
         transform: 'translate(-50%, -50%)',
         bgcolor: 'background.paper',
-        p: 4,
-        border: 'none'
+        border: 'none',
+        display: 'flex',
+        flexDirection: 'row',
+        width: '80%',
+        justifyContent: 'space-between'
     };
 
     //color
     const [color, setColor] = useState('')
+    const [colorId, setColorId] = useState(null);
+
+
+    const handleColorName = (evt) => {
+        setColor(evt)
+        setColorId(evt?.colorId)
+
+    }
+
+    useEffect((evt) => {
+        handleColorName(evt)
+    }, [])
 
 
     const Navigate = useNavigate()
 
     // size
     const [size, setSize] = useState(0)
+
+    // carousel
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const mainCarouselImages = one?.images[1]?.mainCarousel?.media?.split(" | ")
+    console.log('mainCarouselImage', mainCarouselImages)
+    // const alt = one?.images[currentIndex]?.mainCarousel?.alt;
+
+    const handlePrevClick = () => {
+        setCurrentIndex((prevIndex) => {
+                console.log(mainCarouselImages.length)
+                return (
+                    prevIndex === 0 ? mainCarouselImages.length - 1 : prevIndex - 1)
+            }
+        );
+    };
+
+    const handleNextClick = () => {
+        setCurrentIndex((prevIndex) =>
+            prevIndex === mainCarouselImages.length - 1 ? 0 : prevIndex + 1
+        );
+    };
 
 
     return (
@@ -182,13 +222,32 @@ export const Edit = () => {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-                <Box sx={{display: 'flex', flexDirection: 'row'}}>
-                    <Box>
-
-                    </Box>
+                <Box sx={style}>
 
 
-                    <Box sx={style}>
+                    <div style={{maxWidth: '50%'}}>
+                        <div
+                            style={{
+                                position: 'relative',
+                                height: '100vh',
+                                display: 'flex',
+                                justifyContent: 'flex-start',
+                                alignItems: 'center'
+                            }}
+                        >
+                            <ArrowCircleLeftIcon className='leftArrow' onClick={handlePrevClick}/>
+                            <ArrowCircleRightIcon className='rightArrow' onClick={handleNextClick}/>
+
+                            {mainCarouselImages && colorId === one?.images?.colorId ? (
+                                <img className="img" src={mainCarouselImages[currentIndex]}/>
+                            ) : (
+                                <div>Loading...</div>
+                            )}
+                        </div>
+                    </div>
+
+
+                    <div style={{padding: '32px', maxWidth: '50%'}}>
                         <div style={{display: 'flex', flexDirection: 'column'}}>
                             <Typography style={{fontSize: '22.5px', fontWeight: '600'}}>
                                 {one?.name}
@@ -198,10 +257,32 @@ export const Edit = () => {
                             </Typography>
 
 
-                            <div>
+                            <div style={{margin: '15px 0 10px 0'}}>
+                                <Typography>
+                                    Color: {color}
+                                </Typography>
+                                <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
 
+                                    {one &&
+                                        one.swatches.map((evt, index) => {
+                                            return (
+                                                <div className='colorCircle'
+                                                     key={index} style={{
+                                                    backgroundImage: `url(${evt.swatch})`,
+                                                    width: '26px', height: '26px', borderRadius: '50%',
+                                                    margin: '10px 10px 0 0',
+                                                }}
+                                                     onClick={() => {
+                                                         handleColorName(evt.swatchAlt)
+                                                         // handleColorName(evt.colorId)
+                                                         console.log(evt.colorId)
+                                                     }}
+                                                >
+                                                </div>
+                                            )
+                                        })}
+                                </div>
                             </div>
-
 
 
                             <div style={{margin: '20px 0'}}>
@@ -263,19 +344,19 @@ export const Edit = () => {
 
 
                             <div className='viewDetail'>
-                            <span
-                                style={{padding: '10px', textAlign: 'center', fontSize: '16px', marginTop: '15px'}}
-                                onClick={() => {
-                                    Navigate('/p/:productId/:colorId')
-                                }}
-                            >
+                                <span
+                                    style={{padding: '10px', textAlign: 'center', fontSize: '16px', marginTop: '15px'}}
+                                    onClick={() => {
+                                        Navigate('/p/:productId/:colorId')
+                                    }}
+                                >
                                 View product details
-                            </span>
+                                </span>
                             </div>
 
                         </div>
 
-                    </Box>
+                    </div>
 
                 </Box>
             </Modal>

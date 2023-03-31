@@ -13,6 +13,9 @@ const AllDes = (props) => {
     const handleMyAcc = (e) => {
         setLogin(dataFromTopNavigation);
     };
+    useEffect((evt) => {
+        handleMyAcc(evt)
+    }, [])
 
 
     const [anchorEl, setAnchorEl] = useState(null);
@@ -25,8 +28,6 @@ const AllDes = (props) => {
     };
 
     const Navigate = useNavigate()
-
-    useEffect((evt)=>{handleMyAcc(evt)},[])
 
 
     return (<div className='allLine'>

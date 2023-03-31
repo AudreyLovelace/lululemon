@@ -65,4 +65,47 @@ button:hover {
   color: white;
 }
 
+.colorCircle {
+  cursor: pointer;
+  position: relative;
+}
+
+.colorCircle::after {
+  box-sizing: border-box;
+  content: "";
+  display: block;
+  border: 1.5px solid white;
+  width: 34px;
+  height: 34px;
+  border-radius: 30px;
+  margin: -3.5px 0 0 -4px;
+}
+
+.colorCircle::after:hover {
+  display: inline-block;
+  border: 1.5px solid #6e6e80;
+}
+
+.img {
+  max-width: 100%;
+}
+
+.rightArrow {
+  position: absolute;
+  top: 50%;
+  right: 32px;
+  font-size: 3rem;
+  z-index: 10;
+  user-select: none;
+}
+
+.leftArrow {
+  position: absolute;
+  top: 50%;
+  left: 32px;
+  font-size: 3rem;
+  z-index: 10;
+  user-select: none;
+}
+
 /*# sourceMappingURL=edit.css.map */
