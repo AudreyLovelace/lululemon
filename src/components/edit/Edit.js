@@ -164,13 +164,14 @@ export const Edit = () => {
 
     //color
     const [color, setColor] = useState('')
-    const [colorId, setColorId] = useState(null);
+
+    const [selectedColorId, setSelectedColorId] = useState(null);
 
 
-    const handleColorName = (evt) => {
-        setColor(evt)
-        setColorId(evt?.colorId)
-
+    const handleColorName = (color) => {
+        setColor(color?.swatchAlt);
+        console.log('color test ', color?.swatchAlt)
+        setSelectedColorId(color?.colorId);
     }
 
     useEffect((evt) => {
@@ -186,9 +187,9 @@ export const Edit = () => {
     // carousel
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    const mainCarouselImages = one?.images[1]?.mainCarousel?.media?.split(" | ")
+
+    const mainCarouselImages = one?.images.filter((image) => image.colorId === selectedColorId)[0]?.mainCarousel?.media?.split(" | ");
     console.log('mainCarouselImage', mainCarouselImages)
-    // const alt = one?.images[currentIndex]?.mainCarousel?.alt;
 
     const handlePrevClick = () => {
         setCurrentIndex((prevIndex) => {
@@ -238,7 +239,7 @@ export const Edit = () => {
                             <ArrowCircleLeftIcon className='leftArrow' onClick={handlePrevClick}/>
                             <ArrowCircleRightIcon className='rightArrow' onClick={handleNextClick}/>
 
-                            {mainCarouselImages && colorId === one?.images?.colorId ? (
+                            {mainCarouselImages ? (
                                 <img className="img" src={mainCarouselImages[currentIndex]}/>
                             ) : (
                                 <div>Loading...</div>
@@ -273,7 +274,8 @@ export const Edit = () => {
                                                     margin: '10px 10px 0 0',
                                                 }}
                                                      onClick={() => {
-                                                         handleColorName(evt.swatchAlt)
+                                                         handleColorName(evt)
+                                                         console.log('evt.swatchAlt', evt)
                                                          // handleColorName(evt.colorId)
                                                          console.log(evt.colorId)
                                                      }}
@@ -283,7 +285,7 @@ export const Edit = () => {
                                         })}
                                 </div>
                             </div>
-
+o
 
                             <div style={{margin: '20px 0'}}>
                                 {one.sizes.map((sizes, index) => {
