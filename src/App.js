@@ -14,6 +14,7 @@ import "./app.scss";
 import WhatsNew from "./WhatsNew";
 import ProductPage from "./components/product/ProductPage";
 import Test from "./Test";
+import Cart from "./components/cart/Cart";
 export default function App() {
   const { pathname } = useLocation();
 
@@ -26,7 +27,7 @@ export default function App() {
       <Route path="/" element={<WhatsNew />} />
       <Route path="/p/:productId/:colorId" element={<ProductPage />} />
       <Route path="/p/:productId/" element={<ProductPage />} />
-      <Route path="/test" element={<Test />} />
+      <Route path="/cart" element={<Cart />} />
       <Route path="*" element={<WhatsNew />} />
     </Routes>
   );
