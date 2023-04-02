@@ -1,12 +1,13 @@
 import {useEffect, useState} from "react";
 import Modal from "@mui/material/Modal";
-import {Box} from "@mui/material";
+import {Box, Container, useMediaQuery} from "@mui/material";
 import './edit.scss'
 import Typography from "@mui/material/Typography";
 import {useNavigate} from "react-router-dom";
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import logo from "../footer/secondLine/Logo";
+import {styled, useTheme} from "@mui/styles";
 
 export const Edit = () => {
     const one = {
@@ -149,6 +150,11 @@ export const Edit = () => {
 
     const [open, setOpen] = useState(false)
 
+
+    const theme = useTheme();
+    const isMd = useMediaQuery(theme.breakpoints.down('md'));
+
+
     const style = {
         position: 'absolute',
         top: '50%',
@@ -157,9 +163,11 @@ export const Edit = () => {
         bgcolor: 'background.paper',
         border: 'none',
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: isMd ? 'column' : 'row',
         width: '80%',
-        justifyContent: 'space-between'
+        overflowY: 'scroll',
+        height: '100vh',
+
     };
 
     //color
@@ -188,8 +196,9 @@ export const Edit = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
 
-    const mainCarouselImages = one?.images.filter((image) => image.colorId === selectedColorId)[0]?.mainCarousel?.media?.split(" | ");
-    console.log('mainCarouselImage', mainCarouselImages)
+    const mainCarouselImages = one?.images.filter((image) =>
+        image.colorId === selectedColorId)[0]?.mainCarousel?.media?.split(" | ");
+    // console.log('mainCarouselImage', mainCarouselImages)
 
     const handlePrevClick = () => {
         setCurrentIndex((prevIndex) => {
@@ -223,16 +232,19 @@ export const Edit = () => {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
+
+
                 <Box sx={style}>
 
 
-                    <div style={{maxWidth: '50%'}}>
+                    <div style={{maxWidth: '100%'}}>
                         <div
                             style={{
                                 position: 'relative',
-                                height: '100vh',
+                                height: '100%',
+                                width: '100%',
                                 display: 'flex',
-                                justifyContent: 'flex-start',
+                                justifyContent: 'center',
                                 alignItems: 'center'
                             }}
                         >
@@ -248,7 +260,7 @@ export const Edit = () => {
                     </div>
 
 
-                    <div style={{padding: '32px', maxWidth: '50%'}}>
+                    <div style={{padding: '32px', maxWidth: '100%'}}>
                         <div style={{display: 'flex', flexDirection: 'column'}}>
                             <Typography style={{fontSize: '22.5px', fontWeight: '600'}}>
                                 {one?.name}
@@ -285,7 +297,7 @@ export const Edit = () => {
                                         })}
                                 </div>
                             </div>
-o
+
 
                             <div style={{margin: '20px 0'}}>
                                 {one.sizes.map((sizes, index) => {
