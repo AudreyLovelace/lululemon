@@ -45,7 +45,7 @@ export default function ProductPage(props) {
       }
     }
     if (productId?.length) {
-      console.log(productId);
+      // console.log(productId);
       filterActions.fetchOne(productId, dispatch);
     }
   }, [productId]);
@@ -140,20 +140,20 @@ export default function ProductPage(props) {
   // console.log(cartInfo);
 
   const [open, setOpen] = useState(false);
-  const searchLink = useSelector((state) => state?.searchReducer);
-  const { pathname } = useLocation();
-  const navigate = useNavigate();
-  useEffect(() => {
-    let timerId;
-    if (pathname !== "/" && searchLink.searchLink.length) {
-      timerId = setTimeout(() => {
-        navigate("/");
-      }, 2000);
-    }
-    return () => {
-      clearTimeout(timerId);
-    };
-  }, [searchLink.searchLink]);
+  // const searchLink = useSelector((state) => state?.searchReducer);
+  // const { pathname } = useLocation();
+  // const navigate = useNavigate();
+  // useEffect(() => {
+  //   let timerId;
+  //   if (pathname !== "/" && searchLink.searchLink.length) {
+  //     timerId = setTimeout(() => {
+  //       navigate("/");
+  //     }, 2000);
+  //   }
+  //   return () => {
+  //     clearTimeout(timerId);
+  //   };
+  // }, [searchLink.searchLink]);
   const [cartAdded, setCartAdded] = useState(false);
   useEffect(() => {
     if (cartAdded) {
@@ -161,6 +161,9 @@ export default function ProductPage(props) {
     } else {
       document.body.style.overflow = "visible";
     }
+    return () => {
+      document.body.style.overflow = "visible";
+    };
   }, [cartAdded]);
   if (!!id) {
     return (

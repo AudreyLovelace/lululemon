@@ -17,17 +17,18 @@
     cursor: pointer;
   }
   .pop-window-back {
-    z-index: 99;
+    z-index: 999;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(83, 83, 83, 0.194);
+    // overflow: hidden;
   }
   .pop-window {
     background-color: white;
-    z-index: 100;
+    z-index: 1000;
     position: absolute;
     top: 0;
     left: -10px;

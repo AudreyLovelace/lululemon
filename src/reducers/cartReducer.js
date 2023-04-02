@@ -27,9 +27,14 @@ export const cartReducer = (state = initState, action) => {
         state = [action?.payload, ...state];
       }
       localStorage.setItem("cart", JSON.stringify(state));
-      // console.log(state);
+      console.log(state);
       return state;
-
+    case cartTypes.removeFromCart:
+      state.splice(action.payload, 1);
+      state = [...state];
+      localStorage.setItem("cart", JSON.stringify(state));
+      console.log(state);
+      return state;
     default:
       return state;
   }

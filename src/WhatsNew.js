@@ -37,7 +37,12 @@ export default function WhatsNew(props) {
   return (
     <div className="whats_new">
       <TopNavigation />
-      {/*<DropDown/>*/}
+      {/*<DropDown/>*/}{" "}
+      {/* <div className="container">
+        <div className="filter_tablet">
+          <TabletFilter setOpen={setOpen} open={open} />
+        </div>
+      </div> */}
       <div className="container">
         <main>
           <div className="filter_desktop">

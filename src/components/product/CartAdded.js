@@ -52,7 +52,12 @@ export default function CartAdded({ cartInfo, setCartAdded, cartAdded }) {
       ></path>
     </svg>
   );
-  console.log(cartInfo);
+  useEffect(() => {
+    return () => {
+      setCartAdded(false);
+    };
+  }, []);
+  // console.log(cartInfo);
   const sizeKey = Object.keys(cartInfo.size);
   const selectSize = "Select Size";
   const size = "Size";
@@ -63,7 +68,7 @@ export default function CartAdded({ cartInfo, setCartAdded, cartAdded }) {
           <div className="cart_added_front_top_left">
             <h1>Nice Pick!</h1>
             <div>
-              {bag} <p>{total} Item</p>
+              {bag} <p>{total} Items</p>
             </div>
           </div>
           <TfiClose
@@ -74,7 +79,7 @@ export default function CartAdded({ cartInfo, setCartAdded, cartAdded }) {
         </div>
         <div className="cart_added_front_bottom">
           <div className="cart_added_front_bottom_left">
-            <img src={cartInfo.picture[0]} alt="" style={{ width: 20 }} />
+            <img src={cartInfo.picture[0]} alt="/" />
             <div>
               <h2>{cartInfo.name}</h2>
               {sizeKey.map((e, index) => {
@@ -82,7 +87,7 @@ export default function CartAdded({ cartInfo, setCartAdded, cartAdded }) {
                   return null;
                 } else {
                   return (
-                    <p>
+                    <p key={index}>
                       {e === selectSize ? size : e}: {cartInfo.size[e]}
                     </p>
                   );
@@ -95,21 +100,22 @@ export default function CartAdded({ cartInfo, setCartAdded, cartAdded }) {
             <div>
               <p>Subtotal</p>
               <p>${subTotal.toFixed(2)} CAD</p>
-              <button
-                onClick={() => {
-                  navigate("/cart");
-                }}
-              >
-                VIEW BAG & CHECKOUT
-              </button>
-              <p
-                onClick={() => {
-                  setCartAdded(false);
-                }}
-              >
-                CONTINUE SHOPPING {right}
-              </p>
             </div>
+            <button
+              onClick={() => {
+                setCartAdded(false);
+                navigate("/cart");
+              }}
+            >
+              VIEW BAG & CHECKOUT
+            </button>
+            <p
+              onClick={() => {
+                setCartAdded(false);
+              }}
+            >
+              CONTINUE SHOPPING {right}
+            </p>
           </div>
         </div>
       </div>
