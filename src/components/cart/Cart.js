@@ -93,7 +93,7 @@ export default function Cart(props) {
             <button>{logo} CHECKOUT</button>
           </div>
           <div className="later">
-            <h1>Saved for Later</h1>
+            {!!later.length && <h1>Saved for Later</h1>}
             {later?.map((e, index) => {
               return (
                 <LaterItemTablet
