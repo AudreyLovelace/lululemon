@@ -8,6 +8,12 @@ export const cartReducer = (state = initState, action) => {
   // console.log(state);
 
   switch (action.type) {
+    case cartTypes.changeQuantity:
+      state[action.payload.index].quantity = action.payload.quantity;
+      localStorage.setItem("cart", JSON.stringify(state));
+      // console.log(state);
+
+      return [...state];
     case cartTypes.addToCart:
       // console.log(action.payload);
 
