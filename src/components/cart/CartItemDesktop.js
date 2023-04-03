@@ -4,6 +4,7 @@ import { NavLink, useNavigate, useParams, Navigate } from "react-router-dom";
 import { cartAction } from "../../actions/cartAction";
 
 import "./CartItemDesktop.scss";
+import { Edit } from "./Edit";
 export default function CartItemDesktop({
   e,
   index,
@@ -56,7 +57,9 @@ export default function CartItemDesktop({
                   );
                 }
               })}
-              <p>Edit</p>
+              <p>
+                <Edit />
+              </p>
             </div>
             <div>
               <p>Item Price</p>
