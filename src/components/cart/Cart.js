@@ -6,6 +6,7 @@ import LaterItemDesktop from "./LaterItemDesktop";
 import Warning from "./Warning";
 import { FaCcPaypal } from "react-icons/fa";
 import "./Cart.scss";
+import CartItemTablet from "./CartItemTablet";
 export default function Cart(props) {
   //const dispatch=useDispatch()
   //const ??? = useSelector(state => state?.reducer?.???)
@@ -114,6 +115,35 @@ export default function Cart(props) {
       }}
       className="cart"
     >
+      <div className="cart_item_tablet">
+        <nav>
+          <Link to="/">{logo}</Link>
+        </nav>
+        <div className="container">
+          <div>
+            <h1>
+              My Bag <span>({total} Items)</span>
+            </h1>
+
+            <h3>${subTotal.toFixed(2)}</h3>
+          </div>{" "}
+          <div className="checkout_buttons">
+            <button>{logo} CHECKOUT</button>
+          </div>
+          <Warning />
+          {cart?.map((e, index) => {
+            return (
+              <CartItemTablet
+                e={e}
+                index={index}
+                key={index}
+                dropdownIndex={dropdownIndex}
+                setDropdownIndex={setDropdownIndex}
+              />
+            );
+          })}
+        </div>
+      </div>
       <div className="cart_item_desktop">
         <nav>
           <Link to="/">{logo}</Link>
