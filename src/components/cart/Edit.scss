@@ -1,3 +1,21 @@
+.update_item {
+  button {
+    background-color: #d31334;
+    font-size: 15px;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  button:hover {
+    background-color: #b81c29;
+  }
+}
+
 .edit {
   text-align: left !important;
   span {
@@ -15,29 +33,29 @@
     border-bottom: 1px solid #57585b;
   }
 
-  :hover::before {
+  span:hover::before {
     display: inline-block;
     content: "";
     border-bottom: red 1px solid;
     width: 100%;
     transition: width ease-in-out 0.3s;
   }
-}
 
-button {
-  background-color: #d31334;
-  font-size: 15px;
-  padding: 15px;
-  border-radius: 5px;
-  color: white;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
+  button {
+    background-color: #d31334;
+    font-size: 15px;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
 
-button:hover {
-  background-color: #b81c29;
+  button:hover {
+    background-color: #b81c29;
+  }
 }
 
 .viewDetail {

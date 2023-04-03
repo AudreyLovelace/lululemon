@@ -2,6 +2,21 @@ $light-grey: #fafafa;
 $dark-grey: rgb(202, 202, 202);
 $red: #d31334;
 .cart {
+  button {
+    background-color: #d31334;
+    font-size: 15px;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  button:hover {
+    background-color: #b81c29;
+  }
   nav {
     display: flex;
     justify-content: center;

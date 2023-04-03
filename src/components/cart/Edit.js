@@ -244,7 +244,7 @@ export const Edit = ({ one, cartInfo, index, update }) => {
                   })}
                 </div>
 
-                <form>
+                <form className="update_item">
                   <button
                     type="submit"
                     onClick={(e) => {
