@@ -1,0 +1,128 @@
+.nav_cart_pop {
+  z-index: 100;
+  position: absolute;
+  color: black;
+  width: 450px;
+  right: -33px;
+  margin-top: 13px;
+  /* Hide scrollbar for IE, Edge and Firefox */
+}
+.nav_cart_pop h2 {
+  z-index: 100;
+  position: relative;
+  font-weight: 500;
+  padding: 15px;
+  border-bottom: 1px solid rgb(202, 202, 202);
+  font-size: 25px;
+}
+.nav_cart_pop .items::-webkit-scrollbar {
+  display: none;
+}
+.nav_cart_pop .items {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.nav_cart_pop .items {
+  position: relative;
+  z-index: 100;
+  border-bottom: 1px solid rgb(202, 202, 202);
+  padding: 0 20px 20px;
+  height: 300px;
+  overflow-y: auto;
+}
+.nav_cart_pop .items .item {
+  display: flex;
+  margin-top: 25px;
+}
+.nav_cart_pop .items .item img {
+  display: block;
+  width: 80px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.nav_cart_pop .items .item_detail {
+  width: 100%;
+  margin-left: 15px;
+  padding: 5px 0 0;
+}
+.nav_cart_pop .items .item_detail h3,
+.nav_cart_pop .items .item_detail div {
+  display: flex;
+  justify-content: space-between;
+}
+.nav_cart_pop .items .item_detail h3 {
+  font-weight: 500;
+  font-size: 18px;
+}
+.nav_cart_pop .items .item_detail h3 svg:hover {
+  cursor: pointer;
+}
+.nav_cart_pop .items .item_detail p {
+  margin-top: 5px;
+  font-size: 18px;
+}
+.nav_cart_pop .subtotal {
+  z-index: 100;
+  position: relative;
+  padding: 20px;
+}
+.nav_cart_pop .subtotal div {
+  display: flex;
+  justify-content: space-between;
+}
+.nav_cart_pop .subtotal div h3 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.nav_cart_pop .subtotal div h3 span {
+  font-weight: 400;
+  margin-left: 5px;
+}
+.nav_cart_pop .subtotal button {
+  width: 100%;
+  border: none;
+  background-color: #d31334;
+  color: white;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 15px 0;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.nav_cart_pop .subtotal button:hover {
+  cursor: pointer;
+  filter: grayscale(0.2);
+}
+.nav_cart_pop_front {
+  background-color: white;
+  z-index: 100;
+  position: relative;
+}
+
+.nav_cart_pop::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  border-radius: 4px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 0 1px 14px rgba(0, 0, 0, 0.2);
+}
+
+.nav_cart_pop::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  transform: rotate(45deg);
+  box-shadow: 0 1px 14px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  position: absolute;
+  z-index: 10;
+  right: 38px;
+  top: -10px;
+}
+
+/*# sourceMappingURL=NavCartPopUp.css.map */

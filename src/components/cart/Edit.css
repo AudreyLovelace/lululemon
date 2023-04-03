@@ -1,27 +1,25 @@
 .edit {
   text-align: left !important;
-  span {
-    position: relative;
-    font-size: 16px;
-    cursor: pointer;
-  }
-
-  span::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    border-bottom: 1px solid #57585b;
-  }
-
-  :hover::before {
-    display: inline-block;
-    content: "";
-    border-bottom: red 1px solid;
-    width: 100%;
-    transition: width ease-in-out 0.3s;
-  }
+}
+.edit span {
+  position: relative;
+  font-size: 16px;
+  cursor: pointer;
+}
+.edit span::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border-bottom: 1px solid #57585b;
+}
+.edit :hover::before {
+  display: inline-block;
+  content: "";
+  border-bottom: red 1px solid;
+  width: 100%;
+  transition: width ease-in-out 0.3s;
 }
 
 button {
@@ -44,28 +42,25 @@ button:hover {
   display: flex;
   justify-content: center;
   align-content: center;
-
-  span {
-    position: relative;
-    cursor: pointer;
-  }
-
-  span::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 10px;
-    width: 100%;
-    border-bottom: 1px solid #d5d5d5;
-  }
-
-  :hover::after {
-    display: inline-block;
-    content: "";
-    border-bottom: red 1px solid;
-    width: 100%;
-    transition: width ease-in-out 0.3s;
-  }
+}
+.viewDetail span {
+  position: relative;
+  cursor: pointer;
+}
+.viewDetail span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 10px;
+  width: 100%;
+  border-bottom: 1px solid #d5d5d5;
+}
+.viewDetail :hover::after {
+  display: inline-block;
+  content: "";
+  border-bottom: red 1px solid;
+  width: 100%;
+  transition: width ease-in-out 0.3s;
 }
 
 .sizeChose {
@@ -102,7 +97,6 @@ button:hover {
   display: block;
 }
 
-
 .colorCircle.clicked::after {
   border: 1.5px solid #6e6e80;
   position: absolute;
@@ -110,10 +104,9 @@ button:hover {
 }
 
 .colorCircle.clicked::after:active {
-  border: 1px solid black ;
+  border: 1px solid black;
   display: block;
 }
-
 
 .img {
   max-width: 100%;
@@ -136,3 +129,5 @@ button:hover {
   z-index: 10;
   user-select: none;
 }
+
+/*# sourceMappingURL=Edit.css.map */
