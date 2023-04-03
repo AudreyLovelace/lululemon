@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate, useParams, Navigate } from "react-router-dom";
 import CartItemDesktop from "./CartItemDesktop";
 import LaterItemDesktop from "./LaterItemDesktop";
+import LaterItemTablet from "./LaterItemTablet";
 import Warning from "./Warning";
 import { FaCcPaypal } from "react-icons/fa";
 import "./Cart.scss";
@@ -130,10 +131,13 @@ export default function Cart(props) {
           <div className="checkout_buttons">
             <button>{logo} CHECKOUT</button>
           </div>
-          <Warning />
+          <Warning /> <div className="container"></div>
           {cart?.map((e, index) => {
+            return <CartItemTablet e={e} index={index} key={index} />;
+          })}
+          {later?.map((e, index) => {
             return (
-              <CartItemTablet
+              <LaterItemTablet
                 e={e}
                 index={index}
                 key={index}

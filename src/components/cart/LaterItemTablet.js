@@ -29,7 +29,7 @@ export default function CartItemTablet({
       {open && (
         <RemovePopup
           setOpen={setOpen}
-          remove={cartAction.removeFromCart}
+          remove={cartAction.removeFinalLater(index)}
           index={index}
           open={open}
         />
@@ -63,21 +63,7 @@ export default function CartItemTablet({
           <div>
             <p>
               Quantity
-              <select
-                defaultValue={e.quantity}
-                onChange={(e) => {
-                  console.log(e.target.value);
-                  dispatch(cartAction.changeQuantity(index, e.target.value));
-                }}
-              >
-                {options.map((o, i) => {
-                  return (
-                    <option key={i} value={o}>
-                      {o}
-                    </option>
-                  );
-                })}
-              </select>
+              <span> {e.quantity}</span>
             </p>
             <p>${(Number(e.price) * Number(e.quantity)).toFixed(2)}</p>
           </div>
@@ -87,17 +73,16 @@ export default function CartItemTablet({
             one={e.one}
             cartInfo={e}
             index={index}
-            update={cartAction.updateItem}
+            update={cartAction.updateLaterItem}
           />
 
           <div className="edit">
             <span
-              onClick={(event) => {
-                event.stopPropagation();
-                dispatch(cartAction.addToLater(e, index));
+              onClick={() => {
+                dispatch(cartAction.removeFromLater(e, index));
               }}
             >
-              Save for Later
+              Add To Bag
             </span>
           </div>
         </div>

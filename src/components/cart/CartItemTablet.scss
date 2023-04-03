@@ -4,8 +4,7 @@ $red: #d31334;
 
 .cart_item_tablet {
   background-color: white;
-  .container {
-  }
+
   .item {
     width: 100%;
     // border: 1px solid red;
@@ -35,6 +34,10 @@ $red: #d31334;
         div {
           display: flex;
           justify-content: space-between;
+        }
+        select {
+          border: none;
+          outline: none;
         }
       }
       .bottom {

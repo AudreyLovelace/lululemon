@@ -107,6 +107,7 @@ export const Edit = ({ one, cartInfo, index, update }) => {
         <Modal
           open={open}
           onClose={(e) => {
+            e.stopPropagation();
             setOpen(false);
           }}
           aria-labelledby="modal-modal-title"
@@ -246,7 +247,8 @@ export const Edit = ({ one, cartInfo, index, update }) => {
                 <form>
                   <button
                     type="submit"
-                    onClick={() => {
+                    onClick={(e) => {
+                      e.stopPropagation();
                       dispatch(update(newCartInfo, index));
                     }}
                   >
