@@ -6,10 +6,8 @@ import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
 import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
-import logo from "../footer/secondLine/Logo";
-import { styled, useTheme } from "@mui/styles";
-import { useSelector, useDispatch } from "react-redux";
-import { cartAction } from "../../actions/cartAction";
+import { useTheme } from "@mui/styles";
+import { useDispatch } from "react-redux";
 
 export const Edit = ({ one, cartInfo, index, update }) => {
   const dispatch = useDispatch();
@@ -59,6 +57,8 @@ export const Edit = ({ one, cartInfo, index, update }) => {
   // carousel
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const [clicked, setClicked] = useState(false);
+
   function colorIdChoice() {
     if (selectedColorId) {
       return selectedColorId;
@@ -107,7 +107,6 @@ export const Edit = ({ one, cartInfo, index, update }) => {
         <Modal
           open={open}
           onClose={(e) => {
-            e.stopPropagation();
             setOpen(false);
           }}
           aria-labelledby="modal-modal-title"
@@ -170,7 +169,11 @@ export const Edit = ({ one, cartInfo, index, update }) => {
 
                         return (
                           <div
-                            className="colorCircle"
+                            className={`colorCircle ${
+                              clicked && evt.colorId === selectedColorId
+                                ? "clicked"
+                                : ""
+                            }`}
                             key={index}
                             style={{
                               backgroundImage: `url(${evt.swatch})`,
@@ -184,6 +187,7 @@ export const Edit = ({ one, cartInfo, index, update }) => {
                               // console.log("evt.swatchAlt", evt);
                               // handleColorName(evt.colorId)
                               // console.log(evt.colorId);
+                              setClicked(true);
                             }}
                           ></div>
                         );
@@ -247,8 +251,7 @@ export const Edit = ({ one, cartInfo, index, update }) => {
                 <form className="update_item">
                   <button
                     type="submit"
-                    onClick={(e) => {
-                      e.stopPropagation();
+                    onClick={() => {
                       dispatch(update(newCartInfo, index));
                     }}
                   >

@@ -1,0 +1,133 @@
+.edit {
+  text-align: left !important;
+}
+.edit span {
+  position: relative;
+  font-size: 16px;
+  cursor: pointer;
+}
+.edit span::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border-bottom: 1px solid #57585b;
+}
+.edit :hover::before {
+  display: inline-block;
+  content: "";
+  border-bottom: red 1px solid;
+  width: 100%;
+  transition: width ease-in-out 0.3s;
+}
+
+button {
+  background-color: #d31334;
+  font-size: 15px;
+  padding: 15px;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #b81c29;
+}
+
+.viewDetail {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.viewDetail span {
+  position: relative;
+  cursor: pointer;
+}
+.viewDetail span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 10px;
+  width: 100%;
+  border-bottom: 1px solid #d5d5d5;
+}
+.viewDetail :hover::after {
+  display: inline-block;
+  content: "";
+  border-bottom: red 1px solid;
+  width: 100%;
+  transition: width ease-in-out 0.3s;
+}
+
+.sizeChose {
+  background-color: black;
+  color: white;
+}
+
+.colorCircle {
+  cursor: pointer;
+  position: relative;
+}
+
+.colorCircle {
+  cursor: pointer;
+  position: relative;
+}
+
+.colorCircle::after {
+  box-sizing: border-box;
+  content: "";
+  display: block;
+  border: 1.5px solid white;
+  width: 34px;
+  height: 34px;
+  border-radius: 30px;
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  transform: scale(0.9);
+}
+
+.colorCircle:hover::after {
+  border: 1.5px solid #6e6e80;
+  display: block;
+}
+
+.colorCircle.clicked::after {
+  border: 1.5px solid #6e6e80;
+  position: absolute;
+  display: block;
+}
+
+.colorCircle.clicked::after:active {
+  border: 1px solid black;
+  display: block;
+}
+
+.img {
+  max-width: 100%;
+}
+
+.rightArrow {
+  position: absolute;
+  top: 50%;
+  right: 32px;
+  font-size: 3rem;
+  z-index: 10;
+  user-select: none;
+}
+
+.leftArrow {
+  position: absolute;
+  top: 50%;
+  left: 32px;
+  font-size: 3rem;
+  z-index: 10;
+  user-select: none;
+}
+
+/*# sourceMappingURL=Edit.css.map */

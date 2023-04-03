@@ -96,6 +96,11 @@
   position: relative;
 }
 
+.colorCircle {
+  cursor: pointer;
+  position: relative;
+}
+
 .colorCircle::after {
   box-sizing: border-box;
   content: "";
@@ -104,13 +109,29 @@
   width: 34px;
   height: 34px;
   border-radius: 30px;
-  margin: -3.5px 0 -0 -4px;
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  transform: scale(0.9);
 }
 
-.colorCircle::after:hover {
-  display: inline-block;
+.colorCircle:hover::after {
   border: 1.5px solid #6e6e80;
+  display: block;
 }
+
+
+.colorCircle.clicked::after {
+  border: 1.5px solid #6e6e80;
+  position: absolute;
+  display: block;
+}
+
+.colorCircle.clicked::after:active {
+  border: 1px solid black ;
+  display: block;
+}
+
 
 .img {
   max-width: 100%;
