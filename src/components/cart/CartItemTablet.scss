@@ -4,14 +4,21 @@ $red: #d31334;
 
 .cart_item_tablet {
   background-color: white;
-
+  header {
+    display: flex;
+    justify-content: space-between;
+    h3 {
+      font-size: 30px;
+      font-weight: 400;
+    }
+  }
   .item {
     width: 100%;
     // border: 1px solid red;
     background-color: white;
     display: grid;
     grid-template-columns: 100px 1fr;
-
+    padding: 20px 0;
     img {
       width: 100px;
       object-fit: cover;

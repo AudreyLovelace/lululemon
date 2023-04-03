@@ -29,7 +29,7 @@ export default function CartItemTablet({
       {open && (
         <RemovePopup
           setOpen={setOpen}
-          remove={cartAction.removeFinalLater(index)}
+          remove={cartAction.removeFinalLater}
           index={index}
           open={open}
         />
@@ -87,7 +87,9 @@ export default function CartItemTablet({
           </div>
         </div>
       </div>
-      <p style={{ width: "100%" }}>Free Shipping + Free Returns</p>
+      <p style={{ gridColumn: "span 2", marginTop: 20 }}>
+        Free Shipping + Free Returns
+      </p>
     </div>
   );
 }
