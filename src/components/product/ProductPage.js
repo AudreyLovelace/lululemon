@@ -51,7 +51,7 @@ export default function ProductPage(props) {
   }, [productId]);
   const one = useSelector((state) => state?.oneProductReducer);
   const id =
-    initColorId == 0 || initColorId == undefined
+    initColorId == 0 || initColorId == undefined || initColorId == "undefined"
       ? one?.swatches[0]?.colorId
       : initColorId;
   // console.log(id);

@@ -2,20 +2,14 @@ import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate, useParams, Navigate } from "react-router-dom";
 import { cartAction } from "../../actions/cartAction";
-
+import RemovePopup from "./RemovePopup";
 import "./CartItemDesktop.scss";
 import { Edit } from "./Edit";
-import RemovePopup from "./RemovePopup";
-export default function CartItemDesktop({
-  e,
-  index,
-  dropdownIndex,
-  setDropdownIndex,
-}) {
+export default function LaterItemDesktop({ e, index, dropdownIndex }) {
   const dispatch = useDispatch();
   //const ??? = useSelector(state => state?.reducer?.???)
-  // console.log(e);
-
+  console.log(e);
+  const [open, setOpen] = useState(false);
   const sizeKey = Object.keys(e.size);
   const selectSize = "Select Size";
   const size = "Size";
@@ -40,13 +34,12 @@ export default function CartItemDesktop({
     </svg>
   );
   const options = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  const [open, setOpen] = useState(false);
   return (
     <div key={index} className="item">
       {open && (
         <RemovePopup
           setOpen={setOpen}
-          remove={cartAction.removeFromCart}
+          remove={cartAction.removeFinalLater}
           index={index}
           open={open}
         />
@@ -74,7 +67,7 @@ export default function CartItemDesktop({
                 one={e.one}
                 cartInfo={e}
                 index={index}
-                update={cartAction.updateItem}
+                update={cartAction.updateLaterItem}
               />
             </div>
             <div>
@@ -83,46 +76,14 @@ export default function CartItemDesktop({
             </div>
             <div style={{ textAlign: "left" }}>
               <p>Quantity </p>
-              <div
-                className="quantity_dropdown"
-                onClick={(event) => {
-                  event.stopPropagation();
-                  setDropdownIndex((prev) => {
-                    if (prev === index) {
-                      return -1;
-                    } else {
-                      return index;
-                    }
-                  });
-                }}
-              >
+              <div className="quantity_dropdown">
                 <div
                   className="quantity_dropdown_arrow"
-                  style={
-                    index === dropdownIndex
-                      ? { boxShadow: " 0 0 15px rgba(0, 0, 0, 0.4)" }
-                      : {}
-                  }
+                  style={{ backgroundColor: "grey" }}
                 >
                   <p>{e.quantity}</p>
-                  {arrow}
+                  {/* {arrow} */}
                 </div>{" "}
-                {index === dropdownIndex && (
-                  <div className="quantity_dropdown_option">
-                    {options.map((ele, i) => {
-                      return (
-                        <p
-                          key={i}
-                          onClick={() => {
-                            dispatch(cartAction.changeQuantity(index, ele));
-                          }}
-                        >
-                          {ele}
-                        </p>
-                      );
-                    })}
-                  </div>
-                )}
               </div>
             </div>
             <div>
@@ -137,15 +98,15 @@ export default function CartItemDesktop({
           <div>
             <p
               onClick={() => {
-                dispatch(cartAction.addToLater(e, index));
+                dispatch(cartAction.removeFromLater(e, index));
               }}
             >
-              Save for Later
+              Add to Bag
             </p>
 
             <p
               onClick={() => {
-                // dispatch(cartAction.removeFromCart(index));
+                // dispatch(cartAction.removeFinalLater(index));
                 setOpen(true);
               }}
             >
