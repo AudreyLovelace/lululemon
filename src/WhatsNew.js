@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { NavLink, useNavigate, useParams, Navigate } from "react-router-dom";
-import PlusMinus from "./components/filter/PlusMinus";
 import Filter from "./components/filter/Filter";
 import SortDesktop from "./components/sort/SortDesktop";
 import FilterLable from "./components/filter/FilterLable";
@@ -13,7 +11,12 @@ import OneProduct from "./components/productPreview/OneProduct";
 import MoreProduct from "./components/filter/MoreProduct";
 
 export default function WhatsNew(props) {
-  const products = useSelector((state) => {
+
+  const {dataFromApp}=props
+
+
+
+  const products = useSelector(state => {
     return state?.lululemonReducer;
   });
   // console.log(products);
@@ -36,7 +39,7 @@ export default function WhatsNew(props) {
 
   return (
     <div className="whats_new">
-      <TopNavigation />
+      <TopNavigation dataFromWhatNew={dataFromApp}/>
       {/*<DropDown/>*/}{" "}
       {/* <div className="container">
         <div className="filter_tablet">
