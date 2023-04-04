@@ -10,9 +10,9 @@ const AllDes = (props) => {
     const {dataFromTopNavigation} = props
     const [isLogin, setLogin] = useState(false)
 
-    const handleMyAcc = (e) => {
-        setLogin(dataFromTopNavigation);
-    };
+    const handleMyAcc = e => (
+        setLogin(dataFromTopNavigation)
+    );
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -29,12 +29,13 @@ const AllDes = (props) => {
     }, [])
 
 
-    return (<div className='allLine'>
+    return (
+        <div className='allLine'>
             <div className="topLine">
-                <Link to="/" className="topLine_details">
+                <div className="topLine_details">
                     <StoreLocation/>
-                    <p className="topLine_details_names">Store Location</p>
-                </Link>
+                    <span className="topLine_details_names">Store Location</span>
+                </div>
                 {isLogin ?
                     (<div>
                         <div className="topLine_details" onClick={handleClick}>
@@ -42,44 +43,46 @@ const AllDes = (props) => {
                             <p className="topLine_details_names">My Account</p>
                         </div>
                     </div>) :
-                    (<div onClick={handleMyAcc}>
-                        <div className="topLine_details" onClick={handleClick}>
-                            <SignIn/>
-                            <p className="topLine_details_names">Sign In</p>
-                        </div>
-                        <Menu
-                            id="basic-menu"
-                            anchorEl={anchorEl}
-                            open={open}
-                            onClose={handleClose}
-                            MenuListProps={{
-                                'aria-labelledby': 'basic-button',
-                            }}
-                        >
-                            <MenuItem onClick={handleClose}>Sign Up</MenuItem>
-                            <MenuItem onClick={() => {
-                                Navigate("/login")
-                            }}>
-                                Log In
-                            </MenuItem>
-                        </Menu>
-                    </div>)}
+                    (
+                        <div onClick={handleMyAcc}>
+                            <div className="topLine_details" onClick={handleClick}>
+                                <SignIn/>
+                                <p className="topLine_details_names">Sign In</p>
+                            </div>
+                            <Menu
+                                id="basic-menu"
+                                anchorEl={anchorEl}
+                                open={open}
+                                onClose={handleClose}
+                                MenuListProps={{
+                                    'aria-labelledby': 'basic-button',
+                                }}
+                            >
+                                <MenuItem onClick={handleClose}>Sign Up</MenuItem>
+                                <MenuItem onClick={() => {
+                                    Navigate("/login")
+                                }}>
+                                    Log In
+                                </MenuItem>
+                            </Menu>
+                        </div>)
+                }
 
 
-                <Link to="/" className="topLine_details">
+                <div className="topLine_details">
                     <WishList/>
-                    <p className="topLine_details_names">Wish List</p>
-                </Link>
+                    <span className="topLine_details_names">Wish List</span>
+                </div>
 
-                <Link to="/" className="topLine_details">
+                <div className="topLine_details">
                     <GiftCard/>
-                    <p className="topLine_details_names">Gift Card</p>
-                </Link>
+                    <span className="topLine_details_names">Gift Card</span>
+                </div>
 
-                <Link to="/" className="topLine_details">
+                <div className="topLine_details">
                     <Global/>
-                    <p className="topLine_details_names">Can</p>
-                </Link>
+                    <span className="topLine_details_names">Can</span>
+                </div>
             </div>
 
 
@@ -111,22 +114,18 @@ const AllDes = (props) => {
                     </Menu>
 
 
-                    <Link to="./" className='resDesLogo_fiveLoge_each'>
+                    <div className='resDesLogo_fiveLoge_each'>
                         <StoreLocation1/>
-                    </Link>
-                    <Link to="./" className='resDesLogo_fiveLoge_each'>
+                    </div>
+                    <div className='resDesLogo_fiveLoge_each'>
                         <WishList1/>
-                    </Link>
-                    <Link to="./" className='resDesLogo_fiveLoge_each'>
+                    </div>
+                    <div className='resDesLogo_fiveLoge_each'>
                         <GiftCard1/>
-                    </Link>
-                    <Link to="./" className='resDesLogo_fiveLoge_each'>
+                    </div>
+                    <div className='resDesLogo_fiveLoge_each'>
                         <BagLogo/>
-                    </Link>
-
-                    {/*<MenuBar/>*/}
-
-
+                    </div>
                 </div>
             </div>
         </div>
