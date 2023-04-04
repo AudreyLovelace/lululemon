@@ -12,7 +12,7 @@ export default function FeaturePanels({
   //const dispatch=useDispatch()
   //const ??? = useSelector(state => state?.reducer?.???)
   //   console.log(panelIndex);
-
+  // console.log(2);
   function trimExtraWords(title) {
     const extraWords = "(Click to Expand)";
     if (!title.includes(extraWords)) {

@@ -1,7 +1,21 @@
-.topLineReview {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.topLineReview .container_review {
+  width: 100%;
+  display: grid;
+}
+.topLineReview .container_review div:nth-child(1) {
+  grid-area: a;
+}
+.topLineReview .container_review div:nth-child(2) {
+  grid-area: b;
+}
+.topLineReview .container_review div:nth-child(3) {
+  grid-area: c;
+}
+.topLineReview .container_review div:nth-child(4) {
+  grid-area: d;
+}
+.topLineReview .container_review button {
+  height: 40px;
 }
 .topLineReview_text {
   font-size: 55px;
@@ -52,17 +66,23 @@
   flex-direction: row;
 }
 @media screen and (max-width: 990px) {
-  .topLineReview {
-    display: flex;
-    flex-direction: column;
-    margin: 0 20px;
-  }
-}
-@media screen and (max-width: 990px) {
   .topLineReview_text,
   .topLineReview_rating,
   .topLineReview_size {
     margin-bottom: 10px;
+  }
+  .topLineReview .container_review {
+    grid-template-areas: "a a a" " b c d";
+  }
+}
+@media screen and (min-width: 990px) {
+  .topLineReview .container_review {
+    grid-template-areas: "a b c d";
+  }
+}
+@media screen and (max-width: 600px) {
+  .topLineReview .container_review {
+    grid-template-areas: "a" "b" "c" "d";
   }
 }
 

@@ -36,8 +36,8 @@
   background-color: black;
 }
 .product_page .carousel .library {
-  aspect-ratio: 9/10;
   width: 100%;
+  aspect-ratio: 9/10;
   overflow: hidden;
   position: relative;
 }
@@ -81,6 +81,7 @@
 .product_page .carousel .library .frame {
   display: flex;
   transition: all ease-out 300ms;
+  width: 100%;
 }
 .product_page .carousel .library .frame:hover {
   cursor: zoom-in;

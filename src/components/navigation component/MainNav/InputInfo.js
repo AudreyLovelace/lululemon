@@ -12,7 +12,7 @@ export const InputInfo = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const searchLink = useSelector((state) => state?.searchReducer?.searchLink);
-  console.log(searchLink);
+  // console.log(searchLink);
 
   //get all products
   // const [message, setMessage] = useState(searchLink);
@@ -20,41 +20,50 @@ export const InputInfo = () => {
   const [open, setOpen] = useState(false);
   let loading = true;
   useEffect(() => {
-    if (searchLink.length && products.length) {
-      //filter products which name contains message
-      const message1 = searchLink?.toLowerCase().split(" ");
-      const message2 = searchLink;
-      // console.log(message1);
-      // setMessage(null);
-      // dispatch(filterActions.clearSearchLink());
-      const newProduct = products.filter((product) => {
-        const rightMatch = message1.length;
-        let result = 0;
-        message1.forEach((word) => {
-          if (product?.name?.toLowerCase().includes(word)) {
-            result++;
-          }
-        });
-        setTimeout(() => {}, 2000);
-        return result === rightMatch;
-      });
-
-      const pageParams = {
-        totalProducts: `${newProduct.length} results for "${message2}"`,
-        perPage: newProduct.length,
-        curPage: 1,
-        totalPage: 1,
-      };
-
-      dispatch(filterActions.searchProducts(newProduct, pageParams, message2));
+    if (searchLink === []) {
+      return;
     }
+    function search() {
+      if (searchLink.length && products.length) {
+        //filter products which name contains message
+        const message1 = searchLink?.toLowerCase().split(" ");
+        const message2 = searchLink;
+        // console.log(message1);
+        // setMessage(null);
+        // dispatch(filterActions.clearSearchLink());
+        const newProduct = products.filter((product) => {
+          const rightMatch = message1.length;
+          let result = 0;
+          message1.forEach((word) => {
+            if (product?.name?.toLowerCase().includes(word)) {
+              result++;
+            }
+          });
+          // setTimeout(() => {}, 2000);
+          return result === rightMatch;
+        });
+
+        const pageParams = {
+          totalProducts: `${newProduct.length} results for "${message2}"`,
+          perPage: newProduct.length,
+          curPage: 1,
+          totalPage: 1,
+        };
+
+        dispatch(
+          filterActions.searchProducts(newProduct, pageParams, message2)
+        );
+      }
+    }
+    const timerId = setTimeout(search, 2000);
     return () => {
       loading = false;
+      clearTimeout(timerId);
     };
   }, [searchLink]);
   const { pathname } = useLocation();
 
-  console.log(pathname);
+  // console.log(pathname);
 
   return (
     <div className="searchBar">

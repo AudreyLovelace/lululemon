@@ -5,6 +5,10 @@ import "./WhyWeMadeThis.scss";
 export default function WhyWeMadeThis({ why, pictures }) {
   //const dispatch=useDispatch()
   //const ??? = useSelector(state => state?.reducer?.???)
+  if (!why) {
+    return null;
+  }
+
   return (
     <div className="why_we">
       <div className="container">

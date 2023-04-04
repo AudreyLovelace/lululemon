@@ -13,10 +13,6 @@ import OneProduct from "./components/productPreview/OneProduct";
 import MoreProduct from "./components/filter/MoreProduct";
 
 export default function WhatsNew(props) {
-
-  const {dataFromAPP} = props
-  console.log("What's New props", props)
-
   const products = useSelector((state) => {
     return state?.lululemonReducer;
   });
@@ -40,8 +36,13 @@ export default function WhatsNew(props) {
 
   return (
     <div className="whats_new">
-      <TopNavigation dataFromWhatNew={dataFromAPP}/>
-      {/*<DropDown/>*/}
+      <TopNavigation />
+      {/*<DropDown/>*/}{" "}
+      {/* <div className="container">
+        <div className="filter_tablet">
+          <TabletFilter setOpen={setOpen} open={open} />
+        </div>
+      </div> */}
       <div className="container">
         <main>
           <div className="filter_desktop">

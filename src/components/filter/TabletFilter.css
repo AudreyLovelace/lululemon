@@ -16,7 +16,7 @@
   cursor: pointer;
 }
 .filter_tablet .pop-window-back {
-  z-index: 99;
+  z-index: 999;
   position: fixed;
   top: 0;
   left: 0;
@@ -26,7 +26,7 @@
 }
 .filter_tablet .pop-window {
   background-color: white;
-  z-index: 100;
+  z-index: 1000;
   position: absolute;
   top: 0;
   left: -10px;
