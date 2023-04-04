@@ -2,13 +2,16 @@ import "./topNavigation.scss";
 import MainNavigation from "./MainNav/MainNavigation";
 import AllDes from "./TopNav/AllDes";
 
-const TopNavigation = () => {
+const TopNavigation = (props) => {
+
+    const {dataFromWhatNew}=props
+
   return (
     <>
       <div>
         {" "}
         <div className="container">
-          <AllDes />
+          <AllDes dataFromTopNavigation={dataFromWhatNew} />
         </div>
       </div>
 
