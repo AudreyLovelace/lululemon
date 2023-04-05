@@ -146,7 +146,6 @@ export default function ProductPage(props) {
         colorName: alt,
     };
     // console.log(cartInfo);
-
     const [open, setOpen] = useState(false);
     // const searchLink = useSelector((state) => state?.searchReducer);
     // const { pathname } = useLocation();
@@ -263,7 +262,7 @@ export default function ProductPage(props) {
                 <QRCode
                     urlFromProductPage={currentUrl}
                     oneFromProductPage={one}
-
+                    mediaFromProductPage={media[0]}
                 />
 
                 <WhyWeMadeThis

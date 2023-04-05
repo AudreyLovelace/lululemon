@@ -6,9 +6,10 @@ import QrCode from 'qrcode.react';
 import AddLinkOutlinedIcon from '@mui/icons-material/AddLinkOutlined';
 import {TwitterShareButton, FacebookShareButton, PinterestShareButton, WhatsappShareButton} from 'react-share';
 import {TwitterIcon, FacebookIcon, PinterestIcon, WhatsappIcon} from 'react-share';
+import {red} from "@mui/material/colors";
 
 export const QRCode = (props) => {
-    const {urlFromProductPage, oneFromProductPage} = props
+    const {urlFromProductPage, oneFromProductPage, mediaFromProductPage} = props
 
 
     const style = {
@@ -18,13 +19,13 @@ export const QRCode = (props) => {
         transform: 'translate(-50%, -50%)',
         maxWidth: 400,
         bgcolor: 'background.paper',
-        border: '2px solid #000',
         boxShadow: 24,
         p: 4,
         maxheight: 400,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        borderRadius: '20px',
     };
 
     const [open, setOpen] = useState(false);
@@ -34,7 +35,10 @@ export const QRCode = (props) => {
 
     return (
         <div>
-            <Button sx={{borderRadio: '50%'}} onClick={handleOpen}><ShareOutlinedIcon/></Button>
+            <Button size="large" onClick={handleOpen}>
+                <ShareOutlinedIcon sx={{color: red[800], transform: 'scale(1.5)'}} size='large'/>
+            </Button>
+
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -42,8 +46,9 @@ export const QRCode = (props) => {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
+                    <img style={{maxWidth: 200}} src={mediaFromProductPage} alt=""/>
                     <Typography id="modal-modal-title" variant="h6" component="h1" pb={2}>
-                        Title: {oneFromProductPage?.name}
+                        {oneFromProductPage?.name}
                     </Typography>
                     <QrCode value={urlFromProductPage} size={120} style={{textAlign: 'center'}}/>
                     <div style={{
@@ -56,17 +61,17 @@ export const QRCode = (props) => {
                         <p style={{paddingLeft: '10px'}}>{urlFromProductPage}</p>
                     </div>
                     <div style={{display: 'flex', flexDirection: 'row',}}>
-                        <TwitterShareButton  url={urlFromProductPage}>
-                            <TwitterIcon style={{marginRight:"15px"}} size={32} round/>
+                        <TwitterShareButton url={urlFromProductPage}>
+                            <TwitterIcon style={{marginRight: "15px"}} size={32} round/>
                         </TwitterShareButton>
-                        <FacebookShareButton  url={urlFromProductPage}>
-                            <FacebookIcon style={{marginRight:"15px"}} size={32} round/>
+                        <FacebookShareButton url={urlFromProductPage}>
+                            <FacebookIcon style={{marginRight: "15px"}} size={32} round/>
                         </FacebookShareButton>
-                        <PinterestShareButton  url={urlFromProductPage}>
-                            <PinterestIcon style={{marginRight:"15px"}} size={32} round/>
+                        <PinterestShareButton url={urlFromProductPage}>
+                            <PinterestIcon style={{marginRight: "15px"}} size={32} round/>
                         </PinterestShareButton>
-                        <WhatsappShareButton  url={urlFromProductPage}>
-                            <WhatsappIcon style={{marginRight:"15px"}} size={32} round/>
+                        <WhatsappShareButton url={urlFromProductPage}>
+                            <WhatsappIcon style={{marginRight: "15px"}} size={32} round/>
                         </WhatsappShareButton>
                     </div>
 
