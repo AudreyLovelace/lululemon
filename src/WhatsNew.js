@@ -1,5 +1,5 @@
-import React, {useState, useEffect, useRef} from "react";
-import {useSelector, useDispatch} from "react-redux";
+import React, {useState} from "react";
+import {useSelector} from "react-redux";
 import Filter from "./components/filter/Filter";
 import SortDesktop from "./components/sort/SortDesktop";
 import FilterLable from "./components/filter/FilterLable";

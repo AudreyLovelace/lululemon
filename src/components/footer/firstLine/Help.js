@@ -5,9 +5,15 @@ import {arrow} from "../../../helper/constants";
 
 const Help = () => {
 
-    const data = [{id: 0, label: "FAQ"}, {id: 1, label: "Services"},
-        {id: 3, label: "Ordering"}, {id: 4, label: "Shipping Policy"}, {id: 5, label: "Returns"},
-        {id: 6, label: "Redeem Gift Cards"}, {id: 7, label: "Sizing"}, {id: 8, label: "Our Products"}
+    const data = [
+        {id: 0, label: "FAQ"},
+        {id: 1, label: "Services"},
+        {id: 3, label: "Ordering"},
+        {id: 4, label: "Shipping Policy"},
+        {id: 5, label: "Returns"},
+        {id: 6, label: "Redeem Gift Cards"},
+        {id: 7, label: "Sizing"},
+        {id: 8, label: "Our Products"}
     ]
 
 
@@ -22,9 +28,11 @@ const Help = () => {
                     Help
                 </Link>
                 <div className="box_detail">
-                    {data.map((item) => {
-                        return (<Link to="./" key={item.id} className="box_detail text">{item.label}</Link>)
-                    })}
+                    {data.map(item => (
+                        <span key={item.id} className="box_detail text">
+                            {item.label}
+                        </span>)
+                    )}
                 </div>
             </div>
 
@@ -37,9 +45,9 @@ const Help = () => {
 
                 <div className={`dropdown-body ${isOpen && 'open'}`}>
                     {data.map(item => (
-                        <Link to='./' className="box_detail dropdown-item text" key={item.id}>
+                        <span className="box_detail dropdown-item text" key={item.id}>
                             {item.label}
-                        </Link>
+                        </span>
                     ))}
 
                 </div>

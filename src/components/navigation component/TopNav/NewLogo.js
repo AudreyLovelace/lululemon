@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./topIcon.scss";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import ImpulseShadow from "../MainNav/ImpulseShadow";
 export const BagLogo = () => {
   const cart = useSelector((state) => state?.cartReducer);

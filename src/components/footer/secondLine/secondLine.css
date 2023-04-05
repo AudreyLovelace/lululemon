@@ -13,6 +13,7 @@
   line-height: 20px;
   position: relative;
   width: fit-content;
+  cursor: pointer;
 }
 .box_second_detail::before {
   content: "";
@@ -41,6 +42,7 @@
   line-height: 20px;
   position: relative;
   width: fit-content;
+  cursor: pointer;
 }
 .box_second_other_four_detail::before {
   content: "";

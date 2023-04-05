@@ -31,9 +31,8 @@ export const Login = (props) => {
             email: email,
             password: password
         })
-            .then((res) => {
+            .then(res => {
                 const token = res.data
-                console.log(res)
                 localStorage.setItem('token', token);
                 setLoggedIn(true);
                 showToken(token)
@@ -43,7 +42,6 @@ export const Login = (props) => {
             })
             .catch((error) => {
                 setErroMess("Something's not right with your email address or password");
-                console.log(error);
             });
     }
 

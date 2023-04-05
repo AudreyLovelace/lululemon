@@ -28,6 +28,19 @@ const AllDes = (props) => {
         handleMyAcc(evt)
     }, [])
 
+    const logo = [
+        {id: 0, label: <WishList/>, label1: 'Wish List'},
+        {id: 1, label: <GiftCard/>, label1: 'Gift Card'},
+        {id: 2, label: <Global/>, label1: 'Can'},
+    ]
+
+    const logoPhone = [
+        {id: 0, label: <StoreLocation1/>},
+        {id: 1, label: <WishList1/>},
+        {id: 2, label: <GiftCard1/>},
+        {id: 3, label: <BagLogo/>}
+    ]
+
 
     return (
         <div className='allLine'>
@@ -67,22 +80,13 @@ const AllDes = (props) => {
                             </Menu>
                         </div>)
                 }
-
-
-                <div className="topLine_details">
-                    <WishList/>
-                    <span className="topLine_details_names">Wish List</span>
-                </div>
-
-                <div className="topLine_details">
-                    <GiftCard/>
-                    <span className="topLine_details_names">Gift Card</span>
-                </div>
-
-                <div className="topLine_details">
-                    <Global/>
-                    <span className="topLine_details_names">Can</span>
-                </div>
+                {logo.map(item => (
+                        <div key={item.id} className="topLine_details">
+                            {item.label}
+                            <span className="topLine_details_names">{item.label1}</span>
+                        </div>
+                    )
+                )}
             </div>
 
 
@@ -113,19 +117,13 @@ const AllDes = (props) => {
                             Log In</MenuItem>
                     </Menu>
 
+                    {logoPhone.map(item => (
+                            <div key={item.id} className="resDesLogo_fiveLoge_each">
+                                {item.label}
+                            </div>
+                        )
+                    )}
 
-                    <div className='resDesLogo_fiveLoge_each'>
-                        <StoreLocation1/>
-                    </div>
-                    <div className='resDesLogo_fiveLoge_each'>
-                        <WishList1/>
-                    </div>
-                    <div className='resDesLogo_fiveLoge_each'>
-                        <GiftCard1/>
-                    </div>
-                    <div className='resDesLogo_fiveLoge_each'>
-                        <BagLogo/>
-                    </div>
                 </div>
             </div>
         </div>
