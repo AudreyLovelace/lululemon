@@ -10,6 +10,7 @@ import WhatsNew from "./WhatsNew";
 import ProductPage from "./components/product/ProductPage";
 import Cart from "./components/cart/Cart";
 import {Login} from "./components/login/Login";
+import {QRCode} from "./components/QRcode/QRcode";
 
 export default function App() {
     const {pathname} = useLocation();
@@ -24,13 +25,14 @@ export default function App() {
     }
 
 
-        return(
+    return (
         <Routes>
             <Route path="/" element={<WhatsNew dataFromApp={tokenData}/>}/>
             <Route path="/p/:productId/:colorId" element={<ProductPage/>}/>
             <Route path="/p/:productId/" element={<ProductPage/>}/>
             <Route path="/cart" element={<Cart/>}/>
             <Route path="/login" element={<Login showToken={handleShowToken}/>}/>
+
         </Routes>
     );
 }

@@ -18,7 +18,6 @@ import {
     Snackbar,
     Select,
     MenuItem,
-    useMediaQuery,
 } from "@mui/material";
 import MuiAlert from "@mui/material/Alert";
 
@@ -108,13 +107,13 @@ export const WriteReview = () => {
                 <Container className={classes.container}>
                     <Grid container spacing={2}>
                         <Grid item xs={12} sm={6}>
-                                <img
-                                    style={{
-                                        maxWidth: "100%",
-                                        height: "auto",
-                                    }}
-                                    src="https://images.lululemon.com/is/image/lululemon/LU9AYNS_0023_1?wid=1600&op_usm=0.5,2,10,0&fmt=webp&qlt=80,1&fit=constrain,0&op_sharpen=0&resMode=sharp2&iccEmbed=0&printRes=72"
-                                />
+                            <img
+                                style={{
+                                    maxWidth: "100%",
+                                    height: "auto",
+                                }}
+                                src="https://images.lululemon.com/is/image/lululemon/LU9AYNS_0023_1?wid=1600&op_usm=0.5,2,10,0&fmt=webp&qlt=80,1&fit=constrain,0&op_sharpen=0&resMode=sharp2&iccEmbed=0&printRes=72"
+                                alt='loading'/>
                         </Grid>
 
                         <Grid
