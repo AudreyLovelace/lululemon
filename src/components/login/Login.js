@@ -10,6 +10,8 @@ export const Login = (props) => {
 
     const {showToken} = props
 
+    console.log(showToken)
+
     const key =
         "mykey=jYwrtdSw7iO92ambpJ8UsNYXXIFTp2eIImew8gPTqYsNV3TWe7YzuSl4tx%2BarSsa15aOnNN2j8L%2BlsPM2JZ52A==";
     const urlHead = "http://api-lulu.hibitbyte.com/auth/login";
@@ -36,7 +38,6 @@ export const Login = (props) => {
                 localStorage.setItem('token', token);
                 setLoggedIn(true);
                 showToken(token)
-
                 Navigate('/');
 
             })

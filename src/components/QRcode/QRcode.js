@@ -1,7 +1,7 @@
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import {useState} from "react";
 import Modal from "@mui/material/Modal";
-import {Box, Button, Typography} from "@mui/material";
+import {Box, Tooltip, Fab, Typography} from "@mui/material";
 import QrCode from 'qrcode.react';
 import AddLinkOutlinedIcon from '@mui/icons-material/AddLinkOutlined';
 import {TwitterShareButton, FacebookShareButton, PinterestShareButton, WhatsappShareButton} from 'react-share';
@@ -35,9 +35,15 @@ export const QRCode = (props) => {
 
     return (
         <div>
-            <Button size="large" onClick={handleOpen}>
-                <ShareOutlinedIcon sx={{color: red[800], transform: 'scale(1.5)'}} size='large'/>
-            </Button>
+            <Tooltip title="Share"
+                     sx={{
+                         position: 'fixed',
+                         bottom: 20, left: 20
+                     }}>
+                < Fab color='white' aria-label="add" onClick={handleOpen}>
+                    <ShareOutlinedIcon sx={{color: red[800], transform: 'scale(1.5)',}}/>
+                </Fab>
+            </Tooltip>
 
             <Modal
                 open={open}
@@ -78,5 +84,6 @@ export const QRCode = (props) => {
                 </Box>
             </Modal>
         </div>
-    );
+    )
+        ;
 }
