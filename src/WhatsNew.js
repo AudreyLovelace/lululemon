@@ -42,6 +42,7 @@ export default function WhatsNew(props) {
                 return <OneProduct one={e} key={index} />;
               })}
             </div>
+            {!products.length && <h1>Opps! Please try again.</h1>}
           </div>
         </main>
         <MoreProduct />
