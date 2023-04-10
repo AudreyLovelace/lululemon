@@ -7,7 +7,13 @@ import { filterActions } from "../../actions/filterAction";
 export default function OneProduct({ one }) {
   const dispatch = useDispatch();
   //const ??? = useSelector(state => state?.reducer?.???)
-
+  const navigate = useNavigate();
+  const searchLink = useSelector((state) => state?.searchReducer?.searchLink);
+  // useEffect(() => {
+  //   if (searchLink?.length) {
+  //     navigate("/");
+  //   }
+  // }, [searchLink]);
   const types = [
     "productId",
     "swatches",

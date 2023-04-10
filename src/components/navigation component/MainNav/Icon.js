@@ -74,7 +74,9 @@ export const Bag = () => {
             </svg>
           </div>
 
-          {cartHovered && <NavCartPopUp setCartHovered={setCartHovered} />}
+          {cartHovered && !!total && (
+            <NavCartPopUp setCartHovered={setCartHovered} />
+          )}
         </div>
         <span
           className="checkout_bagInside"

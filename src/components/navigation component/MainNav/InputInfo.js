@@ -24,7 +24,7 @@ export const InputInfo = () => {
       return;
     }
     function search() {
-      if (searchLink.length && products.length) {
+      if (searchLink?.length && products?.length) {
         //filter products which name contains message
         const message1 = searchLink?.toLowerCase().split(" ");
         const message2 = searchLink;
@@ -64,6 +64,27 @@ export const InputInfo = () => {
   const { pathname } = useLocation();
 
   // console.log(pathname);
+  const [liveMessage, setLiveMessage] = useState(null);
+
+  useEffect(() => {
+    if (pathname !== "/") {
+      return;
+    }
+
+    const timerId = setTimeout(() => {
+      if (liveMessage) {
+        dispatch(filterActions.searchLink(liveMessage));
+        filterActions.initPage(dispatch);
+      }
+      // else {
+      //   dispatch(filterActions.clearSearchLink());
+      //   filterActions.initPage(dispatch);
+      // }
+    }, 500);
+    return () => {
+      clearTimeout(timerId);
+    };
+  }, [liveMessage]);
 
   return (
     <div className="searchBar">
@@ -91,6 +112,18 @@ export const InputInfo = () => {
           className="search_input"
           onClick={() => {
             setOpen(true);
+          }}
+          onChange={(e) => {
+            setOpen(false);
+            if (pathname === "/") {
+              if (liveMessage && !e.target.value) {
+                setLiveMessage(null);
+                dispatch(filterActions.clearSearchLink());
+                filterActions.initPage(dispatch);
+              } else {
+                setLiveMessage(e.target.value);
+              }
+            }
           }}
         />
         {open && (
