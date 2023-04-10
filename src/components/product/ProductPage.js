@@ -1,33 +1,22 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  NavLink,
-  useNavigate,
-  useParams,
-  Navigate,
-  useLocation,
-} from "react-router-dom";
-import { BsInfoCircle } from "react-icons/bs";
-import Carousel from "./Carousel";
+import { useParams } from "react-router-dom";
+
 import "./ProductPage.scss";
-import SearchLink from "./SearchLink";
-import { IoRadioButtonOnOutline } from "react-icons/io5";
-import PlusMinus from "../filter/PlusMinus";
+
 import MainFooter from "../footer/MainFooter";
 import Review from "../review/Review";
 import FeaturePanels from "./FeaturePanels";
 import ProductPageTop from "./ProductPageTop";
 import WhyWeMadeThis from "./WhyWeMadeThis";
-import TopNavigation from "../navigation component/TopNavigation";
 import { filterActions } from "../../actions/filterAction";
-import axios from "axios";
 import { cartAction } from "../../actions/cartAction";
 import ProductPopUp from "./ProductPopUp";
 import CartAdded from "./CartAdded";
 import { QRCode } from "../QRcode/QRcode";
 import { Recommend } from "../recommend/Recommend";
 
-export default function ProductPage(props) {
+export default function ProductPage() {
   const currentUrl = window.location.href;
   // console.log('currentUrl is',currentUrl)
 
