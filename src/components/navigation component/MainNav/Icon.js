@@ -37,13 +37,18 @@ export const Bag = () => {
       document.body.style.overflow = "visible";
     };
   }, [cartHovered]);
+  useEffect(() => {
+    if (!total) {
+      setCartHovered(false);
+    }
+  }, [total]);
   return (
     <>
       <div
         className="checkout"
         style={{ position: "relative" }}
         onMouseEnter={() => {
-          if (!cartHovered) {
+          if (!cartHovered && total) {
             setCartHovered(true);
           }
         }}

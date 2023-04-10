@@ -27,12 +27,12 @@ export const cartReducer = (state = initState, action) => {
         state = [action?.payload.cartInfo, ...state];
       }
       localStorage.setItem("cart", JSON.stringify(state));
-      console.log(state);
+
       return state;
     case cartTypes.updateItem:
       state[action.payload.index] = action.payload.cartInfo;
       localStorage.setItem("cart", JSON.stringify(state));
-      console.log(state);
+
       return [...state];
     case cartTypes.changeQuantity:
       state[action.payload.index].quantity = action.payload.quantity;
@@ -59,19 +59,19 @@ export const cartReducer = (state = initState, action) => {
         state = [action?.payload, ...state];
       }
       localStorage.setItem("cart", JSON.stringify(state));
-      console.log(state);
+
       return state;
     case cartTypes.removeFromCart:
       state.splice(action.payload, 1);
       state = [...state];
       localStorage.setItem("cart", JSON.stringify(state));
-      console.log(state);
+
       return state;
     case cartTypes.addToLater:
       state.splice(action.payload.index, 1);
       state = [...state];
       localStorage.setItem("cart", JSON.stringify(state));
-      console.log(state);
+
       return state;
     default:
       return state;
