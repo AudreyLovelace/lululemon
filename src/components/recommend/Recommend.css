@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  background-color: #fafafa;
+  font-family: Calibre, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
+}
+
+.tittle {
+  text-align: center;
+  font-size: 1.875rem;
+  padding-top: 30px;
+  font-weight: 600;
+}
+
+.cube1 {
+  cursor: grab;
+}
+
+.cube2 {
+  min-width: 110px;
+  margin: 15px;
+  width: 15%;
+  height: 100%;
+}
+
+.colorSwatch {
+  background-color: #fafafa;
+  position: relative;
+  top: -50px;
+}
+
+.imgContainer img {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.productList {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.detail {
+  width: 100%;
+  height: 100%;
+}
+
+.name {
+  cursor: pointer;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  line-height: 1.2;
+  font-weight: 600;
+  color: #000;
+}
+
+.price {
+  margin-bottom: 40px;
+}
+
+.number {
+  font-family: inherit;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.currencyCode {
+  font-size: 12px;
+  margin-left: 6px;
+}
+
+.scrollbar {
+  height: 10px;
+  background: #e0e0e0;
+  box-sizing: border-box;
+}
+.scrollbar .bar {
+  height: 100%;
+  width: 30%;
+  background: #959595;
+}
+
+@media only screen and (min-width: 1150px) {
+  .scrollbar {
+    visibility: hidden;
+  }
+}
+
+/*# sourceMappingURL=Recommend.css.map */
