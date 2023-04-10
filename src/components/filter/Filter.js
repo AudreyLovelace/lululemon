@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { NavLink, useNavigate, useParams, Navigate } from "react-router-dom";
-import { FaCheck } from "react-icons/fa";
+
 import { filterActions } from "../../actions/filterAction";
 import "./Filter.scss";
 import PlusMinus from "./PlusMinus";
@@ -16,23 +15,17 @@ import { TfiClose } from "react-icons/tfi";
 export default function Filter({ setOpen, setTitle }) {
   const dispatch = useDispatch();
   const searchLink = useSelector((state) => state?.searchReducer?.searchLink);
-  // console.log(searchLink);
 
-  //const ??? = useSelector(state => state?.reducer?.???)
   useEffect(() => {
     setLoadPage(true);
-
-    //filterActions.initPage(dispatch);
     if (localStorage.getItem("filter") !== null) {
-      // console.log(localStorage.getItem("filter").Category);
-
       return;
     } else {
       filterActions.initPage(dispatch);
     }
   }, []);
   const filter = useSelector((state) => state?.filterReducer);
-  // console.log(filter);
+
   const expands = {};
   const mores = {};
 
@@ -54,7 +47,7 @@ export default function Filter({ setOpen, setTitle }) {
   const titleKey = ["Gender", "Men", "Women"];
   const titles = ["Men's What's New", "Women's What's New", "What's New"];
   const title = () => {
-    const gender = filter[titleKey[0]];
+    const gender = filter[titleKey[0]]; //find gender filter
     const men = gender?.filter((e) => e.name === titleKey[1]);
     const women = gender?.filter((e) => e.name === titleKey[2]);
     if (men[0].isChecked) {
@@ -81,12 +74,7 @@ export default function Filter({ setOpen, setTitle }) {
   });
 
   useEffect(() => {
-    // console.log(searchLink);
-    // console.log(!searchLink);
-
     if (!searchLink?.length) {
-      // console.log("search");
-
       filterActions.filterProduct(dispatch, sortId, filter);
     }
   }, [filter, sortId]);
@@ -161,8 +149,6 @@ export default function Filter({ setOpen, setTitle }) {
                 className="filter_more"
                 onClick={() => {
                   setMore((prev) => {
-                    // console.log(prev[e]);
-
                     if (prev[e]) {
                       prev[e] = false;
                     } else {

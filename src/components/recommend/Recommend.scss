@@ -1,7 +1,9 @@
 .recommend_products {
+  margin-top: 100px;
+  width: 100%;
   .container {
     background-color: #fafafa;
-    font-family: Calibre, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
+    overflow-x: scroll;
   }
 
   .tittle {

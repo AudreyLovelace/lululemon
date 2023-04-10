@@ -36,14 +36,9 @@ export const filterActions = {
         }
       )
       .then((response) => {
-        // return response.data.rs;
-        // console.log(response.data.rs);
-
         dispatch({ type: filterTypes.fetchOne, payload: response.data.rs });
       })
-      .catch((error) => {
-        // console.log(error);
-      })
+      .catch((error) => {})
       .finally(() => {});
   },
   clearSearchLink() {
@@ -86,15 +81,10 @@ export const filterActions = {
         // console.log(response.data.rs);
         dispatch(filterActions.initFilter(response.data.rs));
       })
-      .catch((error) => {
-        // console.log(error);
-      })
+      .catch((error) => {})
       .finally(() => {});
   },
   filterProduct(dispatch, sortId, filterBody, page = 1) {
-    //npm install axios
-    // console.log(filterBody);
-    // console.log("search product");
     let request = {
       method: "post",
       url: url.allProduct + key,
@@ -124,11 +114,7 @@ export const filterActions = {
           }
         }
       })
-      .catch((error) => {
-        // console.log(error);
-      })
+      .catch((error) => {})
       .finally(() => {});
   },
 };
-
-// console.log(filter);

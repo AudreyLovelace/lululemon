@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Link, useNavigate, useParams, Navigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { cartAction } from "../../actions/cartAction";
 
 import "./CartItemDesktop.scss";
@@ -13,8 +13,6 @@ export default function CartItemDesktop({
   setDropdownIndex,
 }) {
   const dispatch = useDispatch();
-  //const ??? = useSelector(state => state?.reducer?.???)
-  // console.log(e);
 
   const sizeKey = Object.keys(e.size);
   const selectSize = "Select Size";
@@ -145,7 +143,6 @@ export default function CartItemDesktop({
 
             <p
               onClick={() => {
-                // dispatch(cartAction.removeFromCart(index));
                 setOpen(true);
               }}
             >

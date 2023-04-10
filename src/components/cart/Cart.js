@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Link, useNavigate, useParams, Navigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import CartItemDesktop from "./CartItemDesktop";
 import LaterItemDesktop from "./LaterItemDesktop";
 import LaterItemTablet from "./LaterItemTablet";
 import Warning from "./Warning";
-import { FaCcPaypal } from "react-icons/fa";
 import "./Cart.scss";
 import CartItemTablet from "./CartItemTablet";
 import Summary from "./Summary";
