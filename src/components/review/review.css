@@ -3,9 +3,9 @@
   max-width: 1200px;
 }
 .review_header {
+  height: 100px;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
 }
 
 /*# sourceMappingURL=review.css.map */
