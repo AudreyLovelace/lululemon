@@ -2,13 +2,16 @@ import "./boxes.scss"
 import {Link} from "react-router-dom";
 import {useState} from "react";
 import {arrow} from "../../../helper/constants";
-import {dividerClasses} from "@mui/material";
 
 
 const AboutUs = () => {
 
-    const data = [{id: 0, label: "Our Business"}, {id: 1, label: "Media"},
-        {id: 3, label: "Investors"}, {id: 4, label: "Strategic Sales"}, {id: 5, label: "Affiliates and Creators"}
+    const data = [
+        {id: 0, label: "Our Business"},
+        {id: 1, label: "Media"},
+        {id: 3, label: "Investors"},
+        {id: 4, label: "Strategic Sales"},
+        {id: 5, label: "Affiliates and Creators"}
     ];
 
 
@@ -25,9 +28,11 @@ const AboutUs = () => {
                     About Us
                 </Link>
                 <div className='box_detail '>
-                    {data.map((item) => {
-                        return (<Link to='./' key={item.id} className="box_detail text"> {item.label}</Link>)
-                    })}
+                    {data.map(item => (
+                        <span key={item.id} className="box_detail text">
+                            {item.label}
+                        </span>)
+                    )}
                 </div>
             </div>
 
@@ -38,10 +43,10 @@ const AboutUs = () => {
                     <div className={isOpen ? "iconFirst open" : "iconFirst"}>{arrow}</div>
                 </div>
                 <div className={`dropdown-body ${isOpen && 'open'} `}>
-                    {data.map((item) => (
-                        <Link to='./' key={item.id} className='box_detail dropdown-item text'>
+                    {data.map(item => (
+                        <span key={item.id} className='box_detail dropdown-item text'>
                             {item.label}
-                        </Link>
+                        </span>
                     ))}
 
                 </div>

@@ -1,19 +1,27 @@
 import {Link} from "react-router-dom";
 import "./secondLine.scss"
 
-const LuluDetails  = () => {
+const LuluDetails = () => {
+
+    const luluDetails = [
+        {id: 0, label: 'CAREERS'},
+        {id: 1, label: 'COMMUNITY'},
+        {id: 2, label: 'LULULEMON STUDIO'},
+        {id: 3, label: 'SUSTAINABILITY'},
+        {id: 4, label: 'SOCIAL IMPACT'},
+        {id: 5, label: 'DIVERSITY AND INCLUSION'},
+        {id: 6, label: 'LULULEMON APPS'},
+    ]
 
 
     return (
         <div className="box_second">
-            <Link to="/" className="box_second_detail" type='button'>CAREERS</Link>
-            <Link to="/" className="box_second_detail" type="button">COMMUNITY</Link>
-            <Link to="/" className="box_second_detail" type="button">LULULEMON STUDIO</Link>
-            <Link to="/" className="box_second_detail" type="button">SUSTAINABILITY</Link>
-            <Link to="/" className="box_second_detail" type="button">SOCIAL IMPACT</Link>
-            <Link to="/" className="box_second_detail" type="button">DIVERSITY AND INCLUSION</Link>
-            <Link to="/" className="box_second_detail" type="button">LULULEMON APPS</Link>
-
+            {luluDetails.map((item)=>{
+                return(
+                    <div key={item.id} className='box_second_detail'>
+                        {item.label}
+                    </div>)
+            })}
         </div>
     )
 }

@@ -37,11 +37,12 @@
   color: #57585B;
   position: relative;
   width: fit-content;
+  cursor: pointer;
 }
 .text::before {
   content: "";
   position: absolute;
-  bottom: 5px;
+  bottom: 7px;
   left: 0;
   width: 0;
   height: 2px;

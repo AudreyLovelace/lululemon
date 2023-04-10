@@ -5,17 +5,13 @@ import { filterActions } from "../../../actions/filterAction";
 import { useSelector, useDispatch } from "react-redux";
 import PopUpSearch from "./PopUpSearch";
 import { useLocation, useNavigate } from "react-router-dom";
-// import Popover from "@mui/material/Popover";
-// import Typography from "@mui/material/Typography";
 
 export const InputInfo = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const searchLink = useSelector((state) => state?.searchReducer?.searchLink);
-  // console.log(searchLink);
 
   //get all products
-  // const [message, setMessage] = useState(searchLink);
   const products = useSelector((state) => state?.lululemonReducer);
   const [open, setOpen] = useState(false);
   let loading = true;
@@ -28,9 +24,6 @@ export const InputInfo = () => {
         //filter products which name contains message
         const message1 = searchLink?.toLowerCase().split(" ");
         const message2 = searchLink;
-        // console.log(message1);
-        // setMessage(null);
-        // dispatch(filterActions.clearSearchLink());
         const newProduct = products.filter((product) => {
           const rightMatch = message1.length;
           let result = 0;
@@ -39,7 +32,6 @@ export const InputInfo = () => {
               result++;
             }
           });
-          // setTimeout(() => {}, 2000);
           return result === rightMatch;
         });
 
@@ -91,13 +83,10 @@ export const InputInfo = () => {
       <form
         className="search_form"
         onSubmit={(e) => {
-          //   console.log(e.target);
           e.preventDefault();
           setOpen(false);
-          // setMessage(e.target[0].value);
           dispatch(filterActions.searchLink(e.target[0].value));
           e.target[0].value = null;
-          //clear filter
           filterActions.initPage(dispatch);
           if (pathname !== "/") {
             navigate("/");
@@ -126,13 +115,7 @@ export const InputInfo = () => {
             }
           }}
         />
-        {open && (
-          <PopUpSearch
-            setOpen={setOpen}
-            // setMessage={setMessage}
-            dispatch={dispatch}
-          />
-        )}
+        {open && <PopUpSearch setOpen={setOpen} dispatch={dispatch} />}
       </form>
     </div>
   );

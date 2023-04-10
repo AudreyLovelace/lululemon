@@ -1,7 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { NavLink, useNavigate, useParams, Navigate } from "react-router-dom";
-import PlusMinus from "./components/filter/PlusMinus";
+import React, {useState} from "react";
+import {useSelector} from "react-redux";
 import Filter from "./components/filter/Filter";
 import SortDesktop from "./components/sort/SortDesktop";
 import FilterLable from "./components/filter/FilterLable";
@@ -13,65 +11,46 @@ import OneProduct from "./components/productPreview/OneProduct";
 import MoreProduct from "./components/filter/MoreProduct";
 
 export default function WhatsNew(props) {
-  const products = useSelector((state) => {
-    return state?.lululemonReducer;
-  });
-  // console.log(products);
-  // const [fixNav, setFixNav] = useState(false);
-  const [open, setOpen] = useState(false);
 
-  // useEffect(() => {
-  //   function handleScroll() {
-  //     if (document.documentElement.scrollTop >= 24) {
-  //       setFixNav(true);
-  //     } else {
-  //       setFixNav(false);
-  //     }
-  //   }
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
+    const {dataFromApp} = props
 
-  return (
-    <div className="whats_new">
-      <TopNavigation />
-      {/*<DropDown/>*/}{" "}
-      {/* <div className="container">
-        <div className="filter_tablet">
-          <TabletFilter setOpen={setOpen} open={open} />
+
+    const products = useSelector(state => {
+        return state?.lululemonReducer;
+    });
+    const [open, setOpen] = useState(false);
+
+    return (
+        <div className="whats_new">
+            <TopNavigation dataFromWhatNew={dataFromApp}/>
+            <div className="container">
+                <main>
+                    <div className="filter_desktop">
+                        <Filter/>
+                    </div>
+
+                    <div className="main_right">
+                        <div className="main_right_top">
+                            <SortDesktop/>
+                        </div>
+                        <div className="lable_desktop">
+                            <FilterLable/>
+                        </div>
+                        <div className="filter_tablet">
+                            <TabletFilter setOpen={setOpen} open={open}/>
+                        </div>
+                        <div className="products">
+                            {products?.map((e, index) => {
+                                return <OneProduct one={e} key={index}/>;
+                            })}
+                        </div>
+                    </div>
+                </main>
+                <MoreProduct/>
+            </div>
+            <div className="container">
+                <MainFooter/>
+            </div>
         </div>
-      </div> */}
-      <div className="container">
-        <main>
-          <div className="filter_desktop">
-            <Filter />
-          </div>
-
-          <div className="main_right">
-            <div className="main_right_top">
-              <SortDesktop />
-            </div>
-            <div className="lable_desktop">
-              <FilterLable />
-            </div>
-            <div className="filter_tablet">
-              <TabletFilter setOpen={setOpen} open={open} />
-            </div>
-            <div className="products">
-              {products?.map((e, index) => {
-                return <OneProduct one={e} key={index} />;
-              })}{" "}
-              {/* {products.length === 0 && <h2>Loading...</h2>} */}
-            </div>
-          </div>
-        </main>
-        <MoreProduct />
-      </div>{" "}
-      <div className="container">
-        <MainFooter />
-      </div>
-    </div>
-  );
+    );
 }

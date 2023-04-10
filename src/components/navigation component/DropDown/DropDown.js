@@ -60,13 +60,12 @@ export const DropDown = () => {
         <div className='dropdownFile'>
             <div className='dropdownFile_main'>
                 <div className='dropdownFile_main_left'>
-                    {whatsNew.map(item => {
-                        return (
+                    {whatsNew.map(item => (
                             <div key={item.id} className='textHover'>
                                 {item.label}
                             </div>
                         )
-                    })}
+                    )}
                 </div>
 
 
@@ -76,22 +75,20 @@ export const DropDown = () => {
                     </div>
                     <div className='dropdownFile_main_middle_detail'>
                         <div className='dropdownFile_main_middle_detail_eachRow'>
-                            {womenLeft.map(item => {
-                                return (
+                            {womenLeft.map(item => (
                                     <div key={item.id} className='textHover'>
                                         {item.label}
                                     </div>
                                 )
-                            })}
+                            )}
                         </div>
                         <div className='dropdownFile_main_middle_detail_eachRow'>
-                            {womenRight.map(item => {
-                                return (
+                            {womenRight.map(item => (
                                     <div key={item.id} className='textHover'>
                                         {item.label}
                                     </div>
                                 )
-                            })}
+                            )}
                         </div>
                     </div>
                 </div>
@@ -103,13 +100,12 @@ export const DropDown = () => {
 
                     <div className='dropdownFile_main_middle_detailRight_detail'>
                         <div className='dropdownFile_main_middle_detailRight_detail_eachRow'>
-                            {accessories.map(item => {
-                                return (
+                            {accessories.map(item => (
                                     <div key={item.id} className='textHover'>
                                         {item.label}
                                     </div>
                                 )
-                            })}
+                            )}
                         </div>
                     </div>
                 </div>
@@ -138,12 +134,12 @@ export const DropDown = () => {
                     ACTIVITY
                 </div>
                 <div className='dropdownFile_under_sports '>
-                    {activity.map(item => {
-                        return (<div key={item.id} className='textHover'>
+                    {activity.map(item => (
+                            <div key={item.id} className='textHover'>
                                 {item.label}
                             </div>
                         )
-                    })}
+                    )}
                 </div>
                 <div className='dropdownFile_under_shop'>
                     SHOP ALL WOMEN

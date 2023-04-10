@@ -1,19 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import './fiveListDes.scss';
 import {DropDown} from "../DropDown/DropDown";
 
 function FiveListDes() {
-
-    // const [onButton, setOnButton] = useState(null)
-    //
-    // const handleEnter = () => {
-    //     setOnButton(true)
-    // }
-    //
-    // const handleClose = () => {
-    //     setOnButton(false)
-    // }
 
 
     const meunList = [
@@ -21,42 +11,37 @@ function FiveListDes() {
         {id: 1, label: "MEN"},
         {id: 2, label: "ACCESSORIES"}]
 
+    const menu2 = [
+        {id: 0, label: 'SHOES'},
+        {id: 1, label: 'STUDIO'}
+    ]
+
 
     return (<>
             <nav className='fiveLogo'>
                 <div className='fiveLogo_dropDown'>
                     <div className="fiveLogo_dropDown_menuList">{
-                        meunList.map((item)=>{
-                            return (
+                        meunList.map(item => (
                                 <div key={item.id} className="fiveLogo_dropDown_menuList_mainBtn">
                                     {item.label}
                                 </div>
                             )
-                        })
+                        )
                     }</div>
-
                     <div
-                        // style={{display: onButton ? 'block' : 'none'}}
-                        // onMouseEnter={handleEnter}
-                        // onclose={handleClose}
                         className="fiveLogo_dropDown_page">
                         <DropDown/>
                     </div>
                 </div>
-
-
-
-
-
             </nav>
 
+            {menu2.map(item => (
+                    <Link to='/' key={item.id} type='button' className='fiveLogo_dropDown_menuList_mainBtn'>
+                        {item.label}
+                    </Link>
 
-            <Link to='/' type='button' className='fiveLogo_dropDown_menuList_mainBtn'>
-                SHOES
-            </Link>
-            <Link to='/' type='button' className='fiveLogo_dropDown_menuList_mainBtn'>
-                STUDIO
-            </Link>
+                )
+            )}
         </>
     )
         ;

@@ -23,13 +23,12 @@ const ContactUs = () => {
           Contact Us
         </Link>
         <div className="box_detail">
-          {data.map((item) => {
-            return (
-              <Link to="./" key={item.id} className="box_detail text">
+          {data.map(item => (
+              <span key={item.id} className="box_detail text">
                 {item.label}
-              </Link>
-            );
-          })}
+              </span>
+            )
+          )}
         </div>
       </div>
 
@@ -40,13 +39,12 @@ const ContactUs = () => {
         </div>
 
         <div className={`dropdown-body ${isOpen && "open"}`}>
-          {data.map((item, i) => {
-            return (
-              <Link to="./" key={i} className="box_detail text dropdown-item">
+          {data.map(item => (
+              <span key={item.id} className="box_detail text dropdown-item">
                 {item.label}
-              </Link>
-            );
-          })}
+              </span>
+            )
+          )}
         </div>
         <hr />
       </div>
