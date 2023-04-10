@@ -21,6 +21,7 @@ export default function WhatsNew(props) {
 
   return (
     <div className="whats_new">
+      <Feedback />
       <TopNavigation dataFromWhatNew={dataFromApp} />
       <div className="container">
         <main>
@@ -50,7 +51,6 @@ export default function WhatsNew(props) {
       <div className="container">
         <MainFooter />
       </div>
-      <Feedback />
     </div>
   );
 }
