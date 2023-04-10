@@ -8,7 +8,7 @@ import { Edit } from "./Edit";
 export default function LaterItemDesktop({ e, index, dropdownIndex }) {
   const dispatch = useDispatch();
   //const ??? = useSelector(state => state?.reducer?.???)
-  console.log(e);
+
   const [open, setOpen] = useState(false);
   const sizeKey = Object.keys(e.size);
   const selectSize = "Select Size";

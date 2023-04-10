@@ -66,7 +66,6 @@ export default function CartItemTablet({
               <select
                 defaultValue={e.quantity}
                 onChange={(e) => {
-                  console.log(e.target.value);
                   dispatch(cartAction.changeQuantity(index, e.target.value));
                 }}
               >

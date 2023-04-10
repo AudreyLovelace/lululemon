@@ -9,8 +9,6 @@ import MainFooter from "./components/footer/MainFooter";
 import "./WhatsNew.scss";
 import OneProduct from "./components/productPreview/OneProduct";
 import MoreProduct from "./components/filter/MoreProduct";
-import Feedback from "./components/feedback/Feedback";
-import FeedbackBtn from "./components/feedback/FeedbackBtn";
 
 export default function WhatsNew(props) {
   const { dataFromApp } = props;
