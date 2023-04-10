@@ -10,6 +10,7 @@ import "./WhatsNew.scss";
 import OneProduct from "./components/productPreview/OneProduct";
 import MoreProduct from "./components/filter/MoreProduct";
 import Feedback from "./components/feedback/Feedback";
+import FeedbackBtn from "./components/feedback/FeedbackBtn";
 
 export default function WhatsNew(props) {
   const { dataFromApp } = props;
@@ -21,7 +22,6 @@ export default function WhatsNew(props) {
 
   return (
     <div className="whats_new">
-      <Feedback />
       <TopNavigation dataFromWhatNew={dataFromApp} />
       <div className="container">
         <main>
