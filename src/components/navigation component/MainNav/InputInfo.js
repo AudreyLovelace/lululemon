@@ -64,7 +64,8 @@ export const InputInfo = () => {
     }
 
     const timerId = setTimeout(() => {
-      if (liveMessage) {
+      if (liveMessage && liveMessage !== searchLink) {
+        //avoid repeat message
         dispatch(filterActions.searchLink(liveMessage));
         filterActions.initPage(dispatch);
       }
