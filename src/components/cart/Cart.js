@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CartItemDesktop from "./CartItemDesktop";
 import LaterItemDesktop from "./LaterItemDesktop";
 import LaterItemTablet from "./LaterItemTablet";
@@ -8,9 +8,12 @@ import Warning from "./Warning";
 import "./Cart.scss";
 import CartItemTablet from "./CartItemTablet";
 import Summary from "./Summary";
+
+import axios from "axios";
 export default function Cart(props) {
   //const dispatch=useDispatch()
   //const ??? = useSelector(state => state?.reducer?.???)
+  const navigate = useNavigate();
   const cart = useSelector((state) => {
     return state?.cartReducer;
   });
@@ -23,7 +26,7 @@ export default function Cart(props) {
   const subTotal = cart?.reduce((total, p) => {
     return total + Number(p.price) * Number(p.quantity);
   }, 0);
-  // console.log(cart);
+  console.log(cart);
   const [dropdownIndex, setDropdownIndex] = useState(-1);
 
   const logo = (
@@ -81,7 +84,13 @@ export default function Cart(props) {
             <h3>${subTotal.toFixed(2)}</h3>
           </header>
           <div className="checkout_buttons">
-            <button>{logo} CHECKOUT</button>
+            <button
+              onClick={() => {
+                navigate("/ship");
+              }}
+            >
+              {logo} CHECKOUT
+            </button>
           </div>
           <Warning /> <div className="container"></div>
           {cart?.map((e, index) => {

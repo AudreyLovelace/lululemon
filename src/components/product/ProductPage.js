@@ -123,6 +123,15 @@ export default function ProductPage() {
       return e?.colorId === id;
     })[0]
     ?.mainCarousel?.media?.split("|");
+
+  // let mediaTrimed = [];
+  // if (media.length) {
+  //   media.forEach((e) => {
+  //     mediaTrimed.push(e.trim());
+  //   });
+  // }
+  // console.log(mediaTrimed);
+
   const cartInfo = {
     quantity: 1,
     productId: productId,
