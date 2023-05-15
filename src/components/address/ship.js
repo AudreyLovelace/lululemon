@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useNavigate, useParams, Navigate } from "react-router-dom";
-
+import Cookies from "js-cookie";
 import axios from "axios";
 export default function ShipAddress() {
   //const dispatch=useDispatch()
@@ -10,6 +10,20 @@ export default function ShipAddress() {
     return state?.cartReducer;
   });
   console.log(cart);
+  //npm install axios
+  useEffect(() => {
+    Cookies.set("luluuserId", 14);
+    axios
+      .get("http://localhost:3000/auth/whoami")
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {});
+  }, []);
+
   return (
     <div className="address">
       <h1>shipping address</h1>
@@ -29,6 +43,7 @@ export default function ShipAddress() {
           };
 
           console.log(address);
+          // Cookies.set("luluuserId", 14);
           const storedAddress = await axios.post(
             "http://localhost:3000/address",
             address

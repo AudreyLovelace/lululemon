@@ -34,7 +34,7 @@ export default function Signup(props) {
             );
             console.log(signin);
             if (signin.status === 201) {
-              Cookies.set("luluuserId", signin.data.id);
+              // Cookies.set("luluuserId", signin.data.id);
               navigate("/");
             }
           }

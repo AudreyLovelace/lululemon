@@ -13,7 +13,7 @@ export default function Signin(props) {
       <form
         // action=""
         // method="post"
-        onSubmit={(e) => {
+        onSubmit={async (e) => {
           e.preventDefault();
           // console.log(e.target[0].value);
           axios
@@ -21,12 +21,15 @@ export default function Signin(props) {
               email: e.target[0].value,
               password: e.target[1].value,
             })
-            .then((res) => {
+            .then(async (res) => {
               console.log(res);
 
-              Cookies.set("luluuserId", res.data.id);
+              // Cookies.set("luluuserId", res.data.id);
               if (res.status === 201) {
-                navigate("/");
+                // navigate("/");
+                await axios
+                  .get("http://localhost:3000/auth/whoami")
+                  .then((res) => console.log(res));
               }
             });
           //   console.log({
