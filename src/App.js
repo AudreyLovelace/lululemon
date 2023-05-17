@@ -30,7 +30,7 @@ export default function App() {
       <Route path="/p/:productId/" element={<ProductPage />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/login" element={<Signin />} />
-      <Route path="/signup" element={<Signup />} />
+      {/* <Route path="/signup" element={<Signup />} /> */}
       <Route path="/ship" element={<ShipAddress />} />
     </Routes>
   );

@@ -53,27 +53,19 @@ const AllDes = (props) => {
           <StoreLocation />
           <span className="topLine_details_names">Store Location</span>
         </div>
-        {isLogin ? (
-          <div>
-            <div className="topLine_details" onClick={handleClick}>
-              <SignIn />
-              <p className="topLine_details_names">My Account</p>
-            </div>
+        <div onClick={handleMyAcc}>
+          <div className="topLine_details" onClick={handleClick}>
+            <SignIn />
+            <p
+              className="topLine_details_names"
+              onClick={() => {
+                Navigate("/login");
+              }}
+            >
+              {auth ? "My Account" : "Sign In"}
+            </p>
           </div>
-        ) : (
-          <div onClick={handleMyAcc}>
-            <div className="topLine_details" onClick={handleClick}>
-              <SignIn />
-              <p
-                className="topLine_details_names"
-                onClick={() => {
-                  Navigate("/login");
-                }}
-              >
-                Sign In
-              </p>
-            </div>
-            {/* <Menu
+          {/* <Menu
               id="basic-menu"
               anchorEl={anchorEl}
               open={open}
@@ -97,8 +89,8 @@ const AllDes = (props) => {
                 Log In
               </MenuItem>
             </Menu> */}
-          </div>
-        )}
+        </div>
+
         {logo.map((item) => (
           <div key={item.id} className="topLine_details">
             {item.label}
