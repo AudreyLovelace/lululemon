@@ -11,11 +11,12 @@ import {
 } from "./NewLogo";
 import { Menu, MenuItem } from "@mui/material";
 import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 const AllDes = (props) => {
   const { dataFromTopNavigation } = props;
   const [isLogin, setLogin] = useState(false);
-
+  const auth = useSelector((state) => state.authReducer.signedIn);
   const handleMyAcc = (e) => setLogin(dataFromTopNavigation);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -63,9 +64,16 @@ const AllDes = (props) => {
           <div onClick={handleMyAcc}>
             <div className="topLine_details" onClick={handleClick}>
               <SignIn />
-              <p className="topLine_details_names">Sign In</p>
+              <p
+                className="topLine_details_names"
+                onClick={() => {
+                  Navigate("/login");
+                }}
+              >
+                Sign In
+              </p>
             </div>
-            <Menu
+            {/* <Menu
               id="basic-menu"
               anchorEl={anchorEl}
               open={open}
@@ -88,7 +96,7 @@ const AllDes = (props) => {
               >
                 Log In
               </MenuItem>
-            </Menu>
+            </Menu> */}
           </div>
         )}
         {logo.map((item) => (
@@ -106,10 +114,15 @@ const AllDes = (props) => {
           </Link>
         </div>
         <div className="resDesLogo_fiveLoge">
-          <div className="resDesLogo_fiveLoge_each" onClick={handleClick}>
+          <div
+            className="resDesLogo_fiveLoge_each"
+            onClick={() => {
+              Navigate("/login");
+            }}
+          >
             <SignIn1 />
           </div>
-          <Menu
+          {/* <Menu
             id="basic-menu"
             anchorEl={anchorEl}
             open={open}
@@ -132,7 +145,7 @@ const AllDes = (props) => {
             >
               Log In
             </MenuItem>
-          </Menu>
+          </Menu> */}
 
           {logoPhone.map((item) => (
             <div key={item.id} className="resDesLogo_fiveLoge_each">

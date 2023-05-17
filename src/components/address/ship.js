@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useNavigate, useParams, Navigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import axios from "axios";
+import { nestAxios } from "../../actions/authAction";
 export default function ShipAddress() {
   //const dispatch=useDispatch()
   //const ??? = useSelector(state => state?.reducer?.???)
@@ -11,18 +12,6 @@ export default function ShipAddress() {
   });
   console.log(cart);
   //npm install axios
-  useEffect(() => {
-    Cookies.set("luluuserId", 14);
-    axios
-      .get("http://localhost:3000/auth/whoami")
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-      .finally(() => {});
-  }, []);
 
   return (
     <div className="address">
@@ -44,7 +33,7 @@ export default function ShipAddress() {
 
           console.log(address);
           // Cookies.set("luluuserId", 14);
-          const storedAddress = await axios.post(
+          const storedAddress = await nestAxios.post(
             "http://localhost:3000/address",
             address
           );

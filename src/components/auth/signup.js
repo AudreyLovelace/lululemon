@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useNavigate, useParams, Navigate } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { nestAxios } from "../../actions/authAction";
 export default function Signup(props) {
   //const dispatch=useDispatch()
   //const ??? = useSelector(state => state?.reducer?.???)
@@ -16,7 +17,7 @@ export default function Signup(props) {
         onSubmit={async (e) => {
           e.preventDefault();
           // console.log(e.target[0].value);
-          const signup = await axios.post(
+          const signup = await nestAxios.post(
             "http://localhost:3000/auth/register",
             {
               email: e.target[0].value,
@@ -25,7 +26,7 @@ export default function Signup(props) {
           );
           // console.log(signup);
           if (signup.status === 201) {
-            const signin = await axios.post(
+            const signin = await nestAxios.post(
               "http://localhost:3000/auth/signin",
               {
                 email: e.target[0].value,
@@ -34,6 +35,9 @@ export default function Signup(props) {
             );
             console.log(signin);
             if (signin.status === 201) {
+              // await nestAxios
+              //   .get("http://localhost:3000/auth/whoami")
+              //   .then((res) => console.log(res));
               // Cookies.set("luluuserId", signin.data.id);
               navigate("/");
             }
