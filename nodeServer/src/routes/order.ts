@@ -1,37 +1,21 @@
 import {Router} from "express"
+import {OrderController} from "../controller/OrderController";
 
 const router = Router()
-router.get('/', (rq,rs) => {
-    return rs.send('all orders here')
 
-})
+// get all orders
+router.get('/', OrderController.all)
 
-router.get('/:orderID/:paymentStatus', (rq,rs) => {
-    const {orderID, paymentStatus} = rq.params
-    const {token, did} = rq.headers
-    const bodyOrder = rq.body
-    console.log("order Info",bodyOrder)
+// get an order
+router.get('/:orderID', OrderController.one)
 
-    let msg = `orderID is : ${orderID}, payment status: ${paymentStatus}`
-    let msg2 = `token is : ${token}, device id: ${did}`
+// create an order
+router.post('/', OrderController.create)
 
-    let userinfo = {
-        name: "fefsdfew",
-        age: 788494,
-        add: "faefdsf545",
-        education:{
-            primary: "sffefefef",
-            highschool : "afwerwrwersfcew"
-        }
-    }
+// update an order
+router.put('/:orderID', OrderController.update)
 
-    rs.setHeader('content-type','application')
-    rs.setHeader('lastVisit', '032302301')
-
-    console.log(msg)
-    return rs.json(userinfo)
-
-
-})
+// delete an order
+router.delete('/:orderID', OrderController.delete)
 
 export default router
