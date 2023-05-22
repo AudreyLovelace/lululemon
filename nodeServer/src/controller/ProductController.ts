@@ -46,10 +46,11 @@ export class ProductController {
         product.description = description
         product.isActive = true
 
-        console.log('product new:', product)
+        // console.log('product new:', product)
         try {
             const errors = await validate(product)
             if (errors.length > 0){
+                console.log(errors)
                 let err = new Err(HttpCode.E400, ErrStr.ErrMissingParameter)
                 return response.status(400).send(err)
             }

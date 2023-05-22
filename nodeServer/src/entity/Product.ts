@@ -32,10 +32,6 @@ export class Product {
     @Min(0)
     price: number;
 
-    @Column()
-    @IsEmail()
-    @Length(5,150)
-    email: string;
 
     @Column()
     description: string
