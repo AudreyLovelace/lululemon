@@ -69,7 +69,35 @@ export class ProductController {
     }
 
     static async update(request: Request, response: Response, next: NextFunction) {
+        const {productID} = request.params
+        if(!productID){
+            return response.status(400).send(new Err(HttpCode.E400, ErrStr.ErrMissingParameter))
+        }
+        let product = null
+        try {
+            product = await ProductController.repo.findOneOrFail(productID)
+        }catch (e){
+            return response.status(400).send(new Err(HttpCode.E400, ErrStr.ErrStore))
+        }
 
+        let {name, price, media, slug, description} = request.body
+        product.price = price
+        product.name = name
+        product.media = media
+        product.slug = slug
+        product.description = description
+
+        const errors = await validate(product)
+        if (errors.length > 0){
+            return response.status(HttpCode.E400).send(new Err(HttpCode.E400,ErrStr.ErrMissingParameter,errors))
+        }
+        try {
+            await ProductController.repo.save(product)
+        }catch (e){
+            return response.status(400).send(new Err(HttpCode.E400, ErrStr.ErrStore, e))
+        }
+
+        return response.status(200).send(new Err(HttpCode.E200, ErrStr.Ok))
     }
 
 }

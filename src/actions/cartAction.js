@@ -39,7 +39,7 @@ export const cartAction = {
       payload: { cartInfo: newCartInfo, index: index },
     };
   },
-  addToCart(productData) {
+  addToCart(Userata) {
     return { type: cartTypes.addToCart, payload: productData };
   },
   removeFromCart(index) {

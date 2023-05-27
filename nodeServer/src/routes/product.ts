@@ -6,10 +6,10 @@ const router = Router()
 // get all products
 router.get('/', ProductController.all)
 
-// get an product
+// get a product
 router.get('/:productID', ProductController.one)
 
-// create an product
+// create a product
 router.post('/', ProductController.create)
 
 // update an product

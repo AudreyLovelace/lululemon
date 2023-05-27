@@ -6,7 +6,7 @@ import {Request, Response} from "express";
 import {User} from "./entity/User";
 import routes from "./routes";
 
-const SERVER_PORT =3000
+const SERVER_PORT = 8001
 createConnection().then(async connection => {
 
     const app = express();
@@ -18,7 +18,7 @@ createConnection().then(async connection => {
     app.use('/',routes)
 
 
-    app.listen(3000);
+    app.listen(SERVER_PORT);
 
 
     console.log(`Express server has started on port ${SERVER_PORT}. Open http://localhost:${SERVER_PORT}`);
