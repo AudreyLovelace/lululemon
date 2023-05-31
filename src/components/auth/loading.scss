@@ -1,0 +1,15 @@
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba($color: #ffffff, $alpha: 0.8);
+  div {
+    margin: 0 auto;
+  }
+}

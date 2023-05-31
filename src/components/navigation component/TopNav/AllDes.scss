@@ -1,3 +1,40 @@
+$light-grey: #fafafa;
+$dark-grey: rgb(202, 202, 202);
+$red: #d31334;
+.topLine_details_signOff {
+  // border: 1px solid black;
+  position: absolute;
+  padding: 30px 0;
+  z-index: 9999;
+  top: 22px;
+  width: 100px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  font-size: 20px;
+  border-radius: 5px;
+  font-weight: 300;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 8px;
+  text-decoration-color: $dark-grey;
+}
+.topLine_details_signOff:hover {
+  text-decoration-color: $red;
+}
+.allLine .shadow {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: black;
+  left: 0;
+  top: 0;
+  z-index: 9988;
+  pointer-events: none;
+  opacity: 0.3;
+}
 .topLine {
   display: flex;
   flex-direction: row;
@@ -15,6 +52,16 @@
     margin-left: 30px;
     position: relative;
 
+    // .topLine_details_signOff::after {
+    //   display: block;
+    //   width: 100vw;
+    //   height: 100vh;
+    //   display: absolute;
+    //   content: "";
+    //   top: 0;
+    //   left: 0;
+    //   background-color: black;
+    // }
     &_names {
       font-size: 14px;
       color: #000000;
@@ -39,9 +86,7 @@
       width: 100%;
     }
   }
-
 }
-
 
 @media screen and (max-width: 990px) {
   .topLine {
@@ -49,13 +94,11 @@
   }
 }
 
-
 .resDesLogo {
   padding: 0 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 
   &_fiveLoge {
     display: flex;

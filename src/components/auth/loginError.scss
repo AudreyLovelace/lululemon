@@ -1,0 +1,23 @@
+$red: #d31334;
+
+.login_error {
+  border: 1px solid $red;
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  background-color: #d3133321;
+  svg {
+    margin-right: 10px;
+    path {
+      fill: $red;
+    }
+    circle {
+      stroke: $red;
+    }
+  }
+  p {
+    margin-top: 5px;
+  }
+}

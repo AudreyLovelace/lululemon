@@ -1,0 +1,72 @@
+$light-grey: #fafafa;
+$dark-grey: rgb(202, 202, 202);
+$red: #d31334;
+
+@media (max-width: 992px) {
+  .checkout-page .address form {
+    display: flex;
+    flex-direction: column;
+    input,
+    select {
+      height: 50px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+      width: 100%;
+      padding: 0 20px;
+      outline: none;
+    }
+    .hidden {
+      width: 1;
+      height: 1;
+      opacity: 0;
+      pointer-events: none;
+      margin-top: -30px;
+    }
+    p {
+      color: $red;
+      margin-top: -10px;
+    }
+    label {
+      margin-top: 10px;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .checkout-page .address form {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "a a a c c c"
+      "b b b d d d"
+      "e e e e e e"
+      "f f f f f f"
+      "g g g g g g"
+      "h h h h h h"
+      "i i i i i i"
+      "j j j j j j"
+      "k k o o m m"
+      "l l p p n n"
+      "q q q q q q";
+    input,
+    select {
+      height: 50px;
+      box-sizing: border-box;
+      width: 100%;
+      padding: 0 20px;
+      outline: none;
+    }
+    p {
+      margin-top: 60px;
+      color: $red;
+    }
+    .hidden {
+      width: 1;
+      height: 1;
+      opacity: 0;
+      pointer-events: none;
+      margin-top: -100px;
+    }
+  }
+}

@@ -7,8 +7,12 @@ export const cartTypes = {
   addToLater: "ADD_TO_LATER",
   removeFinalLater: " REMOVE_FINAL_LATER",
   updateLaterItem: "UPDATE_LATER_ITEM",
+  clearCart: "CLEAR_CART",
 };
 export const cartAction = {
+  clearCart() {
+    return { type: cartTypes.clearCart };
+  },
   updateLaterItem(cartInfo, index) {
     return {
       type: cartTypes.updateLaterItem,

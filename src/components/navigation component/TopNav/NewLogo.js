@@ -4,9 +4,16 @@ import { useSelector } from "react-redux";
 import ImpulseShadow from "../MainNav/ImpulseShadow";
 export const BagLogo = () => {
   const cart = useSelector((state) => state?.cartReducer);
-  const total = cart?.reduce((t, b) => {
-    return t + b.quantity;
-  }, 0);
+  const subTotal = cart.length
+    ? cart?.reduce((total, p) => {
+        return total + Number(p.price) * Number(p.quantity);
+      }, 0)
+    : 0;
+  const total = cart.length
+    ? cart?.reduce((t, b) => {
+        return t + b.quantity;
+      }, 0)
+    : 0;
   return (
     <Link to="/cart">
       <div className="checkoutNew" style={{ position: "relative" }}>

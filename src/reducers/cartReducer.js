@@ -8,6 +8,10 @@ export const cartReducer = (state = initState, action) => {
   // console.log(state);
 
   switch (action.type) {
+    case cartTypes.clearCart:
+      localStorage.setItem("cart", JSON.stringify([]));
+      return [];
+
     case cartTypes.removeFromLater:
       // console.log(action.payload);
 

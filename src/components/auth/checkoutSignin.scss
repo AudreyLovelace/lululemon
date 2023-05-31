@@ -1,0 +1,47 @@
+$light-grey: #fafafa;
+$dark-grey: rgb(202, 202, 202);
+$red: #d31334;
+
+.checkout-page {
+  .checkoutSignin form {
+    .error {
+      margin-top: 0;
+    }
+    .info {
+      color: grey;
+      font-weight: 300;
+      font-size: 17px;
+    }
+    margin: 20px 0;
+    & > div {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 10px;
+      .info {
+        color: black;
+        font-weight: 400;
+        font-size: 18px;
+        text-decoration: underline;
+        text-decoration-color: $dark-grey;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 5px;
+      }
+    }
+    input {
+      height: 50px;
+      width: 100%;
+      box-sizing: border-box;
+      margin: 10px 0;
+    }
+  }
+}
+@media (max-width: 992px) {
+  .checkout-page {
+    .checkoutSignin form {
+      & > div {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+}

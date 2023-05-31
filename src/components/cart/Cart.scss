@@ -2,6 +2,15 @@ $light-grey: #fafafa;
 $dark-grey: rgb(202, 202, 202);
 $red: #d31334;
 .cart {
+  .cart_signin {
+    font-size: 18px;
+    padding: 40px 0;
+    a {
+      text-decoration-thickness: 1.5px;
+      color: black;
+    }
+    // background-color: white;
+  }
   ul {
     margin-top: 30px;
     list-style: none;
@@ -153,7 +162,7 @@ $red: #d31334;
     }
   }
   .later {
-    margin: 80px 0;
+    margin: 80px 0 0;
     h1 {
       margin-bottom: 20px;
     }

@@ -9,12 +9,16 @@ export default function CartAdded({ cartInfo, setCartAdded, cartAdded }) {
   //const ??? = useSelector(state => state?.reducer?.???)
   const navigate = useNavigate();
   const cart = useSelector((state) => state?.cartReducer);
-  const subTotal = cart?.reduce((total, p) => {
-    return total + Number(p.price) * Number(p.quantity);
-  }, 0);
-  const total = cart?.reduce((t, b) => {
-    return t + b.quantity;
-  }, 0);
+  const subTotal = cart.length
+    ? cart?.reduce((total, p) => {
+        return total + Number(p.price) * Number(p.quantity);
+      }, 0)
+    : 0;
+  const total = cart.length
+    ? cart?.reduce((t, b) => {
+        return t + b.quantity;
+      }, 0)
+    : 0;
   const bag = (
     <svg
       height="32"

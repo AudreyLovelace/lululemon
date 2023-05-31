@@ -1,0 +1,11 @@
+.editAddress {
+  position: absolute;
+  z-index: 1000;
+  background-color: white;
+  width: 60vw;
+  left: 50vw;
+  transform: translateX(-50%);
+  border-radius: 5px;
+  top: 30px;
+  // overflow-y: scroll;
+}

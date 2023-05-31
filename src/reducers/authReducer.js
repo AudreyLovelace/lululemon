@@ -1,11 +1,17 @@
 import { authType } from "../actions/authAction";
-const initState = { signedIn: false };
+const initState = { signedIn: false, email: null };
 export const authReducer = (state = initState, action) => {
+  // console.log(action);
+
   switch (action.type) {
     case authType.signedIn:
-      return { signedIn: true };
+      return { ...state, signedIn: true };
     case authType.signedOff:
-      return { signedIn: false };
+      return { ...state, signedIn: false, email: null };
+    case authType.whoAmI:
+      // console.log(action.payload);
+
+      return { ...state, signedIn: true, email: action.payload };
     default:
       return state;
   }

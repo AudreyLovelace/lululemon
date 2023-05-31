@@ -67,6 +67,7 @@ export default function ProductPage() {
     }
   });
   const [size, setSize] = useState(initSizes);
+
   let load = true;
   const topChoice = useCallback((node) => {
     // console.log(node);

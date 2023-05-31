@@ -12,14 +12,16 @@ import {
 import { Menu, MenuItem } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-
+import { authAction, nestAxios } from "../../../actions/authAction";
 const AllDes = (props) => {
   const { dataFromTopNavigation } = props;
-  const [isLogin, setLogin] = useState(false);
+  // const [isLogin, setLogin] = useState(false);
   const auth = useSelector((state) => state.authReducer.signedIn);
-  const handleMyAcc = (e) => setLogin(dataFromTopNavigation);
+  // const handleMyAcc = (e) => setLogin(dataFromTopNavigation);
   const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
+  // const open = Boolean(anchorEl);
+  const [open, setOpen] = useState(false);
+  const [openSmall, setOpenSmall] = useState(false);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -28,10 +30,10 @@ const AllDes = (props) => {
   };
 
   const Navigate = useNavigate();
-
-  useEffect((evt) => {
-    handleMyAcc(evt);
-  }, []);
+  const dispatch = useDispatch();
+  // useEffect((evt) => {
+  //   handleMyAcc(evt);
+  // }, []);
 
   const logo = [
     { id: 0, label: <WishList />, label1: "Wish List" },
@@ -48,22 +50,48 @@ const AllDes = (props) => {
 
   return (
     <div className="allLine">
+      {" "}
+      {(open || openSmall) && auth && <div className="shadow"></div>}
       <div className="topLine">
         <div className="topLine_details">
           <StoreLocation />
           <span className="topLine_details_names">Store Location</span>
         </div>
-        <div onClick={handleMyAcc}>
-          <div className="topLine_details" onClick={handleClick}>
+        {/* <div onClick={handleMyAcc}> */}
+        <div>
+          <div
+            className="topLine_details"
+            onMouseEnter={() => {
+              auth && setOpen((prev) => !prev);
+            }}
+            onMouseLeave={() => {
+              auth && setOpen((prev) => !prev);
+            }}
+          >
             <SignIn />
             <p
               className="topLine_details_names"
               onClick={() => {
-                Navigate("/login");
+                !auth && Navigate("/login/1");
+                // auth && setOpen((prev) => !prev);
               }}
             >
               {auth ? "My Account" : "Sign In"}
             </p>
+            {open && auth && (
+              <div
+                className="topLine_details_signOff"
+                onClick={() => {
+                  nestAxios
+                    .get("http://localhost:3000/auth/signoff")
+                    .then((res) => {
+                      dispatch(authAction.signedOff());
+                    });
+                }}
+              >
+                Sign Out
+              </div>
+            )}
           </div>
           {/* <Menu
               id="basic-menu"
@@ -98,7 +126,6 @@ const AllDes = (props) => {
           </div>
         ))}
       </div>
-
       <div className="resDesLogo">
         <div>
           <Link to="./">
@@ -109,11 +136,33 @@ const AllDes = (props) => {
           <div
             className="resDesLogo_fiveLoge_each"
             onClick={() => {
-              Navigate("/login");
+              !auth && Navigate("/login/1");
+              // auth && setOpen((prev) => !prev);
+            }}
+            onMouseEnter={() => {
+              auth && setOpenSmall((prev) => !prev);
+            }}
+            onMouseLeave={() => {
+              auth && setOpenSmall((prev) => !prev);
             }}
           >
             <SignIn1 />
+            {openSmall && auth && (
+              <div
+                className="topLine_details_signOff"
+                onClick={() => {
+                  nestAxios
+                    .get("http://localhost:3000/auth/signoff")
+                    .then((res) => {
+                      dispatch(authAction.signedOff());
+                    });
+                }}
+              >
+                Sign Out
+              </div>
+            )}
           </div>
+
           {/* <Menu
             id="basic-menu"
             anchorEl={anchorEl}
