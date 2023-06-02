@@ -1,6 +1,6 @@
 .searchBar {
   z-index: 2;
-  width: 100%;
+  width: 250px;
 }
 .searchBar .search_form {
   display: flex;
@@ -15,11 +15,9 @@
   width: 20px;
   z-index: 2;
 }
-.searchBar .search_form .search_search :hover {
-  cursor: pointer;
-}
 .searchBar .search_form .search_input {
-  height: 30px;
+  width: 100%;
+  height: 50px;
   border: none;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   padding: 10px 10px 10px 40px;
@@ -37,14 +35,19 @@
   right: 5px;
   z-index: 2;
 }
-.searchBar .search_form .search_closeIcon :hover {
-  cursor: pointer;
-}
 
 @media screen and (max-width: 990px) {
-  .search_input {
+  .searchBar {
     width: 100%;
-    margin: 0 auto;
+  }
+  .searchBar form {
+    width: 100%;
+  }
+  .searchBar form input {
+    width: 100%;
+  }
+  .searchBar:hover {
+    cursor: pointer;
   }
 }
 

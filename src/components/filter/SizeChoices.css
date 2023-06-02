@@ -1,4 +1,4 @@
-.size {
+.filters .size {
   border-bottom: 1px #d5d5d5 dashed;
   box-sizing: border-box;
   padding: 20px 0;
@@ -6,7 +6,7 @@
   animation-name: show;
   animation-duration: 500ms;
 }
-.size button {
+.filters .size button {
   border: 1.5px solid #d5d5d5;
   background-color: white;
   padding: 8px 10px 4px;
@@ -15,17 +15,16 @@
   font-size: 20px;
   margin: 5px;
 }
-.size button:hover {
+.filters .size button:hover {
   cursor: pointer;
   border-color: black;
 }
-.size .chosen {
+.filters .size .chosen {
   background-color: black;
   border-color: black;
   color: white;
 }
-
-.size:last-child {
+.filters .size:last-child {
   border: none;
 }
 

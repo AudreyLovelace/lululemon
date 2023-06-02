@@ -1,4 +1,4 @@
-.filters .filter .plus-minus {
+.plus-minus {
   position: relative;
   width: 20px;
   margin-top: 5px;
@@ -7,13 +7,13 @@
   align-items: center;
   justify-content: center;
 }
-.filters .filter .plus-minus div {
+.plus-minus div {
   transition: all ease-in 200ms;
 }
-.filters .filter .plus-minus div:nth-child(2) {
+.plus-minus div:nth-child(2) {
   margin-left: -100%;
 }
-.filters .filter .plus-minus .move {
+.plus-minus .move {
   transform: rotate(90deg);
   margin-top: -12px;
   margin-left: -22px !important;
